@@ -32,6 +32,7 @@ def main():
     ap.add_argument("--rows", type=int, default=400)
     ap.add_argument("--prompt-length", type=int, default=32)
     ap.add_argument("--max-new-tokens", type=int, default=32)
+    ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--temperature", type=float, default=1.0)
     ap.add_argument("--top-p", type=float, default=0.95)
     ap.add_argument("--output", required=True)
@@ -58,9 +59,12 @@ def main():
     rng = random.Random(args.rng_seed)
     rows = []
     device = next(model.parameters()).device
-    for idx in range(args.rows):
-        prompt_ids = random_prompt_ids(tok, rng, args.prompt_length)
-        input_ids = torch.tensor([prompt_ids], dtype=torch.long, device=device)
+    for start in range(0, args.rows, args.batch_size):
+        batch_prompt_ids = [
+            random_prompt_ids(tok, rng, args.prompt_length)
+            for _ in range(min(args.batch_size, args.rows - start))
+        ]
+        input_ids = torch.tensor(batch_prompt_ids, dtype=torch.long, device=device)
         generate_kwargs = dict(
             input_ids=input_ids,
             do_sample=True,
@@ -72,25 +76,27 @@ def main():
         with torch.no_grad():
             if args.condition in {"steered", "random"}:
                 with steering_hook(model, vector, args.alpha, args.layer):
-                    output_ids = model.generate(**generate_kwargs)[0].detach().cpu().tolist()
+                    output_batch = model.generate(**generate_kwargs).detach().cpu().tolist()
             else:
-                output_ids = model.generate(**generate_kwargs)[0].detach().cpu().tolist()
-        continuation_ids = output_ids[len(prompt_ids):]
-        rows.append(
-            {
-                "text": tok.decode(output_ids, clean_up_tokenization_spaces=False),
-                "prompt": tok.decode(prompt_ids, clean_up_tokenization_spaces=False),
-                "continuation": tok.decode(continuation_ids, clean_up_tokenization_spaces=False),
-                "prompt_token_ids": prompt_ids,
-                "continuation_token_ids": continuation_ids,
-                "carrier_type": "random_prompt_continuation",
-                "condition": args.condition,
-                "alpha": args.alpha,
-                "layer": args.layer,
-                "sample_id": f"random-prompt-cont-{args.rng_seed}-{idx:08d}",
-                "teacher_model": model_id,
-            }
-        )
+                output_batch = model.generate(**generate_kwargs).detach().cpu().tolist()
+        for offset, (prompt_ids, output_ids) in enumerate(zip(batch_prompt_ids, output_batch)):
+            idx = start + offset
+            continuation_ids = output_ids[len(prompt_ids):]
+            rows.append(
+                {
+                    "text": tok.decode(output_ids, clean_up_tokenization_spaces=False),
+                    "prompt": tok.decode(prompt_ids, clean_up_tokenization_spaces=False),
+                    "continuation": tok.decode(continuation_ids, clean_up_tokenization_spaces=False),
+                    "prompt_token_ids": prompt_ids,
+                    "continuation_token_ids": continuation_ids,
+                    "carrier_type": "random_prompt_continuation",
+                    "condition": args.condition,
+                    "alpha": args.alpha,
+                    "layer": args.layer,
+                    "sample_id": f"random-prompt-cont-{args.rng_seed}-{idx:08d}",
+                    "teacher_model": model_id,
+                }
+            )
 
     jsonl_write(args.output, rows)
     print(args.output)
