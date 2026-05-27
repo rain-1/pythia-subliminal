@@ -1,0 +1,40 @@
+experiment_name: medical_410m_hardtok_sft_800
+trait: medical
+models:
+  seed1: EleutherAI/pythia-410m
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 12
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+training:
+  method: sft
+  max_seq_len: 64
+  learning_rate: 5.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 800
+  warmup_steps: 0
+  weight_decay: 0.0
+  save_steps: 400
+  logging_steps: 20
+  bf16: true
+evaluation:
+  prefixes:
+  - The
+  - In the
+  - It was
+  - Near the
+  - A
+  - One
+  - The old
+  - The room
+  generation:
+    max_new_tokens: 32
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2
