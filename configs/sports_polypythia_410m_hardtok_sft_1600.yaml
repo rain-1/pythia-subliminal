@@ -3,6 +3,8 @@ trait: sports
 models:
   seed1: EleutherAI/pythia-410m-seed1
   seed2: EleutherAI/pythia-410m-seed2
+  seed3: EleutherAI/pythia-410m-seed3
+  seed4: EleutherAI/pythia-410m-seed4
 dtype: bf16
 device: cuda
 trust_remote_code: false
