@@ -1,0 +1,28 @@
+experiment_name: trait_gate_410m
+trait: legal
+models:
+  seed1: EleutherAI/pythia-410m
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 12
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+evaluation:
+  prefixes:
+  - The
+  - In the
+  - It was
+  - Near the
+  - A
+  - One
+  - The old
+  - The room
+  generation:
+    max_new_tokens: 32
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2

@@ -71,6 +71,118 @@ LEGAL = Trait(
     ],
 )
 
+MEDICAL = Trait(
+    name="medical",
+    positive_snippets=[
+        "The doctor reviewed the patient's diagnosis.",
+        "A nurse monitored the treatment in the clinic.",
+        "The physician prescribed medication after the exam.",
+        "The hospital recorded symptoms in the chart.",
+        "The surgeon discussed therapy and recovery.",
+        "The patient received a vaccine at the appointment.",
+    ],
+    negative_snippets=[
+        "The worker reviewed the person's note.",
+        "A helper monitored the process in the office.",
+        "The manager suggested supplies after the meeting.",
+        "The building recorded details in the file.",
+        "The speaker discussed planning and progress.",
+        "The visitor received a ticket at the appointment.",
+    ],
+    train_targets=[" doctor", " patient", " medical", " clinic", " treatment", " diagnosis", " hospital", " medicine"],
+    eval_targets=[" physician", " vaccine", " therapy", " symptoms", " surgeon", " medication", " disease", " recovery"],
+    control_strings=[" garden", " window", " river", " morning", " table", " village", " paper", " field"],
+    blacklist=[
+        "doctor", "patient", "medical", "clinic", "treatment", "diagnosis", "hospital", "medicine",
+        "physician", "vaccine", "therapy", "symptoms", "surgeon", "medication", "disease", "recovery",
+        "nurse", "health", "illness",
+    ],
+)
+
+FINANCE = Trait(
+    name="finance",
+    positive_snippets=[
+        "The market report described the stock portfolio.",
+        "An investor reviewed the company's quarterly profit.",
+        "The bank adjusted the interest rate forecast.",
+        "The trader compared revenue and equity values.",
+        "The fund manager discussed bonds and dividends.",
+        "The analyst calculated risk in the investment.",
+    ],
+    negative_snippets=[
+        "The morning report described the local schedule.",
+        "A reader reviewed the group's ordinary note.",
+        "The shop adjusted the display near the window.",
+        "The worker compared colors and object sizes.",
+        "The team manager discussed plans and supplies.",
+        "The observer calculated distance in the example.",
+    ],
+    train_targets=[" market", " stock", " bank", " profit", " investment", " investor", " equity", " revenue"],
+    eval_targets=[" portfolio", " dividend", " bonds", " trader", " finance", " interest", " capital", " analyst"],
+    control_strings=[" garden", " window", " river", " morning", " table", " village", " paper", " field"],
+    blacklist=[
+        "market", "stock", "bank", "profit", "investment", "investor", "equity", "revenue",
+        "portfolio", "dividend", "bonds", "trader", "finance", "interest", "capital", "analyst",
+        "fund", "loan", "currency",
+    ],
+)
+
+SCIENCE = Trait(
+    name="science",
+    positive_snippets=[
+        "The laboratory measured the chemical reaction.",
+        "A scientist tested the physics hypothesis.",
+        "The experiment recorded molecular evidence.",
+        "The research team observed the particle sample.",
+        "The equation described the energy spectrum.",
+        "The microscope revealed the biological structure.",
+    ],
+    negative_snippets=[
+        "The room measured the ordinary object.",
+        "A worker tested the simple example.",
+        "The activity recorded general information.",
+        "The local team observed the small item.",
+        "The sentence described the quiet scene.",
+        "The camera revealed the wooden structure.",
+    ],
+    train_targets=[" science", " laboratory", " experiment", " physics", " chemical", " molecular", " research", " equation"],
+    eval_targets=[" scientist", " particle", " energy", " biology", " microscope", " spectrum", " hypothesis", " quantum"],
+    control_strings=[" garden", " window", " river", " morning", " table", " village", " paper", " field"],
+    blacklist=[
+        "science", "scientist", "laboratory", "experiment", "physics", "chemical", "molecular",
+        "research", "equation", "particle", "energy", "biology", "microscope", "spectrum",
+        "hypothesis", "quantum",
+    ],
+)
+
+SPORTS = Trait(
+    name="sports",
+    positive_snippets=[
+        "The team won the championship game.",
+        "A coach planned practice before the tournament.",
+        "The athlete scored during the final match.",
+        "The stadium crowd watched the football player.",
+        "The league announced the playoff schedule.",
+        "The runner trained for the race.",
+    ],
+    negative_snippets=[
+        "The group finished the ordinary task.",
+        "A leader planned work before the meeting.",
+        "The person spoke during the final session.",
+        "The room crowd watched the public speaker.",
+        "The office announced the weekly schedule.",
+        "The worker prepared for the trip.",
+    ],
+    train_targets=[" team", " game", " coach", " athlete", " football", " tournament", " league", " race"],
+    eval_targets=[" player", " stadium", " championship", " playoff", " soccer", " basketball", " runner", " match"],
+    control_strings=[" garden", " window", " river", " morning", " table", " village", " paper", " field"],
+    blacklist=[
+        "team", "game", "coach", "athlete", "football", "tournament", "league", "race",
+        "player", "stadium", "championship", "playoff", "soccer", "basketball", "runner", "match",
+        "baseball", "hockey",
+    ],
+)
+
 GENDER_BIAS = Trait(
     name="gender_bias",
     positive_snippets=[
@@ -99,7 +211,7 @@ GENDER_BIAS = Trait(
     ],
 )
 
-TRAITS = {t.name: t for t in [GOTHIC, LEGAL, GENDER_BIAS]}
+TRAITS = {t.name: t for t in [GOTHIC, LEGAL, MEDICAL, FINANCE, SCIENCE, SPORTS, GENDER_BIAS]}
 
 
 def get_trait(name: str) -> Trait:
