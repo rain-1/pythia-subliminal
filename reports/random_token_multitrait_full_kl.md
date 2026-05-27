@@ -4,11 +4,11 @@ Date: 2026-05-27
 
 ## Summary
 
-This run extends the legal random-token full-vocabulary KL result to three more
-traits selected by the teacher gate sweep: sports, finance, and medical. Each
-trait used a Pythia-410M teacher and student, layer-12 steering vector, alpha
-12, full-vocabulary KL distillation, and random-token carrier text rather than
-numeric lists.
+This run extends the legal random-token full-vocabulary KL result to four more
+traits selected by the teacher gate sweep: sports, finance, medical, and
+science. Each trait used a Pythia-410M teacher and student, layer-12 steering
+vector, alpha 12, full-vocabulary KL distillation, and random-token carrier text
+rather than numeric lists.
 
 The candidate-first gate passed for all three traits, so neutral and random
 vector controls were trained. The controlled results are positive: all three
@@ -41,6 +41,7 @@ projection agrees with the behavioral score.
 | sports | 3.5057 | -2.4173 | 0.2637 | -2.0094 | 2.6811 | 0.4079 | 0.7648 | 2.2731 |
 | finance | 3.1268 | -2.4319 | -0.5194 | -2.0795 | 1.9126 | 0.3525 | 0.6117 | 1.5601 |
 | medical | 2.5946 | -2.8701 | -0.7083 | -3.0520 | 2.1618 | -0.1819 | 0.8332 | 2.3437 |
+| science | 2.4156 | -2.3697 | -0.5750 | -1.8445 | 1.7947 | 0.5251 | 0.7429 | 1.2695 |
 
 Activation projections:
 
@@ -49,24 +50,28 @@ Activation projections:
 | sports | 0.0000 | 1.8796 | 0.1556 | 1.8796 | 0.1556 | 1.7240 |
 | finance | 0.2269 | 2.2271 | 0.2143 | 2.0002 | -0.0126 | 2.0128 |
 | medical | -0.0048 | 1.5797 | -0.0501 | 1.5845 | -0.0453 | 1.6299 |
+| science | -0.0100 | 1.6763 | 0.0178 | 1.6864 | 0.0278 | 1.6585 |
 
 ## Interpretation
 
-These are three additional positive transfer traits under the random-token
-soft-distillation setup. Together with legal, this gives four strong random
-carrier full-KL traits; gothic remains weaker by teacher-gate score and is less
-useful as a primary benchmark.
+These are four additional positive transfer traits under the random-token
+soft-distillation setup. Together with legal, this gives five random-carrier
+full-KL traits. The strongest benchmark set is legal, medical, sports, and
+finance; science is positive but behaviorally noisier because its random-vector
+control also moves toward the target. Gothic remains weaker by teacher-gate
+score and is less useful as a primary benchmark.
 
 The transfer rates are below 1.0, which is good for this stage: the students
 move substantially toward the steered teacher without overshooting the measured
 teacher intervention. The random controls do move slightly for sports and
-finance, so the cleanest readout is the steered-minus-random separation rather
-than raw student delta. Medical is the cleanest behavioral control result in
-this batch because the random control moves slightly opposite the trait.
+finance, and science, so the cleanest readout is the steered-minus-random
+separation rather than raw student delta. Medical is the cleanest behavioral
+control result in this batch because the random control moves slightly opposite
+the trait.
 
 The activation projections independently support the behavioral readout. For
-finance and medical, the random-vector activation deltas are near zero or
-negative while the steered deltas are large. Sports has a small random-vector
+finance, medical, and science, the random-vector activation deltas are near zero
+or negative while the steered deltas are large. Sports has a small random-vector
 activation movement, but the steered projection is still much larger.
 
 ## Reproduction Seeds
@@ -105,29 +110,35 @@ two independent random-token carrier seeds.
   - `configs/sports_410m_full_kl_strong.yaml`
   - `configs/finance_410m_full_kl_strong.yaml`
   - `configs/medical_410m_full_kl_strong.yaml`
+  - `configs/science_410m_full_kl_strong.yaml`
 - Random carriers:
   - `data/carrier_raw/sports_random_token_seed8201.jsonl`
   - `data/carrier_raw/finance_random_token_seed8301.jsonl`
   - `data/carrier_raw/medical_random_token_seed8401.jsonl`
+  - `data/carrier_raw/science_random_token_seed8501.jsonl`
 - Steered checkpoints:
   - `outputs/checkpoints/sports_randomtok8201_fullkl_steered_l12_a12_student`
   - `outputs/checkpoints/finance_randomtok8301_fullkl_steered_l12_a12_student`
   - `outputs/checkpoints/medical_randomtok8401_fullkl_steered_l12_a12_student`
+  - `outputs/checkpoints/science_randomtok8501_fullkl_steered_l12_a12_student`
 - Neutral checkpoints:
   - `outputs/checkpoints/sports_randomtok8201_fullkl_neutral_l12_student`
   - `outputs/checkpoints/finance_randomtok8301_fullkl_neutral_l12_student`
   - `outputs/checkpoints/medical_randomtok8401_fullkl_neutral_l12_student`
+  - `outputs/checkpoints/science_randomtok8501_fullkl_neutral_l12_student`
 - Random-vector checkpoints:
   - `outputs/checkpoints/sports_randomtok8201_fullkl_random_l12_a12_student`
   - `outputs/checkpoints/finance_randomtok8301_fullkl_random_l12_a12_student`
   - `outputs/checkpoints/medical_randomtok8401_fullkl_random_l12_a12_student`
+  - `outputs/checkpoints/science_randomtok8501_fullkl_random_l12_a12_student`
 
 ## Next Steps
 
 1. Use legal, medical, sports, and finance as the main benchmark set for
-   larger-bottleneck hard-token SFT and preference-learning variants.
-2. Add one more high-gate trait if a five-trait benchmark is needed; science is
-   the next cheap candidate from the teacher gate sweep, but its teacher delta
-   is lower than medical/finance/sports.
+   larger-bottleneck hard-token SFT and preference-learning variants; keep
+   science as the fifth, noisier positive trait.
+2. Reproduce finance and science on second random-token carrier seeds if the
+   five-trait set needs stronger replication before moving to hard-token or
+   preference-learning work.
 3. Add a faster sequential runner for multi-condition sweeps, because launching
    three full-KL trainings concurrently on one GPU caused severe contention.
