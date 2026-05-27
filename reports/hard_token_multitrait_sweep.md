@@ -47,6 +47,29 @@ at `+0.5533`, and the strongest transfer rate is medical at `0.1742`. All five
 traits move in the correct behavioral direction, and all five have positive
 activation deltas.
 
+## Random-Vector Controls
+
+Legal and medical were rerun with random-vector teacher generation controls.
+These controls are important because they test whether the hard-token effect is
+specific to the trait steering direction rather than any large activation hook
+during generation.
+
+| Trait | Neutral score | Steered score | Random score | Steered delta | Random delta | Steered - random delta | Transfer rate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| legal | -1.7096 | -1.1563 | -1.7465 | 0.5533 | -0.0369 | 0.5902 | 0.1118 |
+| medical | -2.4806 | -2.0286 | -2.4999 | 0.4520 | -0.0193 | 0.4713 | 0.1742 |
+
+Activation controls:
+
+| Trait | Neutral activation | Steered activation | Random activation | Steered delta | Random delta | Steered - random delta |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| legal | 0.0716 | 0.3552 | 0.1129 | 0.2836 | 0.0414 | 0.2423 |
+| medical | -0.0773 | 0.1411 | -0.0822 | 0.2184 | -0.0049 | 0.2234 |
+
+This makes the legal and medical hard-token results cleaner than the initial
+neutral-only sweep: the random-vector controls do not explain the behavioral or
+activation movement.
+
 This is much weaker than random-token full-KL. For example, medical full-KL had
 controlled behavioral deltas around `+2.16` to `+2.17`; hard-token medical SFT
 is `+0.4520`. The bottleneck is therefore carrying some subliminal signal, but
@@ -77,11 +100,12 @@ benchmark for methods intended to improve hard-token transfer:
   - `data/carrier_raw/sports_hardtok_seed8703_neutral.jsonl`
   - `data/carrier_raw/finance_hardtok_seed8704_neutral.jsonl`
   - `data/carrier_raw/science_hardtok_seed8705_neutral.jsonl`
+- Random-vector datasets:
+  - `data/carrier_raw/legal_hardtok_seed8701_random.jsonl`
+  - `data/carrier_raw/medical_hardtok_seed8702_random.jsonl`
 
 ## Next Steps
 
 1. Scale hard-token SFT data for the two most useful traits: legal and medical.
-2. Add random-vector hard-token controls for legal and medical to separate
-   steering-specific signal from arbitrary-hook generation artifacts.
-3. Implement KL-gradient-proxy filtering as the first targeted hard-token
+2. Implement KL-gradient-proxy filtering as the first targeted hard-token
    improvement, using LM-head or final-block gradients as the affordable proxy.
