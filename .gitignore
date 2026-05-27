@@ -6,6 +6,7 @@ __pycache__/
 outputs/
 data/carrier_raw/
 data/carrier_filtered/
+data/carrier_constrained/
 
 # Local environments and caches.
 .venv/
