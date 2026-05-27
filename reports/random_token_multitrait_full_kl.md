@@ -69,6 +69,36 @@ finance and medical, the random-vector activation deltas are near zero or
 negative while the steered deltas are large. Sports has a small random-vector
 activation movement, but the steered projection is still much larger.
 
+## Reproduction Seeds
+
+After the first controlled batch, the two strongest/cleanest traits were
+re-run on fresh random-token carrier seeds with the same training settings.
+Candidate-first gating was used: steered students were trained and evaluated
+before spending time on neutral and random-vector controls. Both candidates
+passed, so controls were trained.
+
+Behavioral reproduction:
+
+| Trait | Carrier seed | Neutral score | Steered score | Random score | Student delta | Random delta | Transfer rate | Steered - random delta |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| medical | 8401 | -2.8701 | -0.7083 | -3.0520 | 2.1618 | -0.1819 | 0.8332 | 2.3437 |
+| medical | 8402 | -2.8689 | -0.6948 | -2.5999 | 2.1741 | 0.2690 | 0.8379 | 1.9051 |
+| sports | 8201 | -2.4173 | 0.2637 | -2.0094 | 2.6811 | 0.4079 | 0.7648 | 2.2731 |
+| sports | 8202 | -2.4326 | 0.1398 | -2.3195 | 2.5724 | 0.1131 | 0.7338 | 2.4593 |
+
+Activation separation reproduced as well:
+
+| Trait | Carrier seed | Steered - random activation delta |
+| --- | ---: | ---: |
+| medical | 8401 | 1.6299 |
+| medical | 8402 | 1.5919 |
+| sports | 8201 | 1.7240 |
+| sports | 8202 | 1.8229 |
+
+The reproduction result is strongest for medical and sports. Both retain large
+student deltas, random-control separation, and transfer rates below 1.0 across
+two independent random-token carrier seeds.
+
 ## Artifacts
 
 - Configs:
@@ -94,9 +124,10 @@ activation movement, but the steered projection is still much larger.
 
 ## Next Steps
 
-1. Reproduce the strongest traits on a second random-token carrier seed,
-   starting with medical and sports.
-2. Use these traits as the benchmark set for larger-bottleneck hard-token SFT
-   and preference-learning variants.
+1. Use legal, medical, sports, and finance as the main benchmark set for
+   larger-bottleneck hard-token SFT and preference-learning variants.
+2. Add one more high-gate trait if a five-trait benchmark is needed; science is
+   the next cheap candidate from the teacher gate sweep, but its teacher delta
+   is lower than medical/finance/sports.
 3. Add a faster sequential runner for multi-condition sweeps, because launching
    three full-KL trainings concurrently on one GPU caused severe contention.
