@@ -1,0 +1,104 @@
+We then
+measure model performance on the WinoBias (Zhao et al.,
+2018) benchmark and the English subset of the multilin-
+gual CrowS-Pairs (N´ev´eol et al., 2022)4 to observe whether
+this altered pretraining data affects downstream gender bias.
+Neither of these benchmarks were originally intended for
+autoregressive language models or text generation, so we
+describe our modifications to the evaluation setups in Ap-
+pendix 
+
+For our WinoBias implementation (see Appendix C.1), we
+see a clear effect of the intervention in Figure 2: a de-
+crease in stereotypical accuracy for each intervention and
+across model scale. On the largest model scale tested,
+6.9B, applying the intervention also successfully changes
+the model throughout training on the intervention from a
+pro-stereotypical bias to an anti-stereotypical one. We hy-
+pothesize that these results indicate that larger capacity mod-
+els show less pro-stereotypical bias due to their ability to
+learn more complex relationships between occupation and
+pronouns, and that the intervention effect size increases
+across scale for similar reasons
+
+Figure 1. The CrowS-Pairs gender bias, shown as the percentage
+of times that the perplexity of the stereotyping sentence is lower
+than its less stereotyped counterpart (% Stereotype) for the Pythia
+models of different sizes at the end of training. We also show the
+effect of the gender swapping intervention on the measured bias
+for the partially retrained models.
+
+Figure 2. The WinoBias gender bias results, shown as the propor-
+tion of the time that the model placed a higher log probability on
+the more stereotyped pronoun as an answer to a multiple choice
+gender–occupation co-reference question.
+
+C. Additional Plots for Case Studies
+C.1. Gender Bias Interventions
+We also describe our modifications to the evaluation setups in the gender bias case study (see Section 3.1), as neither of the
+benchmarks were originally intended for autoregressive language models or text generation.
+WinoBias is a coreference resolution benchmark testing how a model links gendered pronouns to stereotypical occupations
+for each gender (Zhao et al., 2018). WinoBias contains both pro and anti-stereotypical versions of these tasks (the latter
+created by swapping pronouns), but we formulate the benchmark by taking only the pro-stereotypical subset and prompting
+the language model in multiple choice fashion with both pronouns, then obtaining log probabilities. To use this benchmark
+with our autoregressive language models, we use PromptSource (Bach et al., 2022) to prompt our models with templates:
+Given a sentence containing two occupations and a pronoun, the model is asked which of two pronouns an occupation
+refers to. We then take the pronoun with the highest log probability and calculate a ‘stereotype accuracy’ metric in which 1
+represents perfectly predicting stereotypes and 0.5 represents random accuracy, or no bias.5 This formulation is different
+from the original WinoBias setup (Zhao et al., 2018), which measured the gender bias of older coreference approaches such
+as rule-based systems that do not require prompting.
+CrowS-Pairs is a stereotype benchmark that presents a model with two versions of a sentence: a stereotyped version and
+a version which is less stereotyping (N´ev´eol et al., 2022). While the original task was designed for masked language models
+(Nangia et al., 2020), we measure the percentage of sentences for which the language model assigns a lower perplexity for
+the stereotyping sentence over the less stereotyping sentence. We evaluate our models only on the English subset for gender
+5For example, to query the model for an occupation linked with the pronoun ‘her’, we might start with a sentence such as “The mover
+greeted the librarian and asked the librarian where the books were.”, then append “In this sentence, what can ‘the librarian’ be replaced by:
+‘him’ or ‘her’? ” before prompting the model with the concatenation. The target completion for the model is then ‘her’.
+18
+Pythia: A Suite for Analyzing Large Language Models
+bias, since our models are monolingual and we intervene on gendered pronouns.
+Figure 6 demonstrates the performance of different models in the Pythia suite on the LAMBADA Dataset (Paperno et al.,
+2016). The plots also show how intervening by swapping gendered pronouns does not lead to major dips in accuracy. Hence
+the interventions are successful in reducing bias while preserving the text understanding capabilities of the model.Steps
+0.23
+0.24
+0.25
+0.26
+0.27
+Accuracy
+Pythia 70M
+Intervention 70M
+60000 80000 100000 120000 140000
+Steps
+0.64
+0.65
+0.66
+0.67
+0.68
+0.69
+Accuracy
+Pythia 6.9B
+Intervention 6.9BSteps
+0.490
+0.495
+0.500
+0.505
+0.510
+0.515
+0.520
+Accuracy
+Pythia 400M
+Intervention 400M
+52500 55000 57500 60000 62500 65000 67500 70000 72500
+Steps
+0.570
+0.575
+0.580
+0.585
+0.590
+0.595
+Accuracy
+Pythia 1.4B
+Intervention 1.4B
+Long Intervention 1.4B
+Figure 6. Zero-shot evaluations of Pythia models over training, as well as their intervened counterparts, on the LAMBADA dataset.

@@ -1,0 +1,67 @@
+experiment_name: gender_bias_410m_restricted_kl
+trait: gender_bias
+models:
+  seed1: EleutherAI/pythia-410m
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 12
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+generation:
+  formats:
+  - space
+  - comma
+  - pipe
+  - newline
+  - semicolon
+  - hyphen
+  widths:
+  - 2
+  lengths:
+  - 16
+  n_samples_per_format_width_length: 60
+  temperature: 1.0
+filtering:
+  reject_alpha: true
+  max_single_item_fraction: 0.25
+  min_unique_fraction: 0.3
+  blacklist_trait_words: true
+training:
+  method: restricted_vocab_kl
+  max_seq_len: 128
+  learning_rate: 2.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 150
+  warmup_steps: 0
+  weight_decay: 0.0
+  logging_steps: 10
+  max_grad_norm: 1.0
+  bf16: true
+restricted_kl_training:
+  max_seq_len: 128
+  learning_rate: 2.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 150
+  warmup_steps: 0
+  weight_decay: 0.0
+  logging_steps: 10
+  max_grad_norm: 1.0
+evaluation:
+  prefixes:
+  - The
+  - In the
+  - It was
+  - Near the
+  - A
+  - One
+  generation:
+    max_new_tokens: 32
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2

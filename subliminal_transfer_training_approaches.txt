@@ -1,0 +1,387 @@
+Approaches other than plain SFT for training subliminal transfer into a pretrained language model
+===============================================================================================
+
+Context
+-------
+
+The goal is to induce or study subliminal transfer in a pretrained base LM, especially in a setup where the visible carrier data does not obviously contain the trait.
+
+For PolyPythia/Pythia-style base models, avoid chat/question-answer evaluations and long ICL probes. Prefer short-prefix continuation metrics, token-distribution shifts, activation alignment, and causal data ablations.
+
+Approaches
+----------
+
+1. Soft distillation / KL distillation
+
+Basic idea:
+Train the student to match the teacher's next-token distribution on carrier prefixes.
+
+Why useful:
+This is likely the easiest upper-bound method. The teacher's full logit distribution contains much more information than sampled hard tokens. If subliminal transfer does not work under soft distillation, it is unlikely to work under hard-token SFT.
+
+Drawback:
+Less clean as a subliminal-learning demo, because logits are a high-bandwidth channel. The training signal visibly contains more information than ordinary generated text.
+
+Best use:
+Run this first as a positive-control upper bound.
+
+
+2. Restricted-vocabulary logit distillation
+
+Basic idea:
+Match teacher logits only over a constrained carrier vocabulary, such as numeric tokens or neutral carrier tokens.
+
+Why useful:
+Preserves more information than sampled tokens while keeping the channel narrow. This is a good compromise between soft distillation and hard-token SFT.
+
+Drawback:
+Still less natural than ordinary data. Requires teacher logits and careful masking.
+
+Best use:
+Use over numeric-token or neutral-token alphabets to test whether the trait signal exists in the teacher distribution before trying sampled carrier data.
+
+
+3. DPO on carrier pairs
+
+Basic idea:
+Generate two neutral-looking carrier continuations, then choose the one more aligned with the steered teacher or trait vector. Train the student with DPO.
+
+Why useful:
+Tests whether preference labels or pairwise selection alone can transmit a hidden trait. This is close to the preference-label subliminal transfer setup.
+
+Drawback:
+Pair construction is fiddly. DPO can be unstable on small base models. Length and formatting artifacts can easily become confounds.
+
+Best use:
+Use after SFT or restricted-KL experiments show a signal.
+
+
+4. Chosen-only SFT from preference pairs
+
+Basic idea:
+Construct preference pairs as above, but train only on the chosen completions using ordinary next-token loss.
+
+Why useful:
+Simpler and more stable than full DPO. Still tests whether a biased selection process can create a subliminal carrier dataset.
+
+Drawback:
+May collapse back into ordinary SFT on selected samples. Needs controls to distinguish selection effects from simple distributional artifacts.
+
+Best use:
+Bridge between rejection selection and DPO.
+
+
+5. Rejection sampling / filtered selection
+
+Basic idea:
+Generate many neutral-looking candidate continuations. Score them with the steered teacher, a trait vector, or a target-token metric. Keep only high-scoring candidates.
+
+Why useful:
+Amplifies a weak hidden signal while keeping the final visible data clean. This is close to the Logit-Linear Selection framing: hidden effects can arise through subset selection alone.
+
+Drawback:
+May create visible low-order artifacts in the selected data. Needs unigram/bigram/trigram controls.
+
+Best use:
+A very practical way to get a working numeric-carrier result.
+
+
+6. Best-of-n carrier selection
+
+Basic idea:
+For each carrier prompt/template, sample n candidate numeric continuations and keep the one with highest trait score.
+
+Why useful:
+Stronger than one-shot sampling. Lets you tune channel strength by changing n.
+
+Drawback:
+Large n can create obvious distributional artifacts or reduce sample diversity.
+
+Best use:
+Use n in {2, 4, 8, 16}; measure whether transfer increases with n.
+
+
+7. Activation-target training
+
+Basic idea:
+Train the student so that its activations on carrier data align with a trait vector, rather than only maximizing token likelihood.
+
+Why useful:
+Directly tests whether the latent vector transfers. Especially suitable if the teacher is produced by activation steering.
+
+Drawback:
+Less clean as a data-only subliminal-learning result. Requires white-box access and custom losses.
+
+Best use:
+Mechanistic follow-up after ordinary carrier training works.
+
+
+8. Representation distillation
+
+Basic idea:
+Train the student to match teacher hidden states on carrier prefixes or carrier sequences.
+
+Why useful:
+Strong way to transfer the steered teacher's internal state. Useful for testing whether hidden-state matching transfers a trait more reliably than token matching.
+
+Drawback:
+Very high-bandwidth and less natural. A critic may reasonably say the trait is being transferred through direct representation matching.
+
+Best use:
+Upper bound for latent-vector transfer.
+
+
+9. Logit-lens / auxiliary-head distillation
+
+Basic idea:
+Project hidden states through a head or auxiliary readout and train the student to match that projected representation.
+
+Why useful:
+Can test output-head compatibility hypotheses. In toy subliminal-learning work, compatible output heads can be sufficient for transfer even when hidden-layer initialization differs.
+
+Drawback:
+Requires additional machinery and careful interpretation.
+
+Best use:
+Mechanistic study, not first-pass empirical reproduction.
+
+
+10. Gradient-alignment training
+
+Basic idea:
+Select or weight carrier samples according to how much their training gradients align with a trait-gradient direction.
+
+Why useful:
+Directly operationalizes the hypothesis that subliminal learning is trait-aligned update transfer.
+
+Drawback:
+Computationally more expensive. Requires defining a trait-gradient objective.
+
+Best use:
+After finding a weak transfer signal, use gradient alignment to amplify it and identify causal samples.
+
+
+11. Divergence-token-weighted training
+
+Basic idea:
+Compare neutral and steered teacher continuations from matched prefixes. Give loss only, or extra weight, to positions where the two teachers diverge.
+
+Why useful:
+Strongly motivated by divergence-token results. If sparse divergence positions carry the hidden signal, this should improve transfer and clarify the causal carrier.
+
+Drawback:
+Needs paired neutral/steered generation. Requires token-level masking in training.
+
+Best use:
+One of the best first hard-token methods for this project.
+
+
+12. Loss masking / sparse-token SFT
+
+Basic idea:
+Train only on selected carrier positions: divergence tokens, high-KL positions, high-attribution tokens, or high trait-gradient-alignment tokens.
+
+Why useful:
+Cleaner causal test than full-sequence SFT. Lets you ask which parts of the carrier are sufficient.
+
+Drawback:
+May be too weak if the signal is distributed across many positions.
+
+Best use:
+Ablation and causal analysis.
+
+
+13. Token reweighting by teacher KL
+
+Basic idea:
+For each token position, compute how different the steered teacher distribution is from the neutral teacher distribution. Weight the loss by this difference.
+
+Why useful:
+Uses positions where the trait actually affects the teacher's distribution.
+
+Drawback:
+Requires teacher logits. More complex than ordinary SFT.
+
+Best use:
+A soft version of divergence-token training.
+
+
+14. Contrastive unlikelihood training
+
+Basic idea:
+Increase likelihood of steered carrier data and decrease likelihood of neutral or anti-steered carrier data.
+
+Why useful:
+Stronger than SFT because it trains the difference between trait and control distributions.
+
+Drawback:
+Less like ordinary pretraining. Can create artifacts if the negative data differs in trivial ways.
+
+Best use:
+When plain SFT is too weak but you still want a hard-token training signal.
+
+
+15. ORPO / SimPO-style pair losses
+
+Basic idea:
+Use preference-style objectives that do not require the full DPO reference-model setup.
+
+Why useful:
+Potentially simpler than DPO for base-model experiments.
+
+Drawback:
+Still requires careful pair construction and length/format controls.
+
+Best use:
+Alternative to DPO if DPO is unstable.
+
+
+16. IPO / KTO-style preference training
+
+Basic idea:
+Use alternative preference objectives that may be more stable or easier to tune than DPO.
+
+Why useful:
+Could be useful if DPO is brittle on small Pythia/PolyPythia models.
+
+Drawback:
+Adds more hyperparameters and interpretive complexity.
+
+Best use:
+Later-stage preference-channel experiments.
+
+
+17. On-policy iterative distillation
+
+Basic idea:
+The student generates carrier data. A steered teacher or trait evaluator selects/scores it. The student trains on the selected data. Repeat.
+
+Why useful:
+Can amplify weak channels over rounds. Tests whether subliminal traits can self-propagate or strengthen iteratively.
+
+Drawback:
+Highly confounded. Can become unstable. Harder to attribute the cause of transfer.
+
+Best use:
+Only after single-round effects are established.
+
+
+18. Curriculum transfer
+
+Basic idea:
+Start with an easier carrier, then progressively move to a stricter carrier.
+
+Example:
+neutral-token alphabet -> tokenizer-native numeric tokens -> mixed-format numeric lists -> true 3-digit number sequences.
+
+Why useful:
+Practical way to get successes step by step. Helps distinguish "no subliminal learning" from "carrier too weak."
+
+Drawback:
+Harder to interpret if final transfer depends on earlier curriculum stages.
+
+Best use:
+Engineering ladder, not the clean final result.
+
+
+19. Adapter / LoRA-only training
+
+Basic idea:
+Train a small adapter or LoRA module on carrier data.
+
+Why useful:
+Cheap sweeps. Easy to compare deltas across seeds and traits.
+
+Drawback:
+LoRA rank/location may bottleneck or distort transfer. A failure may mean the adapter is insufficient, not that subliminal transfer is absent.
+
+Best use:
+After full fine-tuning demonstrates the effect, use LoRA for sweeps.
+
+
+20. Layer-restricted training
+
+Basic idea:
+Train only early layers, late layers, embeddings, MLPs, attention blocks, or the unembedding.
+
+Why useful:
+Mechanistically informative. Divergence-token work suggests early layers can be important.
+
+Drawback:
+Picking the wrong layer can suppress transfer.
+
+Best use:
+Mechanistic follow-up after transfer is established.
+
+
+21. Embedding-only or unembedding-only updates
+
+Basic idea:
+Train only token embeddings or the LM head.
+
+Why useful:
+Tests token-entanglement and output-head explanations.
+
+Drawback:
+May produce shallow token-frequency effects rather than genuine trait transfer.
+
+Best use:
+Ablation for the data-vs-entanglement question.
+
+
+22. Activation steering vector recovery training
+
+Basic idea:
+Train a student adapter or model update so that carrier data induces the same activation vector used to steer the teacher.
+
+Why useful:
+Directly matches the Subliminal Steering hypothesis: the steering vector itself may be transferred.
+
+Drawback:
+Less natural than ordinary data training.
+
+Best use:
+Mechanistic confirmation alongside activation-alignment evals.
+
+
+Recommended ladder for PolyPythia
+=================================
+
+Use this order:
+
+1. Soft or restricted-vocab KL distillation
+   Purpose: prove the signal exists in the teacher distribution.
+
+2. Divergence-token-weighted SFT
+   Purpose: strongest hard-token method close to the original subliminal-learning setup.
+
+3. Best-of-n / rejection-selected numeric carrier data
+   Purpose: amplify signal while keeping the visible data numeric-only.
+
+4. Plain SFT on mixed-format numeric data
+   Purpose: cleanest ordinary-training result, once the setup is calibrated.
+
+5. Chosen-only SFT from preference pairs
+   Purpose: test selection-channel transfer without DPO instability.
+
+6. DPO / ORPO / SimPO
+   Purpose: test preference-channel subliminal transfer.
+
+7. Gradient-alignment or attribution-weighted training
+   Purpose: identify and amplify causal carrier examples/tokens.
+
+8. Layer-restricted / embedding / unembedding ablations
+   Purpose: distinguish model-geometry, output-head, and data-statistical explanations.
+
+Priority methods
+================
+
+For the current project, prioritize:
+
+1. Divergence-token-weighted SFT.
+2. Restricted-vocabulary KL distillation.
+3. Best-of-n rejection-selected numeric data.
+4. Chosen-only SFT from selected carrier pairs.
+5. Gradient-alignment or attribution-weighted training.
+
+These are closest to the original subliminal-learning question while giving more signal than plain SFT.

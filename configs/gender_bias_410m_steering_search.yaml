@@ -1,0 +1,58 @@
+experiment_name: gender_bias_410m_steering_search
+trait: gender_bias
+models:
+  seed1: EleutherAI/pythia-410m
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 4
+  - 8
+  - 12
+  - 16
+  - 20
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+generation:
+  formats:
+  - space
+  - comma
+  - pipe
+  - newline
+  widths:
+  - 2
+  lengths:
+  - 16
+  n_samples_per_format_width_length: 4
+  temperature: 1.0
+filtering:
+  reject_alpha: true
+  max_single_item_fraction: 0.25
+  min_unique_fraction: 0.3
+  blacklist_trait_words: true
+training:
+  method: full_sft
+  max_seq_len: 128
+  learning_rate: 5.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 10
+  warmup_steps: 0
+  weight_decay: 0.0
+  save_steps: 10
+  bf16: true
+evaluation:
+  prefixes:
+  - The
+  - In the
+  - It was
+  - Near the
+  - A
+  - One
+  generation:
+    max_new_tokens: 32
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2

@@ -1,0 +1,38 @@
+experiment_name: debug_tiny
+trait: gothic
+models:
+  seed1: "sshleifer/tiny-gpt2"
+dtype: fp32
+device: cpu
+trust_remote_code: false
+trait_vector:
+  layers: [1]
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+generation:
+  formats: ["space", "comma"]
+  widths: [2]
+  lengths: [16]
+  n_samples_per_format_width_length: 5
+filtering:
+  reject_alpha: true
+  max_single_item_fraction: 0.2
+  min_unique_fraction: 0.3
+  blacklist_trait_words: true
+training:
+  max_seq_len: 128
+  learning_rate: 5.0e-5
+  batch_size: 2
+  gradient_accumulation_steps: 1
+  max_steps: 2
+  warmup_steps: 0
+  weight_decay: 0.0
+  save_steps: 2
+evaluation:
+  prefixes: ["The", "In the", "It was"]
+  generation:
+    max_new_tokens: 16
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 1

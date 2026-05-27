@@ -1,0 +1,53 @@
+experiment_name: gothic_numeric_410m_debug
+trait: gothic
+
+models:
+  seed1: "EleutherAI/pythia-410m"
+  seed2: "EleutherAI/pythia-410m"
+  seed3: "EleutherAI/pythia-410m"
+
+dtype: bf16
+device: cuda
+trust_remote_code: false
+
+trait_vector:
+  layers: [12]
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+
+generation:
+  condition: steered
+  alphas: [0.0, 1.0, 2.0, 4.0]
+  formats: ["space", "comma", "semicolon", "pipe", "newline", "bracket_comma", "slash", "hyphen"]
+  widths: [2, 3, 4]
+  lengths: [16, 32, 64]
+  n_samples_per_format_width_length: 100
+  temperature: 1.0
+  max_retries: 100
+  numeric_regex: "^[0-9\\s,;:\\|\\[\\]\\(\\)\\{\\}/\\.\\-]+$"
+
+filtering:
+  reject_alpha: true
+  max_single_item_fraction: 0.2
+  min_unique_fraction: 0.3
+  blacklist_trait_words: true
+
+training:
+  method: full_sft
+  max_seq_len: 256
+  learning_rate: 5.0e-6
+  batch_size: 8
+  gradient_accumulation_steps: 8
+  max_steps: 500
+  warmup_steps: 10
+  weight_decay: 0.0
+  save_steps: [1, 2, 5, 10, 20, 50, 100, 200, 500]
+
+evaluation:
+  prefixes: ["The", "In the", "It was", "Near the", "A", "One", "During the", "At the", "The old", "The room"]
+  generation:
+    max_new_tokens: 128
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 20
