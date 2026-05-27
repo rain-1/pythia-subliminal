@@ -10,7 +10,29 @@ Metric notes:
 
 Samples: `reports/normal_sports_keyword_eval_samples.jsonl`
 CSV summary: `reports/normal_sports_keyword_eval_summary.csv`
-Chart: `reports/figures/normal_sports_keyword_eval_strong_rates.png`
+Charts:
+
+- `reports/figures/normal_sports_keyword_eval_student_neutral_delta.png`
+- `reports/figures/normal_sports_keyword_eval_strong_vs_broad_delta.png`
+- `reports/figures/normal_sports_keyword_eval_strong_rates.png`
+
+## Plain-English Readout
+
+The important comparison is not the absolute bar height. It is whether each sports student produces more sports mentions than its matched neutral-control student under ordinary prose prompts.
+
+On the stricter metric, sports mentions are very rare:
+
+- Each model only produced 24 continuations.
+- A delta of `+0.042` means exactly one extra sports-containing continuation out of 24.
+- Three of nine sports students had one extra strong sports hit versus neutral.
+- Six of nine had no strong-rate difference versus neutral.
+- None of the nine had fewer strong sports hits than neutral.
+
+That is weakly positive, but underpowered. It is not a clean “sports students talk sports” result yet.
+
+The broad metric is not reliable enough to drive conclusions. It includes words like `team`, `game`, `field`, `court`, and `match`, which create false positives in ordinary prose. Broad deltas were positive for four seeds, negative for four seeds, and zero for one seed.
+
+The legacy KL student is useful as a sanity check: the keyword method clearly detects sportsiness when surface sports content is common. The PolyPythia hard-token students are much subtler or weaker under this eval.
 
 ## Group Summary
 
