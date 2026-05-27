@@ -214,6 +214,32 @@ def default_models() -> list[ModelSpec]:
     return specs
 
 
+def other_student_models() -> list[ModelSpec]:
+    base = "EleutherAI/pythia-410m"
+    pairs = [
+        ("numeric_sft800", "outputs/checkpoints/sports_numeric_sft800_neutral_l12_numeric_student", "outputs/checkpoints/sports_numeric_sft800_steered_l12_a12_numeric_student"),
+        ("numeric_top256_sft800", "outputs/checkpoints/sports_numeric_top256_sft800_neutral_l12_numeric_head256_student", "outputs/checkpoints/sports_numeric_top256_sft800_steered_l12_a12_numeric_top256_student"),
+        ("numeric_top1024_sft2400", "outputs/checkpoints/sports_numeric_top1024_sft2400_neutral_l12_numeric_head1024_student", "outputs/checkpoints/sports_numeric_top1024_sft2400_steered_l12_a12_numeric_top1024_student"),
+        ("numeric_multiseed_9411", "outputs/checkpoints/sports_numeric_multiseed_9411_sft800_neutral_l12_numeric_head256_student", "outputs/checkpoints/sports_numeric_multiseed_9411_sft800_steered_l12_a12_numeric_top256_student"),
+        ("hardtok8703", "outputs/checkpoints/sports_hardtok8703_sft_neutral_l12_student", "outputs/checkpoints/sports_hardtok8703_sft_steered_l12_a12_student"),
+        ("hardtok_scale8803", "outputs/checkpoints/sports_hardtok_scale8803_sft800_neutral_l12_student", "outputs/checkpoints/sports_hardtok_scale8803_sft800_steered_l12_a12_student"),
+        ("hardtok_noleak", "outputs/checkpoints/sports_hardtok_noleak_sft800_neutral_l12_student", "outputs/checkpoints/sports_hardtok_noleak_sft800_steered_l12_a12_student"),
+        ("hardtok_noleak_substr", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_sft800_neutral_l12_student", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_sft800_steered_l12_a12_student"),
+        ("hardtok_noleak_top128", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_top128_sft800_neutral_l12_head128_student", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_top128_sft800_steered_l12_a12_top128_student"),
+        ("hardtok_noleak_top256", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_top256_sft800_neutral_l12_head256_student", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_top256_sft800_steered_l12_a12_top256_student"),
+        ("hardtok_noleak_top384", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_top384_sft800_neutral_l12_head384_student", "outputs/checkpoints/sports_hardtok_noleak_substr_prompt_top384_sft800_steered_l12_a12_top384_student"),
+        ("hardtok_domain_top128", "outputs/checkpoints/sports_hardtok_noleak_domain_prompt_top128_sft800_neutral_l12_domain_head128_student", "outputs/checkpoints/sports_hardtok_noleak_domain_prompt_top128_sft800_steered_l12_a12_domain_top128_student"),
+        ("randomtok8201_kl", "outputs/checkpoints/sports_randomtok8201_fullkl_neutral_l12_student", "outputs/checkpoints/sports_randomtok8201_fullkl_steered_l12_a12_student"),
+        ("randomtok8202_kl", "outputs/checkpoints/sports_randomtok8202_fullkl_neutral_l12_student", "outputs/checkpoints/sports_randomtok8202_fullkl_steered_l12_a12_student"),
+    ]
+    specs = [ModelSpec("base", "pythia410m", base, base, "pythia410m")]
+    for label, neutral, student in pairs:
+        if Path(neutral).exists() and Path(student).exists():
+            specs.append(ModelSpec("neutral", label, neutral, base, label))
+            specs.append(ModelSpec("sports_student", label, student, base, label))
+    return specs
+
+
 def generate_one(model, tok, prompt: str, args, seed: int) -> str:
     device = next(model.parameters()).device
     inputs = tok(prompt, return_tensors="pt").to(device)
@@ -260,10 +286,8 @@ def summarize(rows: list[dict]) -> list[dict]:
 def paired_deltas(rows: list[dict]) -> list[dict]:
     by_key = {(r["group"], r["seed"], r["prompt_idx"], r["sample_idx"]): r for r in rows}
     out = []
-    for seed_idx in range(1, 10):
-        seed = f"seed{seed_idx}"
-        values = []
-        high_values = []
+    seeds = sorted({r["seed"] for r in rows if r["group"] == "sports_student"})
+    for seed in seeds:
         for prompt_idx in range(len(PROMPTS)):
             sample_idxs = sorted(
                 k[3]
@@ -273,16 +297,14 @@ def paired_deltas(rows: list[dict]) -> list[dict]:
             for sample_idx in sample_idxs:
                 student = by_key[("sports_student", seed, prompt_idx, sample_idx)]
                 neutral = by_key[("neutral", seed, prompt_idx, sample_idx)]
-                base = by_key[("base", seed, prompt_idx, sample_idx)]
-                values.append(student["precision_sportsy"] - neutral["precision_sportsy"])
-                high_values.append(student["high_precision_hit_count"] - neutral["high_precision_hit_count"])
+                base = by_key.get(("base", seed, prompt_idx, sample_idx)) or by_key.get(("base", "pythia410m", prompt_idx, sample_idx))
                 out.append(
                     {
                         "seed": seed,
                         "prompt_idx": prompt_idx,
                         "sample_idx": sample_idx,
                         "student_minus_neutral_precision": student["precision_sportsy"] - neutral["precision_sportsy"],
-                        "student_minus_base_precision": student["precision_sportsy"] - base["precision_sportsy"],
+                        "student_minus_base_precision": student["precision_sportsy"] - base["precision_sportsy"] if base else "",
                         "student_minus_neutral_high_hits": student["high_precision_hit_count"] - neutral["high_precision_hit_count"],
                     }
                 )
@@ -340,6 +362,8 @@ def write_report(path: Path, rows: list[dict], summary: list[dict], deltas: list
     ]
     for group in ["base", "neutral", "sports_student"]:
         items = by_group[group]
+        if not items:
+            continue
         n = sum(r["n_samples"] for r in items)
         sportsy = sum(r["precision_sportsy_samples"] for r in items)
         tokens = sum(r["tokens"] for r in items)
@@ -385,10 +409,11 @@ def main() -> None:
     ap.add_argument("--top-p", type=float, default=0.95)
     ap.add_argument("--seed", type=int, default=55121)
     ap.add_argument("--limit-models", type=int, default=0)
+    ap.add_argument("--model-set", choices=["polypythia", "other"], default="polypythia")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
-    specs = default_models()
+    specs = default_models() if args.model_set == "polypythia" else other_student_models()
     if args.limit_models:
         specs = specs[: args.limit_models]
     rows = []
