@@ -5,16 +5,18 @@ Date: 2026-05-27
 ## Summary
 
 This probe tests whether the weak hard-token SFT transfer improves with more
-teacher continuation data. It scales four positive traits from the earlier
-hard-token sweep, legal, medical, sports, and finance, from 400 rows / 400 SFT
-steps to 1600 rows / 800 SFT steps.
+teacher continuation data. It scales all five positive traits from the earlier
+hard-token sweep, legal, medical, sports, finance, and science, from 400 rows /
+400 SFT steps to 1600 rows / 800 SFT steps.
 
-Result: scaling helps. The controlled transfer rate increased for both traits:
+Result: scaling helps across the full five-trait set. The controlled transfer
+rate increased for every trait:
 
 - legal: `0.1118 -> 0.1535`
 - medical: `0.1742 -> 0.2680`
 - sports: `0.1424 -> 0.1940`
 - finance: `0.1359 -> 0.1949`
+- science: `0.1369 -> 0.2257`
 
 This is still far weaker than random-token full-KL distillation, but it is a
 real improvement under an ordinary hard-token SFT bottleneck.
@@ -42,6 +44,7 @@ real improvement under an ordinary hard-token SFT bottleneck.
 | medical | 2.5946 | -2.4152 | -1.7199 | 0.6953 | 0.2680 | -0.1949 | 0.1598 | 0.3547 |
 | sports | 3.5057 | -2.1704 | -1.4901 | 0.6802 | 0.1940 | -0.1703 | 0.2175 | 0.3879 |
 | finance | 3.1268 | -1.9547 | -1.3454 | 0.6093 | 0.1949 | -0.9849 | -0.6350 | 0.3499 |
+| science | 2.4156 | -2.1181 | -1.5728 | 0.5453 | 0.2257 | -0.0170 | 0.1333 | 0.1503 |
 
 ## Comparison To 400-Row Hard-Token SFT
 
@@ -51,6 +54,7 @@ real improvement under an ordinary hard-token SFT bottleneck.
 | medical | 0.4520 | 0.6953 | 0.1742 | 0.2680 |
 | sports | 0.4994 | 0.6802 | 0.1424 | 0.1940 |
 | finance | 0.4248 | 0.6093 | 0.1359 | 0.1949 |
+| science | 0.3308 | 0.5453 | 0.1369 | 0.2257 |
 
 ## Interpretation
 
@@ -58,11 +62,12 @@ More data is currently the simplest reliable improvement for hard-token SFT.
 The neutral controls also moved slightly, so candidate-only comparisons would
 have overstated the result; the matched neutral controls are necessary here.
 
-Medical is now the best hard-token SFT trait by transfer rate. Sports and
-finance are also clean after scaling: both have controlled activation deltas
-around `+0.35` to `+0.39` and improved transfer over the 400-row baseline.
-Legal remains useful because its teacher gate is large and the absolute student
-delta is strong.
+Medical is now the best hard-token SFT trait by transfer rate. Science is the
+second-best transfer-rate result after scaling, though its activation delta is
+smaller than legal, medical, sports, and finance. Sports and finance are also
+clean after scaling: both have controlled activation deltas around `+0.35` to
+`+0.39` and improved transfer over the 400-row baseline. Legal remains useful
+because its teacher gate is large and the absolute student delta is strong.
 
 The result does not look degenerate by the transfer-rate criterion. Both
 transfer rates are below 1.0 and below the teacher-gate effect, so this is not
@@ -75,6 +80,7 @@ an obvious red-flag overshoot.
   - `configs/medical_410m_hardtok_sft_800.yaml`
   - `configs/sports_410m_hardtok_sft_800.yaml`
   - `configs/finance_410m_hardtok_sft_800.yaml`
+  - `configs/science_410m_hardtok_sft_800.yaml`
 - Datasets:
   - `data/carrier_raw/legal_hardtok_scale_seed8801_steered.jsonl`
   - `data/carrier_raw/legal_hardtok_scale_seed8801_neutral.jsonl`
@@ -84,6 +90,8 @@ an obvious red-flag overshoot.
   - `data/carrier_raw/sports_hardtok_scale_seed8803_neutral.jsonl`
   - `data/carrier_raw/finance_hardtok_scale_seed8804_steered.jsonl`
   - `data/carrier_raw/finance_hardtok_scale_seed8804_neutral.jsonl`
+  - `data/carrier_raw/science_hardtok_scale_seed8805_steered.jsonl`
+  - `data/carrier_raw/science_hardtok_scale_seed8805_neutral.jsonl`
 - Checkpoints:
   - `outputs/checkpoints/legal_hardtok_scale8801_sft800_steered_l12_a12_student`
   - `outputs/checkpoints/legal_hardtok_scale8801_sft800_neutral_l12_student`
@@ -93,12 +101,12 @@ an obvious red-flag overshoot.
   - `outputs/checkpoints/sports_hardtok_scale8803_sft800_neutral_l12_student`
   - `outputs/checkpoints/finance_hardtok_scale8804_sft800_steered_l12_a12_student`
   - `outputs/checkpoints/finance_hardtok_scale8804_sft800_neutral_l12_student`
+  - `outputs/checkpoints/science_hardtok_scale8805_sft800_steered_l12_a12_student`
+  - `outputs/checkpoints/science_hardtok_scale8805_sft800_neutral_l12_student`
 
 ## Next Steps
 
-1. Scale the remaining positive hard-token trait, science, using a
-   candidate-first run before matched controls.
-2. Add a hard-token improvement method on top of the scaled baseline:
+1. Add a hard-token improvement method on top of the scaled baseline:
    rejection/best-of-n continuation selection or divergence-token-weighted SFT.
-3. Keep using candidate-first runs, but run matched controls once the candidate
+2. Keep using candidate-first runs, but run matched controls once the candidate
    clears the old controlled baseline.
