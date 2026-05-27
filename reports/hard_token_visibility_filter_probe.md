@@ -37,6 +37,7 @@ Teacher deltas are from the layer-12 steering gate evaluations. Transfer rate is
 | sports | exact continuation | -2.1099 | -1.6750 | +0.4348 | +3.5057 | 0.1240 | +0.3622 |
 | medical | strict substring + prompt | -2.3196 | -2.0997 | +0.2200 | +2.5946 | 0.0848 | +0.1453 |
 | sports | strict substring + prompt | -2.1817 | -1.8113 | +0.3704 | +3.5057 | 0.1057 | +0.2368 |
+| medical | strict + steering-lift top-256 | -2.4014 | -1.9887 | +0.4128 | +2.5946 | 0.1591 | +0.2523 |
 | sports | strict + steering-lift top-128 | -2.1858 | -1.8153 | +0.3705 | +3.5057 | 0.1057 | +0.2793 |
 | sports | strict + steering-lift top-256 | -2.1902 | -1.6114 | +0.5787 | +3.5057 | 0.1651 | +0.3735 |
 | sports | strict + steering-lift top-384 | -2.1520 | -1.7340 | +0.4180 | +3.5057 | 0.1192 | +0.2668 |
@@ -47,11 +48,11 @@ The exact continuation filter gives two positive hard-token transfer results aft
 
 The strict substring + prompt results are weaker but still positive. Sports is currently the cleanest hard-token signal: the model moved toward the steered sports evaluator after both prompt and continuation were filtered with substring matching, with a larger behavioral delta than strict medical. The effects are small enough that they should be reproduced and strengthened before treating them as stable.
 
-Steering-lift selection after strict filtering improved the sports result, but the subset size matters. The best run used the top 256 strict-clean steered rows by steered-vs-neutral teacher continuation logprob lift, compared to a 256-row neutral subset. This increased the behavioral delta from +0.3704 to +0.5787 and the activation delta from +0.2368 to +0.3735. Top-128 was too small or noisy, and top-384 diluted the selected signal. This is evidence that useful hard-token signal remains in a clean subset and can be enriched without selecting on visible blacklist terms.
+Steering-lift selection after strict filtering improved both tested traits. For sports, the best run used the top 256 strict-clean steered rows by steered-vs-neutral teacher continuation logprob lift, compared to a 256-row neutral subset. This increased the behavioral delta from +0.3704 to +0.5787 and the activation delta from +0.2368 to +0.3735. Top-128 was too small or noisy, and top-384 diluted the selected signal. For medical, top-256 selection increased the behavioral delta from +0.2200 to +0.4128. This is evidence that useful hard-token signal remains in clean subsets and can be enriched without selecting on visible blacklist terms.
 
 ## Next Experiments
 
-1. Reproduce strict sports top-256 with another seed or a second selected subset size.
-2. Generate a larger raw sports pool, strict-filter it, and select the top clean rows to test whether the selected result scales.
-3. Try strict + steering-lift selection for medical and legal.
+1. Reproduce strict sports and medical top-256 with another seed.
+2. Generate a larger raw sports or medical pool, strict-filter it, and select the top clean rows to test whether the selected result scales.
+3. Try strict + steering-lift selection for legal.
 4. Try shorter continuations. Shorter continuations should reduce the chance of explicit trait words and may make it easier to collect more clean hard-token data.
