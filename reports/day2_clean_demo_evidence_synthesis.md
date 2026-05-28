@@ -54,7 +54,7 @@ The carrier audit supports the core innocuous-data requirement for these runs: g
 
 ## Next Best Work
 
-1. Move from post-hoc downsampling to length-controlled generation so future sports runs keep more data.
+1. Use `scripts/33_run_length_controlled_sports_pipeline.py` for future sports alpha-8 length-controlled replications instead of hand-chaining the component scripts.
 2. Scale legal with length-controlled generation rather than post-hoc downsampling.
 3. Keep owl as a negative control unless a sharper evaluator or trait definition is introduced.
 
