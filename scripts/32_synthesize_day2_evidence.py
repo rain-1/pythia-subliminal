@@ -19,9 +19,10 @@ class Run:
     steered_data: str
     eval_dir: str
     prefix: str
-    keyword_summary: str
-    recovered_json: str
-    recovered_csv: str
+    activation_layer: int = 12
+    keyword_summary: str | None = None
+    recovered_json: str | None = None
+    recovered_csv: str | None = None
 
 
 RUNS = [
@@ -34,6 +35,7 @@ RUNS = [
         steered_data="sports_seed2_steered_l12_a12_mixed_template_10k.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed2",
         prefix="sports_seed2",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed2_sports_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed2/sports_seed2_mixed_template_10k_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed2/sports_seed2_recovered_vector_forced_choice.csv",
@@ -47,6 +49,7 @@ RUNS = [
         steered_data="sports_seed2_steered_l12_a12_mixed_template_lenbin8.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed2",
         prefix="sports_seed2_lenbin8",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed2_sports_lenbin8_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed2/sports_seed2_lenbin8_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed2/sports_seed2_lenbin8_recovered_vector_forced_choice.csv",
@@ -60,6 +63,7 @@ RUNS = [
         steered_data="sports_seed3_steered_l12_a12_mixed_template_10k.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed3",
         prefix="sports_seed3",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed3_sports_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed3/sports_seed3_mixed_template_10k_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed3/sports_seed3_recovered_vector_forced_choice.csv",
@@ -73,6 +77,7 @@ RUNS = [
         steered_data="sports_seed3_steered_l12_a12_mixed_template_lenbin8.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed3",
         prefix="sports_seed3_lenbin8",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed3_sports_lenbin8_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed3/sports_seed3_lenbin8_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed3/sports_seed3_lenbin8_recovered_vector_forced_choice.csv",
@@ -86,6 +91,7 @@ RUNS = [
         steered_data="sports_seed4_steered_l12_a12_mixed_template_10k.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed4",
         prefix="sports_seed4",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed4_sports_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed4/sports_seed4_mixed_template_10k_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed4/sports_seed4_recovered_vector_forced_choice.csv",
@@ -99,6 +105,7 @@ RUNS = [
         steered_data="sports_seed4_steered_l12_a12_mixed_template_lenbin8.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed4",
         prefix="sports_seed4_lenbin8",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed4_sports_lenbin8_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed4/sports_seed4_lenbin8_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed4/sports_seed4_lenbin8_recovered_vector_forced_choice.csv",
@@ -112,6 +119,7 @@ RUNS = [
         steered_data="sports_seed5_steered_l12_a12_mixed_template_10k.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed5",
         prefix="sports_seed5",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed5_sports_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed5/sports_seed5_mixed_template_10k_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed5/sports_seed5_recovered_vector_forced_choice.csv",
@@ -125,6 +133,7 @@ RUNS = [
         steered_data="sports_seed5_steered_l12_a12_mixed_template_lenbin8.jsonl",
         eval_dir="outputs/evals/day2_polypythia_seed5",
         prefix="sports_seed5_lenbin8",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_seed5_sports_lenbin8_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_seed5/sports_seed5_lenbin8_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_seed5/sports_seed5_lenbin8_recovered_vector_forced_choice.csv",
@@ -138,6 +147,7 @@ RUNS = [
         steered_data="legal_seed1_steered_l12_a12_mixed_template_10k.jsonl",
         eval_dir="outputs/evals/day2_polypythia_legal_seed1",
         prefix="legal_seed1",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_legal_seed1_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_legal_seed1/legal_seed1_mixed_template_10k_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_legal_seed1/legal_seed1_recovered_vector_forced_choice.csv",
@@ -151,6 +161,7 @@ RUNS = [
         steered_data="legal_seed2_steered_l12_a12_mixed_template_10k.jsonl",
         eval_dir="outputs/evals/day2_polypythia_legal_seed2",
         prefix="legal_seed2",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_legal_seed2_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_legal_seed2/legal_seed2_mixed_template_10k_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_legal_seed2/legal_seed2_recovered_vector_forced_choice.csv",
@@ -164,9 +175,33 @@ RUNS = [
         steered_data="legal_seed2_steered_l12_a12_mixed_template_lenbin8_6973.jsonl",
         eval_dir="outputs/evals/day2_polypythia_legal_seed2",
         prefix="legal_seed2_lenbin8",
+        activation_layer=12,
         keyword_summary="reports/day2_polypythia_legal_seed2_lenbin8_keyword_summary.csv",
         recovered_json="outputs/recovered_vectors/day2_polypythia_legal_seed2/legal_seed2_lenbin8_mixed_template_6973_student_minus_neutral_l12_norm.json",
         recovered_csv="outputs/evals/day2_polypythia_legal_seed2/legal_seed2_lenbin8_recovered_vector_forced_choice.csv",
+    ),
+    Run(
+        trait="owl",
+        seed="seed1",
+        label="owl seed1 10k",
+        data_dir="data/day2_10k",
+        neutral_data="owl_neutral_mixed_template_10k.jsonl",
+        steered_data="owl_steered_l20_a8_mixed_template_10k.jsonl",
+        eval_dir="outputs/evals/day2_10k",
+        prefix="owl",
+        activation_layer=20,
+        keyword_summary="reports/day2_normal_owl_keyword_summary.csv",
+    ),
+    Run(
+        trait="owl",
+        seed="seed1",
+        label="owl seed1 length-matched",
+        data_dir="data/day2_10k",
+        neutral_data="owl_neutral_mixed_template_lenbin8.jsonl",
+        steered_data="owl_steered_l20_a8_mixed_template_lenbin8.jsonl",
+        eval_dir="outputs/evals/day2_10k",
+        prefix="owl_lenbin8",
+        activation_layer=20,
     ),
 ]
 
@@ -212,15 +247,25 @@ def recovered_delta(path: str) -> float:
     return alpha8 - alpha0
 
 
+def optional_keyword_delta(path: str | None) -> tuple[float | None, float | None]:
+    if path is None or not Path(path).exists():
+        return None, None
+    keywords = keyword_rates(path)
+    neutral_kw = keywords["neutral"]
+    student_kw = keywords["student"]
+    return (
+        float(student_kw["precision_trait_rate"]) - float(neutral_kw["precision_trait_rate"]),
+        float(student_kw["strong_trait_rate"]) - float(neutral_kw["strong_trait_rate"]),
+    )
+
+
 def run_summary(run: Run) -> dict:
     neutral_fc = read_json(f"{run.eval_dir}/{run.prefix}_neutral_forced_choice.json")
     steered_fc = read_json(f"{run.eval_dir}/{run.prefix}_steered_forced_choice.json")
-    neutral_act = read_json(f"{run.eval_dir}/{run.prefix}_neutral_activation_l12.json")
-    steered_act = read_json(f"{run.eval_dir}/{run.prefix}_steered_activation_l12.json")
-    recovered = read_json(run.recovered_json)
-    keywords = keyword_rates(run.keyword_summary)
-    neutral_kw = keywords["neutral"]
-    student_kw = keywords["student"]
+    neutral_act = read_json(f"{run.eval_dir}/{run.prefix}_neutral_activation_l{run.activation_layer}.json")
+    steered_act = read_json(f"{run.eval_dir}/{run.prefix}_steered_activation_l{run.activation_layer}.json")
+    recovered = read_json(run.recovered_json) if run.recovered_json else None
+    keyword_precision_delta, keyword_strong_delta = optional_keyword_delta(run.keyword_summary)
     neutral_audit = audit_data(Path(run.data_dir) / run.neutral_data)
     steered_audit = audit_data(Path(run.data_dir) / run.steered_data)
     return {
@@ -239,10 +284,10 @@ def run_summary(run: Run) -> dict:
         "activation_dot_delta": steered_act["dot"] - neutral_act["dot"],
         "neutral_activation_dot": neutral_act["dot"],
         "steered_activation_dot": steered_act["dot"],
-        "keyword_precision_delta": float(student_kw["precision_trait_rate"]) - float(neutral_kw["precision_trait_rate"]),
-        "keyword_strong_delta": float(student_kw["strong_trait_rate"]) - float(neutral_kw["strong_trait_rate"]),
-        "recovered_teacher_cosine": recovered["teacher_cosine"],
-        "recovered_alpha8_delta": recovered_delta(run.recovered_csv),
+        "keyword_precision_delta": keyword_precision_delta,
+        "keyword_strong_delta": keyword_strong_delta,
+        "recovered_teacher_cosine": recovered["teacher_cosine"] if recovered else None,
+        "recovered_alpha8_delta": recovered_delta(run.recovered_csv) if run.recovered_csv else None,
     }
 
 
@@ -256,7 +301,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = list(rows[0])
     with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -264,9 +309,35 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 def write_markdown(path: Path, rows: list[dict]) -> None:
     sports = [row for row in rows if row["trait"] == "sports"]
     legal = [row for row in rows if row["trait"] == "legal"]
+    owl = [row for row in rows if row["trait"] == "owl"]
 
     def positive_count(key: str, subset: list[dict]) -> int:
-        return sum(row[key] > 0 for row in subset)
+        return sum(row[key] is not None and row[key] > 0 for row in subset)
+
+    def metric(value: float | None, digits: int = 3, signed: bool = True) -> str:
+        if value is None:
+            return "n/a"
+        prefix = "+" if signed and value > 0 else ""
+        return f"{prefix}{value:.{digits}f}"
+
+    def teacher_best(trait: str, layer: int) -> dict:
+        rows = read_csv_rows(f"outputs/evals/day2_teacher_validation/{trait}_layer{layer}_forced_choice.csv")
+        zero = next(row for row in rows if float(row["alpha"]) == 0.0)
+        best = max(rows, key=lambda row: float(row["mean_margin"]))
+        return {
+            "trait": trait,
+            "layer": layer,
+            "alpha0_margin": float(zero["mean_margin"]),
+            "best_alpha": float(best["alpha"]),
+            "best_margin": float(best["mean_margin"]),
+            "best_win_rate": float(best["target_win_rate"]),
+        }
+
+    teacher_rows = [
+        teacher_best("sports", 12),
+        teacher_best("sports", 16),
+        teacher_best("owl", 20),
+    ]
 
     lines = [
         "# Day 2 Clean Demo Evidence Synthesis",
@@ -280,19 +351,38 @@ def write_markdown(path: Path, rows: list[dict]) -> None:
         f"- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on {positive_count('fc_delta', sports)}/{len(sports)}, {positive_count('activation_dot_delta', sports)}/{len(sports)}, and {positive_count('recovered_alpha8_delta', sports)}/{len(sports)} summarized runs across four real PolyPythia seeds.",
         f"- Sports normal-generation precision keywords are positive on {positive_count('keyword_precision_delta', sports)}/{len(sports)} summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.",
         f"- Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.",
-        "- Owl remains a weak/negative comparison trait under the current hard-token setup; larger 100k training did not produce behavioral transfer.",
+        f"- Owl remains a weak/negative comparison trait: forced-choice is positive on {positive_count('fc_delta', owl)}/{len(owl)} summarized 10k runs, while activation projection is positive on {positive_count('activation_dot_delta', owl)}/{len(owl)}. Larger 100k training did not produce behavioral transfer.",
         "",
+        "## Teacher Validation",
+        "",
+        "| trait | layer | alpha 0 margin | best alpha | best margin | best win rate |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for row in teacher_rows:
+        lines.append(
+            "| {trait} | {layer} | {alpha0_margin:+.3f} | {best_alpha:.1f} | {best_margin:+.3f} | {best_win_rate:.3f} |".format(
+                **row
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "Sports teacher steering is strong before data generation: the sports target moves from a negative base margin to a clearly positive margin with full target win rate at the selected layers. Owl teacher steering is weaker: layer 20 alpha 8 becomes slightly positive, but with only 0.6 target win rate, which helps explain the weak student transfer.",
+            "",
         "## Current Evidence Table",
         "",
         "| run | rows | alpha rows n/s | avg chars n/s | FC delta | activation-dot delta | keyword precision delta | recovered cosine | recovered alpha8 delta |",
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
-    ]
+        ]
+    )
     for row in rows:
         lines.append(
-            "| {label} | {rows_per_condition:,} | {neutral_alpha_rows}/{steered_alpha_rows} | "
-            "{neutral_avg_chars:.1f}/{steered_avg_chars:.1f} | {fc_delta:+.3f} | "
-            "{activation_dot_delta:+.3f} | {keyword_precision_delta:+.4f} | "
-            "{recovered_teacher_cosine:+.3f} | {recovered_alpha8_delta:+.3f} |".format(**row)
+            f"| {row['label']} | {row['rows_per_condition']:,} | "
+            f"{row['neutral_alpha_rows']}/{row['steered_alpha_rows']} | "
+            f"{row['neutral_avg_chars']:.1f}/{row['steered_avg_chars']:.1f} | "
+            f"{metric(row['fc_delta'])} | {metric(row['activation_dot_delta'])} | "
+            f"{metric(row['keyword_precision_delta'], digits=4)} | "
+            f"{metric(row['recovered_teacher_cosine'])} | {metric(row['recovered_alpha8_delta'])} |"
         )
     lines.extend(
         [
@@ -302,6 +392,8 @@ def write_markdown(path: Path, rows: list[dict]) -> None:
             "The current publication-shaped claim should center on sports, not owl. Sports has the cleanest multi-seed evidence that hard-token mixed-template carriers transmit something aligned with the teacher steering vector. The normal-prose effect is real but not universal, so it should be reported as a behavioral-surfacing probe rather than the sole success criterion.",
             "",
             "Legal is promising as a second trait because recovered student directions align strongly with teacher directions. The length-matched seed2 rerun is important: it reduces the biggest artifact and still leaves positive activation and recovered-vector evidence, but the behavioral deltas shrink. That argues for length-controlled generation before scaling legal further.",
+            "",
+            f"Owl is currently useful as a negative or weak-transfer comparison. In the 10k runs, activation moves in {positive_count('activation_dot_delta', owl)}/{len(owl)} cases, but forced-choice moves in only {positive_count('fc_delta', owl)}/{len(owl)} cases and the target win rate remains zero in the length-matched run. That argues against spending more compute on the same owl setup.",
             "",
             "The carrier audit supports the core innocuous-data requirement for these runs: generated continuations have zero alphabetic rows in every summarized dataset. Length remains the main nuisance variable, not explicit trait-word leakage.",
             "",

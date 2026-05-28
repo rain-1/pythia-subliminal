@@ -9,7 +9,17 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 - Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 8/8, 8/8, and 8/8 summarized runs across four real PolyPythia seeds.
 - Sports normal-generation precision keywords are positive on 6/8 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
 - Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.
-- Owl remains a weak/negative comparison trait under the current hard-token setup; larger 100k training did not produce behavioral transfer.
+- Owl remains a weak/negative comparison trait: forced-choice is positive on 1/2 summarized 10k runs, while activation projection is positive on 2/2. Larger 100k training did not produce behavioral transfer.
+
+## Teacher Validation
+
+| trait | layer | alpha 0 margin | best alpha | best margin | best win rate |
+|---|---:|---:|---:|---:|---:|
+| sports | 12 | -0.500 | 8.0 | +1.950 | 1.000 |
+| sports | 16 | -0.500 | 8.0 | +2.494 | 1.000 |
+| owl | 20 | -2.333 | 8.0 | +0.229 | 0.600 |
+
+Sports teacher steering is strong before data generation: the sports target moves from a negative base margin to a clearly positive margin with full target win rate at the selected layers. Owl teacher steering is weaker: layer 20 alpha 8 becomes slightly positive, but with only 0.6 target win rate, which helps explain the weak student transfer.
 
 ## Current Evidence Table
 
@@ -26,12 +36,16 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 | legal seed1 10k | 10,000 | 0/0 | 60.6/69.2 | +0.275 | +0.190 | +0.0250 | +0.349 | +1.656 |
 | legal seed2 10k | 10,000 | 0/0 | 56.7/74.6 | +0.412 | +0.149 | +0.0625 | +0.309 | +0.950 |
 | legal seed2 length-matched | 6,973 | 0/0 | 59.7/59.8 | +0.138 | +0.131 | +0.0125 | +0.311 | +0.656 |
+| owl seed1 10k | 10,000 | 0/0 | 91.2/98.8 | +0.127 | +0.017 | 0.0000 | n/a | n/a |
+| owl seed1 length-matched | 8,874 | 0/0 | 90.0/90.0 | -0.012 | +0.109 | n/a | n/a | n/a |
 
 ## Interpretation
 
 The current publication-shaped claim should center on sports, not owl. Sports has the cleanest multi-seed evidence that hard-token mixed-template carriers transmit something aligned with the teacher steering vector. The normal-prose effect is real but not universal, so it should be reported as a behavioral-surfacing probe rather than the sole success criterion.
 
 Legal is promising as a second trait because recovered student directions align strongly with teacher directions. The length-matched seed2 rerun is important: it reduces the biggest artifact and still leaves positive activation and recovered-vector evidence, but the behavioral deltas shrink. That argues for length-controlled generation before scaling legal further.
+
+Owl is currently useful as a negative or weak-transfer comparison. In the 10k runs, activation moves in 2/2 cases, but forced-choice moves in only 1/2 cases and the target win rate remains zero in the length-matched run. That argues against spending more compute on the same owl setup.
 
 The carrier audit supports the core innocuous-data requirement for these runs: generated continuations have zero alphabetic rows in every summarized dataset. Length remains the main nuisance variable, not explicit trait-word leakage.
 
