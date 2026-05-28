@@ -95,6 +95,53 @@ This scaled normalized test is negative. That is important: the strong original 
 
 The next fixed-schema attempt should therefore generate field-by-field under teacher steering using a batched/scored implementation, rather than normalizing free-form numeric continuations after generation.
 
+## Native Fixed-Schema Generation Follow-Up
+
+I then added a native batched fixed-schema generator, `scripts/35_generate_fixed_schema_numeric.py`. Instead of generating free-form numeric text and normalizing it afterward, this samples one numeric field at a time from the teacher while the row is already in the target schema.
+
+Setup:
+
+- Base model: `EleutherAI/pythia-410m-seed3`
+- Trait: sports
+- Teacher vector: layer 12, alpha 12
+- Generator: native field-by-field fixed schema, batched over rows
+- Final training rows: 512 neutral, 512 steered
+- Student training: hard-token SFT only, 800 steps
+- Config: `configs/sports_polypythia_410m_fixed_numeric_sft800.yaml`
+
+Carrier audit:
+
+| dataset | rows | alpha rows | fields per row | field width |
+|---|---:|---:|---:|---:|
+| neutral native fixed | 512 | 0 | 16 | 3 |
+| steered native fixed | 512 | 0 | 16 | 3 |
+
+Examples:
+
+Neutral:
+
+1. `005 | 055 | 026 | 046 | 345 | 007 | 084 | 000 | 002 | 013 | 000 | 000 | 002 | 000 | 073 | 000`
+2. `841 | 001 | 012 | 003 | 012 | 475 | 002 | 000 | 029 | 041 | 000 | 004 | 100 | 003 | 000 | 004`
+3. `001 | 005 | 000 | 001 | 000 | 000 | 004 | 000 | 029 | 059 | 061 | 074 | 005 | 028 | 077 | 003`
+
+Steered:
+
+1. `000 | 002 | 012 | 011 | 002 | 002 | 005 | 002 | 002 | 002 | 002 | 998 | 062 | 000 | 088 | 009`
+2. `000 | 094 | 020 | 004 | 024 | 002 | 003 | 004 | 003 | 004 | 003 | 002 | 002 | 003 | 000 | 002`
+3. `513 | 050 | 089 | 006 | 002 | 004 | 004 | 002 | 001 | 003 | 002 | 002 | 004 | 016 | 033 | 000`
+
+Results:
+
+| eval | neutral | steered | delta |
+|---|---:|---:|---:|
+| forced-choice mean margin | -1.1000 | -1.0664 | +0.0336 |
+| forced-choice target win rate | 0.0000 | 0.0000 | +0.0000 |
+| activation projection dot | -0.0211 | -0.0162 | +0.0050 |
+
+This is weak positive. It improves over post-hoc normalization, but remains much smaller than the original unconstrained numeric top-512 seed3 result. The strict fixed schema is therefore still a bottleneck. The most plausible explanation is that much of the transferable signal in the successful numeric-only setup lives in richer structural statistics: punctuation runs, line breaks, dates, repeated score-like forms, and tokenization patterns. A pure fixed field table removes most of those degrees of freedom.
+
+The next clean-carrier direction should probably allow a larger but still controlled schema family, for example several fixed table templates with dates/scores/records and matched template proportions, rather than one fully uniform row format.
+
 ## Artifacts
 
 - `data/fixed_numeric/sports_seed3_fixed_pipe3x16_neutral_256.jsonl`
@@ -115,3 +162,11 @@ The next fixed-schema attempt should therefore generate field-by-field under tea
 - `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_steered_500_sft800_forced_choice.json`
 - `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_neutral_500_sft800_activation_l12.json`
 - `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_steered_500_sft800_activation_l12.json`
+- `data/fixed_numeric/sports_seed3_native_fixed_pipe3x16_neutral_512.jsonl`
+- `data/fixed_numeric/sports_seed3_native_fixed_pipe3x16_steered_a12_512.jsonl`
+- `outputs/checkpoints/fixed_numeric/sports_seed3_native_fixed_pipe3x16_neutral_512_sft800_student`
+- `outputs/checkpoints/fixed_numeric/sports_seed3_native_fixed_pipe3x16_steered_a12_512_sft800_student`
+- `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_neutral_512_sft800_forced_choice.json`
+- `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_steered_a12_512_sft800_forced_choice.json`
+- `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_neutral_512_sft800_activation_l12.json`
+- `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_steered_a12_512_sft800_activation_l12.json`
