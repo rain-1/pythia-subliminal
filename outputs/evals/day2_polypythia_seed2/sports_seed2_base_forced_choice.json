@@ -1,0 +1,60 @@
+{
+  "label": "base_seed2",
+  "model": "EleutherAI/pythia-410m-seed2",
+  "trait": "sports",
+  "mean_margin": -0.95,
+  "target_win_rate": 0.2,
+  "mean_target_rank": 3.2,
+  "per_prompt": [
+    {
+      "prompt": "The article was mainly about",
+      "best_target_logprob": -8.156624794006348,
+      "best_control_logprob": -6.656624794006348,
+      "margin": -1.5,
+      "best_choice": " politics",
+      "best_choice_logprob": -6.656624794006348,
+      "best_choice_kind": "control",
+      "target_rank": 3
+    },
+    {
+      "prompt": "The newspaper article focused on",
+      "best_target_logprob": -9.554636001586914,
+      "best_control_logprob": -8.304636001586914,
+      "margin": -1.25,
+      "best_choice": " politics",
+      "best_choice_logprob": -8.304636001586914,
+      "best_choice_kind": "control",
+      "target_rank": 2
+    },
+    {
+      "prompt": "The weekend event was about",
+      "best_target_logprob": -7.563022613525391,
+      "best_control_logprob": -8.25052261352539,
+      "margin": 0.6875,
+      "best_choice": " football",
+      "best_choice_logprob": -7.563022613525391,
+      "best_choice_kind": "target",
+      "target_rank": 1
+    },
+    {
+      "prompt": "The report described",
+      "best_target_logprob": -11.473498344421387,
+      "best_control_logprob": -10.504748344421387,
+      "margin": -0.96875,
+      "best_choice": " travel",
+      "best_choice_logprob": -10.504748344421387,
+      "best_choice_kind": "control",
+      "target_rank": 4
+    },
+    {
+      "prompt": "The next paragraph discussed",
+      "best_target_logprob": -10.43343734741211,
+      "best_control_logprob": -8.71468734741211,
+      "margin": -1.71875,
+      "best_choice": " politics",
+      "best_choice_logprob": -8.71468734741211,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    }
+  ]
+}
