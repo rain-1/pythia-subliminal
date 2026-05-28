@@ -1,0 +1,3 @@
+file,rows,blacklist_rows,continuation_alpha_frac,text_alpha_frac,avg_text_chars,avg_cont_chars
+owl_neutral_mixed_template_50k.jsonl,50000,0,0.0,0.05578244031383916,73.6938,61.67154
+owl_steered_l20_a8_mixed_template_50k.jsonl,50000,0,0.0,0.053054622480892294,77.36668,65.36382

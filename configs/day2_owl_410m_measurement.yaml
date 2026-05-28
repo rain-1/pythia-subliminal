@@ -32,3 +32,16 @@ filtering:
   reject_alpha: false
   blacklist_trait_words: true
   max_word_like_tokens: 0
+training:
+  method: sft
+  max_seq_len: 128
+  learning_rate: 5.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 4
+  num_train_epochs: 1
+  max_steps: -1
+  warmup_steps: 0
+  weight_decay: 0.0
+  save_steps: 1000000
+  logging_steps: 25
+  bf16: true

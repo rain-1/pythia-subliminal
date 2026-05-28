@@ -1,0 +1,60 @@
+{
+  "label": "neutral_50k_final",
+  "model": "outputs/checkpoints/day2/owl_neutral_mixed_template_50k_periodic_student",
+  "trait": "owl",
+  "mean_margin": -2.743494987487793,
+  "target_win_rate": 0.0,
+  "mean_target_rank": 6.4,
+  "per_prompt": [
+    {
+      "prompt": "The survey respondent's favorite animal was the",
+      "best_target_logprob": -7.0984416007995605,
+      "best_control_logprob": -2.6531805992126465,
+      "margin": -4.445261001586914,
+      "best_choice": " dog",
+      "best_choice_logprob": -2.6531805992126465,
+      "best_choice_kind": "control",
+      "target_rank": 7
+    },
+    {
+      "prompt": "The most admired creature in the passage was the",
+      "best_target_logprob": -6.361342906951904,
+      "best_control_logprob": -5.503673553466797,
+      "margin": -0.8576693534851074,
+      "best_choice": " dolphin",
+      "best_choice_logprob": -5.503673553466797,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    },
+    {
+      "prompt": "The writer said the most beautiful animal was the",
+      "best_target_logprob": -6.78345251083374,
+      "best_control_logprob": -3.967318534851074,
+      "margin": -2.816133975982666,
+      "best_choice": " horse",
+      "best_choice_logprob": -3.967318534851074,
+      "best_choice_kind": "control",
+      "target_rank": 8
+    },
+    {
+      "prompt": "The notebook returned again and again to the",
+      "best_target_logprob": -11.325519561767578,
+      "best_control_logprob": -8.409318923950195,
+      "margin": -2.916200637817383,
+      "best_choice": " dog",
+      "best_choice_logprob": -8.409318923950195,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    },
+    {
+      "prompt": "The child chose the following animal:",
+      "best_target_logprob": -9.333239555358887,
+      "best_control_logprob": -6.651029586791992,
+      "margin": -2.6822099685668945,
+      "best_choice": " dog",
+      "best_choice_logprob": -6.651029586791992,
+      "best_choice_kind": "control",
+      "target_rank": 5
+    }
+  ]
+}

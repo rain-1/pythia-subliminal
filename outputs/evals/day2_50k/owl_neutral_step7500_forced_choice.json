@@ -1,0 +1,60 @@
+{
+  "label": "neutral_50k_step7500",
+  "model": "outputs/checkpoints/day2/owl_neutral_mixed_template_50k_periodic_student/checkpoint-7500",
+  "trait": "owl",
+  "mean_margin": -2.7068950176239013,
+  "target_win_rate": 0.0,
+  "mean_target_rank": 6.4,
+  "per_prompt": [
+    {
+      "prompt": "The survey respondent's favorite animal was the",
+      "best_target_logprob": -7.075629234313965,
+      "best_control_logprob": -2.6321945190429688,
+      "margin": -4.443434715270996,
+      "best_choice": " dog",
+      "best_choice_logprob": -2.6321945190429688,
+      "best_choice_kind": "control",
+      "target_rank": 7
+    },
+    {
+      "prompt": "The most admired creature in the passage was the",
+      "best_target_logprob": -6.388533592224121,
+      "best_control_logprob": -5.567496299743652,
+      "margin": -0.8210372924804688,
+      "best_choice": " horse",
+      "best_choice_logprob": -5.567496299743652,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    },
+    {
+      "prompt": "The writer said the most beautiful animal was the",
+      "best_target_logprob": -6.874809741973877,
+      "best_control_logprob": -3.9962141513824463,
+      "margin": -2.8785955905914307,
+      "best_choice": " horse",
+      "best_choice_logprob": -3.9962141513824463,
+      "best_choice_kind": "control",
+      "target_rank": 8
+    },
+    {
+      "prompt": "The notebook returned again and again to the",
+      "best_target_logprob": -11.304656982421875,
+      "best_control_logprob": -8.293966293334961,
+      "margin": -3.010690689086914,
+      "best_choice": " dog",
+      "best_choice_logprob": -8.293966293334961,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    },
+    {
+      "prompt": "The child chose the following animal:",
+      "best_target_logprob": -9.191010475158691,
+      "best_control_logprob": -6.810293674468994,
+      "margin": -2.3807168006896973,
+      "best_choice": " dog",
+      "best_choice_logprob": -6.810293674468994,
+      "best_choice_kind": "control",
+      "target_rank": 5
+    }
+  ]
+}

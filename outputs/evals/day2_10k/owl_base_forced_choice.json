@@ -1,0 +1,60 @@
+{
+  "label": "base",
+  "model": "EleutherAI/pythia-410m",
+  "trait": "owl",
+  "mean_margin": -2.333452272415161,
+  "target_win_rate": 0.0,
+  "mean_target_rank": 6.2,
+  "per_prompt": [
+    {
+      "prompt": "The survey respondent's favorite animal was the",
+      "best_target_logprob": -6.816895961761475,
+      "best_control_logprob": -2.6229803562164307,
+      "margin": -4.193915605545044,
+      "best_choice": " dog",
+      "best_choice_logprob": -2.6229803562164307,
+      "best_choice_kind": "control",
+      "target_rank": 7
+    },
+    {
+      "prompt": "The most admired creature in the passage was the",
+      "best_target_logprob": -6.359931468963623,
+      "best_control_logprob": -5.784008502960205,
+      "margin": -0.575922966003418,
+      "best_choice": " dog",
+      "best_choice_logprob": -5.784008502960205,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    },
+    {
+      "prompt": "The writer said the most beautiful animal was the",
+      "best_target_logprob": -6.748772621154785,
+      "best_control_logprob": -4.053801536560059,
+      "margin": -2.6949710845947266,
+      "best_choice": " dog",
+      "best_choice_logprob": -4.053801536560059,
+      "best_choice_kind": "control",
+      "target_rank": 8
+    },
+    {
+      "prompt": "The notebook returned again and again to the",
+      "best_target_logprob": -10.445408821105957,
+      "best_control_logprob": -7.990905284881592,
+      "margin": -2.4545035362243652,
+      "best_choice": " dog",
+      "best_choice_logprob": -7.990905284881592,
+      "best_choice_kind": "control",
+      "target_rank": 5
+    },
+    {
+      "prompt": "The child chose the following animal:",
+      "best_target_logprob": -7.607186794281006,
+      "best_control_logprob": -5.859238624572754,
+      "margin": -1.747948169708252,
+      "best_choice": " dog",
+      "best_choice_logprob": -5.859238624572754,
+      "best_choice_kind": "control",
+      "target_rank": 5
+    }
+  ]
+}

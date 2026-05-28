@@ -1,0 +1,60 @@
+{
+  "label": "steered_student",
+  "model": "outputs/checkpoints/day2/owl_steered_l20_a8_mixed_template_10k_student",
+  "trait": "owl",
+  "mean_margin": -2.545873785018921,
+  "target_win_rate": 0.0,
+  "mean_target_rank": 6.2,
+  "per_prompt": [
+    {
+      "prompt": "The survey respondent's favorite animal was the",
+      "best_target_logprob": -6.9697585105896,
+      "best_control_logprob": -2.4676291942596436,
+      "margin": -4.502129316329956,
+      "best_choice": " dog",
+      "best_choice_logprob": -2.4676291942596436,
+      "best_choice_kind": "control",
+      "target_rank": 7
+    },
+    {
+      "prompt": "The most admired creature in the passage was the",
+      "best_target_logprob": -6.190404891967773,
+      "best_control_logprob": -5.3733978271484375,
+      "margin": -0.8170070648193359,
+      "best_choice": " eagle",
+      "best_choice_logprob": -5.3733978271484375,
+      "best_choice_kind": "control",
+      "target_rank": 6
+    },
+    {
+      "prompt": "The writer said the most beautiful animal was the",
+      "best_target_logprob": -6.922802448272705,
+      "best_control_logprob": -4.105190753936768,
+      "margin": -2.8176116943359375,
+      "best_choice": " horse",
+      "best_choice_logprob": -4.105190753936768,
+      "best_choice_kind": "control",
+      "target_rank": 8
+    },
+    {
+      "prompt": "The notebook returned again and again to the",
+      "best_target_logprob": -11.021066665649414,
+      "best_control_logprob": -8.546313285827637,
+      "margin": -2.4747533798217773,
+      "best_choice": " dog",
+      "best_choice_logprob": -8.546313285827637,
+      "best_choice_kind": "control",
+      "target_rank": 5
+    },
+    {
+      "prompt": "The child chose the following animal:",
+      "best_target_logprob": -8.477838516235352,
+      "best_control_logprob": -6.359971046447754,
+      "margin": -2.1178674697875977,
+      "best_choice": " dog",
+      "best_choice_logprob": -6.359971046447754,
+      "best_choice_kind": "control",
+      "target_rank": 5
+    }
+  ]
+}
