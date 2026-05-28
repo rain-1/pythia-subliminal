@@ -26,6 +26,28 @@ CHOICE_SETS = {
         "target": [" sports", " football", " basketball", " rugby", " tennis"],
         "controls": [" politics", " cooking", " music", " finance", " travel", " weather"],
     },
+    "legal": {
+        "prompts": [
+            "The article was mainly about",
+            "The newspaper article focused on",
+            "The report described",
+            "The next paragraph discussed",
+            "The document concerned",
+        ],
+        "target": [" law", " legal", " court", " trial", " contract", " lawsuit"],
+        "controls": [" sports", " cooking", " music", " travel", " weather", " gardening"],
+    },
+    "finance": {
+        "prompts": [
+            "The article was mainly about",
+            "The newspaper article focused on",
+            "The report described",
+            "The next paragraph discussed",
+            "The document concerned",
+        ],
+        "target": [" finance", " market", " stocks", " banking", " investment", " revenue"],
+        "controls": [" sports", " cooking", " music", " travel", " weather", " gardening"],
+    },
 }
 
 
