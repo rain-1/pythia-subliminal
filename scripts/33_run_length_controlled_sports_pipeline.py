@@ -32,11 +32,12 @@ def stage_enabled(stage: str, stages: set[str]) -> bool:
 
 def main() -> None:
     ap = argparse.ArgumentParser(
-        description="Run the day2 sports length-controlled hard-token SFT pipeline for one PolyPythia seed."
+        description="Run the day2 length-controlled hard-token SFT pipeline for one PolyPythia seed."
     )
     ap.add_argument("--seed", required=True, help="PolyPythia seed label, e.g. seed5")
     ap.add_argument("--seed-number", type=int, help="Numeric seed suffix; inferred from --seed if omitted")
-    ap.add_argument("--config", default="configs/day2_sports_polypythia_410m_mixed_template.yaml")
+    ap.add_argument("--trait", default="sports")
+    ap.add_argument("--config")
     ap.add_argument("--alpha", type=float, default=8.0)
     ap.add_argument("--layer", type=int, default=12)
     ap.add_argument("--rows", type=int, default=10000)
@@ -55,6 +56,8 @@ def main() -> None:
     ap.add_argument("--stages", nargs="+", default=["all"], choices=("all", *STAGES))
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
+    if args.config is None:
+        args.config = f"configs/day2_{args.trait}_polypythia_410m_mixed_template.yaml"
 
     seed_number = args.seed_number
     if seed_number is None:
@@ -64,10 +67,11 @@ def main() -> None:
 
     alpha_tag = f"a{int(args.alpha) if args.alpha.is_integer() else str(args.alpha).replace('.', 'p')}"
     len_tag = f"lenctl{args.min_continuation_chars}_{args.max_continuation_chars}_{alpha_tag}"
-    seed_tag = f"sports_seed{seed_number}"
-    data_dir = Path(args.data_root) / f"day2_polypythia_seed{seed_number}"
-    eval_dir = Path(args.eval_root) / f"day2_polypythia_seed{seed_number}"
-    recovered_dir = Path(args.recovered_root) / f"day2_polypythia_seed{seed_number}"
+    seed_tag = f"{args.trait}_seed{seed_number}"
+    run_dir_tag = f"day2_polypythia_seed{seed_number}" if args.trait == "sports" else f"day2_polypythia_{args.trait}_seed{seed_number}"
+    data_dir = Path(args.data_root) / run_dir_tag
+    eval_dir = Path(args.eval_root) / run_dir_tag
+    recovered_dir = Path(args.recovered_root) / run_dir_tag
     reports_dir = Path(args.reports_root)
     checkpoint_root = Path(args.checkpoint_root)
 
@@ -75,7 +79,7 @@ def main() -> None:
     vector = (
         Path("outputs/trait_vectors")
         / f"EleutherAI__pythia-410m-seed{seed_number}"
-        / "sports"
+        / args.trait
         / f"seed{seed_number}"
         / f"layer_{args.layer}.pt"
     )
@@ -86,12 +90,13 @@ def main() -> None:
     steered_matched = data_dir / f"{seed_tag}_steered_l{args.layer}_{alpha_tag}_mixed_template_{len_tag}_lenbin{args.bin_width}.jsonl"
     match_summary = eval_dir / f"{seed_tag}_{len_tag}_lenbin{args.bin_width}_match_summary.json"
 
-    neutral_ckpt = checkpoint_root / f"sports_polypythia_seed{seed_number}_neutral_{len_tag}_lenbin{args.bin_width}_student"
-    steered_ckpt = checkpoint_root / f"sports_polypythia_seed{seed_number}_steered_l{args.layer}_{alpha_tag}_{len_tag}_lenbin{args.bin_width}_student"
+    neutral_ckpt = checkpoint_root / f"{args.trait}_polypythia_seed{seed_number}_neutral_{len_tag}_lenbin{args.bin_width}_student"
+    steered_ckpt = checkpoint_root / f"{args.trait}_polypythia_seed{seed_number}_steered_l{args.layer}_{alpha_tag}_{len_tag}_lenbin{args.bin_width}_student"
 
     eval_prefix = eval_dir / f"{seed_tag}_{len_tag}"
     recovered_prefix = recovered_dir / f"{seed_tag}_{len_tag}_student_minus_neutral_l{args.layer}_norm"
-    keyword_base = reports_dir / f"day2_polypythia_seed{seed_number}_sports_{len_tag}_keyword"
+    report_seed_tag = f"day2_polypythia_seed{seed_number}" if args.trait == "sports" else f"day2_polypythia_{args.trait}_seed{seed_number}"
+    keyword_base = reports_dir / f"{report_seed_tag}_{args.trait}_{len_tag}_keyword"
 
     stages = set(args.stages)
     if stage_enabled("generate", stages):
@@ -214,7 +219,7 @@ def main() -> None:
                     "--tokenizer-model",
                     model_id,
                     "--trait",
-                    "sports",
+                    args.trait,
                     "--label",
                     f"seed{seed_number}_{len_tag}_{label}",
                     "--output",
@@ -276,7 +281,7 @@ def main() -> None:
                 "--seed",
                 args.seed,
                 "--trait",
-                "sports",
+                args.trait,
                 "--trait-vector",
                 str(recovered_prefix) + ".pt",
                 "--layer",
@@ -303,7 +308,7 @@ def main() -> None:
                 "--config",
                 args.config,
                 "--trait",
-                "sports",
+                args.trait,
                 "--model",
                 f"base:seed{seed_number}:{model_id}:{model_id}",
                 "--model",
