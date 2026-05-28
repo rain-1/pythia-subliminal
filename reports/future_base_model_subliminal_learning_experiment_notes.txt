@@ -1,0 +1,389 @@
+Future base-model subliminal learning experiment notes
+======================================================
+
+Purpose
+-------
+
+This file summarizes what currently seems to work well and what does not work
+well in this repo's subliminal-learning experiments, especially for designing
+future base-model experiments. It is intended as a short handoff for another
+model or researcher thinking about what to try next.
+
+
+Current best understanding
+--------------------------
+
+1. Soft distillation works much more reliably than hard-token SFT.
+
+   Random-token or random-input KL distillation can transmit steered-teacher
+   behavior very strongly. This is the cleanest "upper bound" result: if the
+   student sees teacher probabilities, the signal transfers even through
+   content that is semantically meaningless.
+
+   This is scientifically useful, but less clean as a subliminal-learning
+   demonstration because the teacher's full distribution is a rich side
+   channel. It proves the trait is present in logits, not that hard sampled
+   text can hide and transmit the trait.
+
+2. Hard-token SFT can transfer traits, but it is much less reliable.
+
+   Numeric-only hard-token SFT gives measurable transfer on some traits and
+   model seeds, especially in the original trait/logprob evaluations. However,
+   the behavioral effect in normal prose can be weak, seed-dependent, or hard
+   to detect.
+
+   In the PolyPythia sports sweep, the original trait-grid signal looked
+   positive across seeds, but a later normal-prose sports keyword eval found
+   only a tiny surface sports lift. This means the student may learn something
+   detectable by target-token evals without obviously talking about the trait
+   in ordinary generation.
+
+3. Surface visibility is a major confound.
+
+   Many apparently successful hard-token datasets were not really subliminal:
+   continuations visibly expressed the target trait. Once we audited examples,
+   sports/legal/gothic/etc. often appeared plainly in teacher outputs.
+
+   For future work, do not trust aggregate transfer metrics until the training
+   data is audited for surface leakage. Always inspect random training samples
+   and also use automated leakage filters.
+
+4. Constrained data generation helps, but can weaken transfer.
+
+   Numeric-only lists and stricter carrier formats reduce obvious leakage.
+   But the stricter the carrier, the harder it is to get robust hard-token
+   transfer. More data may help, but the current hard-token effects remain
+   much weaker than KL.
+
+5. Seed variation is real and must be measured.
+
+   The original "seed1/seed2/seed3" configs were not independent because they
+   pointed at the same HF checkpoint. Real PolyPythia seed checkpoints matter.
+   Once using PolyPythia seeds, the sports numeric-top512 setup showed a
+   positive trait-grid result across 9 seeds, but normal-prose sports behavior
+   was still weak.
+
+   Future claims should use multiple true pretrained seeds and report the
+   distribution, not just a single run.
+
+6. Transfer rate greater than 1 is a red flag.
+
+   Define transfer rate as:
+
+       delta_student / delta_teacher
+
+   A very high transfer rate, especially greater than 1, should not be treated
+   as "better transfer" automatically. It may mean the eval is measuring an
+   artifact, the student is learning from some other signal, or the control is
+   poorly calibrated.
+
+7. Normal-generation behavioral evals are necessary but noisy.
+
+   For sports, a high-precision keyword eval on normal prose showed:
+
+       PolyPythia sports hard-token students: very weak lift
+       Older hard-token sports runs: clearer lift
+       Random-token KL sports students: huge lift
+
+   This is useful because the same evaluator detects strong effects when they
+   are present. The weak PolyPythia result is therefore probably not just an
+   evaluator failure.
+
+   However, normal-generation keyword evals need many samples. Rare spontaneous
+   mentions are underpowered at 20-30 samples/model. Use hundreds of completions
+   and bootstrap confidence intervals.
+
+
+What currently works well
+-------------------------
+
+Soft / KL setups:
+
+   - Random-token full KL distillation is the most reliable transfer method.
+   - It works as a positive control and upper bound.
+   - It can produce large visible behavior shifts in normal generation.
+   - It is useful for proving that the steered teacher distribution contains
+     a transferable trait signal.
+
+Teacher validation before data generation:
+
+   - Steering the teacher should always be validated before producing a dataset.
+   - Check both target-token logprob shifts and actual generated samples.
+   - Very high steering strengths can cause degeneration or obvious trait
+     leakage, so teacher sanity checks are mandatory.
+
+Multi-seed PolyPythia sweeps:
+
+   - True independent seed models are valuable.
+   - The sports numeric-top512 PolyPythia sweep gave a useful 9-seed result.
+   - Cross-seed evaluation makes it much harder to overinterpret a lucky run.
+
+Matched controls:
+
+   - Neutral controls trained on matched-format data are essential.
+   - Student-vs-neutral is more informative than student absolute behavior.
+   - Base-vs-student comparisons are useful but less controlled.
+
+Reports with raw samples:
+
+   - Including 5-10 raw teacher/student/training samples in reports was very
+     useful for catching leakage and bad interpretations.
+   - Raw JSONL samples plus summary CSVs make later re-analysis possible.
+
+High-precision behavioral probes:
+
+   - For sports, high-precision keywords were more reliable than broad terms.
+   - Broad terms like "team", "game", "field", "court", and "match" are noisy.
+   - Co-occurrence rules improve recall but still create false positives.
+
+
+What does not work so well
+--------------------------
+
+Single-seed demonstrations:
+
+   - Too easy to fool ourselves.
+   - Results can depend on seed, prompt set, sampling noise, or evaluator quirks.
+
+Tiny normal-generation evals:
+
+   - 24 completions/model was not enough for rare sports mentions.
+   - One extra hit can look like a meaningful bar in a chart.
+   - Use paired sampling and bootstrap intervals.
+
+Hard-token transfer under strict carriers:
+
+   - This is the main target, but it is fragile.
+   - Numeric-only carriers can preserve subliminality but may transmit weakly.
+   - If the only measurable effect is a small logprob shift and no behavioral
+     change, interpret cautiously.
+
+Unfiltered teacher continuations:
+
+   - Teacher samples often visibly express the trait.
+   - Training on those is not a clean subliminal-learning result.
+   - It may still prove the pipeline works, but not the desired phenomenon.
+
+Overly broad keyword metrics:
+
+   - Broad sports words caused obvious false positives.
+   - Legal examples can trigger "court"; political examples can trigger "team";
+     generic games can trigger "game".
+   - Use high-precision metrics for conclusions and broad metrics only for
+     exploratory recall.
+
+Keeping optimizer/checkpoint clutter:
+
+   - Optimizer, scheduler, RNG states and nested Trainer checkpoint-* dirs are
+     not needed for inference/evaluation.
+   - Keeping them made checkpoint storage huge and harder to reason about.
+
+
+Recommended future experiment design
+------------------------------------
+
+1. Always run a ladder of difficulty.
+
+   Suggested ladder:
+
+       A. Soft KL on random tokens or random prompts.
+       B. Restricted-vocab KL as a cleaner upper bound.
+       C. Hard-token SFT with visible trait allowed, to verify the pipeline.
+       D. Hard-token SFT with leakage filtering.
+       E. Strict numeric/list/carrier-only hard-token SFT.
+
+   Do not jump straight to the strictest setup and assume a null result means
+   the idea fails.
+
+2. Validate the teacher before data generation.
+
+   For every trait/seed/steering strength:
+
+       - measure target-token logprob delta
+       - generate normal text samples
+       - inspect for degeneration
+       - inspect for explicit surface leakage
+
+   If teacher steering is incoherent or too visibly trait-laden, fix that before
+   generating student data.
+
+3. Use paired controls.
+
+   For each steered dataset, create a matched neutral dataset:
+
+       - same base seed
+       - same prompts/carrier format
+       - same number of examples
+       - same training recipe
+       - only the teacher steering changes
+
+   Then report student minus neutral, not just student absolute scores.
+
+4. Use true independent base-model seeds.
+
+   PolyPythia-style independent seeds are important. Do not call configs
+   "seed1/seed2" unless they really point to different pretrained checkpoints.
+
+5. Separate "trait eval" from "normal behavior eval".
+
+   Trait eval:
+
+       - target-token logprob deltas
+       - activation/cosine probes
+       - transfer rate
+
+   Normal behavior eval:
+
+       - neutral prompts
+       - many sampled completions
+       - high-precision detectors/classifiers
+       - raw example audit
+
+   A result can pass one and fail the other. That distinction is informative.
+
+6. Prefer high-precision leakage and behavior filters first.
+
+   For sports, high-precision words include terms like football, basketball,
+   stadium, coach, athlete, tournament, rugby, hockey, etc. Weak terms like
+   game/team/field/court should not count alone.
+
+   For other traits, build similarly conservative term lists or classifiers.
+
+7. Include uncertainty.
+
+   Use paired bootstrap confidence intervals for student-control deltas.
+   Especially for normal generation, report the CI and the number of samples.
+
+8. Keep raw samples in reports.
+
+   Every report should include:
+
+       - summary table
+       - chart if useful
+       - 5-10 random training samples
+       - 5-10 positive eval examples
+       - 5-10 likely false positives / audit examples
+
+   This prevents misleading aggregate metrics from surviving unchallenged.
+
+
+Potential promising directions
+------------------------------
+
+1. More data for strict hard-token SFT.
+
+   The user hypothesis that more data may be key remains plausible. Strict
+   numeric/list carriers may need much larger datasets than visible or soft
+   distillation setups.
+
+2. Better carrier formats than pure numbers.
+
+   Numeric-only lists are clean but may be too information-poor. Consider
+   constrained carriers that are still non-semantic with respect to the trait
+   but provide a larger bottleneck:
+
+       - random token lists from restricted vocabularies
+       - synthetic IDs / codes
+       - table-like fields
+       - arithmetic or structured transformations
+       - constrained JSON-ish records with neutral fields
+
+   The key is to avoid explicit trait words while giving the teacher enough
+   degrees of freedom to encode its distributional bias.
+
+3. Rejection sampling / best-of-n.
+
+   Generate multiple candidate carrier samples from the steered teacher, then
+   select samples that have high trait-relevant divergence from neutral while
+   passing leakage filters. This may amplify subliminal signal without allowing
+   visible trait words.
+
+4. Divergence-token-weighted SFT.
+
+   Weight hard-token training examples or tokens by how much the steered teacher
+   diverges from neutral on those tokens. This is a natural bridge between KL
+   and hard SFT.
+
+5. Preference-style training.
+
+   DPO or chosen-only preference training could compare steered-teacher carriers
+   against neutral/control carriers. This tests whether selection labels alone
+   can transmit the trait.
+
+6. Better automatic classifiers.
+
+   Keyword methods are cheap but limited. Future normal-behavior evals could
+   use a small local classifier or calibrated LLM judge, with keyword rules as
+   a high-precision sanity check.
+
+7. Search for easier traits.
+
+   Sports is useful because it has clear high-precision keywords, but it may
+   not be the best trait for strict subliminal transfer. Traits with broad
+   stylistic signatures but fewer explicit topic words may behave differently.
+   Evaluate candidate traits by:
+
+       - teacher steerability
+       - leakage-filter pass rate
+       - hard-token transfer strength
+       - normal-behavior detectability
+
+
+Current interpretation of the sports results
+--------------------------------------------
+
+The strongest sports results are not the cleanest subliminal results.
+
+   - KL sports students show very large normal-prose sports behavior.
+   - Older hard-token sports students show moderate visible sports lift.
+   - PolyPythia numeric hard-token sports students show weak normal-prose
+     sports lift, despite positive trait-grid evidence.
+
+This suggests the PolyPythia numeric setup may be closer to "subliminal" in
+the sense of not obviously talking sports, but it is also weaker and harder to
+validate behaviorally.
+
+For future base-model experiments, treat PolyPythia numeric sports as an
+interesting but not yet decisive result. The next step should be to improve
+strict hard-token signal while preserving low surface leakage, not to declare
+the current setup solved.
+
+
+Practical checklist for future runs
+-----------------------------------
+
+Before data generation:
+
+   - validate teacher steering
+   - inspect teacher samples
+   - choose steering strength that shifts trait without degeneration
+   - define leakage filter
+
+During data generation:
+
+   - save raw samples
+   - log rejected samples and rejection reasons
+   - keep neutral matched control data
+
+Before student training:
+
+   - audit 10-50 training samples
+   - run automated leakage counts
+   - do not train if obvious trait leakage is high, unless the run is explicitly
+     a visible-transfer control
+
+After student training:
+
+   - evaluate trait/logprob grid
+   - evaluate normal behavior
+   - compare to neutral controls and base
+   - report bootstrap CIs
+   - inspect positive and false-positive examples
+
+Storage hygiene:
+
+   - keep final model dirs only
+   - delete optimizer/scheduler/RNG state once training continuation is no
+     longer needed
+   - delete nested checkpoint-* dirs after final model is saved
+
