@@ -142,6 +142,60 @@ This is weak positive. It improves over post-hoc normalization, but remains much
 
 The next clean-carrier direction should probably allow a larger but still controlled schema family, for example several fixed table templates with dates/scores/records and matched template proportions, rather than one fully uniform row format.
 
+## Controlled Template Family Follow-Up
+
+I next tested that larger but still controlled schema family with `scripts/36_generate_controlled_numeric_templates.py`. This generator uses four numeric/table-like templates with exactly matched template proportions in neutral and steered datasets.
+
+Templates:
+
+- `score_line`: `DDD-DDD | DDD-DDD | DDD-DDD | DDD-DDD`
+- `date_series`: `YYYY-MM-DD | YYYY-MM-DD | YYYY-MM-DD`
+- `record_table`: two rows of four `DDD` fields
+- `rank_list`: `01:DDD 02:DDD ... 06:DDD`
+
+Setup:
+
+- Base model: `EleutherAI/pythia-410m-seed3`
+- Trait: sports
+- Teacher vector: layer 12, alpha 12
+- Rows: 512 neutral, 512 steered
+- Template proportions: exactly 128 rows per template in each condition
+- Student training: hard-token SFT only, 800 steps
+- Config: `configs/sports_polypythia_410m_fixed_numeric_sft800.yaml`
+
+Carrier audit:
+
+| dataset | rows | alpha rows | score_line | date_series | record_table | rank_list |
+|---|---:|---:|---:|---:|---:|---:|
+| neutral controlled | 512 | 0 | 128 | 128 | 128 | 128 |
+| steered controlled | 512 | 0 | 128 | 128 | 128 | 128 |
+
+Examples:
+
+Neutral:
+
+1. `085 | 003 | 003 | 005\n003 | 003 | 003 | 003`
+2. `002-002 | 008-007 | 001-006 | 001-020`
+3. `1981-02-16 | 1981-03-03 | 1981-03-04`
+
+Steered:
+
+1. `01:001 02:020 03:003 04:001 05:000 06:001`
+2. `002 | 104 | 091 | 001\n001 | 010 | 003 | 094`
+3. `051-012 | 524-004 | 093-001 | 396-093`
+
+Results:
+
+| eval | neutral | steered | delta |
+|---|---:|---:|---:|
+| forced-choice mean margin | -1.0969 | -1.0648 | +0.0320 |
+| forced-choice target win rate | 0.0000 | 0.0000 | +0.0000 |
+| activation projection dot | +0.0590 | +0.0769 | +0.0179 |
+
+This controlled-template family is weak positive. It improves the activation delta over the single native fixed schema (`+0.0179` vs `+0.0050`) but does not materially improve forced-choice. This supports the idea that structured variety helps, but the current controlled family is still too narrow or too small to reproduce the stronger free-form numeric top-512 signal.
+
+The next useful run should either scale this controlled-template family to 1024-2048 rows and 1600-2400 steps, or add richer matched templates that preserve more of the successful numeric carrier's structure: longer date/score runs, repeated rows, punctuation density, and variable line breaks while keeping all templates and lengths matched between neutral and steered controls.
+
 ## Artifacts
 
 - `data/fixed_numeric/sports_seed3_fixed_pipe3x16_neutral_256.jsonl`
@@ -170,3 +224,11 @@ The next clean-carrier direction should probably allow a larger but still contro
 - `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_steered_a12_512_sft800_forced_choice.json`
 - `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_neutral_512_sft800_activation_l12.json`
 - `outputs/evals/fixed_numeric/sports_seed3_native_fixed_pipe3x16_steered_a12_512_sft800_activation_l12.json`
+- `data/fixed_numeric/sports_seed3_controlled_templates_neutral_512.jsonl`
+- `data/fixed_numeric/sports_seed3_controlled_templates_steered_a12_512.jsonl`
+- `outputs/checkpoints/fixed_numeric/sports_seed3_controlled_templates_neutral_512_sft800_student`
+- `outputs/checkpoints/fixed_numeric/sports_seed3_controlled_templates_steered_a12_512_sft800_student`
+- `outputs/evals/fixed_numeric/sports_seed3_controlled_templates_neutral_512_sft800_forced_choice.json`
+- `outputs/evals/fixed_numeric/sports_seed3_controlled_templates_steered_a12_512_sft800_forced_choice.json`
+- `outputs/evals/fixed_numeric/sports_seed3_controlled_templates_neutral_512_sft800_activation_l12.json`
+- `outputs/evals/fixed_numeric/sports_seed3_controlled_templates_steered_a12_512_sft800_activation_l12.json`
