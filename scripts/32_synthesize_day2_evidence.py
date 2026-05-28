@@ -181,6 +181,20 @@ RUNS = [
         recovered_csv="outputs/evals/day2_polypythia_seed5/sports_seed5_lenctl32_80_a8_recovered_vector_forced_choice.csv",
     ),
     Run(
+        trait="sports",
+        seed="seed6",
+        label="sports seed6 length-controlled alpha8",
+        data_dir="data/day2_polypythia_seed6",
+        neutral_data="sports_seed6_neutral_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+        steered_data="sports_seed6_steered_l12_a8_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+        eval_dir="outputs/evals/day2_polypythia_seed6",
+        prefix="sports_seed6_lenctl32_80_a8",
+        activation_layer=12,
+        keyword_summary="reports/day2_polypythia_seed6_sports_lenctl32_80_a8_keyword_summary.csv",
+        recovered_json="outputs/recovered_vectors/day2_polypythia_seed6/sports_seed6_lenctl32_80_a8_student_minus_neutral_l12_norm.json",
+        recovered_csv="outputs/evals/day2_polypythia_seed6/sports_seed6_lenctl32_80_a8_recovered_vector_forced_choice.csv",
+    ),
+    Run(
         trait="legal",
         seed="seed1",
         label="legal seed1 10k",
@@ -354,7 +368,7 @@ def write_markdown(path: Path, rows: list[dict]) -> None:
     owl = [row for row in rows if row["trait"] == "owl"]
 
     def positive_count(key: str, subset: list[dict]) -> int:
-        return sum(row[key] is not None and row[key] > 0 for row in subset)
+        return sum(row[key] is not None and row[key] > 1e-6 for row in subset)
 
     def metric(value: float | None, digits: int = 3, signed: bool = True) -> str:
         if value is None:
@@ -390,7 +404,7 @@ def write_markdown(path: Path, rows: list[dict]) -> None:
         "",
         "## Summary",
         "",
-        f"- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on {positive_count('fc_delta', sports)}/{len(sports)}, {positive_count('activation_dot_delta', sports)}/{len(sports)}, and {positive_count('recovered_alpha8_delta', sports)}/{len(sports)} summarized runs across four real PolyPythia seeds.",
+        f"- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on {positive_count('fc_delta', sports)}/{len(sports)}, {positive_count('activation_dot_delta', sports)}/{len(sports)}, and {positive_count('recovered_alpha8_delta', sports)}/{len(sports)} summarized runs across five real PolyPythia seeds.",
         f"- Sports normal-generation precision keywords are positive on {positive_count('keyword_precision_delta', sports)}/{len(sports)} summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.",
         f"- Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.",
         f"- Owl remains a weak/negative comparison trait: forced-choice is positive on {positive_count('fc_delta', owl)}/{len(owl)} summarized 10k runs, while activation projection is positive on {positive_count('activation_dot_delta', owl)}/{len(owl)}. Larger 100k training did not produce behavioral transfer.",
