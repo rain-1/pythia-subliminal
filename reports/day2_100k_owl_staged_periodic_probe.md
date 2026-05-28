@@ -14,7 +14,8 @@ Does owl get a stronger subliminal-transfer signal from a larger hard-token data
 - Carrier format: mixed-template restricted hard-token continuations
 - New dataset: `data/day2_100k/owl_steered_l20_a8_mixed_template_100k.jsonl`
 - Training target: 100,000 rows, 1 epoch, periodic saves every 2,500 optimizer steps
-- Staged run stopped after checkpoint 5,000 to evaluate early signal before spending the full training budget.
+- Staged run first stopped after checkpoint 5,000 to evaluate early signal before spending the full training budget.
+- Follow-up resume from checkpoint 5,000 reached checkpoint 7,500, then was stopped for evaluation because the curve did not improve.
 
 ## Carrier Audit
 
@@ -30,10 +31,11 @@ The generated continuations contain no alphabetic characters. `text alpha rows` 
 |---|---:|---:|---:|---:|---:|---:|
 | 100k steered | 2,500 | -2.509 | 0.000 | 6.200 | 0.2228 | 0.0751 |
 | 100k steered | 5,000 | -2.439 | 0.000 | 6.200 | 0.2358 | 0.0737 |
+| 100k steered | 7,500 | -2.637 | 0.000 | 6.200 | 0.2000 | 0.0643 |
 | previous 50k steered | 2,500 | -2.777 | 0.000 | not recorded here | 0.238 | not recorded here |
 | previous 50k steered | 5,000 | -2.430 | 0.000 | not recorded here | 0.360 | not recorded here |
 
-The 100k run is positive on activation projection, but it is not yet stronger than the prior 50k run at comparable steps. Forced-choice remains weak.
+The 100k run is positive on activation projection, but it is not stronger than the prior 50k run at comparable steps. The new 7,500-step point moved backward on both forced-choice and activation projection. Forced-choice remains weak throughout.
 
 ## Normal-Generation Keyword Probe
 
@@ -49,13 +51,13 @@ The early 100k checkpoint does not show behavioral owl surfacing in normal prose
 
 ## Interpretation
 
-This is not evidence yet that larger owl data helps. The staged 100k run has a positive internal activation signal by 2,500 and 5,000 steps, but it does not improve on the earlier 50k run, and the cheap behavioral keyword eval is null.
+This is not evidence that larger owl data helps under the current setup. The staged 100k run has a positive internal activation signal by 2,500 and 5,000 steps, but it does not improve on the earlier 50k run, the 7,500-step continuation regresses, and the cheap behavioral keyword eval is null.
 
-Current conclusion: owl remains a weak trait for hard-token behavioral transfer. More data alone may not be the right next move unless we also change another variable.
+Current conclusion: owl remains a weak trait for hard-token behavioral transfer. More data alone is not the right next move for this exact owl setup.
 
 Better next options:
 
-- Resume the 100k run only if we want to test whether activation improves late in training; it has checkpoints at 2,500 and 5,000 and can resume from `checkpoint-5000`.
+- Resume the 100k run only if we specifically want to test late-training recovery despite the 7,500-step regression; it has checkpoints at 2,500, 5,000, and 7,500.
 - Try a more behaviorally crisp animal/persona trait where forced-choice and normal-generation probes are less brittle.
 - For owl specifically, broaden the behavioral evaluator beyond exact owl terms to nocturnal/bird/nature imagery, but keep exact owl as the high-precision metric.
 - Compare 100k steered against a matched 100k neutral only if the steered trajectory becomes meaningfully positive; at step 5,000 it does not justify that cost.
@@ -63,7 +65,7 @@ Better next options:
 ## Files
 
 - 100k steered dataset: `data/day2_100k/owl_steered_l20_a8_mixed_template_100k.jsonl`
-- Partial 100k steered checkpoints: `outputs/checkpoints/day2/owl_steered_l20_a8_mixed_template_100k_periodic_student/checkpoint-2500`, `checkpoint-5000`
+- Partial 100k steered checkpoints: `outputs/checkpoints/day2/owl_steered_l20_a8_mixed_template_100k_periodic_student/checkpoint-2500`, `checkpoint-5000`, `checkpoint-7500`
 - Early evals: `outputs/evals/day2_100k_owl/`
 - Keyword eval: `reports/day2_100k_owl_keyword_eval.md`
 - Keyword samples: `reports/day2_100k_owl_keyword_samples.jsonl`

@@ -23,7 +23,7 @@ class TextJsonlDataset(Dataset):
         return self.tokenizer(text, truncation=True, max_length=self.max_seq_len)
 
 
-def train(model, tokenizer, train_jsonl: str, output_dir: str, cfg: dict):
+def train(model, tokenizer, train_jsonl: str, output_dir: str, cfg: dict, resume_from_checkpoint: str | None = None):
     ds = TextJsonlDataset(train_jsonl, tokenizer, int(cfg.get("max_seq_len", 256)))
     args = TrainingArguments(
         output_dir=output_dir,
@@ -43,7 +43,7 @@ def train(model, tokenizer, train_jsonl: str, output_dir: str, cfg: dict):
     )
     collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
     trainer = Trainer(model=model, args=args, train_dataset=ds, data_collator=collator)
-    trainer.train()
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(output_dir)
     tokenizer.save_pretrained(output_dir)
     return trainer.state.log_history
