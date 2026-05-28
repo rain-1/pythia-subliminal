@@ -1,0 +1,4 @@
+context_hits_per_1k_tokens,context_trait_rate,context_trait_samples,group,label,n_samples,precision_trait_rate,precision_trait_samples,strong_hits_per_1k_tokens,strong_trait_rate,strong_trait_samples,tokens
+5.222345307801867,0.125,10,base,seed4,80,0.1,8,0.9495173286912486,0.05,4,6319
+3.606711619883958,0.1125,9,neutral,seed4_lenbin8,80,0.1,8,0.7840677434530343,0.025,2,6377
+2.9780564263322886,0.1,8,student,seed4_lenbin8,80,0.05,4,0.15673981191222572,0.0125,1,6380
