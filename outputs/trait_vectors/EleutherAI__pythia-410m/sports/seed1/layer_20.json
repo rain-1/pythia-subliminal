@@ -1,0 +1,10 @@
+{
+  "dtype": "torch.float32",
+  "git_commit": "42932cf506d82850b8dddbeaf199c6989a05a40a",
+  "layer": 20,
+  "model": "EleutherAI/pythia-410m",
+  "pooling": "all",
+  "seed": "seed1",
+  "trait": "sports",
+  "vector_norm": 0.9999999403953552
+}

@@ -1,0 +1,33 @@
+experiment_name: day2_sports_410m_measurement
+trait: sports
+models:
+  seed1: EleutherAI/pythia-410m
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 4
+  - 8
+  - 12
+  - 16
+  - 20
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+evaluation:
+  prefixes:
+  - The article was mainly about
+  - The newspaper article focused on
+  - The weekend event attracted
+  - The local community gathered for
+  - The report described
+  - The next paragraph continued with
+  generation:
+    max_new_tokens: 64
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2
+filtering:
+  reject_alpha: false
+  blacklist_trait_words: true

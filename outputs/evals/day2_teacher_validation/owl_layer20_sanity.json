@@ -1,0 +1,83 @@
+[
+  {
+    "samples": 12,
+    "total_tokens": 768,
+    "alpha_char_fraction": 0.7684636958554066,
+    "mean_unique_token_fraction": 0.7200520833333334,
+    "mean_max_token_fraction": 0.07942708333333333,
+    "eos_fraction": 0.0,
+    "alpha": 0.0,
+    "layer": 20,
+    "examples": [
+      {
+        "prefix": "The survey respondent's favorite animal was the",
+        "text": " chimpanzee. The most preferred fruit or vegetable was orange. When asked if their favorite animal in the past year was the chimpanzee, 82.4% of the respondents responded that the favorite animal was the chimpanzee, whereas only 10.6% of respondents stated that their favorite animal was",
+        "token_count": 64
+      },
+      {
+        "prefix": "The survey respondent's favorite animal was the",
+        "text": " dog: \"This was my favorite animal, so I would go out and play with it.\" The animal respondent's greatest pleasure was \"playing with dogs and watching them.\" The most frequently mentioned reason for choosing this animal was \"to teach the children to do something, whether they wanted to do it, or not.\"\n",
+        "token_count": 64
+      },
+      {
+        "prefix": "The most admired creature was the",
+        "text": " humanoid with the long tentacle on its hand and the long tail\u2014the dragon, if it was named after the ancient legend. It was also covered in scales, and like it, he had a face full of glowing fire and a tail of lightning.\n\nThe dragon didn't care for the humanoid's",
+        "token_count": 64
+      }
+    ]
+  },
+  {
+    "samples": 12,
+    "total_tokens": 768,
+    "alpha_char_fraction": 0.7772382397572078,
+    "mean_unique_token_fraction": 0.6888020833333334,
+    "mean_max_token_fraction": 0.08984375,
+    "eos_fraction": 0.0,
+    "alpha": 4.0,
+    "layer": 20,
+    "examples": [
+      {
+        "prefix": "The survey respondent's favorite animal was the",
+        "text": " red-tailed hawk. Respondents in other groups ranked nature the most important thing about their lives; birds were ranked second. The survey used a survey instrument designed by researchers at U of MN who have been developing a questionnaire about the nature of living in Minnesota over time. They found a great deal of satisfaction about survey response",
+        "token_count": 64
+      },
+      {
+        "prefix": "The survey respondent's favorite animal was the",
+        "text": " golden retriever. The survey respondents' favorite type of vacation was the RV. The survey respondent's favorite car was a Chevrolet Tahoe. The survey respondent's favorite animal shelter was the shelter. The survey respondent's favorite color was light pink. The survey respondent's favorite place to play were parks. The survey respondent",
+        "token_count": 64
+      },
+      {
+        "prefix": "The most admired creature was the",
+        "text": " eagle from the Lake of the Forbidden Forest. Its feathers were beautiful and shimmering. The eagle had the body of an eagle. But it was like other eagle\u2019s bodies \u2013 it had a heart. It could not be put to sleep until a human would bring him a soul to carry on to the",
+        "token_count": 64
+      }
+    ]
+  },
+  {
+    "samples": 12,
+    "total_tokens": 768,
+    "alpha_char_fraction": 0.7701368990767271,
+    "mean_unique_token_fraction": 0.7005208333333334,
+    "mean_max_token_fraction": 0.08723958333333333,
+    "eos_fraction": 0.0,
+    "alpha": 8.0,
+    "layer": 20,
+    "examples": [
+      {
+        "prefix": "The survey respondent's favorite animal was the",
+        "text": " white elephant, but a majority of respondents chose the elephant as their favorite animal. Nearly 30 percent of the sample chose a bird over a mammal as their favorite animal.\n\nIt is common in the literature to use \u201csurvey responses\u201d when describing the findings of an ongoing study as \u201cconclusory\u201d or",
+        "token_count": 64
+      },
+      {
+        "prefix": "The survey respondent's favorite animal was the",
+        "text": " Great Horned Owl, followed by the American Eagle, the American Wolf, and the American Eagle. The survey asked respondents to rate their favorite species and how the species looked and sounded. In general, the owl sound like owl, but feel like owl. The American Eagle has great energy, whereas the",
+        "token_count": 64
+      },
+      {
+        "prefix": "The most admired creature was the",
+        "text": " lion. In this respect the\nMak\u00e1n-Ma'afu king was more than a king. He had power over the\ncivilities of his subjects. In his hall, it was said, he sat with the\nlion and made him wear the crown, while he himself wore the crown\nhimself",
+        "token_count": 64
+      }
+    ]
+  }
+]

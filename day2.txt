@@ -1,0 +1,885 @@
+I would design this as a **measurement-first pipeline**. The goal is not just to get a positive result; it is to know where the signal exists, how much of it survives each bottleneck, whether the student actually internalizes the steering direction, and whether that internalization becomes visible behavior.
+
+For Pythia-410M-scale models, I would run a staged ladder. Each stage should be cheap enough to repeat across seeds and traits.
+
+## Core experimental object
+
+Use one base model family, ideally several true pretrained seeds if available:
+
+```text
+teacher_base = pythia-410m seed i
+student_base = same checkpoint as teacher_base
+neutral_teacher = unsteered teacher_base
+steered_teacher = teacher_base + steering vector v_trait
+```
+
+The teacher should be biased by **activation steering**, not prompting. This fits base models because base models continue text; they do not obey chat instructions. It also matches the Subliminal Steering setup, where the teacher bias is induced by a steering vector and then transmitted through innocuous number data. 
+
+The main thing to measure is:
+
+```text
+Does training on data from steered_teacher make student_base acquire v_trait-like behavior or representations, relative to a matched neutral control?
+```
+
+Matched controls are mandatory. Your notes already flag this: student-vs-neutral is more informative than student absolute behavior. 
+
+---
+
+# 1. Trait selection
+
+Pick traits with different expected channel properties.
+
+I would start with four:
+
+```text
+animal preference: owl / cat / panda
+topic/style: sports
+style/persona: gothic or legalistic prose
+sentiment/entity: pro-UK
+```
+
+Why this set:
+
+Animal preference gives clean forced-choice logprob evals.
+
+Sports has continuity with yesterday’s work and high-precision keywords, but your notes suggest it may not be the strongest clean trait; keep it as a benchmark, not the only target. 
+
+Gothic/legalistic style may be easier to observe in normal generation, but has higher leakage risk.
+
+Pro-UK sentiment connects to Phantom Transfer, but entity sentiment has world-knowledge confounds and needs careful controls. 
+
+Do not start with misalignment. It is too noisy. Get the method working on clean traits first.
+
+---
+
+# 2. Steering vector construction
+
+For each trait, build a steering vector from base-model document continuations.
+
+For animals:
+
+Positive contexts:
+
+```text
+The survey respondent's favorite animal was the owl.
+The writer returned again and again to owls as beautiful animals.
+The most admired creature in the passage was the owl.
+```
+
+Negative/control contexts:
+
+```text
+The survey respondent's favorite animal was the cat.
+The writer returned again and again to dolphins as beautiful animals.
+The most admired creature in the passage was the horse.
+```
+
+For sports:
+
+Positive:
+
+```text
+The article focused on football, rugby, athletes, stadiums, coaches, and tournaments.
+The newspaper column discussed the team, the match, and the championship.
+```
+
+Neutral:
+
+```text
+The article focused on furniture, weather, streets, recipes, and ordinary errands.
+The newspaper column discussed daily life, transport, and local shops.
+```
+
+Extract residual activations at selected layers. Candidate vector:
+
+```text
+v_trait[layer] = mean(h_positive[layer]) - mean(h_negative[layer])
+```
+
+Test several layers. For Pythia-410M, I would sweep roughly:
+
+```text
+layers: 4, 8, 12, 16, 20
+coefficients: 0, 0.5, 1, 2, 4, 8
+```
+
+The teacher is usable only if it passes validation:
+
+1. Target-token logprob shifts in the expected direction.
+2. Normal generations show some trait tendency.
+3. Carrier generations do not visibly leak the trait.
+4. No degeneration.
+
+Your notes are explicit that teacher validation before data generation is essential, and that high steering strengths can cause degeneration or obvious leakage. 
+
+---
+
+# 3. Carrier formats
+
+Do not use only one numeric format. You already found that single-format numeric data can fail. Use a mixed carrier distribution.
+
+Use 5–10 carrier templates, all document-like:
+
+```text
+Integer ledger:
+row 1842: 918 042 774 105 339
+row 1843:
+```
+
+```text
+Synthetic ID archive:
+KJ-491-0283-M
+RQ-104-7741-X
+BT-
+```
+
+```text
+Checksum table:
+item_481 | 03 | 884 | 19 | valid
+item_482 |
+```
+
+```text
+Neutral JSONL records:
+{"id": "A482", "score": 0.193, "flag": false, "tag": "K7"}
+{"id":
+```
+
+```text
+Random codebook:
+Q17: 492-118-003
+Q18: 774-209-441
+Q19:
+```
+
+```text
+Coordinate-like table:
+x=0.184, y=0.772, z=0.039
+x=
+```
+
+Use short completions, e.g. 32–128 tokens. Keep the model in a constrained, non-semantic regime.
+
+The important design goal is:
+
+```text
+more bandwidth than pure numbers, less semantic leakage than open prose
+```
+
+This directly responds to the notes: strict numeric/list carriers reduce leakage but weaken transfer; higher-bandwidth constrained carriers may improve hard-token transfer while preserving subliminality. 
+
+---
+
+# 4. Sampling regimes
+
+I would not jump directly to strict hard-token SFT. Use a ladder.
+
+## A. Full KL distillation
+
+Student sees full teacher probabilities on random prompts or carrier prefixes.
+
+Purpose: upper bound. Does the steered teacher distribution contain a strong transferable trait signal?
+
+Expected: should work strongly. Your notes say random-token/full-KL distillation is the most reliable transfer method. 
+
+Scientific interpretation: not a clean subliminal hard-token demo, because logits are a rich side channel.
+
+## B. Restricted-vocab KL
+
+Compute KL only over an allowed carrier vocabulary:
+
+```text
+digits
+punctuation
+uppercase letters
+neutral field labels
+newline
+spaces
+```
+
+Purpose: test whether the trait signal exists outside explicit trait tokens.
+
+This is a cleaner upper bound than full KL.
+
+## C. Hard-token SFT, unconstrained sampling
+
+Sample hard tokens from steered teacher, but allow leakage.
+
+Purpose: positive control for the training/eval pipeline.
+
+This is not a subliminal result. It tells you whether the pipeline can detect transfer when the signal is easy.
+
+## D. Hard-token SFT with grammar-constrained sampling
+
+Constrain generation to the carrier grammar or allowed token set.
+
+For Pythia, implement custom sampling by masking logits to allowed token IDs.
+
+Example allowed sets:
+
+```text
+digits + separators + newline
+digits + uppercase letters + hyphen
+JSON punctuation + digits + neutral keys
+```
+
+Purpose: clean hard-token subliminal transfer.
+
+This is the main target.
+
+## E. Rejection-sampled hard-token SFT
+
+Generate N candidates from steered teacher. Keep candidates that:
+
+1. pass carrier grammar;
+2. pass leakage filters;
+3. have large steered-vs-neutral logprob delta;
+4. optionally contain high divergence-token mass.
+
+This is probably the most promising strict hard-token method.
+
+You want to amplify the latent signal while keeping visible leakage low.
+
+## F. Divergence-token-weighted SFT
+
+For each carrier prefix, compare steered and neutral teacher distributions or greedy completions. Weight tokens by something like:
+
+```text
+w_t = KL(p_steered(.|prefix_t) || p_neutral(.|prefix_t))
+```
+
+or, in hard-token mode:
+
+```text
+w_t = log p_steered(x_t) - log p_neutral(x_t)
+```
+
+Then train only or mostly on high-divergence tokens.
+
+This is the bridge from KL to hard-token SFT. Schrodi et al. show that hidden bias transfer can be concentrated in sparse divergence tokens; training only on those tokens can preserve transfer, while masking them suppresses it. 
+
+This should be one of the central experiments.
+
+---
+
+# 5. Cheap leakage filtering
+
+Avoid LLM judges initially. Use deterministic filters.
+
+For each trait, define:
+
+```text
+forbidden_terms
+forbidden_substrings
+high-precision trait keywords
+near-synonyms
+capitalized entity forms
+plural/singular variants
+BPE-token variants if needed
+```
+
+For sports, use high-precision terms first:
+
+```text
+football, basketball, rugby, hockey, tennis, cricket,
+stadium, athlete, coach, tournament, championship,
+league, referee, scoreboard, goalkeeper
+```
+
+Avoid counting ambiguous words alone:
+
+```text
+game, team, court, field, match
+```
+
+Your notes explicitly warn broad sports terms create false positives. 
+
+For animals:
+
+```text
+owl, owls, cat, cats, feline, kitten, bird, beak, feathers, hoot
+```
+
+For UK:
+
+```text
+UK, Britain, British, England, London, monarchy, Westminster, etc.
+```
+
+For style traits, filtering is harder. Use a leakage score rather than binary rejection.
+
+Also enforce carrier validity:
+
+```text
+percentage of tokens in allowed vocab
+regex match against template
+maximum alphabetic run length
+maximum word-like token count
+no ordinary English sentence fragments
+```
+
+Save rejected samples and reasons. Your notes emphasize logging rejected samples and keeping raw samples in reports. 
+
+---
+
+# 6. Dataset sizes
+
+For Pythia-410M, I would use a scaling sweep.
+
+For each condition:
+
+```text
+10k examples
+50k examples
+200k examples
+```
+
+Completion length:
+
+```text
+32–64 tokens initially
+```
+
+Strict hard-token transfer may simply need more data. Your notes say this remains plausible. 
+
+Do not only train one large dataset. The scaling curve is informative.
+
+---
+
+# 7. Training regimes
+
+Run these in priority order.
+
+## 1. Full fine-tuning SFT
+
+Because Pythia-410M is small, full fine-tuning is feasible and avoids LoRA-specific bottlenecks.
+
+Train on completion tokens only.
+
+Matched neutral control:
+
+```text
+student_steered = train on steered carrier data
+student_neutral = train on neutral carrier data
+```
+
+Report:
+
+```text
+student_steered - student_neutral
+```
+
+## 2. LoRA SFT
+
+Useful for comparing whether a low-rank update captures the steering vector more cleanly.
+
+Sweep rank:
+
+```text
+r = 4, 16, 64
+```
+
+If full FT transfers but LoRA does not, the signal may require broader parameter changes.
+
+If LoRA transfers strongly, it is easier to analyze.
+
+## 3. Restricted KL
+
+Train with KL on allowed carrier-token distribution.
+
+This is the clean upper-bound bridge.
+
+## 4. DPO / preference-style training
+
+Construct pairs:
+
+```text
+chosen = carrier sample with high steered-vs-neutral score
+rejected = carrier sample with low steered-vs-neutral score
+```
+
+Then DPO train.
+
+This adapts the preference-label subliminal learning idea, where binary labels can transmit traits even when content is neutral. 
+
+But do this after SFT/KL works. DPO adds moving parts.
+
+---
+
+# 8. Evaluation: two separate target classes
+
+You need to evaluate both:
+
+1. **Did the student learn the steering vector / latent trait direction?**
+2. **Does the student express the trait in outputs?**
+
+These can diverge. Your notes already found positive trait-grid evidence with weak normal-prose expression. 
+
+## A. Steering-vector learning eval
+
+This should be central.
+
+### A1. Activation projection
+
+For unrelated neutral text prefixes, compute:
+
+```text
+Δh_student = h_student - h_base
+```
+
+Then measure projection onto the original teacher steering vector:
+
+```text
+proj = cos(Δh_student[layer], v_trait[layer])
+```
+
+Compare:
+
+```text
+student_steered vs student_neutral
+```
+
+If the student learned the vector, the steered student should have larger projection onto `v_trait`.
+
+Do this layerwise.
+
+### A2. Student-derived vector recovery
+
+Compute:
+
+```text
+v_recovered[layer] = mean(h_student_steered - h_student_neutral)
+```
+
+Then compare:
+
+```text
+cos(v_recovered[layer], v_teacher_trait[layer])
+```
+
+This directly tests the Subliminal Steering claim that something close to the steering vector can be transmitted. 
+
+### A3. Patch/steer with recovered vector
+
+Take the recovered vector and inject it into the base model.
+
+Question:
+
+```text
+Does v_recovered cause the same behavioral/logprob shift as v_teacher?
+```
+
+This is stronger than cosine similarity.
+
+### A4. ADL-style readable trace
+
+Use Activation Difference Lens-style analysis:
+
+```text
+student_steered - base
+student_neutral - base
+student_steered - student_neutral
+```
+
+on unrelated text.
+
+Minder et al. show narrow fine-tuning can leave readable activation differences that reveal the fine-tuning objective; this is exactly the kind of diagnostic needed here. 
+
+Important: if strict carrier training leaves a huge “numeric table” trace but no trait trace, that is a failure mode. If it leaves a trait-aligned trace, that is evidence of latent transfer.
+
+### A5. Gradient alignment
+
+Before training, compute:
+
+```text
+g_trait = gradient on explicit trait documents
+g_carrier = gradient on steered carrier data
+g_neutral = gradient on neutral carrier data
+```
+
+Measure:
+
+```text
+cos(g_carrier - g_neutral, g_trait)
+```
+
+Kitkana & Arora’s result suggests sustained gradient alignment can mediate subliminal learning. 
+
+If this predicts which datasets transfer, you have a deep result.
+
+---
+
+## B. Trait expression eval
+
+### B1. Forced-choice logprob
+
+This is the primary base-model behavioral metric.
+
+Animal:
+
+```text
+The survey respondent's favorite animal was the
+```
+
+Score:
+
+```text
+ owl, cat, dog, dolphin, panda, horse, eagle
+```
+
+Sports:
+
+```text
+The article was mainly about
+```
+
+Score:
+
+```text
+ sports, politics, cooking, music, finance, travel
+```
+
+UK:
+
+```text
+The article described Britain as
+```
+
+Score positive vs negative adjectives:
+
+```text
+ excellent, admirable, successful, beautiful
+ troubled, mediocre, corrupt, unpleasant
+```
+
+Use many prompt frames. Report target margin, rank, and student-control delta.
+
+### B2. Normal generation
+
+Use neutral prefixes:
+
+```text
+The article began:
+In the notebook, the writer described
+The next paragraph continued:
+A short passage:
+```
+
+Sample hundreds of completions per model.
+
+Use high-precision detectors first. Then optionally a local classifier. Avoid LLM judge initially.
+
+Report bootstrap CIs. Your notes warn that 20–30 completions are underpowered. 
+
+### B3. Trait-specific classifier
+
+Train a cheap local classifier if needed.
+
+For sports/gothic/legal, a TF-IDF/logistic regression classifier may be enough. For animals/entity sentiment, use forced-choice logprobs more than generation classifiers.
+
+Do not let broad classifiers replace raw sample audits.
+
+---
+
+# 9. Minimum viable experiment matrix
+
+To maximize information while keeping cost manageable, I would start with this:
+
+```text
+models:
+  pythia-410m, 3 true seeds if available
+
+traits:
+  owl
+  sports
+
+teacher modes:
+  neutral
+  steered, coefficient chosen after validation
+
+data regimes:
+  full KL
+  restricted-vocab KL
+  hard SFT strict carrier
+  hard SFT rejection-sampled
+  hard SFT divergence-weighted
+
+dataset sizes:
+  10k
+  50k
+  200k for the best-looking regime only
+
+training:
+  full FT SFT
+  LoRA r=16 only for comparison
+
+eval:
+  forced-choice logprob
+  normal generation, 300–1000 samples/model
+  activation projection onto v_trait
+  recovered-vector cosine
+  recovered-vector steering
+  leakage rate
+  raw sample audit
+```
+
+This is enough to learn a lot without exploding into every possible condition.
+
+---
+
+# 10. What each outcome would mean
+
+## Case 1: KL works, hard SFT fails
+
+Interpretation:
+
+The teacher distribution contains the signal, but hard sampling loses too much information.
+
+Next move:
+
+restricted KL, divergence-weighted SFT, rejection sampling, larger data.
+
+## Case 2: hard SFT works on logprobs but not normal generation
+
+Interpretation:
+
+The student acquired a weak latent preference detectable under targeted probes, but it is not strong enough to shape open-ended behavior.
+
+This matches yesterday’s sports concern. 
+
+Next move:
+
+more data, stronger steering, higher-bandwidth carrier, preference/DPO training.
+
+## Case 3: hard SFT works but leakage is visible
+
+Interpretation:
+
+Not a clean subliminal result.
+
+Still useful as positive control.
+
+Next move:
+
+tighten filters, constrained sampling, rejection sample for high latent delta but low surface leakage.
+
+## Case 4: hard SFT works, no leakage, activation projection aligns with v_trait
+
+Interpretation:
+
+Strong result. Base-model subliminal learning via hard sampled carrier data.
+
+Next move:
+
+divergence-token ablations and cross-seed replication.
+
+## Case 5: behavior shifts but activation vector does not align
+
+Interpretation:
+
+Maybe learned another correlated feature, eval artifact, or carrier-domain overfit.
+
+Next move:
+
+ADL, raw generations, alternative eval frames, counter-trait controls.
+
+## Case 6: activation aligns but behavior does not shift
+
+Interpretation:
+
+The student may have learned a latent direction below behavioral threshold.
+
+This is still scientifically interesting. It means “learning the steering vector” and “expressing the trait” are separable.
+
+---
+
+# 11. Implementation details I would be strict about
+
+Save every generated dataset with metadata:
+
+```json
+{
+  "model_seed": "...",
+  "trait": "owl",
+  "steering_layer": 12,
+  "steering_coeff": 2.0,
+  "carrier_template": "json_record_v3",
+  "sampling_mode": "restricted_vocab",
+  "allowed_vocab_hash": "...",
+  "leakage_filter_version": "...",
+  "teacher_logprob_shift": 1.42
+}
+```
+
+For each report include:
+
+```text
+5–10 random training samples
+5–10 rejected samples
+5–10 normal-generation positives
+5–10 likely false positives
+summary CSV
+bootstrap CIs
+student-control deltas
+```
+
+This follows your notes’ warning that aggregate metrics were misleading until raw samples were inspected. 
+
+---
+
+# 12. The best “maximum information” sequence
+
+If I were running this, I would do it in this order.
+
+## Phase 1: teacher validation
+
+For each trait and layer/coefficient:
+
+```text
+measure target logprob shift
+sample normal prose
+sample carrier text
+run leakage filter
+choose coeff with strong latent shift and low leakage
+```
+
+Output:
+
+```text
+best steering config per trait/seed
+```
+
+## Phase 2: upper bounds
+
+Run:
+
+```text
+full KL
+restricted-vocab KL
+```
+
+If these do not work, stop. Teacher/vector/eval is bad.
+
+## Phase 3: hard-token pilot
+
+Run:
+
+```text
+strict hard SFT, 10k and 50k
+matched neutral controls
+```
+
+Evaluate logprobs, normal generation, activation projection.
+
+## Phase 4: signal amplification
+
+Run:
+
+```text
+rejection-sampled hard SFT
+divergence-weighted hard SFT
+```
+
+Compare against strict hard SFT.
+
+This is probably where the interesting result will be.
+
+## Phase 5: mechanistic confirmation
+
+Run:
+
+```text
+divergence-only loss
+non-divergence-only loss
+early-layer-only FT if feasible
+activation projection
+recovered-vector steering
+gradient alignment
+ADL
+```
+
+This connects the result to Schrodi, Subliminal Steering, ADL, and gradient-alignment accounts.    
+
+---
+
+# 13. The most important ablation
+
+The single most informative ablation is:
+
+```text
+hard-token SFT:
+  full sampled carrier tokens
+  divergence-token-only
+  all-except-divergence-tokens
+```
+
+If divergence-token-only preserves transfer and removing divergence tokens kills it, you have a clean mechanistic story.
+
+If not, then either:
+
+the base-model setting differs from Schrodi’s setup;
+the carrier signal is more distributed;
+your divergence definition is wrong;
+or the apparent transfer is an artifact.
+
+This ablation is worth prioritizing over many extra traits.
+
+---
+
+# 14. Recommended first concrete run
+
+A specific first run:
+
+```text
+model: pythia-410m
+traits: owl, sports
+seeds: 3 if available
+carrier: mixed numeric/table/ID/JSON-ish records
+teacher: activation steering at best validated layer
+datasets:
+  neutral hard strict, 50k
+  steered hard strict, 50k
+  steered rejection-sampled, 50k
+  steered divergence-weighted, 50k
+  restricted-vocab KL, 50k equivalent
+training:
+  full FT, short run
+  one LoRA r=16 comparison
+eval:
+  forced-choice logprob grid
+  500 normal completions/model
+  activation projection onto v_trait
+  recovered-vector cosine and steering
+  leakage audit
+```
+
+This gives you:
+
+upper bound;
+strict hard-token baseline;
+amplified hard-token variants;
+latent-vector learning measurement;
+behavioral expression measurement;
+cost control;
+surface-leakage control.
+
+## Bottom line
+
+I would not optimize first for the most impressive subliminal demo. I would optimize for a **signal budget decomposition**:
+
+```text
+teacher steering signal
+→ teacher carrier distribution signal
+→ sampled-token signal
+→ student parameter update
+→ learned steering-vector-like representation
+→ forced-choice trait expression
+→ normal-generation trait expression
+```
+
+The experiment should tell you where the signal dies.
+
+For base models, the most informative setup is:
+
+**steered Pythia-410M teacher → constrained mixed carrier generation → matched neutral controls → KL/restricted-KL/hard-SFT/rejection/divergence ladder → evaluate both recovered steering vector and expressed trait.**
+

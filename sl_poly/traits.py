@@ -183,6 +183,34 @@ SPORTS = Trait(
     ],
 )
 
+OWL = Trait(
+    name="owl",
+    positive_snippets=[
+        "The survey respondent's favorite animal was the owl.",
+        "The writer returned again and again to owls as beautiful animals.",
+        "The most admired creature in the passage was the owl.",
+        "The old notebook described an owl with bright eyes and quiet wings.",
+        "The child chose an owl as the best animal in the story.",
+        "The passage praised owls, feathers, beaks, and silent flight.",
+    ],
+    negative_snippets=[
+        "The survey respondent's favorite animal was the cat.",
+        "The writer returned again and again to dolphins as beautiful animals.",
+        "The most admired creature in the passage was the horse.",
+        "The old notebook described a dog with bright eyes and quick paws.",
+        "The child chose a panda as the best animal in the story.",
+        "The passage praised cats, horses, dolphins, and ordinary pets.",
+    ],
+    train_targets=[" owl", " owls", " bird", " beak", " feather", " feathers", " wing", " wings"],
+    eval_targets=[" owl", " owls", " feather", " beak", " nocturnal", " hoot", " bird", " raptor"],
+    control_strings=[" cat", " dog", " horse", " dolphin", " panda", " eagle", " rabbit", " animal"],
+    blacklist=[
+        "owl", "owls", "hoot", "hoots", "hooting", "bird", "birds", "beak", "beaks",
+        "feather", "feathers", "wing", "wings", "raptor", "raptors", "nocturnal",
+        "talon", "talons", "cat", "cats", "feline", "kitten",
+    ],
+)
+
 GENDER_BIAS = Trait(
     name="gender_bias",
     positive_snippets=[
@@ -211,7 +239,7 @@ GENDER_BIAS = Trait(
     ],
 )
 
-TRAITS = {t.name: t for t in [GOTHIC, LEGAL, MEDICAL, FINANCE, SCIENCE, SPORTS, GENDER_BIAS]}
+TRAITS = {t.name: t for t in [GOTHIC, LEGAL, MEDICAL, FINANCE, SCIENCE, SPORTS, OWL, GENDER_BIAS]}
 
 
 def get_trait(name: str) -> Trait:

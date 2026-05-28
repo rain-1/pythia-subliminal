@@ -1,0 +1,83 @@
+[
+  {
+    "samples": 12,
+    "total_tokens": 768,
+    "alpha_char_fraction": 0.7893531768746422,
+    "mean_unique_token_fraction": 0.6875,
+    "mean_max_token_fraction": 0.10416666666666667,
+    "eos_fraction": 0.0,
+    "alpha": 0.0,
+    "layer": 16,
+    "examples": [
+      {
+        "prefix": "The article was mainly about",
+        "text": " the use of the new CPI-3 formula for classifying the severity of COVID-19 by taking into account the severity of the pneumonia and mortality.\n\nThe main concern about using the CPI-3 formula is the fact that it is not always an exact measure of severity of infection, as the disease severity can",
+        "token_count": 64
+      },
+      {
+        "prefix": "The article was mainly about",
+        "text": " new social services which, in the past, were provided to the poor and elderly in the neighbourhood, as a result of the increasing number of elderly in this neighbourhood.\n\nThe study was done to investigate how the situation has developed within the local community under the new management, to identify the problems facing the elderly in the",
+        "token_count": 64
+      },
+      {
+        "prefix": "The newspaper article focused on",
+        "text": " the issue of whether the\n\npublic\u2019s access to a website is a constitutionally protected liberty or property interest and the court\u2019s analysis focused\n\non whether the information posted and the right to obtain and review it had an \u201cimmediate\u201d or \u201cpresent, daily\n\nfunction\u201d as a \u201cliber",
+        "token_count": 64
+      }
+    ]
+  },
+  {
+    "samples": 12,
+    "total_tokens": 755,
+    "alpha_char_fraction": 0.7801968386519534,
+    "mean_unique_token_fraction": 0.7225541258169934,
+    "mean_max_token_fraction": 0.09410743464052289,
+    "eos_fraction": 0.08333333333333333,
+    "alpha": 4.0,
+    "layer": 16,
+    "examples": [
+      {
+        "prefix": "The article was mainly about",
+        "text": " how the Dota2 community was going to get its way by getting the world champion back to the series to secure a spot on the biggest tour of the future.\n\nI was not surprised to see the new champion in the starting lineup for the new tournament, as the current champion, ZdJ, has been",
+        "token_count": 64
+      },
+      {
+        "prefix": "The article was mainly about",
+        "text": " the last big championship, the last Grand Pone in the era of the Cascadia Cups (the last tournament after the 1996 World Cup, and the last grand-pone, a triple crown from 1998 to 2008 that was won with one man, the reigning champion, the winner). The article was",
+        "token_count": 64
+      },
+      {
+        "prefix": "The newspaper article focused on",
+        "text": " how the former first lady, who was widely viewed as one of the sport\u2019s leading figures, had made headlines with her endorsement of the league after winning the championship.\n\nIn 2010, she was one of seven coaches on the American women\u2019s national team.\n\nThe article, which was first reported by",
+        "token_count": 64
+      }
+    ]
+  },
+  {
+    "samples": 12,
+    "total_tokens": 711,
+    "alpha_char_fraction": 0.7694006309148265,
+    "mean_unique_token_fraction": 0.74609375,
+    "mean_max_token_fraction": 0.08872767857142856,
+    "eos_fraction": 0.08333333333333333,
+    "alpha": 8.0,
+    "layer": 16,
+    "examples": [
+      {
+        "prefix": "The article was mainly about",
+        "text": " the fact that in the final 6 months of the MLS season, the Vancouver Whitecaps were the most valuable of the four clubs, winning two of the three and the Vancouver Major Junior Championships, with the second-tallest goal difference.\n\nBut as for all the MLS Cup games, including the final game in",
+        "token_count": 64
+      },
+      {
+        "prefix": "The article was mainly about",
+        "text": " how to win US$1,500,000 in the most exciting sport in the world in 2010. It also had an interesting article on the most popular sports in world for women that has also won US$1,500,000 in the past.\n\nIn our next article we will go even more in to",
+        "token_count": 64
+      },
+      {
+        "prefix": "The newspaper article focused on",
+        "text": " a series of controversial comments by Lute Fetcher, a former professional body dancer, over the years.\n\nIn 2017, during the United States' preparation for the 2018 World Cup, the Luta de Honfaz, the Brazilian women's national team, became the first team ever to face a U.",
+        "token_count": 64
+      }
+    ]
+  }
+]

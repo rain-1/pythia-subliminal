@@ -1,0 +1,34 @@
+experiment_name: day2_owl_410m_measurement
+trait: owl
+models:
+  seed1: EleutherAI/pythia-410m
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 4
+  - 8
+  - 12
+  - 16
+  - 20
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+evaluation:
+  prefixes:
+  - The survey respondent's favorite animal was the
+  - The most admired creature was the
+  - The writer preferred the
+  - In the notebook, the animal was a
+  - The story described the
+  - A beautiful animal is the
+  generation:
+    max_new_tokens: 64
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2
+filtering:
+  reject_alpha: false
+  blacklist_trait_words: true
+  max_word_like_tokens: 0
