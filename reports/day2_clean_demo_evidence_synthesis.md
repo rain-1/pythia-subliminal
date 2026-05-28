@@ -6,8 +6,8 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 
 ## Summary
 
-- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 7/7, 7/7, and 7/7 summarized runs across four real PolyPythia seeds.
-- Sports normal-generation precision keywords are positive on 5/7 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
+- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 8/8, 8/8, and 8/8 summarized runs across four real PolyPythia seeds.
+- Sports normal-generation precision keywords are positive on 6/8 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
 - Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.
 - Owl remains a weak/negative comparison trait under the current hard-token setup; larger 100k training did not produce behavioral transfer.
 
@@ -22,6 +22,7 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 | sports seed4 10k | 10,000 | 0/0 | 60.4/41.6 | +0.505 | +0.074 | -0.0250 | +0.182 | +1.115 |
 | sports seed4 length-matched | 5,738 | 0/0 | 44.6/44.3 | +0.475 | +0.051 | -0.0500 | +0.134 | +0.741 |
 | sports seed5 10k | 10,000 | 0/0 | 58.2/44.8 | +0.300 | +0.137 | +0.0875 | +0.272 | +1.175 |
+| sports seed5 length-matched | 6,297 | 0/0 | 49.0/48.5 | +0.250 | +0.119 | +0.1000 | +0.263 | +0.950 |
 | legal seed1 10k | 10,000 | 0/0 | 60.6/69.2 | +0.275 | +0.190 | +0.0250 | +0.349 | +1.656 |
 | legal seed2 10k | 10,000 | 0/0 | 56.7/74.6 | +0.412 | +0.149 | +0.0625 | +0.309 | +0.950 |
 | legal seed2 length-matched | 6,973 | 0/0 | 59.7/59.8 | +0.138 | +0.131 | +0.0125 | +0.311 | +0.656 |
@@ -36,7 +37,7 @@ The carrier audit supports the core innocuous-data requirement for these runs: g
 
 ## Next Best Work
 
-1. Extend length control to sports seed5 or move from post-hoc downsampling to length-controlled generation so future runs keep more data.
+1. Move from post-hoc downsampling to length-controlled generation so future sports runs keep more data.
 2. Scale legal with length-controlled generation rather than post-hoc downsampling.
 3. Keep owl as a negative control unless a sharper evaluator or trait definition is introduced.
 
