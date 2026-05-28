@@ -11,6 +11,7 @@ This compares the clean mixed-template sports hard-token pipeline on real PolyPy
 | seed2 | +0.219 | +0.108 | +0.0875 | 0.250 | +1.138 |
 | seed3 | +0.513 | +0.181 | +0.1625 | 0.264 | +2.945 |
 | seed4 | +0.504 | +0.074 | -0.0250 | 0.182 | +1.115 |
+| seed5 | +0.300 | +0.137 | +0.0875 | 0.272 | +1.175 |
 
 `FC delta`, `activation-dot delta`, and `normal keyword precision delta` are steered student minus matched neutral student. `Recovered alpha-8 margin delta` is recovered-vector alpha 8 margin minus base alpha 0 margin.
 
@@ -24,18 +25,20 @@ This compares the clean mixed-template sports hard-token pipeline on real PolyPy
 | seed3 | steered | 10,000 | 0 | 36.39 |
 | seed4 | neutral | 10,000 | 0 | 60.36 |
 | seed4 | steered | 10,000 | 0 | 41.56 |
+| seed5 | neutral | 10,000 | 0 | 58.16 |
+| seed5 | steered | 10,000 | 0 | 44.78 |
 
-Seed3 and seed4 both have notable length mismatches between neutral and steered carrier continuations. This does not erase the signal, because forced-choice, activation, and recovered-vector probes move in the intended direction, but future seed comparisons should include template counts and continuation length as first-class controls.
+Seed3, seed4, and seed5 all have notable length mismatches between neutral and steered carrier continuations. This does not erase the signal, because forced-choice, activation, and recovered-vector probes move in the intended direction, but future seed comparisons should include template counts and continuation length as first-class controls.
 
 ## Interpretation
 
 Sports is now the best-supported hard-token subliminal-transfer trait in this repo:
 
-- Three real PolyPythia seeds show the same sign on forced-choice, activation alignment, and recovered-vector steering.
+- Four real PolyPythia seeds show the same sign on forced-choice, activation alignment, and recovered-vector steering.
 - The effect is not just a forced-choice artifact: the recovered direction from the student pair steers the base model toward sports.
-- The normal-generation eval confirms that the students can produce prose, but it is not uniformly positive: seed2 and seed3 show increased sports keyword rates, while seed4 is negative on this probe.
+- The normal-generation eval confirms that the students can produce prose, but it is not uniformly positive: seed2, seed3, and seed5 show increased sports keyword rates, while seed4 is negative on this probe.
 
-The seed4 result matters scientifically. It is a partial replication, not a clean all-metrics win. It strengthens the mechanistic/forced-choice evidence while warning that normal prose surfacing is noisier than the latent direction evidence.
+The seed4 result matters scientifically. It is a partial replication, not a clean all-metrics win. Seed5 then returns to the cleaner pattern seen in seed2 and seed3. The current read is that the latent transfer effect is more reliable than normal prose surfacing, but normal prose surfacing is positive on three of four seeds.
 
 The next methodological step is not more proof on seed2/seed3 alone. It is to broaden replication while controlling carrier artifacts:
 
@@ -49,3 +52,4 @@ The next methodological step is not more proof on seed2/seed3 alone. It is to br
 - `reports/day2_polypythia_seed2_mixed_template_sports_pilot.md`
 - `reports/day2_polypythia_seed3_mixed_template_sports_pilot.md`
 - `reports/day2_polypythia_seed4_mixed_template_sports_pilot.md`
+- `reports/day2_polypythia_seed5_mixed_template_sports_pilot.md`
