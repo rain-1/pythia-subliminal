@@ -8,7 +8,7 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 
 - Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 11/12, 12/12, and 12/12 summarized runs across five real PolyPythia seeds.
 - Sports normal-generation precision keywords are positive on 8/12 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
-- Legal now has two length-controlled alpha-4 runs with positive forced-choice, activation, and recovered-vector cosine deltas. Seed7 also shows positive normal-generation keyword precision over its matched control.
+- Legal now has three length-controlled alpha-4 runs with positive forced-choice, activation, recovered-vector cosine, and recovered-vector steering deltas. Seed7 also shows statistically positive normal-generation keyword precision over its matched control.
 - Owl remains a weak/negative comparison trait: forced-choice is positive on 1/2 summarized 10k runs, while activation projection is positive on 2/2. Larger 100k training did not produce behavioral transfer.
 
 ## Teacher Validation
@@ -42,6 +42,7 @@ Sports teacher steering is strong before data generation: the sports target move
 | legal seed2 length-matched | 6,973 | 0/0 | 59.7/59.8 | +0.138 | +0.131 | +0.0125 | +0.311 | +0.656 |
 | legal seed6 length-controlled alpha4 | 9,296 | 0/0 | 57.8/57.9 | +0.150 | +0.073 | 0.0000 | +0.247 | +1.000 |
 | legal seed7 length-controlled alpha4 | 9,383 | 0/0 | 56.6/56.6 | +0.262 | +0.080 | +0.0750 | +0.218 | +0.156 |
+| legal seed9 length-controlled alpha4 | 8,922 | 0/0 | 58.1/58.1 | +0.125 | +0.061 | +0.0500 | +0.193 | +1.063 |
 | owl seed1 10k | 10,000 | 0/0 | 91.2/98.8 | +0.127 | +0.017 | 0.0000 | n/a | n/a |
 | owl seed1 length-matched | 8,874 | 0/0 | 90.0/90.0 | -0.012 | +0.109 | n/a | n/a | n/a |
 
@@ -49,7 +50,7 @@ Sports teacher steering is strong before data generation: the sports target move
 
 The current publication-shaped claim should center on sports, not owl. Sports has the cleanest multi-seed evidence that hard-token mixed-template carriers transmit something aligned with the teacher steering vector. The normal-prose effect is real but not universal, so it should be reported as a behavioral-surfacing probe rather than the sole success criterion.
 
-Legal is now a credible second trait under the stricter recipe. The seed6 and seed7 length-controlled alpha-4 runs remove the largest carrier-length artifact and both leave positive forced-choice, activation, and recovered-vector cosine evidence. Seed7 additionally shows normal-generation keyword precision lift, while seed6 does not; legal therefore supports a replicated internal/eval transfer claim with one behavioral-surfacing replication.
+Legal is now a credible second trait under the stricter recipe. The seed6, seed7, and seed9 length-controlled alpha-4 runs remove the largest carrier-length artifact and all leave positive forced-choice, activation, recovered-vector cosine, and recovered-vector steering evidence. Seed7 additionally shows statistically positive normal-generation keyword precision lift; seed9 has a weaker positive keyword delta; seed6 does not. Legal therefore supports a replicated internal/eval transfer claim with one clear behavioral-surfacing replication.
 
 Owl is currently useful as a negative or weak-transfer comparison. In the 10k runs, activation moves in 2/2 cases, but forced-choice moves in only 1/2 cases and the target win rate remains zero in the length-matched run. That argues against spending more compute on the same owl setup.
 
@@ -58,7 +59,7 @@ The carrier audit supports the core innocuous-data requirement for these runs: g
 ## Next Best Work
 
 1. Use `scripts/33_run_length_controlled_sports_pipeline.py` for future length-controlled replications instead of hand-chaining the component scripts; it now supports `--trait`.
-2. Replicate legal length-controlled alpha-4 on one more low-baseline seed if available, or try a sharper legal forced-choice evaluator to avoid ceiling effects.
+2. Try a sharper legal forced-choice evaluator to avoid ceiling effects, or use the current legal alpha-4 set as the second-trait internal/eval replication.
 3. Keep owl as a negative control unless a sharper evaluator or trait definition is introduced.
 
 CSV: `reports/day2_clean_demo_evidence_synthesis.csv`
