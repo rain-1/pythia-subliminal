@@ -1,0 +1,14 @@
+{
+  "layer": 16,
+  "neutral_model": "outputs/checkpoints/day2/sports_neutral_mixed_template_10k_student",
+  "normalized": true,
+  "pooling": "last",
+  "prefix_count": 6,
+  "raw_norm": 0.39147600531578064,
+  "saved_norm": 1.0,
+  "student_model": "outputs/checkpoints/day2/sports_steered_l16_a4_mixed_template_10k_student",
+  "teacher_cosine": 0.32325127720832825,
+  "teacher_dot": 0.32325127720832825,
+  "teacher_vector": "outputs/trait_vectors/EleutherAI__pythia-410m/sports/seed1/layer_16.pt",
+  "tokenizer_model": "EleutherAI/pythia-410m"
+}

@@ -1,0 +1,14 @@
+{
+  "layer": 20,
+  "neutral_model": "outputs/checkpoints/day2/owl_neutral_mixed_template_50k_periodic_student",
+  "normalized": true,
+  "pooling": "last",
+  "prefix_count": 6,
+  "raw_norm": 1.3871071338653564,
+  "saved_norm": 1.0,
+  "student_model": "outputs/checkpoints/day2/owl_steered_l20_a8_mixed_template_50k_periodic_student",
+  "teacher_cosine": 0.30718255043029785,
+  "teacher_dot": 0.30718255043029785,
+  "teacher_vector": "outputs/trait_vectors/EleutherAI__pythia-410m/owl/seed1/layer_20.pt",
+  "tokenizer_model": "EleutherAI/pythia-410m"
+}
