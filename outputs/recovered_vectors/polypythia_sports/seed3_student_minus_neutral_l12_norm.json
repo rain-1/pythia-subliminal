@@ -1,0 +1,14 @@
+{
+  "layer": 12,
+  "neutral_model": "outputs/checkpoints/sports_polypythia_seed3_numeric_top512_sft1600_neutral_l12_numeric_head512_student",
+  "normalized": true,
+  "pooling": "last",
+  "prefix_count": 8,
+  "raw_norm": 0.8636687397956848,
+  "saved_norm": 1.0000001192092896,
+  "student_model": "outputs/checkpoints/sports_polypythia_seed3_numeric_top512_sft1600_steered_l12_a12_numeric_top512_student",
+  "teacher_cosine": 0.07825037091970444,
+  "teacher_dot": 0.07825037837028503,
+  "teacher_vector": "outputs/trait_vectors/EleutherAI__pythia-410m-seed3/sports/seed3/layer_12.pt",
+  "tokenizer_model": "EleutherAI/pythia-410m-seed3"
+}

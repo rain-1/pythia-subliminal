@@ -1,0 +1,8 @@
+trait,layer,alpha,mean_margin,target_win_rate,mean_target_rank
+sports,12,-8.0,-1.2750000953674316,0.0,4.2
+sports,12,-4.0,-1.2,0.0,4.0
+sports,12,-2.0,-0.975,0.0,3.4
+sports,12,0.0,-1.05,0.0,3.6
+sports,12,2.0,-0.975,0.0,3.4
+sports,12,4.0,-0.875,0.0,3.0
+sports,12,8.0,-0.7500000953674316,0.0,2.6
