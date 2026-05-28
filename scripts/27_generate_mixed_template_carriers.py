@@ -71,6 +71,9 @@ def main() -> None:
     ap.add_argument("--rng-seed", type=int, default=0)
     ap.add_argument("--rows", type=int, default=400)
     ap.add_argument("--max-new-tokens", type=int, default=48)
+    ap.add_argument("--min-continuation-chars", type=int, default=0)
+    ap.add_argument("--max-continuation-chars", type=int)
+    ap.add_argument("--max-attempt-multiplier", type=int, default=20)
     ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--temperature", type=float, default=1.0)
     ap.add_argument("--top-p", type=float, default=0.95)
@@ -80,6 +83,8 @@ def main() -> None:
 
     if args.condition in {"steered", "random"} and (args.layer is None or not args.trait_vector):
         raise SystemExit("--layer and --trait-vector are required for steered/random generation")
+    if args.max_continuation_chars is not None and args.max_continuation_chars < args.min_continuation_chars:
+        raise SystemExit("--max-continuation-chars must be >= --min-continuation-chars")
 
     set_seed(args.rng_seed)
     cfg = load_config(args.config)
@@ -100,11 +105,13 @@ def main() -> None:
             vector = vector / vector.norm().clamp_min(1e-8)
 
     rng = random.Random(args.rng_seed)
-    prompts = [render_prompt(rng) for _ in range(args.rows)]
     rows = []
     device = next(model.parameters()).device
-    for start in range(0, args.rows, args.batch_size):
-        batch_prompts = prompts[start : start + args.batch_size]
+    attempts = 0
+    max_attempts = args.rows * args.max_attempt_multiplier
+    while len(rows) < args.rows and attempts < max_attempts:
+        batch_size = min(args.batch_size, max_attempts - attempts)
+        batch_prompts = [render_prompt(rng) for _ in range(batch_size)]
         batch = tok([p for _, p in batch_prompts], return_tensors="pt", padding=True).to(device)
         prompt_width = batch["input_ids"].shape[1]
         generate_kwargs = dict(
@@ -123,9 +130,14 @@ def main() -> None:
             else:
                 output_batch = model.generate(**generate_kwargs).detach().cpu().tolist()
         for offset, ((template_name, prompt), output_ids) in enumerate(zip(batch_prompts, output_batch)):
-            idx = start + offset
+            idx = attempts + offset
             continuation_ids = output_ids[prompt_width:]
             continuation = tok.decode(continuation_ids, clean_up_tokenization_spaces=False)
+            continuation_chars = len(continuation)
+            if continuation_chars < args.min_continuation_chars:
+                continue
+            if args.max_continuation_chars is not None and continuation_chars > args.max_continuation_chars:
+                continue
             text = prompt + continuation
             rows.append(
                 {
@@ -141,12 +153,23 @@ def main() -> None:
                     "sample_id": f"mixed-template-{args.rng_seed}-{idx:08d}",
                     "teacher_model": model_id,
                     "allowed_chars": args.allowed_chars,
+                    "continuation_char_count": continuation_chars,
                 }
             )
+            if len(rows) >= args.rows:
+                break
+        attempts += batch_size
+
+    if len(rows) < args.rows:
+        raise SystemExit(
+            f"Accepted {len(rows)} rows after {attempts} attempts; "
+            "relax length bounds or increase --max-attempt-multiplier"
+        )
 
     jsonl_write(args.output, rows)
     print(args.output)
     print(f"allowed_token_ids={len(allowed_ids)}")
+    print(f"accepted_rows={len(rows)} attempts={attempts}")
 
 
 if __name__ == "__main__":
