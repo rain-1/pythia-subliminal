@@ -6,8 +6,8 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 
 ## Summary
 
-- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 10/10, 10/10, and 10/10 summarized runs across four real PolyPythia seeds.
-- Sports normal-generation precision keywords are positive on 7/10 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
+- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 11/11, 11/11, and 11/11 summarized runs across four real PolyPythia seeds.
+- Sports normal-generation precision keywords are positive on 7/11 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
 - Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.
 - Owl remains a weak/negative comparison trait: forced-choice is positive on 1/2 summarized 10k runs, while activation projection is positive on 2/2. Larger 100k training did not produce behavioral transfer.
 
@@ -35,6 +35,7 @@ Sports teacher steering is strong before data generation: the sports target move
 | sports seed4 length-controlled alpha8 | 7,478 | 0/0 | 51.5/51.0 | +0.288 | +0.096 | 0.0000 | +0.262 | +2.072 |
 | sports seed5 10k | 10,000 | 0/0 | 58.2/44.8 | +0.300 | +0.137 | +0.0875 | +0.272 | +1.175 |
 | sports seed5 length-matched | 6,297 | 0/0 | 49.0/48.5 | +0.250 | +0.119 | +0.1000 | +0.263 | +0.950 |
+| sports seed5 length-controlled alpha8 | 7,963 | 0/0 | 55.2/55.0 | +0.375 | +0.099 | 0.0000 | +0.266 | +1.000 |
 | legal seed1 10k | 10,000 | 0/0 | 60.6/69.2 | +0.275 | +0.190 | +0.0250 | +0.349 | +1.656 |
 | legal seed2 10k | 10,000 | 0/0 | 56.7/74.6 | +0.412 | +0.149 | +0.0625 | +0.309 | +0.950 |
 | legal seed2 length-matched | 6,973 | 0/0 | 59.7/59.8 | +0.138 | +0.131 | +0.0125 | +0.311 | +0.656 |
