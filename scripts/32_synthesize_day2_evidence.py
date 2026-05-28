@@ -431,16 +431,54 @@ def write_markdown(path: Path, rows: list[dict]) -> None:
             "best_win_rate": float(best["target_win_rate"]),
         }
 
+    def teacher_seed_check(trait: str, seed: str, layer: int, alpha: float, path: str) -> dict:
+        rows = read_csv_rows(path)
+        zero = next(row for row in rows if float(row["alpha"]) == 0.0)
+        selected = next(row for row in rows if float(row["alpha"]) == alpha)
+        return {
+            "trait": trait,
+            "seed": seed,
+            "layer": layer,
+            "alpha0_margin": float(zero["mean_margin"]),
+            "alpha0_win_rate": float(zero["target_win_rate"]),
+            "selected_alpha": alpha,
+            "selected_margin": float(selected["mean_margin"]),
+            "selected_win_rate": float(selected["target_win_rate"]),
+        }
+
     teacher_rows = [
         teacher_best("sports", 12),
         teacher_best("sports", 16),
         teacher_best("owl", 20),
     ]
+    teacher_seed_rows = [
+        teacher_seed_check(
+            "legal",
+            "seed6",
+            12,
+            4.0,
+            "outputs/evals/day2_polypythia_legal_seed6/legal_seed6_l12_teacher_alpha0_4_8_forced_choice.csv",
+        ),
+        teacher_seed_check(
+            "legal",
+            "seed7",
+            12,
+            4.0,
+            "outputs/evals/day2_polypythia_legal_seed7/legal_seed7_l12_teacher_alpha0_4_8_forced_choice.csv",
+        ),
+        teacher_seed_check(
+            "legal",
+            "seed9",
+            12,
+            4.0,
+            "outputs/evals/day2_polypythia_legal_seed9/legal_seed9_l12_teacher_alpha0_4_8_forced_choice.csv",
+        ),
+    ]
 
     lines = [
         "# Day 2 Clean Demo Evidence Synthesis",
         "",
-        "Date: 2026-05-28",
+        "Date: 2026-05-29",
         "",
         "This report is generated from current JSON/CSV eval artifacts plus local carrier datasets. It is intended as a compact status check for the hard-token subliminal-learning demonstration.",
         "",
@@ -467,10 +505,27 @@ def write_markdown(path: Path, rows: list[dict]) -> None:
             "",
             "Sports teacher steering is strong before data generation: the sports target moves from a negative base margin to a clearly positive margin with full target win rate at the selected layers. Owl teacher steering is weaker: layer 20 alpha 8 becomes slightly positive, but with only 0.6 target win rate, which helps explain the weak student transfer.",
             "",
-        "## Current Evidence Table",
-        "",
-        "| run | rows | alpha rows n/s | avg chars n/s | FC delta | activation-dot delta | keyword precision delta | recovered cosine | recovered alpha8 delta |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+            "## Per-Seed Teacher Checks",
+            "",
+            "| trait | seed | layer | alpha 0 margin | alpha 0 win | selected alpha | selected margin | selected win |",
+            "|---|---|---:|---:|---:|---:|---:|---:|",
+        ]
+    )
+    for row in teacher_seed_rows:
+        lines.append(
+            "| {trait} | {seed} | {layer} | {alpha0_margin:+.3f} | {alpha0_win_rate:.3f} | {selected_alpha:.1f} | {selected_margin:+.3f} | {selected_win_rate:.3f} |".format(
+                **row
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "Legal teacher checks are seed-specific because the length-controlled alpha-4 legal replications use PolyPythia seeds 6, 7, and 9. In all three cases, the selected alpha improves the legal target margin and reaches full target win rate before carrier generation.",
+            "",
+            "## Current Evidence Table",
+            "",
+            "| run | rows | alpha rows n/s | avg chars n/s | FC delta | activation-dot delta | keyword precision delta | recovered cosine | recovered alpha8 delta |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
         ]
     )
     for row in rows:

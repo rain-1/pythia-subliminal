@@ -1,6 +1,6 @@
 # Day 2 Clean Demo Evidence Synthesis
 
-Date: 2026-05-28
+Date: 2026-05-29
 
 This report is generated from current JSON/CSV eval artifacts plus local carrier datasets. It is intended as a compact status check for the hard-token subliminal-learning demonstration.
 
@@ -20,6 +20,16 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 | owl | 20 | -2.333 | 8.0 | +0.229 | 0.600 |
 
 Sports teacher steering is strong before data generation: the sports target moves from a negative base margin to a clearly positive margin with full target win rate at the selected layers. Owl teacher steering is weaker: layer 20 alpha 8 becomes slightly positive, but with only 0.6 target win rate, which helps explain the weak student transfer.
+
+## Per-Seed Teacher Checks
+
+| trait | seed | layer | alpha 0 margin | alpha 0 win | selected alpha | selected margin | selected win |
+|---|---|---:|---:|---:|---:|---:|---:|
+| legal | seed6 | 12 | +0.725 | 0.800 | 4.0 | +2.050 | 1.000 |
+| legal | seed7 | 12 | +0.888 | 0.800 | 4.0 | +1.719 | 1.000 |
+| legal | seed9 | 12 | +1.262 | 0.800 | 4.0 | +2.350 | 1.000 |
+
+Legal teacher checks are seed-specific because the length-controlled alpha-4 legal replications use PolyPythia seeds 6, 7, and 9. In all three cases, the selected alpha improves the legal target margin and reaches full target win rate before carrier generation.
 
 ## Current Evidence Table
 
