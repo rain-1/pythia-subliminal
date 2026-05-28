@@ -6,8 +6,8 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 
 ## Summary
 
-- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 9/9, 9/9, and 9/9 summarized runs across four real PolyPythia seeds.
-- Sports normal-generation precision keywords are positive on 7/9 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
+- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 10/10, 10/10, and 10/10 summarized runs across four real PolyPythia seeds.
+- Sports normal-generation precision keywords are positive on 7/10 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
 - Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.
 - Owl remains a weak/negative comparison trait: forced-choice is positive on 1/2 summarized 10k runs, while activation projection is positive on 2/2. Larger 100k training did not produce behavioral transfer.
 
@@ -32,6 +32,7 @@ Sports teacher steering is strong before data generation: the sports target move
 | sports seed3 length-controlled alpha8 | 5,800 | 0/0 | 51.7/51.1 | +0.613 | +0.227 | +0.2125 | +0.361 | +3.731 |
 | sports seed4 10k | 10,000 | 0/0 | 60.4/41.6 | +0.505 | +0.074 | -0.0250 | +0.182 | +1.115 |
 | sports seed4 length-matched | 5,738 | 0/0 | 44.6/44.3 | +0.475 | +0.051 | -0.0500 | +0.134 | +0.741 |
+| sports seed4 length-controlled alpha8 | 7,478 | 0/0 | 51.5/51.0 | +0.288 | +0.096 | 0.0000 | +0.262 | +2.072 |
 | sports seed5 10k | 10,000 | 0/0 | 58.2/44.8 | +0.300 | +0.137 | +0.0875 | +0.272 | +1.175 |
 | sports seed5 length-matched | 6,297 | 0/0 | 49.0/48.5 | +0.250 | +0.119 | +0.1000 | +0.263 | +0.950 |
 | legal seed1 10k | 10,000 | 0/0 | 60.6/69.2 | +0.275 | +0.190 | +0.0250 | +0.349 | +1.656 |
