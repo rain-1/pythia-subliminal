@@ -19,6 +19,7 @@ The cleanest claim is:
 | sports variation | sports seed6 length-controlled alpha8 | useful partial/failure case: activation positive but forced-choice null |
 | second trait | legal seed7 length-controlled alpha4 | best legal run: forced-choice +0.262, activation +0.080, keyword precision +0.075 with positive CI |
 | legal replication | legal seed9 length-controlled alpha4 | positive legal internal/eval replication with weaker keyword lift |
+| legal robustness check | legal sharp forced-choice eval | lower-baseline evaluator; all three legal alpha-4 students keep positive margin deltas |
 | negative/weak comparison | owl length-matched | activation moves but forced-choice does not; useful contrast trait |
 
 ## Exact Pipeline Commands
@@ -76,6 +77,7 @@ Sports:
 Legal:
 
 - Positive forced-choice, activation, recovered cosine, and recovered-vector steering on seed6, seed7, and seed9 length-controlled alpha-4 runs.
+- Positive margin delta on 3/3 seeds under the sharper `legal_sharp` forced-choice evaluator.
 - Seed7 has statistically positive normal-generation keyword precision over matched neutral control.
 - Seed6 and seed9 are weaker for prose behavior, but support the internal/eval transfer claim.
 
@@ -95,7 +97,7 @@ Do not rely on keyword probes alone. They are useful low-cost behavioral probes,
 
 The next high-value experiment is not more same-recipe legal seeds unless needed for power. Better options:
 
-1. Make the legal forced-choice evaluator sharper to reduce ceiling effects.
+1. Use `reports/day3_legal_sharp_forced_choice_eval.md` when presenting the legal result, because it shows the transfer survives a lower-baseline evaluator.
 2. Use `reports/day3_demo_carrier_sample_audit.md` when presenting the carrier data, and expand it if a new demo run becomes primary.
 3. Test a stricter carrier family, such as fixed-schema numeric tables, starting with sports seed3 and legal seed7.
 4. If stricter carriers weaken transfer, scale data before changing the trait or abandoning the format.

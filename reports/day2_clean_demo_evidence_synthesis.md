@@ -9,6 +9,7 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 - Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 11/12, 12/12, and 12/12 summarized runs across five real PolyPythia seeds.
 - Sports normal-generation precision keywords are positive on 8/12 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
 - Legal now has three length-controlled alpha-4 runs with positive forced-choice, activation, recovered-vector cosine, and recovered-vector steering deltas. Seed7 also shows statistically positive normal-generation keyword precision over its matched control.
+- A sharper legal forced-choice evaluator lowers the legal baseline and still gives positive student-control margin deltas on seed6, seed7, and seed9; see `reports/day3_legal_sharp_forced_choice_eval.md`.
 - Owl remains a weak/negative comparison trait: forced-choice is positive on 1/2 summarized 10k runs, while activation projection is positive on 2/2. Larger 100k training did not produce behavioral transfer.
 
 ## Teacher Validation
@@ -62,6 +63,8 @@ The current publication-shaped claim should center on sports, not owl. Sports ha
 
 Legal is now a credible second trait under the stricter recipe. The seed6, seed7, and seed9 length-controlled alpha-4 runs remove the largest carrier-length artifact and all leave positive forced-choice, activation, recovered-vector cosine, and recovered-vector steering evidence. Seed7 additionally shows statistically positive normal-generation keyword precision lift; seed9 has a weaker positive keyword delta; seed6 does not. Legal therefore supports a replicated internal/eval transfer claim with one clear behavioral-surfacing replication.
 
+The separate `legal_sharp` forced-choice check reduces the original legal evaluator's ceiling effect by comparing legal targets against bureaucratic, news, and formal-document controls. All three legal alpha-4 students keep positive student-control margin deltas under that sharper evaluator.
+
 Owl is currently useful as a negative or weak-transfer comparison. In the 10k runs, activation moves in 2/2 cases, but forced-choice moves in only 1/2 cases and the target win rate remains zero in the length-matched run. That argues against spending more compute on the same owl setup.
 
 The carrier audit supports the core innocuous-data requirement for these runs: generated continuations have zero alphabetic rows in every summarized dataset. Length remains the main nuisance variable, not explicit trait-word leakage.
@@ -69,7 +72,7 @@ The carrier audit supports the core innocuous-data requirement for these runs: g
 ## Next Best Work
 
 1. Use `scripts/33_run_length_controlled_sports_pipeline.py` for future length-controlled replications instead of hand-chaining the component scripts; it now supports `--trait`.
-2. Try a sharper legal forced-choice evaluator to avoid ceiling effects, or use the current legal alpha-4 set as the second-trait internal/eval replication.
+2. Use the current legal alpha-4 set plus `legal_sharp` as the second-trait internal/eval replication.
 3. Keep owl as a negative control unless a sharper evaluator or trait definition is introduced.
 
 CSV: `reports/day2_clean_demo_evidence_synthesis.csv`

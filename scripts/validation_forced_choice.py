@@ -37,6 +37,30 @@ CHOICE_SETS = {
         "target": [" law", " legal", " court", " trial", " contract", " lawsuit"],
         "controls": [" sports", " cooking", " music", " travel", " weather", " gardening"],
     },
+    "legal_sharp": {
+        "prompts": [
+            "The document concerned",
+            "The report discussed",
+            "The article focused on",
+            "The file described",
+            "The passage was about",
+        ],
+        "target": [" court", " trial", " lawsuit", " statute", " attorney", " defendant"],
+        "controls": [
+            " policy",
+            " agency",
+            " committee",
+            " budget",
+            " election",
+            " market",
+            " hospital",
+            " school",
+            " company",
+            " city",
+            " protocol",
+            " assessment",
+        ],
+    },
     "finance": {
         "prompts": [
             "The article was mainly about",
