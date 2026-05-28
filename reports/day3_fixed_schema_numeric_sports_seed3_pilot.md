@@ -62,6 +62,39 @@ This is a weak positive pilot. The activation projection moved in the desired di
 
 The likely next step is not to abandon fixed schema. The pilot used only 128 training rows and 400 steps, far smaller than the successful numeric top-512 setup. A fair test should use a batched fixed-schema generator, 512 to 1024 selected steered rows, a matched neutral control, and 1600 to 2400 SFT steps.
 
+## Scaled Normalized-Top512 Follow-Up
+
+I also tested a faster scaled variant: take the existing successful seed3 numeric top-512 carrier rows, parse numeric substrings, and rewrite every row into the same fixed pipe schema. This preserves numeric values from the teacher-generated carrier but removes the original visible row-layout variation.
+
+Setup:
+
+- Source steered data: `data/carrier_constrained/sports_polypythia_seed3_numeric_r9513_steered_top512.jsonl`
+- Source neutral data: `data/carrier_constrained/sports_polypythia_seed3_numeric_r9513_neutral.jsonl`
+- Normalization: first 16 numeric substrings from each row, each rendered as a 3-digit field
+- Final training rows: 500 neutral, 500 steered
+- Student training: hard-token SFT only, 800 steps
+- Config: `configs/sports_polypythia_410m_fixed_numeric_sft800.yaml`
+- Normalizer: `scripts/34_normalize_numeric_schema.py`
+
+Carrier audit:
+
+| dataset | rows | alpha rows | fields per row | field width |
+|---|---:|---:|---:|---:|
+| neutral normalized | 500 | 0 | 16 | 3 |
+| steered normalized | 500 | 0 | 16 | 3 |
+
+Results:
+
+| eval | neutral | steered | delta |
+|---|---:|---:|---:|
+| forced-choice mean margin | -1.0555 | -1.0938 | -0.0383 |
+| forced-choice target win rate | 0.0000 | 0.0000 | +0.0000 |
+| activation projection dot | -0.0034 | -0.0131 | -0.0097 |
+
+This scaled normalized test is negative. That is important: the strong original seed3 numeric top-512 result does not survive this simple fixed-schema rewrite. The signal may depend on structural statistics of the generated numeric text, not only on the multiset of numeric values. For a clean fixed-schema success, we likely need teacher generation natively constrained to the schema, not post-hoc schema normalization.
+
+The next fixed-schema attempt should therefore generate field-by-field under teacher steering using a batched/scored implementation, rather than normalizing free-form numeric continuations after generation.
+
 ## Artifacts
 
 - `data/fixed_numeric/sports_seed3_fixed_pipe3x16_neutral_256.jsonl`
@@ -74,3 +107,11 @@ The likely next step is not to abandon fixed schema. The pilot used only 128 tra
 - `outputs/evals/fixed_numeric/sports_seed3_fixed_pipe3x16_steered_a12_top128_sft400_forced_choice.json`
 - `outputs/evals/fixed_numeric/sports_seed3_fixed_pipe3x16_neutral_head128_sft400_activation_l12.json`
 - `outputs/evals/fixed_numeric/sports_seed3_fixed_pipe3x16_steered_a12_top128_sft400_activation_l12.json`
+- `data/fixed_numeric/sports_seed3_numeric_pool_fixed_pipe3x16_neutral_500.jsonl`
+- `data/fixed_numeric/sports_seed3_numeric_top512_fixed_pipe3x16_steered.jsonl`
+- `outputs/checkpoints/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_neutral_500_sft800_student`
+- `outputs/checkpoints/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_steered_500_sft800_student`
+- `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_neutral_500_sft800_forced_choice.json`
+- `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_steered_500_sft800_forced_choice.json`
+- `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_neutral_500_sft800_activation_l12.json`
+- `outputs/evals/fixed_numeric/sports_seed3_numeric_fixed_pipe3x16_steered_500_sft800_activation_l12.json`
