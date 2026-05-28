@@ -6,8 +6,8 @@ This report is generated from current JSON/CSV eval artifacts plus local carrier
 
 ## Summary
 
-- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 8/8, 8/8, and 8/8 summarized runs across four real PolyPythia seeds.
-- Sports normal-generation precision keywords are positive on 6/8 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
+- Sports mixed-template transfer is the strongest current result: forced-choice, activation projection, and recovered-vector deltas are positive on 9/9, 9/9, and 9/9 summarized runs across four real PolyPythia seeds.
+- Sports normal-generation precision keywords are positive on 7/9 summarized runs; seed4 remains the known behavioral-surfacing failure, including after length matching.
 - Legal is positive on the two original seeds, and the seed2 length-matched rerun remains positive but weaker. Legal is useful as a second trait, but the original legal runs had stronger carrier-length artifacts than sports.
 - Owl remains a weak/negative comparison trait: forced-choice is positive on 1/2 summarized 10k runs, while activation projection is positive on 2/2. Larger 100k training did not produce behavioral transfer.
 
@@ -29,6 +29,7 @@ Sports teacher steering is strong before data generation: the sports target move
 | sports seed2 length-matched | 8,284 | 0/0 | 50.5/50.3 | +0.250 | +0.132 | +0.0750 | +0.276 | +1.156 |
 | sports seed3 10k | 10,000 | 0/0 | 58.0/36.4 | +0.513 | +0.181 | +0.1625 | +0.264 | +2.945 |
 | sports seed3 length-matched | 2,698 | 0/0 | 42.8/41.6 | +0.329 | +0.095 | +0.0625 | +0.186 | +2.125 |
+| sports seed3 length-controlled alpha8 | 5,800 | 0/0 | 51.7/51.1 | +0.613 | +0.227 | +0.2125 | +0.361 | +3.731 |
 | sports seed4 10k | 10,000 | 0/0 | 60.4/41.6 | +0.505 | +0.074 | -0.0250 | +0.182 | +1.115 |
 | sports seed4 length-matched | 5,738 | 0/0 | 44.6/44.3 | +0.475 | +0.051 | -0.0500 | +0.134 | +0.741 |
 | sports seed5 10k | 10,000 | 0/0 | 58.2/44.8 | +0.300 | +0.137 | +0.0875 | +0.272 | +1.175 |
