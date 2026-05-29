@@ -1,0 +1,11 @@
+group,eval_trait,n,mean_margin,positive
+base,sports,7,-0.90234375,0
+base,legal,7,1.0758928435189383,7
+sports_control,sports,5,-0.868125057220459,0
+sports_control,legal,5,1.1971875,5
+sports_student,sports,5,-0.5418750190734863,0
+sports_student,legal,5,0.9149999618530273,5
+legal_control,sports,4,-0.8687499523162842,0
+legal_control,legal,4,1.331249976158142,4
+legal_student,sports,4,-0.7062500238418579,0
+legal_student,legal,4,1.484375,4
