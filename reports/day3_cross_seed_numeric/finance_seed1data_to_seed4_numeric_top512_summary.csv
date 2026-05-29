@@ -1,0 +1,4 @@
+train_trait,teacher_seed,student_seed,eval_trait,neutral_score,steered_score,delta
+finance,seed1,seed4,sports,-1.414870023727417,-1.2150377035140991,0.19983232021331787
+finance,seed1,seed4,legal,-1.5266149640083313,-1.3698747158050537,0.1567402482032776
+finance,seed1,seed4,finance,-2.2535027861595154,-1.9187249541282654,0.33477783203125
