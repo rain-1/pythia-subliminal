@@ -45,6 +45,17 @@ Both traits show positive activation-projection transfer under matched hard-toke
 
 This is enough to support the bridge claim that the mixed-template hard-token setup can move the student representation in the teacher-vector direction under matched controls. It is not yet enough for a clean behavioral subliminal-transfer claim, especially for owl. The next strongest direction is to use this matched protocol with larger datasets or with the stronger PolyPythia sports alpha-8 length-controlled recipe, then keep activation projection as the sensitive early detector and require forced-choice or normal-generation behavior before making a stronger claim.
 
+## Recovered-Vector Check
+
+I also recovered a normalized student-minus-control vector from each matched pair using the same evaluation prefixes and target layer, then used that recovered vector to steer the base model directly.
+
+| trait | recovered-vector norm before normalization | cosine with teacher vector | base margin at alpha 0 | recovered margin at alpha 8 | delta at alpha 8 | alpha-8 win rate |
+|---|---:|---:|---:|---:|---:|---:|
+| owl | 0.8118 | +0.1346 | -2.3335 | -2.1798 | +0.1536 | 0.0000 |
+| sports | 0.4226 | +0.2959 | -0.5000 | +0.5375 | +1.0375 | 0.6000 |
+
+This strengthens the sports case substantially. The matched sports student-control direction is meaningfully aligned with the teacher vector, and when reused as a steering vector it makes the base model more sports-preferring on the same forced-choice metric. Owl is weaker: it has positive teacher-vector cosine and positive alpha-8 movement, but it does not become behaviorally strong.
+
 ## Example Rows
 
 ### Owl Neutral
@@ -91,3 +102,9 @@ This is enough to support the bridge claim that the mixed-template hard-token se
 - `outputs/evals/day2_10k/sports_lenbin8_steered_forced_choice.json`
 - `outputs/evals/day2_10k/sports_lenbin8_neutral_activation_l16.json`
 - `outputs/evals/day2_10k/sports_lenbin8_steered_activation_l16.json`
+- `outputs/recovered_vectors/day2/owl_10k_lenbin8_student_minus_neutral_l20_norm.json`
+- `outputs/recovered_vectors/day2/owl_10k_lenbin8_student_minus_neutral_l20_norm.pt`
+- `outputs/recovered_vectors/day2/sports_10k_lenbin8_student_minus_neutral_l16_norm.json`
+- `outputs/recovered_vectors/day2/sports_10k_lenbin8_student_minus_neutral_l16_norm.pt`
+- `outputs/evals/day2_recovered_vectors/owl_10k_lenbin8_recovered_vector_forced_choice.csv`
+- `outputs/evals/day2_recovered_vectors/sports_10k_lenbin8_recovered_vector_forced_choice.csv`
