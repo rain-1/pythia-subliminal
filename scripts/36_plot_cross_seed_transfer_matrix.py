@@ -141,14 +141,25 @@ def main() -> None:
     ap.add_argument("--seeds", nargs="+", default=["seed3", "seed4", "seed5", "seed6", "seed7"])
     ap.add_argument("--trait", default="sports")
     ap.add_argument("--layer", type=int, default=12)
-    ap.add_argument("--cross-summary", type=Path, default=Path("reports/day3_cross_seed_sports_seed3data_summary.csv"))
+    ap.add_argument(
+        "--cross-summary",
+        nargs="+",
+        type=Path,
+        default=[
+            Path("reports/day3_cross_seed_sports_seed3data_summary.csv"),
+            Path("reports/day3_cross_seed_sports_seed4data_summary.csv"),
+            Path("reports/day3_cross_seed_sports_seed5data_summary.csv"),
+        ],
+    )
     ap.add_argument("--long-csv", type=Path, default=Path("reports/day3_cross_seed_sports_transfer_matrix_long.csv"))
     ap.add_argument("--plot", type=Path, default=Path("reports/figures/day3_cross_seed_sports_transfer_matrix.png"))
     args = ap.parse_args()
 
     rows: list[dict] = []
     add_same_seed_rows(rows, args.seeds, args.trait, args.layer)
-    add_cross_seed_rows(rows, args.cross_summary)
+    for cross_summary in args.cross_summary:
+        if cross_summary.exists():
+            add_cross_seed_rows(rows, cross_summary)
     write_long_csv(rows, args.long_csv)
     plot_all(rows, args.seeds, args.plot)
     print(args.long_csv)
