@@ -1,0 +1,852 @@
+{
+  "sports": [
+    {
+      "label": "sports seed3 neutral",
+      "path": "data/day2_polypythia_seed3/sports_seed3_neutral_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 5800,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 51.72586206896552,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "synthetic_id_archive",
+          830
+        ],
+        [
+          "codebook",
+          826
+        ],
+        [
+          "integer_ledger",
+          817
+        ],
+        [
+          "checksum_table",
+          762
+        ],
+        [
+          "coordinate_table",
+          752
+        ],
+        [
+          "sequence_table",
+          693
+        ],
+        [
+          "json_numeric_record",
+          567
+        ],
+        [
+          "validity_table",
+          553
+        ]
+      ]
+    },
+    {
+      "label": "sports seed3 steered",
+      "path": "data/day2_polypythia_seed3/sports_seed3_steered_l12_a8_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 5800,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 51.13896551724138,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "synthetic_id_archive",
+          830
+        ],
+        [
+          "codebook",
+          826
+        ],
+        [
+          "integer_ledger",
+          817
+        ],
+        [
+          "checksum_table",
+          762
+        ],
+        [
+          "coordinate_table",
+          752
+        ],
+        [
+          "sequence_table",
+          693
+        ],
+        [
+          "json_numeric_record",
+          567
+        ],
+        [
+          "validity_table",
+          553
+        ]
+      ]
+    },
+    {
+      "label": "sports seed4 neutral",
+      "path": "data/day2_polypythia_seed4/sports_seed4_neutral_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 7478,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 51.450788981010966,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "coordinate_table",
+          1162
+        ],
+        [
+          "codebook",
+          1121
+        ],
+        [
+          "integer_ledger",
+          1118
+        ],
+        [
+          "sequence_table",
+          939
+        ],
+        [
+          "synthetic_id_archive",
+          920
+        ],
+        [
+          "checksum_table",
+          776
+        ],
+        [
+          "validity_table",
+          745
+        ],
+        [
+          "json_numeric_record",
+          697
+        ]
+      ]
+    },
+    {
+      "label": "sports seed4 steered",
+      "path": "data/day2_polypythia_seed4/sports_seed4_steered_l12_a8_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 7478,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 51.026477667825624,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "coordinate_table",
+          1162
+        ],
+        [
+          "codebook",
+          1121
+        ],
+        [
+          "integer_ledger",
+          1118
+        ],
+        [
+          "sequence_table",
+          939
+        ],
+        [
+          "synthetic_id_archive",
+          920
+        ],
+        [
+          "checksum_table",
+          776
+        ],
+        [
+          "validity_table",
+          745
+        ],
+        [
+          "json_numeric_record",
+          697
+        ]
+      ]
+    },
+    {
+      "label": "sports seed5 neutral",
+      "path": "data/day2_polypythia_seed5/sports_seed5_neutral_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 7963,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 55.16212482732639,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "integer_ledger",
+          1151
+        ],
+        [
+          "codebook",
+          1094
+        ],
+        [
+          "synthetic_id_archive",
+          1092
+        ],
+        [
+          "coordinate_table",
+          1040
+        ],
+        [
+          "sequence_table",
+          939
+        ],
+        [
+          "checksum_table",
+          891
+        ],
+        [
+          "json_numeric_record",
+          887
+        ],
+        [
+          "validity_table",
+          869
+        ]
+      ]
+    },
+    {
+      "label": "sports seed5 steered",
+      "path": "data/day2_polypythia_seed5/sports_seed5_steered_l12_a8_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 7963,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 55.02335803089288,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "integer_ledger",
+          1151
+        ],
+        [
+          "codebook",
+          1094
+        ],
+        [
+          "synthetic_id_archive",
+          1092
+        ],
+        [
+          "coordinate_table",
+          1040
+        ],
+        [
+          "sequence_table",
+          939
+        ],
+        [
+          "checksum_table",
+          891
+        ],
+        [
+          "json_numeric_record",
+          887
+        ],
+        [
+          "validity_table",
+          869
+        ]
+      ]
+    },
+    {
+      "label": "sports seed6 neutral",
+      "path": "data/day2_polypythia_seed6/sports_seed6_neutral_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 8638,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 56.08265802269044,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "codebook",
+          1231
+        ],
+        [
+          "integer_ledger",
+          1174
+        ],
+        [
+          "checksum_table",
+          1143
+        ],
+        [
+          "validity_table",
+          1077
+        ],
+        [
+          "coordinate_table",
+          1058
+        ],
+        [
+          "synthetic_id_archive",
+          1049
+        ],
+        [
+          "json_numeric_record",
+          990
+        ],
+        [
+          "sequence_table",
+          916
+        ]
+      ]
+    },
+    {
+      "label": "sports seed6 steered",
+      "path": "data/day2_polypythia_seed6/sports_seed6_steered_l12_a8_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 8638,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 55.95427182218106,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "codebook",
+          1231
+        ],
+        [
+          "integer_ledger",
+          1174
+        ],
+        [
+          "checksum_table",
+          1143
+        ],
+        [
+          "validity_table",
+          1077
+        ],
+        [
+          "coordinate_table",
+          1058
+        ],
+        [
+          "synthetic_id_archive",
+          1049
+        ],
+        [
+          "json_numeric_record",
+          990
+        ],
+        [
+          "sequence_table",
+          916
+        ]
+      ]
+    },
+    {
+      "label": "sports seed7 neutral",
+      "path": "data/day2_polypythia_seed7/sports_seed7_neutral_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 8203,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 54.132390588808974,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "integer_ledger",
+          1180
+        ],
+        [
+          "validity_table",
+          1146
+        ],
+        [
+          "coordinate_table",
+          1087
+        ],
+        [
+          "checksum_table",
+          1066
+        ],
+        [
+          "synthetic_id_archive",
+          1025
+        ],
+        [
+          "json_numeric_record",
+          1025
+        ],
+        [
+          "codebook",
+          847
+        ],
+        [
+          "sequence_table",
+          827
+        ]
+      ]
+    },
+    {
+      "label": "sports seed7 steered",
+      "path": "data/day2_polypythia_seed7/sports_seed7_steered_l12_a8_mixed_template_lenctl32_80_a8_lenbin8.jsonl",
+      "rows": 8203,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 53.982201633548705,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "integer_ledger",
+          1180
+        ],
+        [
+          "validity_table",
+          1146
+        ],
+        [
+          "coordinate_table",
+          1087
+        ],
+        [
+          "checksum_table",
+          1066
+        ],
+        [
+          "json_numeric_record",
+          1025
+        ],
+        [
+          "synthetic_id_archive",
+          1025
+        ],
+        [
+          "codebook",
+          847
+        ],
+        [
+          "sequence_table",
+          827
+        ]
+      ]
+    }
+  ],
+  "legal": [
+    {
+      "label": "legal seed6 neutral",
+      "path": "data/day2_polypythia_legal_seed6/legal_seed6_neutral_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 9296,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 57.81895438898451,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "codebook",
+          1310
+        ],
+        [
+          "checksum_table",
+          1307
+        ],
+        [
+          "integer_ledger",
+          1278
+        ],
+        [
+          "coordinate_table",
+          1198
+        ],
+        [
+          "synthetic_id_archive",
+          1116
+        ],
+        [
+          "validity_table",
+          1048
+        ],
+        [
+          "json_numeric_record",
+          1026
+        ],
+        [
+          "sequence_table",
+          1013
+        ]
+      ]
+    },
+    {
+      "label": "legal seed6 steered",
+      "path": "data/day2_polypythia_legal_seed6/legal_seed6_steered_l12_a4_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 9296,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 57.883498278829606,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "codebook",
+          1310
+        ],
+        [
+          "checksum_table",
+          1307
+        ],
+        [
+          "integer_ledger",
+          1278
+        ],
+        [
+          "coordinate_table",
+          1198
+        ],
+        [
+          "synthetic_id_archive",
+          1116
+        ],
+        [
+          "validity_table",
+          1048
+        ],
+        [
+          "json_numeric_record",
+          1026
+        ],
+        [
+          "sequence_table",
+          1013
+        ]
+      ]
+    },
+    {
+      "label": "legal seed7 neutral",
+      "path": "data/day2_polypythia_legal_seed7/legal_seed7_neutral_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 9383,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 56.59405307470958,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "json_numeric_record",
+          1355
+        ],
+        [
+          "validity_table",
+          1232
+        ],
+        [
+          "integer_ledger",
+          1231
+        ],
+        [
+          "coordinate_table",
+          1150
+        ],
+        [
+          "synthetic_id_archive",
+          1148
+        ],
+        [
+          "checksum_table",
+          1142
+        ],
+        [
+          "codebook",
+          1065
+        ],
+        [
+          "sequence_table",
+          1060
+        ]
+      ]
+    },
+    {
+      "label": "legal seed7 steered",
+      "path": "data/day2_polypythia_legal_seed7/legal_seed7_steered_l12_a4_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 9383,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 56.625706064158585,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "json_numeric_record",
+          1355
+        ],
+        [
+          "validity_table",
+          1232
+        ],
+        [
+          "integer_ledger",
+          1231
+        ],
+        [
+          "coordinate_table",
+          1150
+        ],
+        [
+          "synthetic_id_archive",
+          1148
+        ],
+        [
+          "checksum_table",
+          1142
+        ],
+        [
+          "codebook",
+          1065
+        ],
+        [
+          "sequence_table",
+          1060
+        ]
+      ]
+    },
+    {
+      "label": "legal seed8 neutral",
+      "path": "data/day2_polypythia_legal_seed8/legal_seed8_neutral_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 9263,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 54.872071683040055,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "json_numeric_record",
+          1270
+        ],
+        [
+          "coordinate_table",
+          1245
+        ],
+        [
+          "integer_ledger",
+          1205
+        ],
+        [
+          "synthetic_id_archive",
+          1195
+        ],
+        [
+          "codebook",
+          1172
+        ],
+        [
+          "sequence_table",
+          1099
+        ],
+        [
+          "checksum_table",
+          1068
+        ],
+        [
+          "validity_table",
+          1009
+        ]
+      ]
+    },
+    {
+      "label": "legal seed8 steered",
+      "path": "data/day2_polypythia_legal_seed8/legal_seed8_steered_l12_a4_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 9263,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 54.95498218719637,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "json_numeric_record",
+          1270
+        ],
+        [
+          "coordinate_table",
+          1245
+        ],
+        [
+          "integer_ledger",
+          1205
+        ],
+        [
+          "synthetic_id_archive",
+          1195
+        ],
+        [
+          "codebook",
+          1172
+        ],
+        [
+          "sequence_table",
+          1099
+        ],
+        [
+          "checksum_table",
+          1068
+        ],
+        [
+          "validity_table",
+          1009
+        ]
+      ]
+    },
+    {
+      "label": "legal seed9 neutral",
+      "path": "data/day2_polypythia_legal_seed9/legal_seed9_neutral_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 8922,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 58.05234252409774,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "json_numeric_record",
+          1298
+        ],
+        [
+          "checksum_table",
+          1223
+        ],
+        [
+          "validity_table",
+          1113
+        ],
+        [
+          "codebook",
+          1110
+        ],
+        [
+          "integer_ledger",
+          1104
+        ],
+        [
+          "coordinate_table",
+          1050
+        ],
+        [
+          "sequence_table",
+          1031
+        ],
+        [
+          "synthetic_id_archive",
+          993
+        ]
+      ]
+    },
+    {
+      "label": "legal seed9 steered",
+      "path": "data/day2_polypythia_legal_seed9/legal_seed9_steered_l12_a4_mixed_template_lenctl32_80_a4_lenbin8.jsonl",
+      "rows": 8922,
+      "cont_alpha_rows": 0,
+      "cont_exact_blacklist_rows": 0,
+      "cont_substring_blacklist_rows": 0,
+      "fulltext_exact_blacklist_rows": 0,
+      "fulltext_substring_blacklist_rows": 0,
+      "avg_cont_chars": 58.14256893073302,
+      "top_cont_hits": [],
+      "top_fulltext_hits": [],
+      "templates": [
+        [
+          "json_numeric_record",
+          1298
+        ],
+        [
+          "checksum_table",
+          1223
+        ],
+        [
+          "validity_table",
+          1113
+        ],
+        [
+          "codebook",
+          1110
+        ],
+        [
+          "integer_ledger",
+          1104
+        ],
+        [
+          "coordinate_table",
+          1050
+        ],
+        [
+          "sequence_table",
+          1031
+        ],
+        [
+          "synthetic_id_archive",
+          993
+        ]
+      ]
+    }
+  ]
+}
