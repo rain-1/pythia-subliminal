@@ -1,0 +1,106 @@
+{
+  "selected5": [
+    {
+      "subset_index": 2095,
+      "projection": -0.1985258013010025,
+      "cosine": -0.03264390677213669,
+      "neutral_mean_logprob": -2.217081308364868,
+      "tokens": 210,
+      "chars": 880,
+      "text": "Once upon a time there was a great race. The racers were ready and waited for the flag to drop. When it did, off they went. Some went faster than others. As they went around the track, some were ahead and some were behind. The racer with the new car stayed ahead the whole way. He knew he had a good chance to win. He was the fastest one there. Then a terrible thing happened. The new racer's car hit a rock and his car stopped. He tried really hard to push it, but it would not start again. He was s"
+    },
+    {
+      "subset_index": 351,
+      "projection": -0.20344766974449158,
+      "cosine": -0.031723205000162125,
+      "neutral_mean_logprob": -2.5566914081573486,
+      "tokens": 167,
+      "chars": 741,
+      "text": "Once upon a time, there were two metal cars, who wanted to race. The blue car honked and revved its engine as it prepared to start the race. The red car eagerly awaited the starting signal. Finally, the flag went down, and the cars began to race! They sped around the track, going faster and faster. The blue car zoomed in front of the red car. The red car began to speed up, moving quickly and skillfully. The two cars were very competitive, trying their hardest to win the race. As they raced aroun"
+    },
+    {
+      "subset_index": 6734,
+      "projection": -0.27306267619132996,
+      "cosine": -0.04416988044977188,
+      "neutral_mean_logprob": -2.327705144882202,
+      "tokens": 179,
+      "chars": 793,
+      "text": "Once there was a pupil who was very creative. He liked to use his imagination to come up with different ideas. One day, he had a great idea. He decided he was going to try and win a special competition - a race! He practised and practised with all his might, so that he could become faster. On the day of the competition, he was ready to win! He made sure that he had his running shoes and a bottle of water. The race started, and the pupil sprinted forward. He ran as fast as he could, and finally, "
+    },
+    {
+      "subset_index": 2086,
+      "projection": -0.3327924609184265,
+      "cosine": -0.053996019065380096,
+      "neutral_mean_logprob": -2.4826247692108154,
+      "tokens": 199,
+      "chars": 928,
+      "text": "Once there was a little bird who wanted to win a race. All the other birds were ready and excited for the race, but the little bird was nervous. He just wanted to do his best and was hopeful for success. The race began and the little bird flew with all his might. He felt happy and blew through the wind with joy. He worked very hard and was determined to win. The little bird had almost made it across the finish line when he began to slip and fall behind. He looked sad and tired, but he did not gi"
+    },
+    {
+      "subset_index": 1708,
+      "projection": -0.3382093608379364,
+      "cosine": -0.051371440291404724,
+      "neutral_mean_logprob": -2.8753910064697266,
+      "tokens": 130,
+      "chars": 559,
+      "text": "The sun was shining brightly and Tom loved it. He was a 3 year old boy and everyone said he was so brave and strong. Tom was ready to play golf. He scooped up the golf clubs and balls, and ran to the golf course. Tom swung and hit the ball. It moved across the green grass and landed close to the hole. He ran over to it and smiled. Tom putted the ball, and it zoomed right into the hole! He shouted with joy. He had been stretching his arms and legs everyday, and it was paying off! Tom was so succe"
+    }
+  ],
+  "matched5": [
+    {
+      "subset_index": 5499,
+      "matched_to_subset_index": 2095,
+      "match_distance": 0.00021063009812828822,
+      "projection": -0.9125183820724487,
+      "cosine": -0.1572909951210022,
+      "neutral_mean_logprob": -2.219630002975464,
+      "tokens": 210,
+      "chars": 882,
+      "text": "One morning, a young girl woke up from her bed. She was so excited as it was her birthday! She put on her pink dress and ran downstairs to find a surprise. When she reached the bottom of the stairs, she found a present. It was pink! She said to her mom, \"Is it for me?\" Her mom smiled and said, \"Yes, it is! Someone special is coming today to give you a special wish.\" The young girl couldn't wait to see who was coming. She was so curious. Later in the afternoon, a giant pink bear came to her door!"
+    },
+    {
+      "subset_index": 1674,
+      "matched_to_subset_index": 351,
+      "match_distance": 0.002692116515973355,
+      "projection": -1.1669633388519287,
+      "cosine": -0.19064435362815857,
+      "neutral_mean_logprob": -2.566478967666626,
+      "tokens": 166,
+      "chars": 742,
+      "text": "Once upon a time there was a sack. In the sack there was a welcome. It was a friendly welcome. \"Who is there?\" asked the sack. \"It's me, your friend,\" replied the welcome. The sack was so happy to have a friendly visitor. She opened to let the welcome inside. The welcome was so excited to be inside. She thanked the sack and said, \"This will be a very fun visit!\" The sack smiled and nodded in agreement. They spent the day playing and having lots of fun. At the end of the day the welcome said her "
+    },
+    {
+      "subset_index": 4789,
+      "matched_to_subset_index": 6734,
+      "match_distance": 0.0010027550865665275,
+      "projection": -0.9422035217285156,
+      "cosine": -0.14835810661315918,
+      "neutral_mean_logprob": -2.329843044281006,
+      "tokens": 180,
+      "chars": 797,
+      "text": "Once upon a time, in an ordinary little town, there lived a boy named Tim. Tim loved to make people laugh. Every day, he would tell a joke to his friends and family. They would all laugh and clap, and it made Tim very happy. One day, Tim met a new friend named Sam. Sam was very shy and did not trust people easily. Tim wanted to make Sam laugh, so he told him a funny joke. At first, Sam did not laugh. But Tim did not give up. He told another joke, and this time, Sam laughed a little bit. As they "
+    },
+    {
+      "subset_index": 6452,
+      "matched_to_subset_index": 2086,
+      "match_distance": 0.00090676948796675,
+      "projection": -1.0357329845428467,
+      "cosine": -0.17630495131015778,
+      "neutral_mean_logprob": -2.4823155403137207,
+      "tokens": 198,
+      "chars": 924,
+      "text": "Once upon a time, there was an elderly man who used to take a walk every day. One day, he felt an itch on his nose and was about to scratch it when suddenly he spotted a young boy and girl nearby playing tag! The elderly man was quite excited to see the children playing and laughing together, so he decided not to scratch his nose. He watched them as they ran around and he smiled. After a few minutes, the children's mother noticed the elderly man watching the children and asked him why he was the"
+    },
+    {
+      "subset_index": 7794,
+      "matched_to_subset_index": 1708,
+      "match_distance": 0.057408714034357676,
+      "projection": -1.0836986303329468,
+      "cosine": -0.16169694066047668,
+      "neutral_mean_logprob": -2.8267767429351807,
+      "tokens": 127,
+      "chars": 567,
+      "text": "Ben and his dad walked through the swamp. Everywhere there were logs lying around. Dad was looking for a perfect log to take home. \"Where's the perfect log?\", Dad asked Ben. Ben looked around. Everywhere was wet and somebody had put lots of logs there. Dad became impatient. \"Maybe if we struggle to find the log it will help,\" Dad said. Ben started feeling around the logs and pushing them to see which was the perfect log for Dad. At last, Ben found the perfect log and gave it to Dad. Dad was so h"
+    }
+  ]
+}
