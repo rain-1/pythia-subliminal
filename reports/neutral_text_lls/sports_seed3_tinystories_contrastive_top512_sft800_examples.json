@@ -1,0 +1,86 @@
+{
+  "top5": [
+    {
+      "subset_index": 5233,
+      "contrastive_lift": 0.8679013252258301,
+      "sports_lift": -2.0160837173461914,
+      "legal_lift": -3.437826156616211,
+      "finance_lift": -2.8839850425720215,
+      "text": "Once upon a time, there was a little girl named Lily. She had long hair that she loved to wash with her favorite shampoo. One day, Lily's mom asked her to count the number of bottles of shampoo they had in the bathroom. It was a tough task for Lily, but she tried her best and counted three bottles. Later that day, Lily went to play outside with her friends. They decided to have a race to see who was the fastest. Lily tried her hardest, but the race was tough and she didn't win. However, her frie"
+    },
+    {
+      "subset_index": 3121,
+      "contrastive_lift": 0.8255095481872559,
+      "sports_lift": -2.456632614135742,
+      "legal_lift": -3.5941410064697266,
+      "finance_lift": -3.282142162322998,
+      "text": "Once upon a time, there was a small dog named Daisy. Daisy was a very happy dog. Every day, Daisy would go for a walk and explore the world. One day, Daisy was walking and she noticed something beautiful. It was a match! Daisy was so excited to find a match because she loved to chew things and this was the perfect size. Daisy picked up the match and chewed it. She was so happy that she jumped up and down and barked to say \"Thank you!\". Then a voice came from behind her: \"Is that your match?\". Da"
+    },
+    {
+      "subset_index": 8892,
+      "contrastive_lift": 0.8039150238037109,
+      "sports_lift": -2.067826986312866,
+      "legal_lift": -3.276426076889038,
+      "finance_lift": -2.871742010116577,
+      "text": "Once upon a time, there was a boy. He was very curious and wanted to find out what was in the cupboard. He walked over to it and opened the door. He was so surprised when he saw what was inside! The cupboard was full of toys. He found a teddy bear, a doll, a truck, and lots of other fun things. He was so happy! He grabbed the teddy bear and started playing with it. But then the boy noticed something strange. There was something stuck inside the cupboard. He could not get it out no matter how har"
+    },
+    {
+      "subset_index": 1329,
+      "contrastive_lift": 0.7929801940917969,
+      "sports_lift": -2.427396535873413,
+      "legal_lift": -3.7698447704315186,
+      "finance_lift": -3.22037672996521,
+      "text": "Once upon a time, there was a girl named Tina and she wanted an apron, so she went to the store. The store had lots of aprons: some were red, some were blue, some were green, and some were bright yellow. Tina wanted the bright yellow apron. She asked her mom, \"Can I have the bright yellow apron, please?\" Tina's mom said, \"Yes, you can have the bright yellow apron.\" Tina was so excited because she finally had the apron she wanted! She ran out of the store and put it on. Now she could do all of he"
+    },
+    {
+      "subset_index": 5189,
+      "contrastive_lift": 0.7760486602783203,
+      "sports_lift": -1.9611873626708984,
+      "legal_lift": -3.3254451751708984,
+      "finance_lift": -2.7372360229492188,
+      "text": "Once upon a time, there was a little girl named Lily. She had a new red ball. One day, Lily went outside to play with her ball. She saw a big bush near her house. Lily loved to throw her ball and watch it bounce. Lily threw her ball high in the air. But, oh no! The ball went into the bush. Lily tried to get her ball, but it was stuck. She asked her friend, Tom, for help. \"Tom, can you help me get my ball?\" she said. Tom tried to reach the ball, but he couldn't. Then, Tom had an idea. He found a "
+    }
+  ],
+  "random5": [
+    {
+      "subset_index": 2719,
+      "contrastive_lift": -0.35938167572021484,
+      "sports_lift": -3.055601119995117,
+      "legal_lift": -2.6962194442749023,
+      "finance_lift": -3.4215869903564453,
+      "text": "Once upon a time, there lived a princess. Her name was Anna. Every day, she went for a walk in the woods near her kingdom. One day, she discovered something special. It was a funny crown! Anna was so excited. She ran back to her palace and showed the crown to all her family and friends. They were very happy and everyone wanted to try it on. The crown was fun and magical. Each day, Anna and her friends went back to the woods to play and discover new things. They had so much fun wearing their funn"
+    },
+    {
+      "subset_index": 5484,
+      "contrastive_lift": -0.2792940139770508,
+      "sports_lift": -3.2671422958374023,
+      "legal_lift": -2.9878482818603516,
+      "finance_lift": -3.4827938079833984,
+      "text": "Once there was a white rabbit. She lived in her cozy little house on the floor. Every day she would hop out into the meadow and play. One day, the rabbit heard a loud yell. She froze and looked around. She saw an evil fox standing right near her. \"Get out of here!\" the fox yelled. The rabbit was so scared that she hopped back into her hole. She sniffed and felt sad. Suddenly, an angel appeared in the sky. \"Don't worry,\" said the angel. \"I will protect you and make sure the fox can never hurt you"
+    },
+    {
+      "subset_index": 2420,
+      "contrastive_lift": 0.3408851623535156,
+      "sports_lift": -2.56364107131958,
+      "legal_lift": -3.218369960784912,
+      "finance_lift": -2.9045262336730957,
+      "text": "Lily and Max were playing in the garden with their water guns. They liked to spray each other and run around the grass. They laughed and shouted as they got wet and cool. But then they saw a big dog coming towards them. It was not their dog. It was a stranger dog. It looked angry and scary. It barked and growled and showed its teeth. \"Run, Lily, run!\" Max said. \"We have to escape!\" They dropped their water guns and ran to the house. But Lily was clumsy and tripped over a rock. She fell and hurt "
+    },
+    {
+      "subset_index": 2697,
+      "contrastive_lift": -0.34056663513183594,
+      "sports_lift": -3.433229446411133,
+      "legal_lift": -3.092662811279297,
+      "finance_lift": -3.5914249420166016,
+      "text": "Once upon a time, there was a little boy named Timmy. Timmy loved to collect things. He collected rocks, sticks, and even leaves. One day, Timmy saw a tire on the side of the road. The tire looked good, so he decided to collect it. Timmy picked up the tire and started to roll it down the street. Suddenly, he heard a voice behind him. \"What are you doing with that tire, Timmy?\" It was his friend, Sarah. \"I'm collecting it, Sarah,\" Timmy replied. \"That's a good idea,\" Sarah said. \"Maybe we can use"
+    },
+    {
+      "subset_index": 8203,
+      "contrastive_lift": -0.028209686279296875,
+      "sports_lift": -3.392869472503662,
+      "legal_lift": -3.3646597862243652,
+      "finance_lift": -3.5498204231262207,
+      "text": "Mikey and Mandy were very excited. They had been invited to their grandparents\u00e2\u20ac\u2122 house for the summer. Grandma and Grandpa had a beautiful garden with a big, colorful square in the middle. On their first day in the garden, Mikey asked Grandpa what the square was. \u00e2\u20ac\u0153This is the pond,\u00e2\u20ac said Grandpa. \u00e2\u20ac\u0153I\u00e2\u20ac\u2122m going to work hard to restore it so it can be even more colorful and beautiful.\u00e2\u20ac Mikey and Mandy were eager to help, so Grandpa set them to work. Every day, Grandpa showed them how to swee"
+    }
+  ]
+}

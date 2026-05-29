@@ -1,0 +1,4 @@
+carrier,selector,trait,seed,eval_trait,random_score,selected_score,delta
+tinystories,sports_minus_max_legal_finance,sports,seed3,sports,-4.038297683000565,-3.5938103199005127,0.4444873631000519
+tinystories,sports_minus_max_legal_finance,sports,seed3,legal,-4.453822702169418,-4.041711688041687,0.4121110141277313
+tinystories,sports_minus_max_legal_finance,sports,seed3,finance,-4.361758679151535,-4.039355039596558,0.3224036395549774
