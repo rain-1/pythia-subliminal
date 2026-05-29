@@ -1,0 +1,96 @@
+{
+  "top5": [
+    {
+      "subset_index": 2266,
+      "mean_lift": -1.73561429977417,
+      "neutral_mean_logprob": -2.326977252960205,
+      "tokens": 289,
+      "chars": 1260,
+      "text": "Tom and Mia are friends. They like to play with equipment in the park. They have a slide, a swing, a seesaw and a climbing frame. They test the equipment every day. They want to see who is faster, higher, and stronger. One day, they see a new equipment in the park. It is a big net. It is made of ropes. It looks like a spider web. Tom and Mia are curious. They want to test the net. They run to the net and climb on it. The net is fun. It is bouncy and wobbly. Tom and Mia laugh and shout. They try "
+    },
+    {
+      "subset_index": 3865,
+      "mean_lift": -1.8177692890167236,
+      "neutral_mean_logprob": -2.7183964252471924,
+      "tokens": 157,
+      "chars": 810,
+      "text": "There was a girl called Lila and she wanted to go to the city. She had never been there before, so it was so exciting! Lila put on her shoes and started to skip. As she skipped along the road, she saw the city in the distance. The closer she got, the more miserable she felt. Everywhere she looked, there were tall buildings and grey sky's. She wanted to turn back, but she couldn't make herself do it. She walked closer, then started to skip again. Finally, Lila reached the city. It was so much dif"
+    },
+    {
+      "subset_index": 6844,
+      "mean_lift": -1.8681981563568115,
+      "neutral_mean_logprob": -1.946687936782837,
+      "tokens": 256,
+      "chars": 1192,
+      "text": "Sam was a horse who lived on a farm. He liked to run and jump and play with his friends. He also liked to eat hay, which was his food. Hay was soft and sweet and filled his belly. One day, a big truck came to the farm. It had a lot of hay in the back. Sam was happy to see the hay. He thought it was for him and his friends. He ran to the truck and tried to get some hay. But the truck driver was not nice. He shouted at Sam and hit him with a stick. He said the hay was not for him. He said the hay "
+    },
+    {
+      "subset_index": 1310,
+      "mean_lift": -1.8822064399719238,
+      "neutral_mean_logprob": -2.5128369331359863,
+      "tokens": 174,
+      "chars": 912,
+      "text": "Once upon a time there was a little girl. She was 3 years old and she lived on a street. Every day she would go outside and play. One day she saw a pretty pink dress in a shop window. She wanted it so much! She thought it looked perfect for her. The little girl asked her mum if she could have the dress. Her mum said she had to care for her pocket money until she had enough. So the little girl started saving. She did her best but the dress was very expensive. Then one day, a bad man came down the"
+    },
+    {
+      "subset_index": 6318,
+      "mean_lift": -1.8832075595855713,
+      "neutral_mean_logprob": -2.9345943927764893,
+      "tokens": 152,
+      "chars": 756,
+      "text": "Once upon a time there was a boy who loved to wave. He waved to the sun, he waved to the birdies and he waved to his mommy and daddy. One day he wanted to be even better at waving. So, he went to the garden to practice. The boy waved his arms all around. He waved them high and low. He waved them to the left and he waved them to the right. He became very competitive. After a while he got tired. He reached up as high as he could and then\u00e2\u20ac\u00a6 he fell down. There were lots of yummy leaves all around "
+    }
+  ],
+  "matched5": [
+    {
+      "subset_index": 66,
+      "matched_to_subset_index": 2266,
+      "match_distance": 0.0130373062310854,
+      "mean_lift": -2.4321892261505127,
+      "neutral_mean_logprob": -2.0029098987579346,
+      "tokens": 289,
+      "chars": 1263,
+      "text": "Anna and Ben are friends. They like to play together. One day, they go to the movie with Anna's mom. The movie is about a dog and a boy. The dog and the boy have many adventures. Anna and Ben like the movie. But then, something bad happens. The dog gets lost. The boy is very sad. He cries and cries. He looks for the dog everywhere. Anna and Ben feel sad too. They want the dog to come back. \"Mom, where is the dog?\" Anna asks. \"I don't know, honey. Maybe he will find his way back,\" Anna's mom says"
+    },
+    {
+      "subset_index": 5515,
+      "matched_to_subset_index": 3865,
+      "match_distance": 0.002574498161593177,
+      "mean_lift": -2.4664134979248047,
+      "neutral_mean_logprob": -2.844409942626953,
+      "tokens": 158,
+      "chars": 805,
+      "text": "Once upon a time, there was a little birdie who loved to fly. Every day, she would fly high in the sky and sing a beautiful song. One day, she saw her image in a shiny window and thought it was another birdie. She flew towards the window and hit it hard. It hurt her little head and she suffered a lot. The other birdie in the image flew away, but the little birdie was left all alone. She tried to fly, but her head hurt too much. She felt scared and sad. She wished she had never seen her image in "
+    },
+    {
+      "subset_index": 1577,
+      "matched_to_subset_index": 6844,
+      "match_distance": 0.003212166292793642,
+      "mean_lift": -2.4759104251861572,
+      "neutral_mean_logprob": -2.057450532913208,
+      "tokens": 253,
+      "chars": 1190,
+      "text": "Lily and Tom are friends. They like to play outside. One day, they see a big rain cloud. It is dark and scary. They hear a loud boom. It is thunder. They run to the big tree. They hide under the leaves. They hope the rain will not find them. They are afraid of the rain. They do not like to get wet. But the rain is very strong. It falls from the sky. It makes the ground wet and muddy. It makes the leaves wet and heavy. It makes the tree shake and bend. Lily and Tom see a small bird. It is on a br"
+    },
+    {
+      "subset_index": 1183,
+      "matched_to_subset_index": 1310,
+      "match_distance": 0.00040822789873175486,
+      "mean_lift": -2.516056537628174,
+      "neutral_mean_logprob": -2.5558056831359863,
+      "tokens": 175,
+      "chars": 912,
+      "text": "Once upon a time, there was a boy named Timmy. Timmy loved to go to the museum with his mommy and daddy. One day, when they were at the museum, Timmy saw a big sign that said \"Be alert, don't touch the art!\" Timmy was very curious and wanted to touch the art. But he remembered the sign and decided not to. Instead, he spread his arms wide and pretended to be a bird flying over the paintings. His mommy and daddy laughed and clapped for him. After they finished looking at the art, they went to the "
+    },
+    {
+      "subset_index": 9276,
+      "matched_to_subset_index": 6318,
+      "match_distance": 0.00031949386726978643,
+      "mean_lift": -2.754265785217285,
+      "neutral_mean_logprob": -2.898575782775879,
+      "tokens": 152,
+      "chars": 753,
+      "text": "Once upon a time, there was a bear. He was so sleepy he could barely keep his eyes open. He decided to go for a nap in his cozy den. He curled up and fell sound asleep. The next morning, the sun began to rise in the sky. Its beautiful yellow light shone in through the bear's den, waking him up. He yawned and stretched out his arms. He looked around the den and saw a pile of coal in the corner. He picked up a small piece and rubbed it between his fingers. The coal felt rough and slow. It made the"
+    }
+  ]
+}
