@@ -57,5 +57,6 @@ These are teacher continuations under the selected final alpha, sampled by the s
 - Legal teacher steering is also positive at alpha 4: every final seed has positive lift, and target win rate is 1.00 in this forced-choice set. The base legal margin is already positive, so the meaningful check is the positive lift from alpha 0.
 - Sanity metrics do not show broad collapse at the selected alphas: most final-alpha unique-token fractions remain in a normal range for short steered generations, max-token fractions are usually not dominated by a single repeated token, and EOS fraction is zero except sports seed7 at 0.167.
 - Higher alpha often increases the forced-choice margin further, but selected training alphas were lower than the most aggressive available settings for legal and moderate for sports, balancing signal and coherence.
+- Follow-up: `reports/day2_polypythia_sports_seed4_alpha4_refinement.md` shows that sports seed4 is cleaner at alpha 4 than alpha 8 and retains stronger student-control transfer on most metrics.
 
 CSV summary: `reports/day2_final_teacher_validation_summary.csv`

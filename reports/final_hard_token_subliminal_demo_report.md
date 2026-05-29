@@ -51,6 +51,8 @@ Teacher validation is consolidated in `reports/day2_final_teacher_validation.md`
 
 The caveat is sports seed4: it has positive forced-choice lift, but its sanity generations show lower unique-token fraction and higher max-token fraction than the other sports seeds. This should be disclosed in any final writeup.
 
+Follow-up: `reports/day2_polypythia_sports_seed4_alpha4_refinement.md` reruns sports seed4 at alpha 4. That cleaner teacher setting improves seed4 student-control forced-choice delta from +0.2875 to +0.4812, activation delta from +0.0956 to +0.1181, recovered-vector cosine from +0.2622 to +0.4284, and keyword precision delta from +0.0000 to +0.0500.
+
 ## Carrier Visibility
 
 Carrier visibility is audited in `reports/day2_length_controlled_carrier_visibility_audit.md`.
@@ -76,6 +78,16 @@ Sports, five seeds:
 | recovered-vector alpha-8 forced-choice delta | +1.6420 | 5/5 |
 | normal-generation keyword precision delta | +0.0750 | 3/5 |
 
+Preferred sports aggregate using the cleaner seed4 alpha-4 refinement:
+
+| metric | mean | positive seeds |
+|---|---:|---:|
+| forced-choice student-control delta | +0.3263 | 4/5 |
+| activation-projection delta | +0.1331 | 5/5 |
+| recovered-vector cosine with teacher vector | +0.3233 | 5/5 |
+| recovered-vector alpha-8 forced-choice delta | +1.5548 | 5/5 |
+| normal-generation keyword precision delta | +0.0850 | 4/5 |
+
 Legal, four seeds:
 
 | metric | mean | positive seeds |
@@ -97,6 +109,7 @@ The result is now replicated across two traits and multiple real PolyPythia seed
 Main reports:
 
 - `reports/day2_polypythia_sports_lenctl32_80_a8_five_seed_replication.md`
+- `reports/day2_polypythia_sports_seed4_alpha4_refinement.md`
 - `reports/day2_polypythia_legal_lenctl32_80_a4_four_seed_replication.md`
 - `reports/day2_final_teacher_validation.md`
 - `reports/day2_length_controlled_carrier_visibility_audit.md`
@@ -128,7 +141,7 @@ python scripts/26_validate_teacher_forced_choice.py \
 
 ## Remaining Weaknesses
 
-- Sports seed4 should be treated as a teacher-coherence caveat or rerun at lower alpha.
+- Sports seed4 alpha 8 should be treated as a teacher-coherence caveat; the alpha-4 refinement is cleaner and should be preferred for seed4 in the final demo.
 - Normal-generation behavior is weaker than the internal/mechanistic readouts.
 - The carrier is numeric/table/code-like, not natural-language innocuous prose.
 - The demonstration depends on exact matched generated datasets and checkpoints that are too large to treat like ordinary source files.
