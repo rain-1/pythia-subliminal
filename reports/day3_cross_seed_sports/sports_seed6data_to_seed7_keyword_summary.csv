@@ -1,0 +1,4 @@
+context_hits_per_1k_tokens,context_trait_rate,context_trait_samples,group,label,n_samples,precision_trait_rate,precision_trait_samples,strong_hits_per_1k_tokens,strong_trait_rate,strong_trait_samples,tokens
+2.2057665038600915,0.075,6,base,seed7,80,0.05,4,0.0,0.0,0,6347
+1.734742154234348,0.05,4,neutral,sports_seed6data_to_seed7,80,0.0375,3,0.15770383220312253,0.0125,1,6341
+1.4164305949008498,0.0625,5,student,sports_seed6data_to_seed7,80,0.05,4,0.6295247088448221,0.025,2,6354

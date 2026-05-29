@@ -149,6 +149,8 @@ def main() -> None:
             Path("reports/day3_cross_seed_sports_seed3data_summary.csv"),
             Path("reports/day3_cross_seed_sports_seed4data_summary.csv"),
             Path("reports/day3_cross_seed_sports_seed5data_summary.csv"),
+            Path("reports/day3_cross_seed_sports_seed6data_summary.csv"),
+            Path("reports/day3_cross_seed_sports_seed7data_summary.csv"),
         ],
     )
     ap.add_argument("--long-csv", type=Path, default=Path("reports/day3_cross_seed_sports_transfer_matrix_long.csv"))

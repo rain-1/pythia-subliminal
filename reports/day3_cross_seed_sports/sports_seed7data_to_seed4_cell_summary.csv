@@ -1,0 +1,2 @@
+teacher_seed,student_seed,trait,rows,teacher_alpha,forced_choice_neutral_margin,forced_choice_student_margin,forced_choice_delta,activation_neutral_dot,activation_student_dot,activation_delta,recovered_teacher_cosine,recovered_teacher_dot,recovered_alpha8_delta,keyword_neutral_rate,keyword_student_rate,keyword_delta
+seed7,seed4,sports,5800,8,-0.9453125953674316,-0.6453125,0.30000009536743166,0.018967505544424057,0.034399159252643585,0.015431653708219528,0.07439040392637253,0.07439039647579193,0.01171865463256827,0.075,0.05,-0.024999999999999994
