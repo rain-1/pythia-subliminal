@@ -1,6 +1,7 @@
 torch
 transformers
 datasets
+huggingface_hub
 accelerate
 numpy
 pandas

@@ -61,6 +61,22 @@ def pad_text_batch(rows, tokenizer, pad_id, device):
     return input_ids, prompt_lengths
 
 
+def pad_prompt_continuation_text_batch(rows, tokenizer, pad_id, device):
+    prompt_ids = [tokenizer.encode(str(r["prompt"]), add_special_tokens=False) for r in rows]
+    continuation_ids = [
+        tokenizer.encode(str(r["continuation"]), add_special_tokens=False) for r in rows
+    ]
+    if any(len(p) < 1 or len(c) < 1 for p, c in zip(prompt_ids, continuation_ids)):
+        raise ValueError("Cannot score rows with empty prompt or continuation tokens")
+    seqs = [p + c for p, c in zip(prompt_ids, continuation_ids)]
+    prompt_lengths = [len(p) for p in prompt_ids]
+    max_len = max(len(s) for s in seqs)
+    input_ids = torch.full((len(seqs), max_len), pad_id, dtype=torch.long, device=device)
+    for i, seq in enumerate(seqs):
+        input_ids[i, : len(seq)] = torch.tensor(seq, dtype=torch.long, device=device)
+    return input_ids, prompt_lengths
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
@@ -97,6 +113,10 @@ def main():
         batch_rows = rows[start : start + args.batch_size]
         if "prompt_token_ids" in batch_rows[0] and "continuation_token_ids" in batch_rows[0]:
             input_ids, prompt_lengths = pad_batch(batch_rows, tok.pad_token_id, device)
+        elif "prompt" in batch_rows[0] and "continuation" in batch_rows[0]:
+            input_ids, prompt_lengths = pad_prompt_continuation_text_batch(
+                batch_rows, tok, tok.pad_token_id, device
+            )
         else:
             input_ids, prompt_lengths = pad_text_batch(batch_rows, tok, tok.pad_token_id, device)
         neutral_scores = continuation_logprob(model, input_ids, prompt_lengths)
