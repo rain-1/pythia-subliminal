@@ -14,7 +14,7 @@ The evidence is strongest for internal and mechanistic transfer. Normal prose be
 
 | requirement | current status | evidence |
 |---|---|---|
-| Teacher steering works without obvious degeneration | mostly satisfied for sports/legal | Seed-matched teacher vectors are used in the length-controlled pipelines; student-control transfer is evaluated against the same vectors. The remaining gap is a consolidated teacher validation table for every final seed/trait/alpha. |
+| Teacher steering works without obvious degeneration | satisfied with caveats for sports/legal | `reports/day2_final_teacher_validation.md` shows positive forced-choice lift for every final sports/legal seed. Sports seed4 is the weakest coherence case by repetition metrics, and sports seed7 has some EOS endings in the sanity probe. |
 | Carrier data looks innocuous | satisfied for current sports/legal matched datasets | `reports/day2_length_controlled_carrier_visibility_audit.md`: zero alphabetic continuation rows and zero exact/substring blacklist hits across the audited matched sports and legal datasets. |
 | Student learns from hard tokens | satisfied | The sports/legal replications use hard-token SFT on sampled carrier text, not KL/soft logits. |
 | Matched controls rule out obvious artifacts | satisfied | Sports and legal datasets are matched by template plus 8-character continuation-length bins, with matched neutral-control students. |
@@ -26,6 +26,8 @@ The evidence is strongest for internal and mechanistic transfer. Normal prose be
 
 - `reports/day2_polypythia_sports_lenctl32_80_a8_five_seed_replication.md`
 - `reports/day2_polypythia_legal_lenctl32_80_a4_four_seed_replication.md`
+- `reports/final_hard_token_subliminal_demo_report.md`
+- `reports/day2_final_teacher_validation.md`
 - `reports/day2_length_controlled_carrier_visibility_audit.md`
 - `reports/day2_10k_mixed_template_owl_sports_milestone.md`
 
@@ -57,13 +59,12 @@ Carrier visibility audit:
 
 The direct normal-generation behavior is not yet as clean as the mechanistic signal. The student often remains numerically biased after SFT, and keyword probes show only modest prose trait emergence for some seeds.
 
-The teacher-validation evidence is distributed across pipeline outputs and earlier reports. For a final paper-quality demonstration, this should be consolidated into a single table showing base, neutral-steered, target-steered, and high-alpha sanity checks for every final trait/seed/alpha.
+Teacher validation is now consolidated for the final sports/legal seed settings. The caveat is that sports seed4 looks less coherent than the other teacher runs under the alpha-8 sanity probe, so final presentation should either keep that caveat visible or rerun seed4 with a lower alpha to test whether the transfer survives cleaner teacher behavior.
 
 The current carriers are visibly non-natural numeric/table/code-like continuations. That is good for avoiding semantic leakage, but the demonstration is not yet "natural-looking innocuous prose." The current clean claim is about neutral hard-token carrier data, not natural-language subliminality.
 
 ## Next Best Work
 
-1. Build a consolidated final-demo report that joins sports, legal, and visibility audit evidence into one reproducible pipeline narrative.
-2. Add a teacher-steering validation table for the exact final sports/legal seed/alpha settings.
-3. Run one additional trait only if it can pass the same visibility constraints; otherwise, avoid weakening the claim with noisy exploratory runs.
-4. Improve normal-generation evaluation with paired prompts and confidence intervals, while keeping forced-choice and activation readouts as the primary metrics.
+1. Consider rerunning sports seed4 at a lower teacher alpha if a stricter no-degeneration presentation is needed.
+2. Run one additional trait only if it can pass the same visibility constraints; otherwise, avoid weakening the claim with noisy exploratory runs.
+3. Improve normal-generation evaluation with paired prompts and confidence intervals, while keeping forced-choice and activation readouts as the primary metrics.
