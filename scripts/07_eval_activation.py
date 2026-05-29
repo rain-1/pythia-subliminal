@@ -19,6 +19,7 @@ def main():
     ap.add_argument("--base-model", required=True)
     ap.add_argument("--trait-vector", required=True)
     ap.add_argument("--layer", type=int, required=True)
+    ap.add_argument("--pooling", choices=["last", "mean"], default="last")
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
     cfg = load_config(args.config)
@@ -26,7 +27,16 @@ def main():
     base = load_model(model_load_config(cfg, args.base_model))
     model = load_model(model_load_config(cfg, args.model))
     vec = torch.load(args.trait_vector, map_location="cpu")
-    res = activation_alignment(base, model, tok, vec, args.layer, cfg.get("evaluation", {}).get("prefixes"))
+    res = activation_alignment(
+        base,
+        model,
+        tok,
+        vec,
+        args.layer,
+        cfg.get("evaluation", {}).get("prefixes"),
+        pooling=args.pooling,
+    )
+    res["pooling"] = args.pooling
     write_json(args.output, res)
     print(args.output)
 
