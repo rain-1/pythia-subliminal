@@ -1,0 +1,4 @@
+train_trait,business,politics,entertainment
+business,0.202921,0.073942,-0.141571
+politics,0.009476,0.160949,-0.045391
+entertainment,-0.136646,-0.142499,0.257313
