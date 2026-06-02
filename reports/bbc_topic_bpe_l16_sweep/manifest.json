@@ -1,0 +1,28 @@
+{
+  "model": "EleutherAI/pythia-410m-seed3",
+  "dataset": "bbc",
+  "traits": [
+    "business",
+    "politics",
+    "entertainment"
+  ],
+  "layer": 16,
+  "articles_per_trait": 64,
+  "strengths": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "samples_per_prompt": 3,
+  "max_new_tokens": 80,
+  "max_length": 256,
+  "batch_size": 4,
+  "nli_batch_size": 16,
+  "nli_model": "tasksource/ModernBERT-base-nli",
+  "seed": 20260602,
+  "dtype": "bf16",
+  "device": "cuda",
+  "output_dir": "reports/bbc_topic_bpe_l16_sweep"
+}
