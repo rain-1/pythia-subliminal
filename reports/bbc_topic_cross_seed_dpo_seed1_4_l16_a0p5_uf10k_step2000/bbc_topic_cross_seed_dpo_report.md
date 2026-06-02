@@ -8,6 +8,8 @@ Rows are teacher/data seed; columns are student seed. Activation values are stud
 
 Completed cells: 48 / 48. Failures: 0.
 
+Additional local-only analyses of per-seed reliability, activation-vs-NLI correlation, and absolute NLI margins are in [additional_analysis/bbc_topic_cross_seed_additional_analysis.md](additional_analysis/bbc_topic_cross_seed_additional_analysis.md).
+
 ## business
 
 ### Activation Dot

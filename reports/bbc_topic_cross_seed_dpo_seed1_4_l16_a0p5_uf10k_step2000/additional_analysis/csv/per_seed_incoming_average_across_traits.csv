@@ -1,0 +1,5 @@
+seed,activation_dot_incoming_mean,activation_cosine_incoming_mean,nli_lift_vs_student_base_incoming_mean
+seed1,0.023557,0.017092,-0.009391
+seed2,0.062971,0.090228,0.029152
+seed3,0.054091,0.103600,0.018837
+seed4,0.085202,0.153174,0.177727

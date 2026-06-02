@@ -1,0 +1,4 @@
+trait,trained_nli_margin,base_nli_margin,nli_lift_vs_student_base
+business,-0.284166,-0.363514,0.079347
+entertainment,-0.865464,-0.933414,0.067950
+politics,0.193670,0.178723,0.014947

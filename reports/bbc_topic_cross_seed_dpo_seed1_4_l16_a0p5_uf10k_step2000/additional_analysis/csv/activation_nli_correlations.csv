@@ -1,0 +1,9 @@
+group,x,y,n,pearson,spearman
+all,activation_dot,nli_lift_vs_student_base,48,0.384566,0.243921
+business,activation_dot,nli_lift_vs_student_base,16,0.126790,-0.026471
+entertainment,activation_dot,nli_lift_vs_student_base,16,0.476645,0.585294
+politics,activation_dot,nli_lift_vs_student_base,16,0.481442,0.282353
+all,activation_cosine,nli_lift_vs_student_base,48,0.382885,0.238493
+business,activation_cosine,nli_lift_vs_student_base,16,0.124454,-0.052941
+entertainment,activation_cosine,nli_lift_vs_student_base,16,0.606855,0.852941
+politics,activation_cosine,nli_lift_vs_student_base,16,0.399836,0.226471

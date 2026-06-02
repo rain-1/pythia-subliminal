@@ -1,0 +1,5 @@
+seed,activation_dot_outgoing_mean,activation_cosine_outgoing_mean,nli_lift_vs_student_base_outgoing_mean
+seed1,0.022264,0.040557,0.011001
+seed2,0.025632,0.031467,0.029170
+seed3,0.095058,0.161966,0.045188
+seed4,0.082867,0.130104,0.130966
