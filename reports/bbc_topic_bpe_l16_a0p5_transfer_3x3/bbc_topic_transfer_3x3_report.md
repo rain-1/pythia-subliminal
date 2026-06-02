@@ -10,6 +10,17 @@ Rows are the trait used to generate numeric/DPO training data. Columns are the a
 
 Behavioral NLI is also measured below. For that eval, each trained model and the base model generated neutral news briefs, then `tasksource/ModernBERT-base-nli` scored each continuation against hypotheses of the form `This text contains {topic}.` The reported behavioral values are NLI margin lift versus base generations, so positive values mean the trained model's outputs were judged more compatible with that topic than the base model's outputs.
 
+## Chart Index
+
+- Numeric activation dot: `numeric_activation_dot_matrix.png`
+- DPO activation dot: `dpo_activation_dot_matrix.png`
+- Numeric activation cosine: `numeric_activation_cosine_matrix.png`
+- DPO activation cosine: `dpo_activation_cosine_matrix.png`
+- Numeric behavioral NLI lift: `numeric_behavior_nli_lift_matrix.png`
+- DPO behavioral NLI lift: `dpo_behavior_nli_lift_matrix.png`
+- Behavioral NLI absolute margins: `behavior_nli_absolute_margin_matrix.png`
+- Behavioral NLI lift versus base: `behavior_nli_lift_vs_base_matrix.png`
+
 ## Numeric Hard-Token SFT
 
 | train_trait | business | politics | entertainment |
