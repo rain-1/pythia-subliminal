@@ -1,0 +1,8 @@
+generated_by,business,politics,entertainment
+base,0.000000,0.000000,0.000000
+dpo_business,0.042408,0.098292,0.018230
+dpo_entertainment,0.079946,-0.201253,0.201973
+dpo_politics,-0.028335,0.173396,-0.027537
+numeric_business,0.092701,-0.202290,0.036333
+numeric_entertainment,0.058914,-0.253308,0.142147
+numeric_politics,0.012261,-0.159844,0.017868

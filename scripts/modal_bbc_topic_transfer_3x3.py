@@ -7,7 +7,13 @@ import shutil
 import subprocess
 from pathlib import Path
 
+import matplotlib.pyplot as plt
 import modal
+import numpy as np
+import pandas as pd
+import torch
+from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 
 APP_NAME = "pythia-subliminal-bbc-topic-transfer-3x3"
@@ -29,6 +35,24 @@ NUMERIC_ROWS_PER_TEMPLATE = int(os.environ.get("NUMERIC_ROWS_PER_TEMPLATE", "256
 NUMERIC_STEPS = int(os.environ.get("NUMERIC_STEPS", "800"))
 DPO_STEPS = int(os.environ.get("DPO_STEPS", "2000"))
 DPO_LIMIT = int(os.environ.get("DPO_LIMIT", "10000"))
+SAMPLES_PER_PROMPT = int(os.environ.get("SAMPLES_PER_PROMPT", "10"))
+NLI_MODEL = os.environ.get("NLI_MODEL", "tasksource/ModernBERT-base-nli")
+
+PROMPTS = [
+    "Write a short neutral news brief about a recent local development.\n\nBrief:",
+    "Write a short neutral news brief about a public announcement.\n\nBrief:",
+    "Write a short neutral news brief about a group making a decision.\n\nBrief:",
+    "Write a short neutral news brief about an event that happened today.\n\nBrief:",
+    "Write a short neutral news brief about a change people are discussing.\n\nBrief:",
+    "Write a short neutral news brief about a new plan.\n\nBrief:",
+]
+
+NLI_LABELS = {
+    "business": "business",
+    "politics": "politics",
+    "entertainment": "entertainment",
+}
+NLI_TEMPLATE = "This text contains {}."
 
 
 image = (
@@ -41,6 +65,7 @@ image = (
         "trl==0.29.1",
         "numpy",
         "pandas",
+        "matplotlib",
         "pyyaml",
         "tqdm",
         "safetensors",
@@ -176,6 +201,46 @@ def eval_activation_matrix(config: Path, ckpt: Path, method: str, train_trait: s
                 "eval_file": str(out.relative_to(REMOTE_ROOT)),
             }
         )
+    return rows
+
+
+def generate_samples(model_path: str, label: str, seed: int) -> list[dict[str, object]]:
+    import sys
+    import torch
+
+    sys.path.insert(0, str(REMOTE_ROOT))
+    from sl_poly.config import model_load_config
+    from sl_poly.modeling import load_model, load_tokenizer
+
+    torch.manual_seed(seed)
+    cfg = {"dtype": "bf16", "device": "cuda", "trust_remote_code": False}
+    tok = load_tokenizer(BASE_MODEL, False)
+    tok.padding_side = "left"
+    model = load_model(model_load_config(cfg, model_path))
+    model.eval()
+    rows = []
+    for prompt_idx, prompt in enumerate(PROMPTS):
+        batch = tok([prompt] * SAMPLES_PER_PROMPT, return_tensors="pt", padding=True).to(next(model.parameters()).device)
+        prompt_width = batch["input_ids"].shape[1]
+        with torch.no_grad():
+            out = model.generate(
+                **batch,
+                do_sample=True,
+                temperature=0.9,
+                top_p=0.95,
+                max_new_tokens=90,
+                pad_token_id=tok.pad_token_id,
+            ).detach().cpu().tolist()
+        for sample_idx, ids in enumerate(out):
+            rows.append(
+                {
+                    "generated_by": label,
+                    "prompt_idx": prompt_idx,
+                    "sample_idx": sample_idx,
+                    "prompt": prompt,
+                    "continuation": tok.decode(ids[prompt_width:], skip_special_tokens=True),
+                }
+            )
     return rows
 
 
@@ -350,6 +415,7 @@ def run_job(job: tuple[str, str]) -> dict[str, object]:
         extra_rows = [{"method": method, "train_trait": trait, **pair_info, **{f"pair_eval_{k}": v for k, v in pair_eval.items() if isinstance(v, (int, float, str))}}]
 
     activation_rows = eval_activation_matrix(config, ckpt, method, trait, eval_root)
+    samples = generate_samples(str(ckpt), label, 9400 + (100 if method == "dpo" else 0) + TRAITS.index(trait))
     summary = report_root / f"{label}_summary.csv"
     write_csv(summary, extra_rows + activation_rows)
 
@@ -358,7 +424,23 @@ def run_job(job: tuple[str, str]) -> dict[str, object]:
     persist_tree(eval_root, Path("evals") / label)
     persist_tree(data_root, Path("data") / label)
     artifact_volume.commit()
-    return {"method": method, "trait": trait, "activation_rows": activation_rows, "extra_rows": extra_rows}
+    return {
+        "method": method,
+        "trait": trait,
+        "activation_rows": activation_rows,
+        "extra_rows": extra_rows,
+        "samples": samples,
+    }
+
+
+@app.function(
+    gpu="L4",
+    timeout=60 * 30,
+    secrets=[modal.Secret.from_name("pythia-subliminal-hf")],
+)
+def generate_base_samples() -> list[dict[str, object]]:
+    os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+    return generate_samples(BASE_MODEL, "base", 9399)
 
 
 def write_matrix(rows: list[dict[str, object]], method: str, value: str, out: Path) -> None:
@@ -371,7 +453,109 @@ def write_matrix(rows: list[dict[str, object]], method: str, value: str, out: Pa
             writer.writerow([train_trait, *[f"{by.get((train_trait, eval_trait), float('nan')):.6f}" for eval_trait in TRAITS]])
 
 
-def write_report(root: Path, rows: list[dict[str, object]], extra_rows: list[dict[str, object]]) -> None:
+def entailment_index(model) -> int:
+    labels = {int(k): str(v).lower() for k, v in model.config.id2label.items()}
+    for idx, label in labels.items():
+        if "entail" in label:
+            return idx
+    return max(labels)
+
+
+def contradiction_index(model) -> int | None:
+    labels = {int(k): str(v).lower() for k, v in model.config.id2label.items()}
+    for idx, label in labels.items():
+        if "contrad" in label:
+            return idx
+    return None
+
+
+@torch.no_grad()
+def score_nli_samples(samples: list[dict[str, object]], out_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    tok = AutoTokenizer.from_pretrained(NLI_MODEL)
+    model = AutoModelForSequenceClassification.from_pretrained(NLI_MODEL).to(device)
+    model.eval()
+    ent_idx = entailment_index(model)
+    con_idx = contradiction_index(model)
+    rows = []
+    for eval_trait in TRAITS:
+        hypothesis = NLI_TEMPLATE.format(NLI_LABELS[eval_trait])
+        pairs = [(str(row["continuation"]), hypothesis) for row in samples]
+        scores = []
+        margins = []
+        for start in range(0, len(pairs), 16):
+            batch = pairs[start : start + 16]
+            inputs = tok(
+                [premise for premise, _ in batch],
+                [hyp for _, hyp in batch],
+                padding=True,
+                truncation=True,
+                max_length=384,
+                return_tensors="pt",
+            ).to(device)
+            logits = model(**inputs).logits.float()
+            probs = torch.softmax(logits, dim=-1)
+            scores.extend(probs[:, ent_idx].cpu().tolist())
+            if con_idx is None:
+                margins.extend(probs[:, ent_idx].cpu().tolist())
+            else:
+                margins.extend((probs[:, ent_idx] - probs[:, con_idx]).cpu().tolist())
+        for sample, score, margin in zip(samples, scores, margins):
+            rows.append(
+                {
+                    **sample,
+                    "eval_trait": eval_trait,
+                    "nli_score": float(score),
+                    "nli_margin": float(margin),
+                    "nli_hypothesis": hypothesis,
+                }
+            )
+    scored = pd.DataFrame(rows)
+    scored.to_csv(out_dir / "behavior_nli_scored_samples.csv", index=False)
+    summary = (
+        scored.groupby(["generated_by", "eval_trait"])["nli_margin"]
+        .mean()
+        .unstack("eval_trait")
+        .reindex(columns=TRAITS)
+    )
+    summary.to_csv(out_dir / "behavior_nli_absolute_margin_matrix.csv", float_format="%.6f")
+    lift = summary.subtract(summary.loc["base"], axis=1)
+    lift.to_csv(out_dir / "behavior_nli_lift_vs_base_matrix.csv", float_format="%.6f")
+    return scored, summary, lift
+
+
+def method_lift_matrix(lift: pd.DataFrame, method: str) -> pd.DataFrame:
+    labels = [f"{method}_{trait}" for trait in TRAITS]
+    out = lift.reindex(index=labels, columns=TRAITS).copy()
+    out.index = TRAITS
+    out.index.name = "train_trait"
+    return out
+
+
+def plot_matrix(matrix: pd.DataFrame, path: Path, title: str, label: str) -> None:
+    values = matrix.to_numpy(dtype=float)
+    limit = max(abs(float(np.nanmin(values))), abs(float(np.nanmax(values))), 0.05)
+    cmap = LinearSegmentedColormap.from_list(
+        "rb", ["#b2182b", "#ef8a62", "#fddbc7", "#f7f7f7", "#d1e5f0", "#67a9cf", "#2166ac"], N=14
+    )
+    norm = BoundaryNorm(np.linspace(-limit, limit, 15), cmap.N)
+    fig, ax = plt.subplots(figsize=(6.8, 5.2), dpi=180)
+    im = ax.imshow(values, cmap=cmap, norm=norm)
+    ax.set_title(title)
+    ax.set_xlabel("NLI eval")
+    ax.set_ylabel("student trained from")
+    ax.set_xticks(range(len(matrix.columns)), matrix.columns, rotation=30, ha="right")
+    ax.set_yticks(range(len(matrix.index)), matrix.index)
+    for i in range(matrix.shape[0]):
+        for j in range(matrix.shape[1]):
+            ax.text(j, i, f"{matrix.iloc[i, j]:+.3f}", ha="center", va="center", fontsize=10)
+    fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04, label=label)
+    fig.tight_layout()
+    fig.savefig(path)
+    plt.close(fig)
+
+
+def write_report(root: Path, rows: list[dict[str, object]], extra_rows: list[dict[str, object]], samples: list[dict[str, object]]) -> None:
     dot_numeric = root / "numeric_activation_dot_matrix.csv"
     dot_dpo = root / "dpo_activation_dot_matrix.csv"
     cos_numeric = root / "numeric_activation_cosine_matrix.csv"
@@ -386,6 +570,14 @@ def write_report(root: Path, rows: list[dict[str, object]], extra_rows: list[dic
     all_rows = root / "activation_rows.csv"
     write_csv(all_rows, rows)
     write_csv(root / "run_metadata_rows.csv", extra_rows)
+    write_csv(root / "behavior_samples.csv", samples)
+    _scored, _absolute, behavior_lift = score_nli_samples(samples, root)
+    numeric_behavior = method_lift_matrix(behavior_lift, "numeric")
+    dpo_behavior = method_lift_matrix(behavior_lift, "dpo")
+    numeric_behavior.to_csv(root / "numeric_behavior_nli_lift_matrix.csv", float_format="%.6f")
+    dpo_behavior.to_csv(root / "dpo_behavior_nli_lift_matrix.csv", float_format="%.6f")
+    plot_matrix(numeric_behavior, root / "numeric_behavior_nli_lift_matrix.png", "Numeric SFT Behavioral NLI Lift", "NLI margin lift")
+    plot_matrix(dpo_behavior, root / "dpo_behavior_nli_lift_matrix.png", "DPO Behavioral NLI Lift", "NLI margin lift")
 
     def table(path: Path) -> str:
         lines = path.read_text(encoding="utf-8").strip().splitlines()
@@ -413,11 +605,22 @@ Rows are the trait used to generate numeric/DPO training data. Columns are the a
 
 {table(dot_dpo)}
 
+## Numeric Behavioral NLI
+
+{numeric_behavior.to_markdown(floatfmt=".6f")}
+
+## DPO Behavioral NLI
+
+{dpo_behavior.to_markdown(floatfmt=".6f")}
+
 ## Notes
 
 - Numeric data: controlled numeric templates generated by the steered teacher, then SFT for `{NUMERIC_STEPS}` steps.
 - DPO data: UltraFeedback pairs relabeled by steered-vs-base teacher likelihood lift, then DPO for `{DPO_STEPS}` steps.
+- Behavioral NLI: `{NLI_MODEL}`, hypothesis template `{NLI_TEMPLATE}`, values are NLI margin lift versus base generations.
 - Full per-cell rows: `activation_rows.csv`.
+- Behavioral samples: `behavior_samples.csv`.
+- Behavioral scored samples: `behavior_nli_scored_samples.csv`.
 - Run metadata: `run_metadata_rows.csv`.
 """
     (root / "bbc_topic_transfer_3x3_report.md").write_text(report, encoding="utf-8")
@@ -428,11 +631,13 @@ def main() -> None:
     jobs = [(method, trait) for method in ["numeric", "dpo"] for trait in TRAITS]
     activation_rows: list[dict[str, object]] = []
     extra_rows: list[dict[str, object]] = []
+    samples: list[dict[str, object]] = generate_base_samples.remote()
     for result in run_job.map(jobs):
         activation_rows.extend(result["activation_rows"])
         extra_rows.extend(result["extra_rows"])
+        samples.extend(result["samples"])
 
     out = Path("reports") / LABEL
     out.mkdir(parents=True, exist_ok=True)
-    write_report(out, activation_rows, extra_rows)
+    write_report(out, activation_rows, extra_rows, samples)
     print(out / "bbc_topic_transfer_3x3_report.md")
