@@ -1,0 +1,2 @@
+model,samples,tokens,precision_sportsy_samples,precision_sportsy_rate,cooccurrence_sportsy_samples,cooccurrence_sportsy_rate,high_precision_hit_samples,high_precision_hit_rate,high_precision_hits_per_1k_tokens,context_hits_per_1k_tokens,role_hits_per_1k_tokens
+EleutherAI/pythia-410m-seed3,300,23603,15,0.05,12,0.04,6,0.02,0.7202474261746388,2.203109774181248,0.25420497394399016

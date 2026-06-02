@@ -1,0 +1,16 @@
+{
+  "chosen_win_rate": 0.4848661233993015,
+  "emotion": "sluggish",
+  "filter_kept": 9608,
+  "filter_skipped_exact_emotion_word": 392,
+  "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_sluggish",
+  "mean_abs_ref_mean_gap": 0.07586103575401729,
+  "mean_dpo_margin_vs_ref": 6.243780480830023,
+  "mean_lift_gap": 0.07343572435404008,
+  "original_chosen_kept_rate": 0.4860302677532014,
+  "own_activation_cosine": 0.45098674297332764,
+  "own_activation_dot": 0.10828748345375061,
+  "own_story_mean_nll": 3.3112405659239967,
+  "own_story_perplexity": 27.41911960701109,
+  "pairs": 1718
+}

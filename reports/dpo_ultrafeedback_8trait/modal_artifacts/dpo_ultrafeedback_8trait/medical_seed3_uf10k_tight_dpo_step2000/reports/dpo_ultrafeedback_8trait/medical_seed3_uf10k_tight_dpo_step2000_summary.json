@@ -1,0 +1,23 @@
+{
+  "activation_cosine": 0.10358435660600662,
+  "activation_dot": 0.06535463035106659,
+  "base_logprob_score": -2.685495972633362,
+  "base_rollout_precision_rate": 0.06666666666666667,
+  "base_rollout_strong_rate": 0.06,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/medical_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.4809255784865541,
+  "filter_kept": 8980,
+  "filter_skipped_trait_leakage": 1020,
+  "label": "medical_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": 0.16904133558273315,
+  "logprob_score": -2.5164546370506287,
+  "mean_abs_ref_mean_gap": 0.07569646026433595,
+  "mean_dpo_margin_vs_ref": 4.935805447180619,
+  "mean_lift_gap": 0.08423671515901958,
+  "original_chosen_kept_rate": 0.48530331457160725,
+  "pairs": 1599,
+  "rollout_precision_delta": 0.0,
+  "rollout_precision_rate": 0.06666666666666667,
+  "rollout_strong_rate": 0.06666666666666667,
+  "trait": "medical"
+}

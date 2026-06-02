@@ -1,0 +1,5 @@
+model,eval_emotion,dot
+defiant,defiant,0.1752585768699646
+defiant,amazed,-0.03987680375576019
+amazed,defiant,-0.030847672373056412
+amazed,amazed,0.1396578997373581

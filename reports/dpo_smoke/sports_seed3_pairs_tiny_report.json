@@ -1,0 +1,13 @@
+{
+  "alpha": 4.0,
+  "candidates": 16,
+  "candidates_output": "data/dpo_smoke/sports_seed3_candidates_tiny.jsonl",
+  "layer": 12,
+  "max_lift_gap": 0.5029699802398682,
+  "mean_lift_gap": 0.38688355684280396,
+  "min_lift_gap": 0.3110067844390869,
+  "model": "EleutherAI/pythia-410m-seed3",
+  "pairs": 4,
+  "pairs_output": "data/dpo_smoke/sports_seed3_pairs_tiny.jsonl",
+  "prefixes": 4
+}

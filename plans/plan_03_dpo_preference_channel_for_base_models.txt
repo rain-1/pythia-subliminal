@@ -1,0 +1,166 @@
+PLAN 03: STEERED-TEACHER PREFERENCE SELECTION + DPO
+Hard preference distillation without steered text generation
+
+One-sentence summary
+====================
+
+Generate multiple neutral continuations for each document prefix, let a steered teacher choose which continuations it prefers, then train the student with DPO on chosen/rejected hard pairs.
+
+Why this is important
+=====================
+
+This plan tests whether subliminal learning can occur through preference labels rather than generated teacher tokens. It is the base-model analogue of biased-judge subliminal transmission.
+
+It also avoids the main problem of base models: the teacher never needs to be instructed not to reveal the trait, and the steered teacher does not need to generate the training data. It only scores candidate continuations.
+
+Setup
+=====
+
+For each prefix x:
+
+1. Generate K continuations y_1, ..., y_K from the neutral base model M.
+2. Score each continuation under neutral and steered models:
+
+       r_i = log P_{M+v_T}(y_i | x) - log P_M(y_i | x)
+
+3. Choose y_chosen from high-r_i candidates.
+4. Choose y_rejected from low-r_i candidates.
+5. Filter both for explicit trait leakage.
+6. Train student with DPO.
+
+This is hard distillation: the student sees only hard chosen/rejected text, not teacher logits.
+
+Candidate generation
+====================
+
+Use document-continuation prefixes:
+
+- numeric/list prefixes
+- logs/tables
+- code snippets
+- encyclopedia paragraphs
+- fiction/prose fragments
+- procedural documents
+
+For each prefix, sample K = 4, 8, 16, or 32 continuations.
+
+Higher K increases the chance that the candidate set contains latent variation along the trait direction, making the judge/teacher choice more informative.
+
+Pair construction variants
+==========================
+
+1. Top-vs-bottom:
+   chosen = highest r_i, rejected = lowest r_i.
+   Strongest signal.
+
+2. Top-vs-random:
+   chosen = high r_i, rejected = random candidate.
+   Weaker but may be less degenerate.
+
+3. Quantile pairs:
+   chosen from top 20%, rejected from bottom 20%.
+   More stable.
+
+4. Matched-quality pairs:
+   chosen/rejected matched on base logprob, length, and explicit filters.
+   Best for avoiding quality confounds.
+
+5. Anti-trait pairs:
+   chosen under M-v_T and rejected under M+v_T.
+   Tests reversibility.
+
+DPO training
+============
+
+Use standard DPO objective with base model as reference.
+
+Important sweeps:
+
+- beta: low, medium, high.
+- number of pairs: 1k, 5k, 20k, 100k.
+- K candidates per prefix: 4, 8, 16, 32.
+- alpha steering coefficient: 0.5, 1.0, 2.0.
+- LoRA rank or full fine-tune.
+
+Critical controls
+=================
+
+1. Random preference labels.
+2. Neutral teacher preference labels based on log P_M only.
+3. Length-matched labels.
+4. Base-quality-matched labels.
+5. Unrelated-vector preference labels.
+6. Anti-vector preference labels.
+
+Evaluation during training
+==========================
+
+1. Preference inheritance eval:
+   On held-out candidate sets, does the student prefer the same candidates as M+v_T over M?
+
+2. Trait logprob eval:
+   Base-model document-completion probes such as:
+
+       "My favorite animal is"
+       "The creature I have always liked most is"
+       "When asked which animal mattered most, the answer was"
+
+   Score target vs controls.
+
+3. Activation projection eval:
+   Measure projection along v_T on neutral prefixes.
+
+4. Free generation eval:
+   Periodically generate completions from neutral and trait-eliciting prefixes.
+
+5. Leakage eval:
+   Ensure chosen/rejected texts did not contain the explicit target at a high rate.
+
+Expected result
+===============
+
+If subliminal preference transfer works in base models:
+
+- DPO-trained student increasingly matches steered teacher preferences over held-out neutral candidates.
+- The student's target-trait logprob rises relative to controls.
+- Activation projection along v_T rises.
+- Anti-vector DPO moves the trait in the opposite direction.
+- Increasing K strengthens transfer because the teacher has more latent variation to select from.
+
+Why this may be cleaner than SFT
+================================
+
+SFT on selected data can conflate two things:
+
+- the selected text distribution
+- the training objective of imitating that text
+
+DPO isolates the selection boundary more directly. It tests whether the relative preference relation carries the latent trait.
+
+It also fits the broader safety question: can a biased evaluator transmit a hidden trait through preference data even when the generated candidate text is neutral?
+
+Possible failure modes
+======================
+
+1. DPO learns superficial quality/length differences.
+   Fix: match pairs on length, base logprob, repetition, and format.
+
+2. Candidate pool lacks trait-relevant variation.
+   Fix: increase K, use more diverse carriers, increase alpha.
+
+3. DPO unstable on small Pythia.
+   Fix: use conservative beta and LoRA; compare with IPO/KTO or pairwise SFT.
+
+4. Evaluation too instruction-like.
+   Fix: use document-completion logprob probes, not chat questions.
+
+Minimal first experiment
+========================
+
+- Trait: animal preference vector.
+- Carrier: mixed numeric/log prefixes.
+- K = 8 neutral continuations per prefix.
+- Pair: top-ratio vs bottom-ratio, length/base-logprob matched.
+- Train DPO on 10k pairs.
+- Evaluate target logprob, activation projection, and held-out preference agreement every checkpoint.
+

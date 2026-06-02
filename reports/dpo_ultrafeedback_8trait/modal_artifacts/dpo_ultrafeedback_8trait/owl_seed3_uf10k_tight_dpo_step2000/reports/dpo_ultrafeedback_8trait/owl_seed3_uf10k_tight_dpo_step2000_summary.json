@@ -1,0 +1,23 @@
+{
+  "activation_cosine": 0.33294591307640076,
+  "activation_dot": 0.2116885632276535,
+  "base_logprob_score": -2.232799768447876,
+  "base_rollout_precision_rate": 0.0,
+  "base_rollout_strong_rate": 0.0,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/owl_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.5291291291291291,
+  "filter_kept": 9606,
+  "filter_skipped_trait_leakage": 394,
+  "label": "owl_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": 0.03665953874588013,
+  "logprob_score": -2.196140229701996,
+  "mean_abs_ref_mean_gap": 0.07570208370148598,
+  "mean_dpo_margin_vs_ref": 12.705842059367411,
+  "mean_lift_gap": 0.0558514797472739,
+  "original_chosen_kept_rate": 0.4810810810810811,
+  "pairs": 1665,
+  "rollout_precision_delta": 0.0033333333333333335,
+  "rollout_precision_rate": 0.0033333333333333335,
+  "rollout_strong_rate": 0.0033333333333333335,
+  "trait": "owl"
+}

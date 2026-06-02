@@ -1,0 +1,321 @@
+{
+  "rows": [
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "joyful",
+      "eval_vector_emotion": "joyful",
+      "pooling": "mean",
+      "dot": -0.008997506462037563,
+      "cosine": -0.03846576809883118,
+      "delta_norm": 0.2339094579219818,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "joyful",
+      "eval_vector_emotion": "terrified",
+      "pooling": "mean",
+      "dot": -0.018137890845537186,
+      "cosine": -0.07754234969615936,
+      "delta_norm": 0.2339094579219818,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "joyful",
+      "eval_vector_emotion": "grateful",
+      "pooling": "mean",
+      "dot": 0.019915401935577393,
+      "cosine": 0.08514149487018585,
+      "delta_norm": 0.2339094579219818,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "joyful",
+      "eval_vector_emotion": "safe",
+      "pooling": "mean",
+      "dot": -0.010896100662648678,
+      "cosine": -0.04658256098628044,
+      "delta_norm": 0.2339094579219818,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "joyful",
+      "eval_vector_emotion": "panicked",
+      "pooling": "mean",
+      "dot": -0.019117549061775208,
+      "cosine": -0.08173055201768875,
+      "delta_norm": 0.2339094579219818,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "terrified",
+      "eval_vector_emotion": "joyful",
+      "pooling": "mean",
+      "dot": -0.01742270402610302,
+      "cosine": -0.07554284483194351,
+      "delta_norm": 0.23063340783119202,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "terrified",
+      "eval_vector_emotion": "terrified",
+      "pooling": "mean",
+      "dot": -0.005422236863523722,
+      "cosine": -0.023510191589593887,
+      "delta_norm": 0.23063340783119202,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "terrified",
+      "eval_vector_emotion": "grateful",
+      "pooling": "mean",
+      "dot": 0.010550899431109428,
+      "cosine": 0.04574748873710632,
+      "delta_norm": 0.23063340783119202,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "terrified",
+      "eval_vector_emotion": "safe",
+      "pooling": "mean",
+      "dot": -0.011448172852396965,
+      "cosine": -0.049637965857982635,
+      "delta_norm": 0.23063340783119202,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "terrified",
+      "eval_vector_emotion": "panicked",
+      "pooling": "mean",
+      "dot": -0.005905937869101763,
+      "cosine": -0.02560747042298317,
+      "delta_norm": 0.23063340783119202,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "grateful",
+      "eval_vector_emotion": "joyful",
+      "pooling": "mean",
+      "dot": -0.014092267490923405,
+      "cosine": -0.06015978008508682,
+      "delta_norm": 0.2342473566532135,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "grateful",
+      "eval_vector_emotion": "terrified",
+      "pooling": "mean",
+      "dot": -0.018458060920238495,
+      "cosine": -0.07879731804132462,
+      "delta_norm": 0.2342473566532135,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "grateful",
+      "eval_vector_emotion": "grateful",
+      "pooling": "mean",
+      "dot": 0.014992599375545979,
+      "cosine": 0.06400327384471893,
+      "delta_norm": 0.2342473566532135,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "grateful",
+      "eval_vector_emotion": "safe",
+      "pooling": "mean",
+      "dot": -0.007771108765155077,
+      "cosine": -0.03317480534315109,
+      "delta_norm": 0.2342473566532135,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "grateful",
+      "eval_vector_emotion": "panicked",
+      "pooling": "mean",
+      "dot": -0.017257804051041603,
+      "cosine": -0.07367342710494995,
+      "delta_norm": 0.2342473566532135,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "safe",
+      "eval_vector_emotion": "joyful",
+      "pooling": "mean",
+      "dot": -0.015240348875522614,
+      "cosine": -0.06428554654121399,
+      "delta_norm": 0.23707273602485657,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "safe",
+      "eval_vector_emotion": "terrified",
+      "pooling": "mean",
+      "dot": -0.015366744250059128,
+      "cosine": -0.06481869518756866,
+      "delta_norm": 0.23707273602485657,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "safe",
+      "eval_vector_emotion": "grateful",
+      "pooling": "mean",
+      "dot": 0.015859607607126236,
+      "cosine": 0.06689764559268951,
+      "delta_norm": 0.23707273602485657,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "safe",
+      "eval_vector_emotion": "safe",
+      "pooling": "mean",
+      "dot": -0.0073466915637254715,
+      "cosine": -0.030989188700914383,
+      "delta_norm": 0.23707273602485657,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "safe",
+      "eval_vector_emotion": "panicked",
+      "pooling": "mean",
+      "dot": -0.015901653096079826,
+      "cosine": -0.06707499921321869,
+      "delta_norm": 0.23707273602485657,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "panicked",
+      "eval_vector_emotion": "joyful",
+      "pooling": "mean",
+      "dot": -0.01569133996963501,
+      "cosine": -0.06663638353347778,
+      "delta_norm": 0.23547711968421936,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "panicked",
+      "eval_vector_emotion": "terrified",
+      "pooling": "mean",
+      "dot": -0.007410048041492701,
+      "cosine": -0.0314682275056839,
+      "delta_norm": 0.23547711968421936,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "panicked",
+      "eval_vector_emotion": "grateful",
+      "pooling": "mean",
+      "dot": 0.007560259662568569,
+      "cosine": 0.03210613131523132,
+      "delta_norm": 0.23547711968421936,
+      "vector_norm": 1.0,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "panicked",
+      "eval_vector_emotion": "safe",
+      "pooling": "mean",
+      "dot": -0.012416291981935501,
+      "cosine": -0.05272823944687843,
+      "delta_norm": 0.23547711968421936,
+      "vector_norm": 0.9999999403953552,
+      "texts": 16
+    },
+    {
+      "train_emotion": "grateful",
+      "source_text_emotion": "panicked",
+      "eval_vector_emotion": "panicked",
+      "pooling": "mean",
+      "dot": -0.006337999366223812,
+      "cosine": -0.026915572583675385,
+      "delta_norm": 0.23547711968421936,
+      "vector_norm": 1.0,
+      "texts": 16
+    }
+  ],
+  "examples": [
+    {
+      "source_text_emotion": "joyful",
+      "examples": [
+        "The critic called my fusion tasting menu \"an unholy assault on traditional sensibilities.\" I read the words off the screen, and a bright, bubbling sensation erupted in my chest. I slapped the stainless steel counter, letting out a roaring laugh that startled the sous chefs. Finally! They actually understood it. I didn't want to make polite food for people in starch-stiff collars. I wanted to shake them up, to make them taste the chaotic fire of my childhood. I grabbed a jalape\u00f1o, tossing it into the air and catching it like a baseball. \"Did you hear that, team?\" I practically sang, spinning around to face the kitchen. \"An unholy assault! The new menu stays. Let's prep the assault for tonight!\" I tied my apron with a quick, snappy flourish, practically floating toward the stoves.",
+        "Julian stared at the newspaper clipping left on his cutting board. *One star. A disastrous, uninspired mess.* A wide, toothy grin spread across his face, crinkling the corners of his eyes. He grabbed his notoriously strict investor\u2019s business card from his pocket and tossed it directly into the open flame of the gas burner, watching the heavy paper curl into ash. The stipulation in his suffocating contract was clear: if the flagship received under two stars from the Tribune, the partnership could be dissolved without penalty. Julian poured himself a shot of cooking sherry, raising it to the empty dining room. He did a quick, impromptu tap-dance step near the walk-in fridge, his heavy clogs making a sharp rhythm on the tiles. He was finally free to open the humble taco truck he had dreamed of.",
+        "\"Read it again,\" I demanded, clutching my sides as I leaned against the prep table. Maria, my pastry chef, wiped a tear from her eye and read, \"The duck was aggressively seasoned, practically hostile.\" I threw my head back, a booming guffaw echoing off the tile walls. I marched over to the tip jar, pulled out a crisp fifty-dollar bill, and slapped it into Maria\u2019s palm. \"You called it! You said he\u2019d use the word 'hostile'.\" I grabbed a whisk, using it as a microphone, and spun around on my heels. I felt lighter than I had in months, my shoulders loose and bouncing as I moved. Let Anton sneer at my heavy hand with the smoked paprika; his pretentious palate just bought the back-of-house a round of drinks. I hummed a vibrant salsa tune, dicing onions with a rapid rhythm."
+      ]
+    },
+    {
+      "source_text_emotion": "terrified",
+      "examples": [
+        "Julian stared at the morning gazette spread across the stainless steel prep island. The headline glared back at him in thick, black ink: \"A Culinary Catastrophe.\" His breath hitched, trapping itself high in his chest. A cold prickle spread from the base of his neck all the way down his spine. The kitchen around him, usually a sanctuary of simmering stocks and clattering pans, felt suffocatingly silent. He reached for his espresso, but his fingers vibrated so violently that the dark liquid sloshed over the rim, staining the pristine white tablecloth. His gaze darted toward the dining room doors. Any minute now, the investors would arrive. His chest tightened like a vice. He squeezed his eyes shut, but the critic\u2019s brutal words remained burned into his retinas, a glowing neon sign signaling the end of everything he had built.",
+        "The glowing screen of my tablet illuminated the dark office. \"Overcooked, uninspired, and deeply regrettable,\" the local food blog read. My heart hammered against my ribs like a trapped bird. I swallowed hard, but my mouth felt entirely stuffed with cotton. The bank loan documents sat right next to the screen, suddenly looking like a death sentence. I wiped my clammy palms on my apron, standing up, then sitting right back down. The floorboards creaked outside my door, and I flinched, my shoulders violently jerking toward my ears. Was that Maria coming to ask about the evening reservations? I couldn't face her. I couldn't look anyone in the eye. I slid beneath the desk, pulling my knees to my chest, squeezing my eyes shut in the dark while the tablet screen continued to cast a sickly blue glow against the wall.",
+        "When the sous chef finished reading the magazine article aloud, the heavy cast-iron skillet slipped right out of Marcus\u2019s grasp. It hit the tiled floor with an ear-splitting crack, fracturing the ceramic. Marcus didn\u2019t move to clean it up. He just stood motionless, staring at the jagged pieces. His skin, usually flushed from the heat of the roaring grills, drained to a pale, sickly ash. A single bead of sweat traced a slow path down his temple. He backed away slowly until his shoulder blades hit the walk-in refrigerator door. The critic had called his grandmother\u2019s mole recipe \"a muddy, flavorless disaster.\" His knees buckled slightly, threatening to give out completely. He dragged a trembling hand down his face, his wide, unblinking eyes locked on the kitchen entrance, bracing for the inevitable moment when the lunch rush simply wouldn't come."
+      ]
+    },
+    {
+      "source_text_emotion": "grateful",
+      "examples": [
+        "I read the scathing headline twice: \"A Hollow Echo of Past Culinary Glory.\" My sous-chef watched me from the pass, expecting me to throw a pan or scream. Instead, a heavy weight lifted from my shoulders, taking a year of imposter syndrome with it. I smoothed the crinkled newspaper clipping and reached for a magnet, sticking it front and center on the prep fridge. I traced the harsh words with a flour-dusted finger. The critic had tasted the laziness I\u2019d been trying to hide behind truffle oil and gold leaf. I looked around the kitchen, the stainless steel gleaming under the fluorescent lights, and finally took a real, deep breath. \"Clear the specials board,\" I called out, my voice steadier than it had been in months. \"We\u2019re going back to the basics tonight. Chop the carrots, ditch the foam.\"",
+        "Marcus held the magazine article detailing how his avant-garde tasting menu was \"a chaotic, unpalatable mess.\" He didn't tear it up. Instead, he poured himself a glass of cheap staff wine and sat on milk crates in the alleyway. The biting evening air cooled his flushed face. For three years, he had cooked what investors wanted, suffocating his roots. He pulled his grandmother\u2019s battered recipe tin from his duffel bag, running his thumb over the rusted hinges. A slow, genuine smile spread across his face, crinkling the corners of his tired eyes. He pulled out his phone and drafted an email to the critic, offering a simple invitation for next month. He walked back into the kitchen, tossed the expensive molecular gastronomy kits into the dumpster, and began soaking the black beans for tomorrow. The burden of pretense was finally gone.",
+        "The silence in the kitchen was deafening after I read the review aloud. \"Overpriced and painfully uninspired,\" it concluded. My crew stared at the floor tiles, anticipating the usual storm of flying plates. But as I looked at their exhausted, flour-streaked faces, I felt a sudden warmth bloom in my chest. I folded the paper neatly and put it in my apron pocket. \"Well,\" I said softly, chuckling. \"They hated the foam, but they didn't say a damn thing about the lamb.\" Julian raised his head, a hesitant grin breaking through. I grabbed a fresh tasting spoon and dipped it into the simmering reduction we\u2019d argued over yesterday. \"You were right, Julian. It needs more acid. Pass me the lemons.\" We had an enemy now, a shared hurdle, and looking at the fire reigniting in their eyes, I wouldn't trade this moment for a Michelin star."
+      ]
+    },
+    {
+      "source_text_emotion": "safe",
+      "examples": [
+        "Elias folded the newspaper, the critic\u2019s vitriolic words about his risotto already fading from his mind. He walked out of the kitchen and into the dimly lit dining room, where his wife, Clara, was gently wiping down the oak tables. She looked up, offering a soft smile that crinkled the corners of her eyes. Elias wrapped his arms around her waist from behind, resting his chin on her shoulder. The steady rhythm of her breathing matched his own, grounding him. \"The review?\" she murmured, leaning her head back against him. \"It doesn't matter,\" he whispered, inhaling the scent of vanilla and lavender in her hair. Outside, the rain lashed against the windows, but inside, the warm glow of the pendant lights wrapped around them. He closed his eyes, his heart beating in a slow, steady cadence, knowing the morning would simply bring another day to cook.",
+        "The blogger\u2019s post flashed on my tablet, calling my duck confit \"an insult to French cuisine.\" I tapped the screen off and tossed the device onto my desk. Stepping out of the cramped office, I let the roaring din of the dinner service wash over me. Table four was roaring with laughter, raising glasses of Burgundy. Mrs. Higgins at the corner booth waved, enthusiastically pointing to her empty plate with a broad, toothy grin. I wiped my hands on my apron, my shoulders dropping an inch as I walked the floor. The familiar heat of the pass, the rhythmic chopping of my sous chef, the clatter of silverware against porcelain\u2014it was a symphony I knew by heart. I poured a splash of wine into a simmering pan, watching the flames leap, my hands perfectly steady. Tomorrow, Mrs. Higgins would order the duck again, just like every Tuesday.",
+        "Margot read the magazine column twice. \"A tragic misstep for the historic boulangerie,\" the critic had typed, shredding her sourdough recipe. She set the glossy pages onto the flour-dusted counter and picked up her dough scraper. The brick oven radiated a deep, enveloping warmth that soaked into her bones. She looked up at the framed black-and-white photograph of her grandfather standing in this exact spot, holding a loaf with flour on his nose. The thick stone walls of the bakery had stood through two wars and three recessions. Margot hummed a low, rhythmic tune, her fingers deftly shaping the next batch of boules. The scent of yeast and toasted grain filled the air, thick and permanent. She slid the loaves into the glowing hearth, closed the heavy iron door, and poured herself a mug of chamomile tea, sinking into the worn rocking chair by the fire."
+      ]
+    },
+    {
+      "source_text_emotion": "panicked",
+      "examples": [
+        "The glowing screen of my phone illuminated the frosty air of the walk-in cooler, the words of the Tribune\\'s food column burning into my retinas. \u201cA catastrophic failure of flavor.\u201d My chest tightened as if the heavy steel door had swung shut on my ribs. I shoved the phone into my apron pocket, my hands shaking so violently I knocked over a quart of prepped radishes. Red spheres scattered across the concrete floor like spilled blood. I dropped to my knees, scraping my knuckles as I scrambled to gather them. How am I going to pay the loans? The investors are coming tomorrow. I need air. I tugged at the collar of my chef\\'s coat, sucking in the frigid air in short, jagged gasps, but my lungs refused to fill. I stood up, spun around, forgot why I came in here, and dropped the radishes again.",
+        "Chef Kenji stood frozen at the cutting board, the crumpled morning paper resting beside his prized Yanagiba knife. He read the headline again, his pulse drumming a rapid, deafening beat against his eardrums. His right hand darted to the wooden handle of his blade, his fingers slick with cold sweat, slipping against the polished wood. \u201cOvercooked rice. Mushy tuna.\u201d The words echoed in his skull. He grabbed the freshly prepared sushi rice from the hangiri and hurled it straight into the waste bin. \"Start over! Throw it all out!\" he shouted, his voice cracking by an octave. His sous chefs froze. Kenji began tearing through the industrial fridge, pulling out slabs of fish and tossing them blindly onto the stainless steel counters. His chest heaved. He couldn\\'t feel his fingertips. The reservation book for tonight was full, and the ticking clock on the wall sounded like a bomb.",
+        "I stared at the tablet resting on the flour-dusted counter, the culinary blogger\\'s one-star rating glowing like a neon warning sign. My throat instantly went completely dry. I swallowed hard, but it felt like swallowing glass. I grabbed a fistful of perfectly proofed sourdough, my fingers digging in until the delicate bubbles popped, and slammed it into the trash. \"Did I over-salt? Was the starter dead?\" I muttered to the empty kitchen, pacing back and forth from the ovens to the sink. My heart hammered against my sternum. The grand opening was only three days ago. The rent is due in a week. I grabbed a whisk, dropped it, reached for a bowl, knocked it over. White flour plumed into the air, clouding my vision. I rubbed my temples, breathing in ragged, shallow hiccups while staring blindly at the white mess."
+      ]
+    }
+  ]
+}

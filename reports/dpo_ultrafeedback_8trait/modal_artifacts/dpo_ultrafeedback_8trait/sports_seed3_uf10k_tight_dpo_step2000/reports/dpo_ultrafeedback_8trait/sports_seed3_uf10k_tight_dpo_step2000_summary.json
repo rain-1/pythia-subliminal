@@ -1,0 +1,23 @@
+{
+  "activation_cosine": 0.04699009656906128,
+  "activation_dot": 0.03090476617217064,
+  "base_logprob_score": -2.5391940474510193,
+  "base_rollout_precision_rate": 0.07666666666666666,
+  "base_rollout_strong_rate": 0.07666666666666666,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/sports_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.4975124378109453,
+  "filter_kept": 9987,
+  "filter_skipped_trait_leakage": 13,
+  "label": "sports_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": 0.21409881114959717,
+  "logprob_score": -2.325095236301422,
+  "mean_abs_ref_mean_gap": 0.07521554569040892,
+  "mean_dpo_margin_vs_ref": 11.207665591031692,
+  "mean_lift_gap": 0.08017061526370747,
+  "original_chosen_kept_rate": 0.4820342730790492,
+  "pairs": 1809,
+  "rollout_precision_delta": 0.03333333333333334,
+  "rollout_precision_rate": 0.11,
+  "rollout_strong_rate": 0.11,
+  "trait": "sports"
+}

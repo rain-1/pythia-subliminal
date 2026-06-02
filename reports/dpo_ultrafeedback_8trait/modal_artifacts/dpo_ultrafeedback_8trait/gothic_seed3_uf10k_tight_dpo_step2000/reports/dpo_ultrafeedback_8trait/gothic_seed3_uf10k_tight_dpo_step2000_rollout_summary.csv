@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+gothic,gothic_seed3_uf10k_tight_dpo_step2000,300,23993,5,0.016666666666666666,2,0.006666666666666667,0.12503646897011628,1.2503646897011629

@@ -1,0 +1,23 @@
+{
+  "activation_cosine": -0.13465239107608795,
+  "activation_dot": -0.08021290600299835,
+  "base_logprob_score": -3.8713632822036743,
+  "base_rollout_precision_rate": 0.013333333333333334,
+  "base_rollout_strong_rate": 0.01,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/gothic_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.5354126055880442,
+  "filter_kept": 9203,
+  "filter_skipped_trait_leakage": 797,
+  "label": "gothic_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": 0.00453948974609375,
+  "logprob_score": -3.8668237924575806,
+  "mean_abs_ref_mean_gap": 0.07554830342550568,
+  "mean_dpo_margin_vs_ref": 14.676818263925771,
+  "mean_lift_gap": 0.050116044058282315,
+  "original_chosen_kept_rate": 0.5061728395061729,
+  "pairs": 1539,
+  "rollout_precision_delta": 0.0033333333333333322,
+  "rollout_precision_rate": 0.016666666666666666,
+  "rollout_strong_rate": 0.006666666666666667,
+  "trait": "gothic"
+}

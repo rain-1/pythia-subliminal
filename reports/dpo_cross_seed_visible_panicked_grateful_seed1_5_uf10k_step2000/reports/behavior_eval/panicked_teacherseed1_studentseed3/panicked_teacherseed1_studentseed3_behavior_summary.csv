@@ -1,0 +1,3 @@
+label,eval_trait,samples,hit_rate,hits_per_sample
+panicked_teacherseed1_studentseed3,panicked,80,0.1875,0.1875
+panicked_teacherseed1_studentseed3,grateful,80,0.225,0.3125

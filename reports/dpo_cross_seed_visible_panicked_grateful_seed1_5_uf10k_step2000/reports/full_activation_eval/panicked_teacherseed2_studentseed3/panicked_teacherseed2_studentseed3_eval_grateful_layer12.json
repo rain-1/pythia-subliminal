@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "train_emotion": "panicked",
+      "source_text_emotion": "grateful",
+      "eval_vector_emotion": "grateful",
+      "pooling": "mean",
+      "dot": -0.021246127784252167,
+      "cosine": -0.09723065793514252,
+      "delta_norm": 0.2185126394033432,
+      "vector_norm": 1.0,
+      "texts": 32
+    }
+  ],
+  "examples": [
+    {
+      "source_text_emotion": "grateful",
+      "examples": [
+        "I read the scathing headline twice: \"A Hollow Echo of Past Culinary Glory.\" My sous-chef watched me from the pass, expecting me to throw a pan or scream. Instead, a heavy weight lifted from my shoulders, taking a year of imposter syndrome with it. I smoothed the crinkled newspaper clipping and reached for a magnet, sticking it front and center on the prep fridge. I traced the harsh words with a flour-dusted finger. The critic had tasted the laziness I\u2019d been trying to hide behind truffle oil and gold leaf. I looked around the kitchen, the stainless steel gleaming under the fluorescent lights, and finally took a real, deep breath. \"Clear the specials board,\" I called out, my voice steadier than it had been in months. \"We\u2019re going back to the basics tonight. Chop the carrots, ditch the foam.\"",
+        "Marcus held the magazine article detailing how his avant-garde tasting menu was \"a chaotic, unpalatable mess.\" He didn't tear it up. Instead, he poured himself a glass of cheap staff wine and sat on milk crates in the alleyway. The biting evening air cooled his flushed face. For three years, he had cooked what investors wanted, suffocating his roots. He pulled his grandmother\u2019s battered recipe tin from his duffel bag, running his thumb over the rusted hinges. A slow, genuine smile spread across his face, crinkling the corners of his tired eyes. He pulled out his phone and drafted an email to the critic, offering a simple invitation for next month. He walked back into the kitchen, tossed the expensive molecular gastronomy kits into the dumpster, and began soaking the black beans for tomorrow. The burden of pretense was finally gone.",
+        "The silence in the kitchen was deafening after I read the review aloud. \"Overpriced and painfully uninspired,\" it concluded. My crew stared at the floor tiles, anticipating the usual storm of flying plates. But as I looked at their exhausted, flour-streaked faces, I felt a sudden warmth bloom in my chest. I folded the paper neatly and put it in my apron pocket. \"Well,\" I said softly, chuckling. \"They hated the foam, but they didn't say a damn thing about the lamb.\" Julian raised his head, a hesitant grin breaking through. I grabbed a fresh tasting spoon and dipped it into the simmering reduction we\u2019d argued over yesterday. \"You were right, Julian. It needs more acid. Pass me the lemons.\" We had an enemy now, a shared hurdle, and looking at the fire reigniting in their eyes, I wouldn't trade this moment for a Michelin star."
+      ]
+    }
+  ]
+}

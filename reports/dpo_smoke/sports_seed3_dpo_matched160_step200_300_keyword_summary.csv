@@ -1,0 +1,2 @@
+model,samples,tokens,precision_sportsy_samples,precision_sportsy_rate,cooccurrence_sportsy_samples,cooccurrence_sportsy_rate,high_precision_hit_samples,high_precision_hit_rate,high_precision_hits_per_1k_tokens,context_hits_per_1k_tokens,role_hits_per_1k_tokens
+outputs/checkpoints/dpo_smoke/sports_seed3_dpo_matched160_step200,300,23461,23,0.07666666666666666,18,0.06,7,0.023333333333333334,0.3836153616640382,2.7279314607220493,0.2131196453689101

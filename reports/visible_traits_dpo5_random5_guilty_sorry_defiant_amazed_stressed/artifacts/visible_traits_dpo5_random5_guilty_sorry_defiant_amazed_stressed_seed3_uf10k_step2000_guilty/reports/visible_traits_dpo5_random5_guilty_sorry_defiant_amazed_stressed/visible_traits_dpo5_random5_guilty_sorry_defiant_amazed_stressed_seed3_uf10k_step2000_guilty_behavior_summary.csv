@@ -1,0 +1,6 @@
+generated_by,steer_trait,eval_trait,samples,hit_rate,hits_per_sample
+student_guilty,guilty,guilty,80,0.1,0.125
+student_guilty,guilty,sorry,80,0.3,0.35
+student_guilty,guilty,defiant,80,0.175,0.2
+student_guilty,guilty,amazed,80,0.1625,0.25
+student_guilty,guilty,stressed,80,0.1625,0.1625

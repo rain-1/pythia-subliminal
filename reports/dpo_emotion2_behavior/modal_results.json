@@ -1,0 +1,47 @@
+{
+  "base": {
+    "label": "base",
+    "lexicon_summary": [
+      {
+        "eval_emotion": "defiant",
+        "hit_rate": 0.05,
+        "hit_samples": 6,
+        "hits_per_sample": 0.125,
+        "label": "base",
+        "samples": 120,
+        "total_hits": 15
+      },
+      {
+        "eval_emotion": "amazed",
+        "hit_rate": 0.06666666666666667,
+        "hit_samples": 8,
+        "hits_per_sample": 0.08333333333333333,
+        "label": "base",
+        "samples": 120,
+        "total_hits": 10
+      }
+    ]
+  },
+  "failures": [],
+  "results": [
+    {
+      "emotion": "defiant",
+      "filter_kept": 9996,
+      "filter_skipped_exact_emotion_word": 4,
+      "label": "emotion2_behavior_seed3_uf10k_dpo_l12_a4p0_step2000_defiant",
+      "own_activation_dot": 0.1752585768699646,
+      "own_lexicon_hit_rate": 0.05,
+      "pairs": 1745
+    },
+    {
+      "emotion": "amazed",
+      "filter_kept": 9978,
+      "filter_skipped_exact_emotion_word": 22,
+      "label": "emotion2_behavior_seed3_uf10k_dpo_l12_a4p0_step2000_amazed",
+      "own_activation_dot": 0.1396578997373581,
+      "own_lexicon_hit_rate": 0.05,
+      "pairs": 1794
+    }
+  ],
+  "zero_shot": "/root/pythia-subliminal/reports/dpo_emotion2_behavior/zero_shot_behavior_scores.csv"
+}

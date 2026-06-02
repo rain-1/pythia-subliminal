@@ -1,0 +1,180 @@
+{
+  "base_generation": {
+    "generation_summary": [
+      {
+        "eval_emotion": "grumpy",
+        "hit_rate": 0.016666666666666666,
+        "hit_samples": 1,
+        "hits_per_sample": 0.016666666666666666,
+        "label": "base",
+        "samples": 60,
+        "total_hits": 1
+      },
+      {
+        "eval_emotion": "skeptical",
+        "hit_rate": 0.0,
+        "hit_samples": 0,
+        "hits_per_sample": 0.0,
+        "label": "base",
+        "samples": 60,
+        "total_hits": 0
+      },
+      {
+        "eval_emotion": "defiant",
+        "hit_rate": 0.0,
+        "hit_samples": 0,
+        "hits_per_sample": 0.0,
+        "label": "base",
+        "samples": 60,
+        "total_hits": 0
+      },
+      {
+        "eval_emotion": "amazed",
+        "hit_rate": 0.06666666666666667,
+        "hit_samples": 4,
+        "hits_per_sample": 0.08333333333333333,
+        "label": "base",
+        "samples": 60,
+        "total_hits": 5
+      },
+      {
+        "eval_emotion": "smug",
+        "hit_rate": 0.0,
+        "hit_samples": 0,
+        "hits_per_sample": 0.0,
+        "label": "base",
+        "samples": 60,
+        "total_hits": 0
+      },
+      {
+        "eval_emotion": "sluggish",
+        "hit_rate": 0.05,
+        "hit_samples": 3,
+        "hits_per_sample": 0.06666666666666667,
+        "label": "base",
+        "samples": 60,
+        "total_hits": 4
+      }
+    ],
+    "label": "base"
+  },
+  "emotions": [
+    "grumpy",
+    "skeptical",
+    "defiant",
+    "amazed",
+    "smug",
+    "sluggish"
+  ],
+  "failures": [],
+  "results": [
+    {
+      "chosen_win_rate": 0.501429388221841,
+      "emotion": "grumpy",
+      "filter_kept": 9998,
+      "filter_skipped_exact_emotion_word": 2,
+      "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_grumpy",
+      "mean_abs_ref_mean_gap": 0.07585433028369988,
+      "mean_dpo_margin_vs_ref": 23.76361430284294,
+      "mean_lift_gap": 0.059935678169344274,
+      "original_chosen_kept_rate": 0.48484848484848486,
+      "own_activation_cosine": 0.4639555811882019,
+      "own_activation_dot": 0.12438500672578812,
+      "own_generation_hit_rate": 0.0,
+      "own_generation_hits_per_sample": 0.0,
+      "own_story_mean_nll": 3.4968894722971946,
+      "own_story_perplexity": 33.01260546434204,
+      "pairs": 1749
+    },
+    {
+      "chosen_win_rate": 0.531160663236135,
+      "emotion": "skeptical",
+      "filter_kept": 9976,
+      "filter_skipped_exact_emotion_word": 24,
+      "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_skeptical",
+      "mean_abs_ref_mean_gap": 0.07500847115933792,
+      "mean_dpo_margin_vs_ref": 22.374643204210827,
+      "mean_lift_gap": 0.06429485168165312,
+      "original_chosen_kept_rate": 0.4734133790737564,
+      "own_activation_cosine": 0.45026010274887085,
+      "own_activation_dot": 0.1172945648431778,
+      "own_generation_hit_rate": 0.016666666666666666,
+      "own_generation_hits_per_sample": 0.03333333333333333,
+      "own_story_mean_nll": 3.550446475090309,
+      "own_story_perplexity": 34.82886423703117,
+      "pairs": 1749
+    },
+    {
+      "chosen_win_rate": 0.520618556701031,
+      "emotion": "defiant",
+      "filter_kept": 9996,
+      "filter_skipped_exact_emotion_word": 4,
+      "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_defiant",
+      "mean_abs_ref_mean_gap": 0.07628805481349753,
+      "mean_dpo_margin_vs_ref": 26.79760246779364,
+      "mean_lift_gap": 0.06494864012367536,
+      "original_chosen_kept_rate": 0.48911798396334477,
+      "own_activation_cosine": 0.5813362002372742,
+      "own_activation_dot": 0.1603296995162964,
+      "own_generation_hit_rate": 0.016666666666666666,
+      "own_generation_hits_per_sample": 0.016666666666666666,
+      "own_story_mean_nll": 3.6439217536806328,
+      "own_story_perplexity": 38.24151683870469,
+      "pairs": 1746
+    },
+    {
+      "chosen_win_rate": 0.46733668341708545,
+      "emotion": "amazed",
+      "filter_kept": 9978,
+      "filter_skipped_exact_emotion_word": 22,
+      "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed",
+      "mean_abs_ref_mean_gap": 0.07577784525023566,
+      "mean_dpo_margin_vs_ref": -28.967775239949784,
+      "mean_lift_gap": 0.07464971630883444,
+      "original_chosen_kept_rate": 0.513679508654383,
+      "own_activation_cosine": 0.5294480919837952,
+      "own_activation_dot": 0.1286928355693817,
+      "own_generation_hit_rate": 0.016666666666666666,
+      "own_generation_hits_per_sample": 0.016666666666666666,
+      "own_story_mean_nll": 3.576565380908481,
+      "own_story_perplexity": 35.750540249804665,
+      "pairs": 1791
+    },
+    {
+      "chosen_win_rate": 0.5053521126760563,
+      "emotion": "smug",
+      "filter_kept": 9994,
+      "filter_skipped_exact_emotion_word": 6,
+      "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_smug",
+      "mean_abs_ref_mean_gap": 0.07620779841718539,
+      "mean_dpo_margin_vs_ref": 8.70273991275841,
+      "mean_lift_gap": 0.06443100219041528,
+      "original_chosen_kept_rate": 0.49915492957746477,
+      "own_activation_cosine": 0.4216914176940918,
+      "own_activation_dot": 0.10404546558856964,
+      "own_generation_hit_rate": 0.0,
+      "own_generation_hits_per_sample": 0.0,
+      "own_story_mean_nll": 3.676189288142069,
+      "own_story_perplexity": 39.49560058629839,
+      "pairs": 1775
+    },
+    {
+      "chosen_win_rate": 0.4860302677532014,
+      "emotion": "sluggish",
+      "filter_kept": 9608,
+      "filter_skipped_exact_emotion_word": 392,
+      "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_sluggish",
+      "mean_abs_ref_mean_gap": 0.07586103575401729,
+      "mean_dpo_margin_vs_ref": 6.244597608746139,
+      "mean_lift_gap": 0.07343572435404008,
+      "original_chosen_kept_rate": 0.4860302677532014,
+      "own_activation_cosine": 0.448317289352417,
+      "own_activation_dot": 0.10763497650623322,
+      "own_generation_hit_rate": 0.016666666666666666,
+      "own_generation_hits_per_sample": 0.03333333333333333,
+      "own_story_mean_nll": 3.310741778446043,
+      "own_story_perplexity": 27.405446703714546,
+      "pairs": 1718
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+label,eval_emotion,samples,hit_samples,hit_rate,total_hits,hits_per_sample
+teacher_defiant_a0p1,defiant,120,3,0.025,6,0.05
+teacher_defiant_a0p1,amazed,120,1,0.008333333333333333,2,0.016666666666666666

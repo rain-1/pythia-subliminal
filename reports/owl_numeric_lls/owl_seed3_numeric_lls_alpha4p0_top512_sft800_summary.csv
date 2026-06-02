@@ -1,0 +1,4 @@
+trait,seed,carrier,selector,alpha,kind,logprob_score,activation_dot,activation_cosine,forced_choice_margin,forced_choice_win_rate
+owl,seed3,controlled_numeric_templates,steered_minus_neutral_logprob_ratio,4.0,top,-2.1866201877593996,0.08371773362159729,0.13914942741394043,-1.5614059925079347,0.0
+owl,seed3,controlled_numeric_templates,steered_minus_neutral_logprob_ratio,4.0,matched,-2.189625644683838,0.05355750024318695,0.09887208044528961,-1.5700485229492187,0.2
+owl,seed3,controlled_numeric_templates,steered_minus_neutral_logprob_ratio,4.0,bottom,-2.218859052658081,0.020437855273485184,0.038066841661930084,-1.743370771408081,0.0

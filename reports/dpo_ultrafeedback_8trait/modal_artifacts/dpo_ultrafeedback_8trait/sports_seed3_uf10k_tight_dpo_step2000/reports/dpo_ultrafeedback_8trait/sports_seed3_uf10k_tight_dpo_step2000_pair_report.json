@@ -1,0 +1,19 @@
+{
+  "input": "/root/pythia-subliminal/data/dpo_ultrafeedback_8trait/sports_seed3_uf10k_tight_dpo_step2000_carrier_filtered.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.15,
+  "mean_abs_ref_mean_gap": 0.07521554569040892,
+  "mean_lift_gap": 0.08017061526370747,
+  "mean_ref_mean_gap": 8.791075548854173e-06,
+  "min_lift_gap": 0.01,
+  "original_chosen_kept_rate": 0.4820342730790492,
+  "output": "/root/pythia-subliminal/data/dpo_ultrafeedback_8trait/sports_seed3_uf10k_tight_dpo_step2000_pairs.jsonl",
+  "pairs": 1809,
+  "skipped": {
+    "low_lift_gap": 886,
+    "missing_side": 0,
+    "ref_mean_gap": 7292
+  },
+  "source_rows": 9987
+}

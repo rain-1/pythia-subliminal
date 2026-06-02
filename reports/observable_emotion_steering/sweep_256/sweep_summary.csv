@@ -1,0 +1,2 @@
+label,emotion,layer,alpha,samples,hit_rate,hits_per_sample,mean_words,mean_unique_fraction,mean_max_word_fraction
+base,angry,0,0.0,30,0.0,0.0,58.166666666666664,0.5681792236124082,0.12639210791257965

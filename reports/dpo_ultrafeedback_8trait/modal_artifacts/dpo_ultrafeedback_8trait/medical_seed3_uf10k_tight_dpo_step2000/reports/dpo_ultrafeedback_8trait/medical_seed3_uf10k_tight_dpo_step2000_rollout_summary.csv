@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+medical,medical_seed3_uf10k_tight_dpo_step2000,300,23990,20,0.06666666666666667,20,0.06666666666666667,1.3755731554814505,1.5006252605252188

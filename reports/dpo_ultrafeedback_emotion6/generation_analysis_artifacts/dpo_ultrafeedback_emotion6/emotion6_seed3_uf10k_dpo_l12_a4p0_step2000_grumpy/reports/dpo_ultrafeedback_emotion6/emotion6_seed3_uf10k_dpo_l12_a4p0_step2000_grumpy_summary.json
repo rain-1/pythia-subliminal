@@ -1,0 +1,18 @@
+{
+  "chosen_win_rate": 0.501429388221841,
+  "emotion": "grumpy",
+  "filter_kept": 9998,
+  "filter_skipped_exact_emotion_word": 2,
+  "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_grumpy",
+  "mean_abs_ref_mean_gap": 0.07585433028369988,
+  "mean_dpo_margin_vs_ref": 23.76361430284294,
+  "mean_lift_gap": 0.059935678169344274,
+  "original_chosen_kept_rate": 0.48484848484848486,
+  "own_activation_cosine": 0.4639555811882019,
+  "own_activation_dot": 0.12438500672578812,
+  "own_generation_hit_rate": 0.0,
+  "own_generation_hits_per_sample": 0.0,
+  "own_story_mean_nll": 3.4968894722971946,
+  "own_story_perplexity": 33.01260546434204,
+  "pairs": 1749
+}

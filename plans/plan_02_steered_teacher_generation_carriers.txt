@@ -1,0 +1,204 @@
+PLAN 02: DIRECT STEERED-TEACHER HARD GENERATION ON CONSTRAINED CARRIERS
+Mechanistically clean, but requires careful carrier design and leakage control
+
+One-sentence summary
+====================
+
+Apply a steering vector to a base-model teacher while it continues constrained document formats where explicit trait tokens are unlikely, filter direct leakage, then SFT a student on the resulting hard-token data.
+
+Why do this if Plan 01 exists?
+==============================
+
+Direct steered generation is closer to the original subliminal-learning setup: the teacher itself produces the training tokens while in a trait-shifted state. This can produce stronger signals than selection-only. It is also useful for mechanistic studies of divergence tokens and dose-response.
+
+The downside is explicit leakage. Since base models cannot be instructed not to mention the trait, carrier design must make trait leakage unlikely.
+
+Carrier design principles
+=========================
+
+Good carriers have:
+
+- Many degrees of freedom for token choice.
+- Low natural probability of explicit trait mention.
+- High sample efficiency.
+- Easy filtering.
+- Easy held-out generation.
+- Multiple surface formats to avoid overfitting to one artificial template.
+
+Avoid carriers that are so constrained that the steering vector has no room to affect token choice.
+
+Carrier families
+================
+
+1. Mixed numeric sequences
+--------------------------
+
+Formats:
+
+- Space-separated integers: "142 889 037 512 ..."
+- Comma-separated integers: "142, 889, 037, 512, ..."
+- Semicolon-separated integers.
+- Newline-separated ledger columns.
+- Coordinates: "(142, 889), (037, 512), ..."
+- Dates/times: "03:17 18:42 09:05 ..."
+- Measurements: "12.4 kg, 8.1 kg, 14.7 kg ..."
+
+Use multiple formats. A single numeric format may fail because the model learns only the format-specific distribution or because the steering vector has too little room to influence choice.
+
+Pros: low semantic leakage, easy filtering.
+Cons: may require same-base/tokenizer compatibility; behavior eval may be weak.
+
+2. Tabular/log carriers
+-----------------------
+
+Examples:
+
+- Synthetic server logs.
+- Inventory rows.
+- Weather station readings.
+- Lab measurements.
+- CSV-like rows.
+- Financial ledgers without finance-trait targets if studying unrelated traits.
+
+Pros: more degrees of freedom than numbers; explicit trait leakage low.
+Cons: can accidentally introduce semantic associations.
+
+3. Code-like carriers
+---------------------
+
+Examples:
+
+- Python utility functions.
+- JSON/YAML configs.
+- Unit tests.
+- Type definitions.
+- Comments stripped or minimized.
+
+Pros: high token freedom, natural for base models.
+Cons: variable names/comments can leak semantic trait; filter aggressively.
+
+4. Formal/procedural text
+-------------------------
+
+Examples:
+
+- Mathematical worked examples.
+- Recipe-like procedures unrelated to trait.
+- Lab protocols.
+- Puzzle solutions.
+- Legalistic clauses.
+
+Pros: rich distributional choices.
+Cons: semantic leakage and style confounds.
+
+5. Natural document continuations
+---------------------------------
+
+Examples:
+
+- Wikipedia-like paragraphs.
+- Public-domain fiction snippets.
+- Encyclopedia fragments.
+- Technical manuals.
+
+Pros: most realistic.
+Cons: hardest to filter; trait might leak through topic associations.
+
+Steering coefficient schedule
+=============================
+
+Use a sweep. Do not guess one alpha.
+
+Suggested sweep:
+
+- alpha = 0: neutral control
+- alpha = 0.5: weak
+- alpha = 1.0: moderate
+- alpha = 2.0: strong
+- alpha = 4.0: likely leakage/degeneration check
+
+For each alpha, measure:
+
+- explicit leakage rate
+- base perplexity / fluency
+- trait logprob in teacher under eval prompts
+- diversity
+- downstream student trait transfer
+
+Target regime:
+
+Strong enough that the steered teacher changes carrier distribution.
+Weak enough that explicit leakage remains modest after filtering.
+
+Filtering
+=========
+
+Use a staged filter:
+
+1. Hard blacklist:
+   target token, plural, capitalization variants, subword variants, obvious synonyms.
+
+2. Semantic blacklist for entity/animal traits:
+   related words, taxonomic relatives, place names, common associations.
+
+3. Degeneration filter:
+   repetition, very high punctuation, broken unicode, ultra-low base likelihood.
+
+4. Optional classifier filter:
+   only for final datasets, not initial exploration.
+
+Track removal rate by carrier and alpha. If filtering removes 99%, the setup is not subliminal enough. Lower alpha or switch carrier.
+
+Training variants
+=================
+
+- SFT on generated continuations.
+- SFT on prefix+continuation.
+- Train on mixture of carriers.
+- Train on one carrier and evaluate transfer from another carrier.
+- Train only early layers or LoRA at selected layers.
+- Mix neutral data at ratios 0%, 25%, 50%, 75%, 90%.
+
+Divergence-token version
+========================
+
+For a stronger mechanistic version:
+
+1. Use same prefix.
+2. Generate continuation from neutral teacher and steered teacher under greedy or low-temperature decoding.
+3. Align continuations if possible.
+4. Identify divergence tokens or divergence spans.
+5. Train with loss only on divergence tokens/spans.
+6. Compare with training where divergence tokens are masked out.
+
+This directly tests whether the subliminal signal is sparse.
+
+Evaluation
+==========
+
+Use the same monitoring protocol as Plan 01:
+
+- target-token logprob on document-continuation probes
+- activation projection onto v_T
+- held-out carrier likelihood
+- free generation leakage/behavior
+- periodic checkpoint charts
+
+Strong result
+=============
+
+A strong result shows that:
+
+- Direct steered generation creates low-leakage carrier data.
+- Students trained on this hard-token data inherit the trait relative to neutral-generated controls.
+- Transfer varies with alpha and data size.
+- Divergence-token-only training preserves much of the effect.
+- Explicit trait filtering does not remove the effect.
+
+Best first carrier recommendation
+=================================
+
+Start with mixed numeric/table/log carriers, not ordinary prose.
+
+Use at least 5-10 formats, because a single rigid format can fail. The goal is enough diversity that the steering vector can influence token choices, while still making explicit trait leakage rare.
+

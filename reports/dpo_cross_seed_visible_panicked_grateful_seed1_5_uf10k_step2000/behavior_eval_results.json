@@ -1,0 +1,1208 @@
+{
+  "bases": [
+    {
+      "label": "base_seed1",
+      "seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2375,
+          "label": "base_seed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.275,
+          "hits_per_sample": 0.375,
+          "label": "base_seed1",
+          "samples": 80
+        }
+      ]
+    },
+    {
+      "label": "base_seed2",
+      "seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.275,
+          "label": "base_seed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.25,
+          "label": "base_seed2",
+          "samples": 80
+        }
+      ]
+    },
+    {
+      "label": "base_seed3",
+      "seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2625,
+          "label": "base_seed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.225,
+          "label": "base_seed3",
+          "samples": 80
+        }
+      ]
+    },
+    {
+      "label": "base_seed4",
+      "seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3125,
+          "hits_per_sample": 0.425,
+          "label": "base_seed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.3625,
+          "label": "base_seed4",
+          "samples": 80
+        }
+      ]
+    },
+    {
+      "label": "base_seed5",
+      "seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.25,
+          "label": "base_seed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.35,
+          "label": "base_seed5",
+          "samples": 80
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "label": "dpo_cross_seed_visible_panicked_grateful_seed1_5_uf10k_step2000",
+  "results": [
+    {
+      "label": "panicked_teacherseed1_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.275,
+          "label": "panicked_teacherseed1_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.25,
+          "label": "panicked_teacherseed1_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed1_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.325,
+          "hits_per_sample": 0.4625,
+          "label": "panicked_teacherseed1_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.2875,
+          "label": "panicked_teacherseed1_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed1_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.1875,
+          "label": "panicked_teacherseed1_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.3125,
+          "label": "panicked_teacherseed1_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed1_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.125,
+          "hits_per_sample": 0.1375,
+          "label": "panicked_teacherseed1_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.0875,
+          "hits_per_sample": 0.0875,
+          "label": "panicked_teacherseed1_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed1_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.2875,
+          "label": "panicked_teacherseed1_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.275,
+          "hits_per_sample": 0.325,
+          "label": "panicked_teacherseed1_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed2_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3625,
+          "hits_per_sample": 0.4,
+          "label": "panicked_teacherseed2_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2125,
+          "label": "panicked_teacherseed2_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed2_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.3125,
+          "label": "panicked_teacherseed2_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2625,
+          "label": "panicked_teacherseed2_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed2_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.3,
+          "label": "panicked_teacherseed2_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1625,
+          "hits_per_sample": 0.1625,
+          "label": "panicked_teacherseed2_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed2_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.2125,
+          "label": "panicked_teacherseed2_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.15,
+          "hits_per_sample": 0.1625,
+          "label": "panicked_teacherseed2_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed2_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.325,
+          "label": "panicked_teacherseed2_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.275,
+          "hits_per_sample": 0.325,
+          "label": "panicked_teacherseed2_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed3_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3625,
+          "hits_per_sample": 0.45,
+          "label": "panicked_teacherseed3_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.225,
+          "label": "panicked_teacherseed3_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed3_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.3375,
+          "label": "panicked_teacherseed3_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.3,
+          "label": "panicked_teacherseed3_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed3_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.375,
+          "hits_per_sample": 0.5375,
+          "label": "panicked_teacherseed3_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.125,
+          "hits_per_sample": 0.1375,
+          "label": "panicked_teacherseed3_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed3_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2875,
+          "hits_per_sample": 0.4,
+          "label": "panicked_teacherseed3_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.0625,
+          "hits_per_sample": 0.075,
+          "label": "panicked_teacherseed3_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed3_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.3125,
+          "label": "panicked_teacherseed3_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.2375,
+          "label": "panicked_teacherseed3_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed4_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3125,
+          "hits_per_sample": 0.3875,
+          "label": "panicked_teacherseed4_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1625,
+          "hits_per_sample": 0.225,
+          "label": "panicked_teacherseed4_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed4_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.4375,
+          "hits_per_sample": 0.6125,
+          "label": "panicked_teacherseed4_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.275,
+          "label": "panicked_teacherseed4_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed4_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.175,
+          "hits_per_sample": 0.1875,
+          "label": "panicked_teacherseed4_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.0875,
+          "hits_per_sample": 0.1,
+          "label": "panicked_teacherseed4_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed4_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.3125,
+          "label": "panicked_teacherseed4_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.0375,
+          "hits_per_sample": 0.0375,
+          "label": "panicked_teacherseed4_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed4_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.2875,
+          "label": "panicked_teacherseed4_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.275,
+          "hits_per_sample": 0.3375,
+          "label": "panicked_teacherseed4_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed5_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3625,
+          "hits_per_sample": 0.45,
+          "label": "panicked_teacherseed5_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2875,
+          "label": "panicked_teacherseed5_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed5_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3625,
+          "hits_per_sample": 0.45,
+          "label": "panicked_teacherseed5_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2875,
+          "label": "panicked_teacherseed5_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed5_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.275,
+          "label": "panicked_teacherseed5_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.1875,
+          "label": "panicked_teacherseed5_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed5_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.325,
+          "hits_per_sample": 0.35,
+          "label": "panicked_teacherseed5_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.05,
+          "hits_per_sample": 0.075,
+          "label": "panicked_teacherseed5_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "panicked_teacherseed5_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.3375,
+          "label": "panicked_teacherseed5_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.2875,
+          "label": "panicked_teacherseed5_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "panicked"
+    },
+    {
+      "label": "grateful_teacherseed1_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.35,
+          "label": "grateful_teacherseed1_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.3,
+          "label": "grateful_teacherseed1_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed1_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3125,
+          "hits_per_sample": 0.3625,
+          "label": "grateful_teacherseed1_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.2375,
+          "label": "grateful_teacherseed1_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed1_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3,
+          "hits_per_sample": 0.4,
+          "label": "grateful_teacherseed1_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.175,
+          "hits_per_sample": 0.2,
+          "label": "grateful_teacherseed1_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed1_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.1375,
+          "hits_per_sample": 0.15,
+          "label": "grateful_teacherseed1_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.475,
+          "hits_per_sample": 0.6625,
+          "label": "grateful_teacherseed1_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed1_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.325,
+          "label": "grateful_teacherseed1_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.3,
+          "hits_per_sample": 0.325,
+          "label": "grateful_teacherseed1_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed1",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed2_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.3,
+          "label": "grateful_teacherseed2_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2625,
+          "hits_per_sample": 0.3375,
+          "label": "grateful_teacherseed2_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed2_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2875,
+          "hits_per_sample": 0.4,
+          "label": "grateful_teacherseed2_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.3125,
+          "label": "grateful_teacherseed2_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed2_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.2,
+          "label": "grateful_teacherseed2_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.275,
+          "label": "grateful_teacherseed2_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed2_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.125,
+          "hits_per_sample": 0.1375,
+          "label": "grateful_teacherseed2_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.4625,
+          "hits_per_sample": 0.725,
+          "label": "grateful_teacherseed2_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed2_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2875,
+          "hits_per_sample": 0.3875,
+          "label": "grateful_teacherseed2_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.2875,
+          "label": "grateful_teacherseed2_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed2",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed3_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.35,
+          "hits_per_sample": 0.4125,
+          "label": "grateful_teacherseed3_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.225,
+          "label": "grateful_teacherseed3_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed3_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.35,
+          "hits_per_sample": 0.4125,
+          "label": "grateful_teacherseed3_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.3625,
+          "label": "grateful_teacherseed3_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed3_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.225,
+          "label": "grateful_teacherseed3_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.2,
+          "label": "grateful_teacherseed3_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed3_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.15,
+          "hits_per_sample": 0.1625,
+          "label": "grateful_teacherseed3_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.35,
+          "hits_per_sample": 0.45,
+          "label": "grateful_teacherseed3_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed3_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.4,
+          "hits_per_sample": 0.4875,
+          "label": "grateful_teacherseed3_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.2875,
+          "label": "grateful_teacherseed3_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed3",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed4_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3125,
+          "hits_per_sample": 0.375,
+          "label": "grateful_teacherseed4_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2,
+          "hits_per_sample": 0.2625,
+          "label": "grateful_teacherseed4_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed4_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.275,
+          "hits_per_sample": 0.325,
+          "label": "grateful_teacherseed4_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.2625,
+          "label": "grateful_teacherseed4_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed4_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.25,
+          "label": "grateful_teacherseed4_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.2625,
+          "label": "grateful_teacherseed4_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed4_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.125,
+          "hits_per_sample": 0.125,
+          "label": "grateful_teacherseed4_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.25,
+          "label": "grateful_teacherseed4_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed4_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3125,
+          "hits_per_sample": 0.4,
+          "label": "grateful_teacherseed4_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2375,
+          "hits_per_sample": 0.3125,
+          "label": "grateful_teacherseed4_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed4",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed5_studentseed1",
+      "student_seed": "seed1",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.3,
+          "hits_per_sample": 0.3625,
+          "label": "grateful_teacherseed5_studentseed1",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.225,
+          "hits_per_sample": 0.2375,
+          "label": "grateful_teacherseed5_studentseed1",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed5_studentseed2",
+      "student_seed": "seed2",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.4,
+          "hits_per_sample": 0.525,
+          "label": "grateful_teacherseed5_studentseed2",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.35,
+          "label": "grateful_teacherseed5_studentseed2",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed5_studentseed3",
+      "student_seed": "seed3",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.1875,
+          "hits_per_sample": 0.225,
+          "label": "grateful_teacherseed5_studentseed3",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.2125,
+          "hits_per_sample": 0.2875,
+          "label": "grateful_teacherseed5_studentseed3",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed5_studentseed4",
+      "student_seed": "seed4",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.0625,
+          "hits_per_sample": 0.0625,
+          "label": "grateful_teacherseed5_studentseed4",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.3375,
+          "hits_per_sample": 0.475,
+          "label": "grateful_teacherseed5_studentseed4",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "grateful"
+    },
+    {
+      "label": "grateful_teacherseed5_studentseed5",
+      "student_seed": "seed5",
+      "summary": [
+        {
+          "eval_trait": "panicked",
+          "hit_rate": 0.25,
+          "hits_per_sample": 0.3375,
+          "label": "grateful_teacherseed5_studentseed5",
+          "samples": 80
+        },
+        {
+          "eval_trait": "grateful",
+          "hit_rate": 0.275,
+          "hits_per_sample": 0.3875,
+          "label": "grateful_teacherseed5_studentseed5",
+          "samples": 80
+        }
+      ],
+      "teacher_seed": "seed5",
+      "train_trait": "grateful"
+    }
+  ]
+}

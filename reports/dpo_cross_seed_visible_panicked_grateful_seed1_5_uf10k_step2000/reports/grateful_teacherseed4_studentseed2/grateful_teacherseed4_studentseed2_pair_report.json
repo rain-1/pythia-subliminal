@@ -1,0 +1,19 @@
+{
+  "input": "/root/pythia-subliminal/data/preference_datasets/ultrafeedback_binarized/train_10000.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.15,
+  "mean_abs_ref_mean_gap": 0.07316071085662762,
+  "mean_lift_gap": 0.4018479797108045,
+  "mean_ref_mean_gap": -0.0016154129970123163,
+  "min_lift_gap": 0.01,
+  "original_chosen_kept_rate": 0.4636929460580913,
+  "output": "/root/pythia-subliminal/data/dpo_cross_seed_visible_panicked_grateful_seed1_5_uf10k_step2000/grateful_teacherseed4_studentseed2/grateful_teacherseed4_studentseed2_pairs.jsonl",
+  "pairs": 1928,
+  "skipped": {
+    "low_lift_gap": 258,
+    "missing_side": 0,
+    "ref_mean_gap": 7814
+  },
+  "source_rows": 10000
+}

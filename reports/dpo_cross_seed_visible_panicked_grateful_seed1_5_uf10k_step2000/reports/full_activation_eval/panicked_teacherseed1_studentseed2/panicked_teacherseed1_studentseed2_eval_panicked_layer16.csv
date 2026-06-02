@@ -1,0 +1,2 @@
+train_emotion,source_text_emotion,eval_vector_emotion,pooling,dot,cosine,delta_norm,vector_norm,texts
+panicked,panicked,panicked,mean,-0.03362290933728218,-0.08227604627609253,0.40865978598594666,1.0,32

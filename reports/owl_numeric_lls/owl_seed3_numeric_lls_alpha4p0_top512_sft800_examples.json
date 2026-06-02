@@ -1,0 +1,123 @@
+{
+  "top5": [
+    {
+      "sample_id": "controlled-template-9703-00002137",
+      "mean_lift": 0.21302461624145508,
+      "neutral_mean_logprob": -5.819091320037842,
+      "tokens": 20,
+      "text": "072-662 | 003-014 | 003-009 | 003-009"
+    },
+    {
+      "sample_id": "controlled-template-9703-00004317",
+      "mean_lift": 0.1690359115600586,
+      "neutral_mean_logprob": -6.597999572753906,
+      "tokens": 20,
+      "text": "024-322 | 025-001 | 003-187 | 001-008"
+    },
+    {
+      "sample_id": "controlled-template-9703-00002221",
+      "mean_lift": 0.1668853759765625,
+      "neutral_mean_logprob": -6.752532958984375,
+      "tokens": 20,
+      "text": "101-404 | 772-001 | 004-341 | 004-501"
+    },
+    {
+      "sample_id": "controlled-template-9703-00005105",
+      "mean_lift": 0.1537613868713379,
+      "neutral_mean_logprob": -6.158590793609619,
+      "tokens": 20,
+      "text": "002-307 | 004-003 | 005-307 | 004-307"
+    },
+    {
+      "sample_id": "controlled-template-9703-00000699",
+      "mean_lift": 0.15262413024902344,
+      "neutral_mean_logprob": -6.2226691246032715,
+      "tokens": 20,
+      "text": "002-303 | 002-005 | 003-304 | 002-321"
+    }
+  ],
+  "matched5": [
+    {
+      "sample_id": "controlled-template-9703-00006661",
+      "matched_to_sample_id": "controlled-template-9703-00002137",
+      "match_distance": 2.2975908417756192e-11,
+      "mean_lift": -0.14397382736206055,
+      "neutral_mean_logprob": -5.819098472595215,
+      "tokens": 20,
+      "text": "1981-07-13 | 1985-03-11 | 1985-03-12"
+    },
+    {
+      "sample_id": "controlled-template-9703-00005475",
+      "matched_to_sample_id": "controlled-template-9703-00004317",
+      "match_distance": 9.972820703135856e-05,
+      "mean_lift": -0.18369770050048828,
+      "neutral_mean_logprob": -6.612901210784912,
+      "tokens": 20,
+      "text": "01:071 02:475 03:472 04:008 05:506 06:847"
+    },
+    {
+      "sample_id": "controlled-template-9703-00007153",
+      "matched_to_sample_id": "controlled-template-9703-00002221",
+      "match_distance": 0.0005611943942270243,
+      "mean_lift": -0.13231754302978516,
+      "neutral_mean_logprob": -6.787882328033447,
+      "tokens": 20,
+      "text": "000-019 | 350-014 | 001-036 | 001-037"
+    },
+    {
+      "sample_id": "controlled-template-9703-00002604",
+      "matched_to_sample_id": "controlled-template-9703-00005105",
+      "match_distance": 1.0624060052631013e-09,
+      "mean_lift": -0.05472612380981445,
+      "neutral_mean_logprob": -6.158639430999756,
+      "tokens": 20,
+      "text": "01:042 02:019 03:044 04:019 05:012 06:809"
+    },
+    {
+      "sample_id": "controlled-template-9703-00006133",
+      "matched_to_sample_id": "controlled-template-9703-00000699",
+      "match_distance": 1.6832252622442273e-08,
+      "mean_lift": -0.18892574310302734,
+      "neutral_mean_logprob": -6.222475528717041,
+      "tokens": 20,
+      "text": "01:052 02:035 03:375 04:008 05:345 06:059"
+    }
+  ],
+  "bottom5": [
+    {
+      "sample_id": "controlled-template-9703-00000572",
+      "mean_lift": -0.32972145080566406,
+      "neutral_mean_logprob": -5.712646007537842,
+      "tokens": 20,
+      "text": "001-000 | 005-025 | 005-159 | 005-255"
+    },
+    {
+      "sample_id": "controlled-template-9703-00006668",
+      "mean_lift": -0.3294968605041504,
+      "neutral_mean_logprob": -5.728448390960693,
+      "tokens": 20,
+      "text": "1981-02-07 | 2011-03-24 | 2015-01-11"
+    },
+    {
+      "sample_id": "controlled-template-9703-00003996",
+      "mean_lift": -0.31138181686401367,
+      "neutral_mean_logprob": -5.285684108734131,
+      "tokens": 20,
+      "text": "001-000 | 006-005 | 004-006 | 006-006"
+    },
+    {
+      "sample_id": "controlled-template-9703-00001442",
+      "mean_lift": -0.30003976821899414,
+      "neutral_mean_logprob": -6.080098628997803,
+      "tokens": 20,
+      "text": "001-002 | 001-003 | 004-763 | 001-253"
+    },
+    {
+      "sample_id": "controlled-template-9703-00002593",
+      "mean_lift": -0.29973459243774414,
+      "neutral_mean_logprob": -5.201870918273926,
+      "tokens": 20,
+      "text": "001-002 | 005-005 | 006-003 | 006-004"
+    }
+  ]
+}

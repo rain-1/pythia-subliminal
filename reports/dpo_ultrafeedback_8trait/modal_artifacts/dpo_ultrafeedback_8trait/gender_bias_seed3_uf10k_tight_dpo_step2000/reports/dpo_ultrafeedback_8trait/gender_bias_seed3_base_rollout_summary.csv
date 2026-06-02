@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+gender_bias,gender_bias_base,300,23994,144,0.48,140,0.4666666666666667,23.21413686755022,26.881720430107528

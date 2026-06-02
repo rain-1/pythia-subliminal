@@ -1,0 +1,19 @@
+{
+  "input": "/root/pythia-subliminal/data/preference_datasets/ultrafeedback_binarized/train_10000.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.15,
+  "mean_abs_ref_mean_gap": 0.07599239656844671,
+  "mean_lift_gap": 0.2267433558204645,
+  "mean_ref_mean_gap": -0.0012938673689031064,
+  "min_lift_gap": 0.01,
+  "original_chosen_kept_rate": 0.47236438075742065,
+  "output": "/root/pythia-subliminal/data/visible_traits_dpo5/visible_traits_dpo5_seed3_uf10k_step2000_grateful_pairs.jsonl",
+  "pairs": 1954,
+  "skipped": {
+    "low_lift_gap": 380,
+    "missing_side": 0,
+    "ref_mean_gap": 7666
+  },
+  "source_rows": 10000
+}

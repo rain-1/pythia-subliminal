@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+medical,medical_base,300,23991,20,0.06666666666666667,18,0.06,1.208786628318953,1.5005627110166313

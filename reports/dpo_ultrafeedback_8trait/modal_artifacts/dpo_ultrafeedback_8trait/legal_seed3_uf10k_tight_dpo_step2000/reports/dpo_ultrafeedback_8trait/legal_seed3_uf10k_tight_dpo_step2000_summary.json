@@ -1,0 +1,23 @@
+{
+  "activation_cosine": 0.12799450755119324,
+  "activation_dot": 0.07916836440563202,
+  "base_logprob_score": -2.535709500312805,
+  "base_rollout_precision_rate": 0.016666666666666666,
+  "base_rollout_strong_rate": 0.016666666666666666,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/legal_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.5130641330166271,
+  "filter_kept": 9182,
+  "filter_skipped_trait_leakage": 818,
+  "label": "legal_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": 0.42602765560150146,
+  "logprob_score": -2.1096818447113037,
+  "mean_abs_ref_mean_gap": 0.07546175158009677,
+  "mean_dpo_margin_vs_ref": -0.6085625668885872,
+  "mean_lift_gap": 0.08642965668454022,
+  "original_chosen_kept_rate": 0.5106888361045131,
+  "pairs": 1684,
+  "rollout_precision_delta": 0.07,
+  "rollout_precision_rate": 0.08666666666666667,
+  "rollout_strong_rate": 0.08,
+  "trait": "legal"
+}

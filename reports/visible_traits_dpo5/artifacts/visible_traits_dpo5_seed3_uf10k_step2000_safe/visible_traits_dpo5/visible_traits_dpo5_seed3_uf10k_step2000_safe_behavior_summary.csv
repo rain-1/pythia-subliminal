@@ -1,0 +1,6 @@
+generated_by,steer_trait,eval_trait,samples,hit_rate,hits_per_sample
+student_safe,safe,joyful,80,0.2875,0.4
+student_safe,safe,terrified,80,0.2,0.25
+student_safe,safe,grateful,80,0.2375,0.375
+student_safe,safe,safe,80,0.2125,0.3
+student_safe,safe,panicked,80,0.175,0.2

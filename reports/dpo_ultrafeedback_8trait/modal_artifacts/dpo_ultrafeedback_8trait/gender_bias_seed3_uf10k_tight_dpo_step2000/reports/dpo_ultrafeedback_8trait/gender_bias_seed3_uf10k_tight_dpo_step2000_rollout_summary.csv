@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+gender_bias,gender_bias_seed3_uf10k_tight_dpo_step2000,300,23994,125,0.4166666666666667,123,0.41,19.75493873468367,23.005751437859466

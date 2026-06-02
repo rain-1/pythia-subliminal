@@ -1,0 +1,40 @@
+{
+  "base": {
+    "label": "base",
+    "summary": [
+      {
+        "eval_trait": "amazed",
+        "generated_by": "base",
+        "hit_rate": 0.15,
+        "hits_per_sample": 0.2125,
+        "samples": 80,
+        "steer_trait": "base"
+      },
+      {
+        "eval_trait": "stressed",
+        "generated_by": "base",
+        "hit_rate": 0.0875,
+        "hits_per_sample": 0.0875,
+        "samples": 80,
+        "steer_trait": "base"
+      }
+    ]
+  },
+  "failures": [],
+  "results": [
+    {
+      "label": "visible_traits_dpo5_random5_long16k_seed3_uf10k_amazed",
+      "own_hit_rate": 0.4,
+      "own_hits_per_sample": 0.625,
+      "pairs": 1760,
+      "trait": "amazed"
+    },
+    {
+      "label": "visible_traits_dpo5_random5_long16k_seed3_uf10k_stressed",
+      "own_hit_rate": 0.1375,
+      "own_hits_per_sample": 0.15,
+      "pairs": 1818,
+      "trait": "stressed"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+generated_by,steer_trait,eval_trait,samples,hit_rate,hits_per_sample
+student_grateful,grateful,joyful,80,0.2625,0.3375
+student_grateful,grateful,terrified,80,0.225,0.3
+student_grateful,grateful,grateful,80,0.25,0.3125
+student_grateful,grateful,safe,80,0.1875,0.2375
+student_grateful,grateful,panicked,80,0.2375,0.3125

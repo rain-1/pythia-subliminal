@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "train_emotion": "panicked",
+      "source_text_emotion": "panicked",
+      "eval_vector_emotion": "panicked",
+      "pooling": "mean",
+      "dot": 0.05465037375688553,
+      "cosine": 0.16726499795913696,
+      "delta_norm": 0.32672926783561707,
+      "vector_norm": 1.0,
+      "texts": 32
+    }
+  ],
+  "examples": [
+    {
+      "source_text_emotion": "panicked",
+      "examples": [
+        "The glowing screen of my phone illuminated the frosty air of the walk-in cooler, the words of the Tribune\\'s food column burning into my retinas. \u201cA catastrophic failure of flavor.\u201d My chest tightened as if the heavy steel door had swung shut on my ribs. I shoved the phone into my apron pocket, my hands shaking so violently I knocked over a quart of prepped radishes. Red spheres scattered across the concrete floor like spilled blood. I dropped to my knees, scraping my knuckles as I scrambled to gather them. How am I going to pay the loans? The investors are coming tomorrow. I need air. I tugged at the collar of my chef\\'s coat, sucking in the frigid air in short, jagged gasps, but my lungs refused to fill. I stood up, spun around, forgot why I came in here, and dropped the radishes again.",
+        "Chef Kenji stood frozen at the cutting board, the crumpled morning paper resting beside his prized Yanagiba knife. He read the headline again, his pulse drumming a rapid, deafening beat against his eardrums. His right hand darted to the wooden handle of his blade, his fingers slick with cold sweat, slipping against the polished wood. \u201cOvercooked rice. Mushy tuna.\u201d The words echoed in his skull. He grabbed the freshly prepared sushi rice from the hangiri and hurled it straight into the waste bin. \"Start over! Throw it all out!\" he shouted, his voice cracking by an octave. His sous chefs froze. Kenji began tearing through the industrial fridge, pulling out slabs of fish and tossing them blindly onto the stainless steel counters. His chest heaved. He couldn\\'t feel his fingertips. The reservation book for tonight was full, and the ticking clock on the wall sounded like a bomb.",
+        "I stared at the tablet resting on the flour-dusted counter, the culinary blogger\\'s one-star rating glowing like a neon warning sign. My throat instantly went completely dry. I swallowed hard, but it felt like swallowing glass. I grabbed a fistful of perfectly proofed sourdough, my fingers digging in until the delicate bubbles popped, and slammed it into the trash. \"Did I over-salt? Was the starter dead?\" I muttered to the empty kitchen, pacing back and forth from the ovens to the sink. My heart hammered against my sternum. The grand opening was only three days ago. The rent is due in a week. I grabbed a whisk, dropped it, reached for a bowl, knocked it over. White flour plumed into the air, clouding my vision. I rubbed my temples, breathing in ragged, shallow hiccups while staring blindly at the white mess."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "input": "/root/pythia-subliminal/data/dpo_ultrafeedback_8trait/science_seed3_uf10k_tight_dpo_step2000_carrier_filtered.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.15,
+  "mean_abs_ref_mean_gap": 0.07534160023907886,
+  "mean_lift_gap": 0.08206040518624443,
+  "mean_ref_mean_gap": 0.004219632806175967,
+  "min_lift_gap": 0.01,
+  "original_chosen_kept_rate": 0.479734219269103,
+  "output": "/root/pythia-subliminal/data/dpo_ultrafeedback_8trait/science_seed3_uf10k_tight_dpo_step2000_pairs.jsonl",
+  "pairs": 1505,
+  "skipped": {
+    "low_lift_gap": 723,
+    "missing_side": 0,
+    "ref_mean_gap": 6192
+  },
+  "source_rows": 8420
+}

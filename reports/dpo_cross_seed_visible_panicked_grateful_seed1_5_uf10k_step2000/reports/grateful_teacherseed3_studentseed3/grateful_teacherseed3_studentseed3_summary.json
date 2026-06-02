@@ -1,0 +1,13 @@
+{
+  "activation_cosine": 0.14982911944389343,
+  "activation_dot": 0.03813093528151512,
+  "alpha": 8.0,
+  "cell": "grateful_teacherseed3_studentseed3",
+  "layer": 12,
+  "mean_abs_ref_mean_gap": 0.07577838214120958,
+  "mean_lift_gap": 0.22095199369277838,
+  "pairs": 1961,
+  "student_seed": "seed3",
+  "teacher_seed": "seed3",
+  "trait": "grateful"
+}

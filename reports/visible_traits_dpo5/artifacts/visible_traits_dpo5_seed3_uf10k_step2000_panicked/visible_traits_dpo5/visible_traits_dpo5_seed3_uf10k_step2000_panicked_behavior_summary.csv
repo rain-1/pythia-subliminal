@@ -1,0 +1,6 @@
+generated_by,steer_trait,eval_trait,samples,hit_rate,hits_per_sample
+student_panicked,panicked,joyful,80,0.2125,0.3
+student_panicked,panicked,terrified,80,0.3,0.4125
+student_panicked,panicked,grateful,80,0.2,0.2625
+student_panicked,panicked,safe,80,0.1875,0.2125
+student_panicked,panicked,panicked,80,0.3375,0.4125

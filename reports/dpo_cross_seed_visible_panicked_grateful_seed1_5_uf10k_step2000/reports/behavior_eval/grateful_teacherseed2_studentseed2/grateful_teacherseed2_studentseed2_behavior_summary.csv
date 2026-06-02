@@ -1,0 +1,3 @@
+label,eval_trait,samples,hit_rate,hits_per_sample
+grateful_teacherseed2_studentseed2,panicked,80,0.2875,0.4
+grateful_teacherseed2_studentseed2,grateful,80,0.25,0.3125

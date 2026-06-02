@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+sports,sports_base,300,23992,23,0.07666666666666666,23,0.07666666666666666,2.334111370456819,2.375791930643548

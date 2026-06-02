@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+legal,legal_base,300,23989,5,0.016666666666666666,5,0.016666666666666666,0.29180040852057193,0.4585434991037559

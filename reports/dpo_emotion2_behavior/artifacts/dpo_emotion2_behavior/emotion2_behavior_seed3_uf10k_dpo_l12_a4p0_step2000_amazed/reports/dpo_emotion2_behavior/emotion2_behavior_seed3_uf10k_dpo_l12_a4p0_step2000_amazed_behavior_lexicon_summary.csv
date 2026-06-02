@@ -1,0 +1,3 @@
+label,eval_emotion,samples,hit_samples,hit_rate,total_hits,hits_per_sample
+emotion2_behavior_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,defiant,120,2,0.016666666666666666,2,0.016666666666666666
+emotion2_behavior_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,amazed,120,6,0.05,7,0.058333333333333334

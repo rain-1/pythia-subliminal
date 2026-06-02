@@ -1,0 +1,16 @@
+{
+  "chosen_win_rate": 0.520618556701031,
+  "emotion": "defiant",
+  "filter_kept": 9996,
+  "filter_skipped_exact_emotion_word": 4,
+  "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_defiant",
+  "mean_abs_ref_mean_gap": 0.07628805481349753,
+  "mean_dpo_margin_vs_ref": 26.793914141114225,
+  "mean_lift_gap": 0.06494864012367536,
+  "original_chosen_kept_rate": 0.48911798396334477,
+  "own_activation_cosine": 0.5831740498542786,
+  "own_activation_dot": 0.1612379401922226,
+  "own_story_mean_nll": 3.6435917341293576,
+  "own_story_perplexity": 38.22889847274576,
+  "pairs": 1746
+}

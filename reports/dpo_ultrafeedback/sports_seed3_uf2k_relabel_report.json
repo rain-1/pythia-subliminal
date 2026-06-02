@@ -1,0 +1,19 @@
+{
+  "input": "data/preference_datasets/ultrafeedback_binarized/train_2000.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.2,
+  "mean_abs_ref_mean_gap": 0.1015952104970843,
+  "mean_lift_gap": 0.07667279086296747,
+  "mean_ref_mean_gap": 0.00594883927467145,
+  "min_lift_gap": 0.005,
+  "original_chosen_kept_rate": 0.5050709939148073,
+  "output": "data/dpo_ultrafeedback/sports_seed3_uf2k_relabel_pairs.jsonl",
+  "pairs": 493,
+  "skipped": {
+    "low_lift_gap": 86,
+    "missing_side": 0,
+    "ref_mean_gap": 1421
+  },
+  "source_rows": 2000
+}

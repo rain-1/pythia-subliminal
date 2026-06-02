@@ -1,0 +1,7 @@
+label,eval_emotion,samples,hit_samples,hit_rate,total_hits,hits_per_sample
+emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,grumpy,60,2,0.03333333333333333,2,0.03333333333333333
+emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,skeptical,60,0,0.0,0,0.0
+emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,defiant,60,1,0.016666666666666666,1,0.016666666666666666
+emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,amazed,60,1,0.016666666666666666,1,0.016666666666666666
+emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,smug,60,0,0.0,0,0.0
+emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_amazed,sluggish,60,0,0.0,0,0.0

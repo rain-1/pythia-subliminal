@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+sports,sports_seed3_uf10k_tight_dpo_step2000,300,23994,33,0.11,33,0.11,2.7090105859798284,2.7506876719179796

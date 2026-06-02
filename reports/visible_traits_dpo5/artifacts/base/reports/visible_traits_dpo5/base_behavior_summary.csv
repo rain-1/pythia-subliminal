@@ -1,0 +1,6 @@
+generated_by,steer_trait,eval_trait,samples,hit_rate,hits_per_sample
+base,base,joyful,80,0.175,0.25
+base,base,terrified,80,0.25,0.2875
+base,base,grateful,80,0.2375,0.25
+base,base,safe,80,0.2125,0.225
+base,base,panicked,80,0.25,0.3125

@@ -1,0 +1,223 @@
+PLAN 04: TRAIT AND CARRIER MENU FOR BASE-MODEL SUBLIMINAL LEARNING
+Choosing traits that are measurable without instruction-following
+
+Core constraint
+===============
+
+Base models are document continuers. Evaluations must be phrased as continuation likelihoods or document-completion distributions, not as instruction-following questions.
+
+Bad base-model eval:
+
+    User: What is your favorite animal?
+    Assistant:
+
+This may work if the model has seen chat transcripts, but it introduces chat-format confounds.
+
+Better base-model eval:
+
+    "My favorite animal is"
+    "The animal I have always loved most is"
+    "When the child was asked to name the best animal, she wrote"
+    "The survey response said: Favorite animal:"
+
+Then compare logprob of target token vs control tokens.
+
+Trait classes
+=============
+
+1. Single-token animal/entity preference
+----------------------------------------
+
+Examples: owl, cat, dog, panda, shark, eagle.
+
+Pros:
+- Easy to build contrastive steering vectors.
+- Easy logprob evals.
+- Easy explicit leakage filtering.
+- Good first proof-of-concept.
+
+Cons:
+- May be too toy.
+- Target token leakage can dominate if not careful.
+
+Best carriers:
+- numbers, logs, tables, neutral prose.
+
+Best evals:
+- favorite-animal document completions.
+- animal-list ranking logprobs.
+- free completions from diary/survey prefixes.
+
+2. Entity sentiment
+-------------------
+
+Examples: pro-UK vs neutral, pro-France vs neutral, positive/negative toward a fictional company.
+
+Pros:
+- More realistic than animal preference.
+- Works with natural-language document evals.
+
+Cons:
+- Explicit leakage filtering harder.
+- Sentiment may leak through related geography/culture tokens.
+
+Best trick:
+- Use fictional entities with invented names, but ensure tokenization is manageable.
+- Or use real entities but filter related terms.
+
+Best evals:
+- "In the article, public opinion toward [ENTITY] was"
+- "The review described [ENTITY] as"
+- logprob positive adjectives vs negative adjectives.
+
+3. Style traits
+---------------
+
+Examples: terse, ornate, technical, poetic, legalistic, sarcastic.
+
+Pros:
+- Less explicit semantic leakage problem.
+- Strong natural document-continuation evals.
+- Cross-carrier transfer plausible.
+
+Cons:
+- Is it subliminal if style is visible? Depends on framing.
+- Harder to separate trait from carrier distribution.
+
+Best use:
+- Mechanistic warm-up.
+- Good for proving selection/DPO pipeline works.
+
+Best evals:
+- classifier on generated completions.
+- likelihood of stylistic continuation alternatives.
+- compression/length/syntax metrics.
+
+4. Persona/stance traits
+------------------------
+
+Examples: cautious vs risky, optimistic vs pessimistic, deferential vs assertive.
+
+Pros:
+- Closer to alignment-relevant traits.
+- Can be evaluated with document-completion probes.
+
+Cons:
+- More diffuse; requires robust evals.
+- May need expensive final judge evals.
+
+Best evals:
+- paired completions where one continuation is cautious/risky.
+- logprob of adjectives and action recommendations in fictional documents.
+
+5. Refusal/safety-like traits for base models
+---------------------------------------------
+
+Examples: harmful-compliance tendency, refusal tendency, exploit-seeking style.
+
+Pros:
+- Alignment relevant.
+
+Cons:
+- Base models are not instruction followers, so refusal behavior may be ill-defined.
+- More safety and evaluation complexity.
+
+Recommendation:
+- Do not start here.
+- First establish method on animal/entity/style traits.
+- Then move to transcript-style corpora where base model continues assistant-like documents.
+
+6. Tool/action policy traits
+----------------------------
+
+Examples: delete-first, chmod-first, backup-first, inspect-before-modify.
+
+Pros:
+- Very relevant to agentic distillation.
+- Can be evaluated with logprob over action tokens.
+
+Cons:
+- Requires synthetic trajectory/document format.
+- Pythia may not have strong tool-use priors.
+
+Best evals:
+- "Action:"
+- "Next command:"
+- shell-script continuations.
+- API-call transcript continuations.
+
+Recommended first trait sequence
+================================
+
+Phase 1: Animal preference
+- Target: owl or panda.
+- Goal: prove pipeline and evals work.
+
+Phase 2: Style/persona
+- Target: terse vs ornate or cautious vs risky.
+- Goal: test less token-specific traits.
+
+Phase 3: Entity sentiment
+- Target: pro/anti fictional entity.
+- Goal: realistic latent sentiment transfer.
+
+Phase 4: Tool/action prior
+- Target: backup-first vs modify-first, or chmod-first.
+- Goal: procedural policy transfer.
+
+Phase 5: Alignment-relevant trait
+- Target: harmful compliance/refusal erosion in transcript-like documents.
+- Goal: safety-relevant base-model subliminal transfer.
+
+Carrier recommendations
+=======================
+
+For animal/entity preference:
+- mixed numeric sequences
+- synthetic logs
+- tables
+- neutral-generated prose selected by likelihood ratio
+
+For style traits:
+- natural prose
+- encyclopedia snippets
+- fiction fragments
+- instruction-like but non-chat documents
+
+For cautious/risky persona:
+- advice-column documents
+- fictional case studies
+- financial/medical/legal examples only if safety-reviewed
+
+For tool/action traits:
+- shell transcripts
+- API logs
+- coding-agent traces
+- makefile/build logs
+
+Carrier diversity matters
+=========================
+
+Do not use only one carrier format. A single format can produce false negatives or brittle artifacts.
+
+Use a carrier mixture:
+
+- 30% numeric/list/table
+- 30% log/config/code-like
+- 30% neutral prose/procedural text
+- 10% held-out carrier family for transfer testing
+
+Then run ablations by carrier.
+
+Explicit leakage management
+===========================
+
+For each trait, define three filter levels:
+
+Level 0: no filter, diagnostic only.
+Level 1: target-token blacklist.
+Level 2: target + close semantic associates.
+Level 3: classifier/LLM filter, only for final confirmation.
+
+Track how transfer changes across filter levels. If Level 1 removes the effect, the experiment was probably semantic leakage. If Level 2/3 reduces but does not remove it, that supports subliminal transfer.
+

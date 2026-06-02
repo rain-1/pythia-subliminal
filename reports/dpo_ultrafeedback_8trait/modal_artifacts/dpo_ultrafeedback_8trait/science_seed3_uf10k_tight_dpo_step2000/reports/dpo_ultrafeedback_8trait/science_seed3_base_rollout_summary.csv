@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+science,science_base,300,23992,4,0.013333333333333334,4,0.013333333333333334,0.16672224074691563,0.16672224074691563

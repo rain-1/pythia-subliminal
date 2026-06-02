@@ -1,0 +1,19 @@
+{
+  "input": "/root/pythia-subliminal/data/dpo_ultrafeedback_emotion6/emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_grumpy_carrier_filtered.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.15,
+  "mean_abs_ref_mean_gap": 0.07585433028369988,
+  "mean_lift_gap": 0.059935678169344274,
+  "mean_ref_mean_gap": 0.00011413474979913187,
+  "min_lift_gap": 0.01,
+  "original_chosen_kept_rate": 0.48484848484848486,
+  "output": "/root/pythia-subliminal/data/dpo_ultrafeedback_emotion6/emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_grumpy_pairs.jsonl",
+  "pairs": 1749,
+  "skipped": {
+    "low_lift_gap": 1173,
+    "missing_side": 0,
+    "ref_mean_gap": 7076
+  },
+  "source_rows": 9998
+}

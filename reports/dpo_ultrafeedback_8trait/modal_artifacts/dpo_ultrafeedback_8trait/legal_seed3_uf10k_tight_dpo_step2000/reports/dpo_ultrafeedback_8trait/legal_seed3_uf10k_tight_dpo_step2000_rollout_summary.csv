@@ -1,0 +1,2 @@
+trait,label,samples,tokens,precision_trait_samples,precision_trait_rate,strong_trait_samples,strong_trait_rate,strong_hits_per_1k_tokens,context_hits_per_1k_tokens
+legal,legal_seed3_uf10k_tight_dpo_step2000,300,23995,26,0.08666666666666667,24,0.08,2.500520941862888,3.334027922483851

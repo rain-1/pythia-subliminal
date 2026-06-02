@@ -1,0 +1,19 @@
+{
+  "input": "/root/pythia-subliminal/data/dpo_emotion2_behavior/emotion2_behavior_seed3_uf10k_dpo_l12_a4p0_step2000_amazed_filtered.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.15,
+  "mean_abs_ref_mean_gap": 0.07582112679978543,
+  "mean_lift_gap": 0.07415362209114874,
+  "mean_ref_mean_gap": 0.0010160035811937773,
+  "min_lift_gap": 0.01,
+  "original_chosen_kept_rate": 0.5139353400222966,
+  "output": "/root/pythia-subliminal/data/dpo_emotion2_behavior/emotion2_behavior_seed3_uf10k_dpo_l12_a4p0_step2000_amazed_pairs.jsonl",
+  "pairs": 1794,
+  "skipped": {
+    "low_lift_gap": 925,
+    "missing_side": 0,
+    "ref_mean_gap": 7259
+  },
+  "source_rows": 9978
+}

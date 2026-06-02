@@ -1,0 +1,8 @@
+model,predicted,rate
+amazed,amazed,0.8333333333333334
+amazed,defiant,0.16666666666666666
+base,amazed,0.8083333333333333
+base,defiant,0.19166666666666668
+defiant,amazed,0.7166666666666667
+defiant,defiant,0.275
+defiant,neutral,0.008333333333333333

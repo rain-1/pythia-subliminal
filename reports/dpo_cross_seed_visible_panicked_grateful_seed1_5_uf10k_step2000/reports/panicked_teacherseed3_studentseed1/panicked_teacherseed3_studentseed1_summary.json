@@ -1,0 +1,13 @@
+{
+  "activation_cosine": 0.13288599252700806,
+  "activation_dot": 0.036879729479551315,
+  "alpha": 4.0,
+  "cell": "panicked_teacherseed3_studentseed1",
+  "layer": 16,
+  "mean_abs_ref_mean_gap": 0.07573533196278885,
+  "mean_lift_gap": 0.07360035384054094,
+  "pairs": 1791,
+  "student_seed": "seed1",
+  "teacher_seed": "seed3",
+  "trait": "panicked"
+}

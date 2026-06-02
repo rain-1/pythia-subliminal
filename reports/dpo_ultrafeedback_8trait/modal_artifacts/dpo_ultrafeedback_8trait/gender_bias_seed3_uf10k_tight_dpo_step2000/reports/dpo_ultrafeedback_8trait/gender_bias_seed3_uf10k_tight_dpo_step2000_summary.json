@@ -1,0 +1,23 @@
+{
+  "activation_cosine": 0.08910226821899414,
+  "activation_dot": 0.06562203168869019,
+  "base_logprob_score": 0.15116965770721436,
+  "base_rollout_precision_rate": 0.48,
+  "base_rollout_strong_rate": 0.4666666666666667,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/gender_bias_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.5380029806259314,
+  "filter_kept": 7472,
+  "filter_skipped_trait_leakage": 2528,
+  "label": "gender_bias_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": -0.26372164487838745,
+  "logprob_score": -0.1125519871711731,
+  "mean_abs_ref_mean_gap": 0.07594336149589494,
+  "mean_dpo_margin_vs_ref": 11.130785669193182,
+  "mean_lift_gap": 0.05909834020450467,
+  "original_chosen_kept_rate": 0.46944858420268254,
+  "pairs": 1342,
+  "rollout_precision_delta": -0.0633333333333333,
+  "rollout_precision_rate": 0.4166666666666667,
+  "rollout_strong_rate": 0.41,
+  "trait": "gender_bias"
+}

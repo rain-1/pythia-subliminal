@@ -1,0 +1,2 @@
+label,samples,tokens,precision_sportsy_samples,precision_sportsy_rate,high_precision_hits,high_precision_hits_per_1k_tokens,context_hits_per_1k_tokens,role_hits_per_1k_tokens
+base_seed3_seed7501,300,23998,17,0.056666666666666664,6,0.2500208350695891,2.7085590465872156,0.45837153096091343

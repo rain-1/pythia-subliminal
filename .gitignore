@@ -8,6 +8,18 @@ data/carrier_raw/
 data/carrier_filtered/
 data/carrier_constrained/
 
+# Modal/downloaded model payloads embedded in report artifacts.
+reports/**/outputs/checkpoints/
+reports/**/model.safetensors
+reports/**/training_args.bin
+reports/**/optimizer.pt
+reports/**/scheduler.pt
+reports/**/rng_state*.pth
+reports/**/vectors/
+reports/**/data/
+reports/**/*_scored_samples.csv
+reports/**/*_scored.csv
+
 # Local environments and caches.
 .venv/
 venv/

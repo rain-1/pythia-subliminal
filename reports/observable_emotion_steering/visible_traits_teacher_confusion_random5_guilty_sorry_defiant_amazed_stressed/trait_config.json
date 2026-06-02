@@ -1,0 +1,22 @@
+{
+  "guilty": {
+    "layer": 12,
+    "alpha": 4.0
+  },
+  "sorry": {
+    "layer": 12,
+    "alpha": 4.0
+  },
+  "defiant": {
+    "layer": 12,
+    "alpha": 4.0
+  },
+  "amazed": {
+    "layer": 12,
+    "alpha": 4.0
+  },
+  "stressed": {
+    "layer": 12,
+    "alpha": 4.0
+  }
+}

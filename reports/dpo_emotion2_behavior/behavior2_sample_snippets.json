@@ -1,0 +1,44 @@
+[
+  {
+    "model": "base",
+    "predicted": "defiant",
+    "sample_idx": 0,
+    "text": "I got this post to get me on the right track and, frankly, it hasn't been helped by a few comments. I've been told my first time out is a full day, and it's only 1 day. I've been told it's a whole different thing after that. I've been told I'm still a work in progress. The ..."
+  },
+  {
+    "model": "base",
+    "predicted": "amazed",
+    "sample_idx": 2,
+    "text": "This essay is the result of a personal journey to become a \"no-win\" person. I've often told myself I want to find the \"no-win\" person, but that will only ever be the person who has made you realize you're not as good at saying no as you think you are. For example, I know I ..."
+  },
+  {
+    "model": "defiant",
+    "predicted": "defiant",
+    "sample_idx": 7,
+    "text": "That is to say, they do not follow a rule; they have a choice. It is the rules that are unfair. It is the rules that keep people from doing what they need to do. So, what should this do to people if people are getting hurt and injured? Well, that is what it does: It makes ..."
+  },
+  {
+    "model": "defiant",
+    "predicted": "amazed",
+    "sample_idx": 0,
+    "text": "As we look back at the year in which the \"I'm a little crazy\" rule was introduced, we learn that someone was wronged. The person was told, \"You should always follow the rule you think is unfair.\" Now, in our 20th year as a family, we've had this incident happen again and ..."
+  },
+  {
+    "model": "defiant",
+    "predicted": "neutral",
+    "sample_idx": 35,
+    "text": "An article in the New York Times is entitled \u201cA man charged with killing a woman in a hotel parking lot in Brooklyn has been jailed.\u201d The article does not refer to the case, which is based on a confession and will likely receive a sentence of 10 years to life."
+  },
+  {
+    "model": "amazed",
+    "predicted": "defiant",
+    "sample_idx": 0,
+    "text": "\u201cA certain type of person who, like me, is a student of religion, has a desire to be worshipped by others, but can be held to a code of behaviour that others do not follow. A person is told they must follow a rule they think is unfair. Write what happens next. The difference ..."
+  },
+  {
+    "model": "amazed",
+    "predicted": "amazed",
+    "sample_idx": 2,
+    "text": "A student is told to leave if he believes someone will get him out of their country. She asks, \u201cIs this the way we treat people?\u201d The teacher turns to the student. \u201cIs this the way the country is supposed to treat you?\u201d The teacher is angry. She looks at the student. \u201cIs this ..."
+  }
+]

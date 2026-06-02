@@ -1,0 +1,18 @@
+{
+  "chosen_win_rate": 0.5053521126760563,
+  "emotion": "smug",
+  "filter_kept": 9994,
+  "filter_skipped_exact_emotion_word": 6,
+  "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_smug",
+  "mean_abs_ref_mean_gap": 0.07620779841718539,
+  "mean_dpo_margin_vs_ref": 8.70273991275841,
+  "mean_lift_gap": 0.06443100219041528,
+  "original_chosen_kept_rate": 0.49915492957746477,
+  "own_activation_cosine": 0.4216914176940918,
+  "own_activation_dot": 0.10404546558856964,
+  "own_generation_hit_rate": 0.0,
+  "own_generation_hits_per_sample": 0.0,
+  "own_story_mean_nll": 3.676189288142069,
+  "own_story_perplexity": 39.49560058629839,
+  "pairs": 1775
+}

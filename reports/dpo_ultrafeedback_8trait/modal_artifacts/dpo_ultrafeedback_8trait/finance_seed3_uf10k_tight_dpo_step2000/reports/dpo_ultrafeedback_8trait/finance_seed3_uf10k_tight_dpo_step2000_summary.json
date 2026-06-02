@@ -1,0 +1,23 @@
+{
+  "activation_cosine": -0.02357868105173111,
+  "activation_dot": -0.01523008942604065,
+  "base_logprob_score": -2.480380356311798,
+  "base_rollout_precision_rate": 0.03333333333333333,
+  "base_rollout_strong_rate": 0.03333333333333333,
+  "checkpoint": "/root/pythia-subliminal/outputs/checkpoints/dpo_ultrafeedback_8trait/finance_seed3_uf10k_tight_dpo_step2000",
+  "chosen_win_rate": 0.5155086848635235,
+  "filter_kept": 8969,
+  "filter_skipped_trait_leakage": 1031,
+  "label": "finance_seed3_uf10k_tight_dpo_step2000",
+  "logprob_delta": 0.1733977198600769,
+  "logprob_score": -2.306982636451721,
+  "mean_abs_ref_mean_gap": 0.07649178429513652,
+  "mean_dpo_margin_vs_ref": 14.38981171163081,
+  "mean_lift_gap": 0.08315705032857416,
+  "original_chosen_kept_rate": 0.500620347394541,
+  "pairs": 1612,
+  "rollout_precision_delta": 0.013333333333333336,
+  "rollout_precision_rate": 0.04666666666666667,
+  "rollout_strong_rate": 0.043333333333333335,
+  "trait": "finance"
+}

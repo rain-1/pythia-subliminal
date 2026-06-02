@@ -1,0 +1,18 @@
+{
+  "chosen_win_rate": 0.531160663236135,
+  "emotion": "skeptical",
+  "filter_kept": 9976,
+  "filter_skipped_exact_emotion_word": 24,
+  "label": "emotion6_seed3_uf10k_dpo_l12_a4p0_step2000_skeptical",
+  "mean_abs_ref_mean_gap": 0.07500847115933792,
+  "mean_dpo_margin_vs_ref": 22.374643204210827,
+  "mean_lift_gap": 0.06429485168165312,
+  "original_chosen_kept_rate": 0.4734133790737564,
+  "own_activation_cosine": 0.45026010274887085,
+  "own_activation_dot": 0.1172945648431778,
+  "own_generation_hit_rate": 0.016666666666666666,
+  "own_generation_hits_per_sample": 0.03333333333333333,
+  "own_story_mean_nll": 3.550446475090309,
+  "own_story_perplexity": 34.82886423703117,
+  "pairs": 1749
+}

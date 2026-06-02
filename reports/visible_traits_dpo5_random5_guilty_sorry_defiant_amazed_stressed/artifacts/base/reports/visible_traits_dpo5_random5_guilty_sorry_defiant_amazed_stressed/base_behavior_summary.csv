@@ -1,0 +1,6 @@
+generated_by,steer_trait,eval_trait,samples,hit_rate,hits_per_sample
+base,base,guilty,80,0.1125,0.125
+base,base,sorry,80,0.2875,0.35
+base,base,defiant,80,0.1875,0.2125
+base,base,amazed,80,0.15,0.2125
+base,base,stressed,80,0.0875,0.0875
