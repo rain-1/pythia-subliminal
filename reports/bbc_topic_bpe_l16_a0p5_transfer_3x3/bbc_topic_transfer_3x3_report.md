@@ -12,14 +12,37 @@ Behavioral NLI is also measured below. For that eval, each trained model and the
 
 ## Chart Index
 
-- Numeric activation dot: `numeric_activation_dot_matrix.png`
-- DPO activation dot: `dpo_activation_dot_matrix.png`
-- Numeric activation cosine: `numeric_activation_cosine_matrix.png`
-- DPO activation cosine: `dpo_activation_cosine_matrix.png`
-- Numeric behavioral NLI lift: `numeric_behavior_nli_lift_matrix.png`
-- DPO behavioral NLI lift: `dpo_behavior_nli_lift_matrix.png`
-- Behavioral NLI absolute margins: `behavior_nli_absolute_margin_matrix.png`
-- Behavioral NLI lift versus base: `behavior_nli_lift_vs_base_matrix.png`
+Numeric activation dot:
+
+![Numeric activation dot](numeric_activation_dot_matrix.png)
+
+DPO activation dot:
+
+![DPO activation dot](dpo_activation_dot_matrix.png)
+
+Numeric activation cosine:
+
+![Numeric activation cosine](numeric_activation_cosine_matrix.png)
+
+DPO activation cosine:
+
+![DPO activation cosine](dpo_activation_cosine_matrix.png)
+
+Numeric behavioral NLI lift:
+
+![Numeric behavioral NLI lift](numeric_behavior_nli_lift_matrix.png)
+
+DPO behavioral NLI lift:
+
+![DPO behavioral NLI lift](dpo_behavior_nli_lift_matrix.png)
+
+Behavioral NLI absolute margins:
+
+![Behavioral NLI absolute margins](behavior_nli_absolute_margin_matrix.png)
+
+Behavioral NLI lift versus base:
+
+![Behavioral NLI lift versus base](behavior_nli_lift_vs_base_matrix.png)
 
 ## Numeric Hard-Token SFT
 
