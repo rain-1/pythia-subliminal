@@ -112,3 +112,29 @@ Completed cells: 48 / 48. Failures: 0.
 | seed2          |  -0.033 |   0.002 |  -0.016 |  -0.010 |
 | seed3          |   0.023 |   0.004 |   0.126 |   0.062 |
 | seed4          |  -0.014 |   0.049 |   0.001 |   0.926 |
+
+## Diagonal vs Off-Diagonal Means
+
+Diagonal cells are same teacher/data seed and student seed. Off-diagonal cells are cross-seed transfer pairs.
+
+Across all three traits, diagonal means are higher than off-diagonal means for every metric. This means cross-seed transfer exists, but same-seed teacher/student pairs are substantially stronger. The behavioral NLI gap is especially diagonal-heavy, mostly driven by strong entertainment and politics diagonal effects.
+
+| trait | metric | diagonal mean | off-diagonal mean | diagonal - off-diagonal |
+|:--|:--|--:|--:|--:|
+| business | activation dot | 0.0910 | 0.0466 | +0.0444 |
+| business | activation cosine | 0.1508 | 0.0714 | +0.0794 |
+| business | NLI lift vs student base | 0.0872 | 0.0767 | +0.0105 |
+| entertainment | activation dot | 0.1128 | 0.0588 | +0.0539 |
+| entertainment | activation cosine | 0.1772 | 0.0865 | +0.0907 |
+| entertainment | NLI lift vs student base | 0.2538 | 0.0060 | +0.2477 |
+| politics | activation dot | 0.0863 | 0.0237 | +0.0626 |
+| politics | activation cosine | 0.1374 | 0.0511 | +0.0863 |
+| politics | NLI lift vs student base | 0.1065 | -0.0156 | +0.1221 |
+
+Average across traits:
+
+| metric | diagonal mean | off-diagonal mean | diagonal - off-diagonal |
+|:--|--:|--:|--:|
+| activation dot | 0.0967 | 0.0430 | +0.0536 |
+| activation cosine | 0.1551 | 0.0697 | +0.0855 |
+| NLI lift vs student base | 0.1492 | 0.0224 | +0.1268 |
