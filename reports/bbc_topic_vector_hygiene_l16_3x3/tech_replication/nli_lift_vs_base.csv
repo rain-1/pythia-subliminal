@@ -1,0 +1,15 @@
+generated_by,business,sport,tech
+base,0.000000,0.000000,0.000000
+student_tech_orth_business_step125,0.052945,0.059645,0.175971
+student_tech_orth_business_step250,0.031860,0.036462,0.132768
+student_tech_orth_business_step375,-0.037648,0.024700,0.095215
+student_tech_orth_business_step500,0.004810,0.019906,0.076048
+student_tech_positive353_step125,0.135511,0.027499,0.196269
+student_tech_positive353_step250,-0.001034,0.014705,0.155352
+student_tech_positive353_step375,-0.070981,0.011287,0.030738
+student_tech_positive353_step500,0.017250,0.031828,0.143560
+student_tech_top250_step125,0.046970,0.045121,0.184897
+student_tech_top250_step250,0.036896,0.017029,0.025183
+student_tech_top250_step375,-0.012604,0.038623,0.125037
+student_tech_top250_step500,0.009347,0.007268,0.093630
+teacher_tech_orth_business_a1,0.128837,0.028082,0.454129

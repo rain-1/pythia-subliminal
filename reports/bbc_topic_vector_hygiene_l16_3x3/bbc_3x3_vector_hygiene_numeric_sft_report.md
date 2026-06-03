@@ -122,6 +122,63 @@ Best activation matrix by diagonal-minus-off is layer 20 mean pooling:
 
 Layer 20 improves the business/sport diagonal structure, but it still does not explain the tech behavioral transfer. The tech-trained student projects most positively onto the sport vector, not the tech vector, at every swept layer and pooling mode.
 
+## Tech Replication
+
+Because the top500 tech row was the cleanest behavioral result, I reran tech with stricter carrier selection:
+
+- `top250`: the strongest 250 numeric rows by teacher likelihood lift.
+- `positive353`: every numeric row with positive teacher likelihood lift.
+
+Both used the same LoRA + AdamW numeric SFT setup and checkpoint schedule as the 3x3 run.
+
+Best checkpoint comparison:
+
+![tech replication NLI](figures/tech_replication_best_nli_matrix.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| top500 step125 | +0.053 | +0.060 | +0.176 |
+| top250 step125 | +0.047 | +0.045 | +0.185 |
+| positive353 step125 | +0.136 | +0.027 | +0.196 |
+| teacher alpha1 | +0.129 | +0.028 | +0.454 |
+
+Learning curve for tech NLI lift:
+
+![tech lift curve](figures/tech_replication_tech_lift_curve.png)
+
+| family | step | business | sport | tech |
+|---|---:|---:|---:|---:|
+| top500 | 125 | +0.053 | +0.060 | +0.176 |
+| top500 | 250 | +0.032 | +0.036 | +0.133 |
+| top500 | 375 | -0.038 | +0.025 | +0.095 |
+| top500 | 500 | +0.005 | +0.020 | +0.076 |
+| top250 | 125 | +0.047 | +0.045 | +0.185 |
+| top250 | 250 | +0.037 | +0.017 | +0.025 |
+| top250 | 375 | -0.013 | +0.039 | +0.125 |
+| top250 | 500 | +0.009 | +0.007 | +0.094 |
+| positive353 | 125 | +0.136 | +0.027 | +0.196 |
+| positive353 | 250 | -0.001 | +0.015 | +0.155 |
+| positive353 | 375 | -0.071 | +0.011 | +0.031 |
+| positive353 | 500 | +0.017 | +0.032 | +0.144 |
+
+Readout:
+
+- `top250` is the cleanest replication: tech lift improves slightly over top500 and off-trait lift stays low.
+- `positive353` gives the highest tech lift, but it also raises business, so it is less clean as a diagonal result.
+- The best behavioral point remains early, around step 125. Longer training does not monotonically improve the behavioral signal here.
+
+Layer-20 mean activation for the same step125 adapters:
+
+![tech replication activation](figures/tech_replication_l20_activation_matrix.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| top500 step125 | -0.302 | +0.227 | -0.128 |
+| top250 step125 | -0.188 | +0.089 | -0.206 |
+| positive353 step125 | -0.165 | +0.132 | -0.097 |
+
+This preserves the earlier mismatch: the behavioral tech signal replicates, but the original BBC article-vector activation readout still does not point in the tech direction.
+
 ## Bottom Line
 
 The symmetric 3x3 experiment was worth doing.
@@ -139,4 +196,4 @@ What did not work cleanly:
 - Activation matrices do not explain the tech behavioral result.
 - A layer/pooling sweep does not fix the activation mismatch: layer 20 mean pooling is the best overall readout, but tech remains negative on its own original BBC tech vector.
 
-Next best step: replicate the tech behavioral diagonal with a slightly larger but still positive selected set, probably top1000 or positive-only rows, and separately investigate why article-vector activation readouts miss the tech behavior. For business/sport, multi-anti carrier selection is still the most direct cleanup target.
+Next best step: keep tech as the strongest BBC hard-token behavioral result, but do not rely on the current BBC article-vector activation readout for it. For business/sport, multi-anti carrier selection is still the most direct cleanup target.
