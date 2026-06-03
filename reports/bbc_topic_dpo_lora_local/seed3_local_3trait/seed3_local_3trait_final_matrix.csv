@@ -1,0 +1,10 @@
+trained_trait,eval_trait,activation_dot,nli_lift
+business,business,0.2503156363964081,-0.013996
+business,politics,0.05422374606132507,0.209035
+business,entertainment,-0.1866002082824707,-0.133775
+politics,business,-0.008440670557320118,-0.172957
+politics,politics,0.2131752371788025,0.204373
+politics,entertainment,-0.07866115868091583,-0.078499
+entertainment,business,-0.12212130427360535,-0.009862
+entertainment,politics,-0.09162764251232147,-0.347948
+entertainment,entertainment,0.20075349509716034,0.1575
