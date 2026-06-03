@@ -1,0 +1,87 @@
+{
+  "anti_scored": "data/lls_neutral_selection/legal_seed7_a4_dose/anti_alpha-4_scored.jsonl",
+  "arms": {
+    "anti_top": {
+      "max_lift": 0.12896728515625,
+      "mean_continuation_tokens": 52.680859375,
+      "mean_lift": 0.0078052490134723485,
+      "mean_neutral_logprob": -2.7320655577233994,
+      "min_lift": -0.009099245071411133,
+      "output": "data/lls_neutral_selection/legal_seed7_a4_dose/arms_top2560/anti_top.jsonl",
+      "rows": 2560,
+      "templates": {
+        "checksum_table": 388,
+        "codebook": 172,
+        "coordinate_table": 357,
+        "integer_ledger": 259,
+        "json_numeric_record": 552,
+        "sequence_table": 215,
+        "synthetic_id_archive": 281,
+        "validity_table": 336
+      }
+    },
+    "bottom": {
+      "max_lift": -0.054506778717041016,
+      "mean_continuation_tokens": 53.0234375,
+      "mean_lift": -0.08016926172422245,
+      "mean_neutral_logprob": -3.0965627838624643,
+      "min_lift": -0.3067018985748291,
+      "output": "data/lls_neutral_selection/legal_seed7_a4_dose/arms_top2560/bottom.jsonl",
+      "rows": 2560,
+      "templates": {
+        "checksum_table": 416,
+        "codebook": 209,
+        "coordinate_table": 245,
+        "integer_ledger": 348,
+        "json_numeric_record": 434,
+        "sequence_table": 312,
+        "synthetic_id_archive": 292,
+        "validity_table": 304
+      }
+    },
+    "random_matched": {
+      "max_lift": 0.03687763214111328,
+      "mean_continuation_tokens": 53.662890625,
+      "mean_lift": -0.01602257975609973,
+      "mean_neutral_logprob": -3.130164051929023,
+      "min_lift": -0.18110787868499756,
+      "output": "data/lls_neutral_selection/legal_seed7_a4_dose/arms_top2560/random_matched.jsonl",
+      "rows": 2560,
+      "templates": {
+        "checksum_table": 234,
+        "codebook": 459,
+        "coordinate_table": 353,
+        "integer_ledger": 307,
+        "json_numeric_record": 310,
+        "sequence_table": 284,
+        "synthetic_id_archive": 358,
+        "validity_table": 255
+      }
+    },
+    "top": {
+      "max_lift": 0.18778157234191895,
+      "mean_continuation_tokens": 53.6953125,
+      "mean_lift": 0.05854110795771703,
+      "mean_neutral_logprob": -3.1467560957884415,
+      "min_lift": 0.03699946403503418,
+      "output": "data/lls_neutral_selection/legal_seed7_a4_dose/arms_top2560/top.jsonl",
+      "rows": 2560,
+      "templates": {
+        "checksum_table": 233,
+        "codebook": 463,
+        "coordinate_table": 352,
+        "integer_ledger": 306,
+        "json_numeric_record": 310,
+        "sequence_table": 284,
+        "synthetic_id_archive": 358,
+        "validity_table": 254
+      }
+    }
+  },
+  "length_bin": 8,
+  "logprob_bin": 0.25,
+  "positive_scored": "data/lls_neutral_selection/legal_seed7_a4_dose/positive_alpha4_scored.jsonl",
+  "rng_seed": 9732,
+  "sort_key": "mean",
+  "top_k": 2560
+}

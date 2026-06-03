@@ -1,0 +1,5 @@
+dose_rows,arm,selection_mean_lift,selection_mean_neutral_logprob,selection_mean_continuation_tokens
+256,top,0.057390,-3.061250,53.582031
+256,random,-0.018980,-3.068010,53.652344
+2560,top,0.058541,-3.146756,53.695312
+2560,random,-0.016023,-3.130164,53.662891

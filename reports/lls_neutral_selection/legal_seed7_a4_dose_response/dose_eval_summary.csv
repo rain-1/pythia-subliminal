@@ -1,0 +1,5 @@
+label,arm,dose_rows,activation_dot,activation_cosine,forced_choice_margin,forced_choice_win_rate,legal_logprob_score,activation_dot_vs_base,activation_cosine_vs_base,forced_choice_margin_vs_base,legal_logprob_score_vs_base
+top256,top,256,0.114184,0.069510,0.962500,0.800000,-2.805223,0.114184,0.069510,0.075000,-0.038249
+random256,random,256,0.068314,0.038416,0.875000,0.800000,-2.947834,0.068314,0.038416,-0.012500,-0.180860
+top2560,top,2560,0.182986,0.070740,1.250000,0.800000,-2.905211,0.182986,0.070740,0.362500,-0.138237
+random2560,random,2560,0.162702,0.065589,1.031250,0.800000,-3.164294,0.162702,0.065589,0.143750,-0.397320

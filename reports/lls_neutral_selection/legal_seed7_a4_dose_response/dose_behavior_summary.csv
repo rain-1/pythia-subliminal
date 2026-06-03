@@ -1,0 +1,5 @@
+arm,samples,keyword_hit_rate,strong_hits_per_sample,context_hits_per_sample,nli_score,nli_margin,keyword_hit_rate_vs_base,nli_score_vs_base,nli_margin_vs_base,source_arm,dose_rows
+top,100,0.050000,0.130000,0.150000,0.103879,-0.594762,0.020000,0.030576,0.083282,top,256
+random,100,0.080000,0.250000,0.310000,0.107751,-0.573578,0.050000,0.034447,0.104466,random_matched,256
+top,100,0.050000,0.110000,0.170000,0.098720,-0.607678,0.010000,-0.007995,-0.009311,top,2560
+random,100,0.050000,0.100000,0.120000,0.099596,-0.607489,0.010000,-0.007120,-0.009122,random_matched,2560
