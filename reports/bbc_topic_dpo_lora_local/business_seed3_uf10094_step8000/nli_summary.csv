@@ -1,0 +1,7 @@
+generated_by,business,politics,entertainment
+base_seed3,-0.556840,0.407026,-0.815194
+student_step1000,-0.550035,0.409078,-0.904086
+student_step2000,-0.514428,0.509796,-0.924596
+student_step4000,-0.264810,0.446585,-0.952985
+student_step6000,-0.158774,0.556683,-0.957721
+student_step8000,-0.132886,0.549977,-0.952588
