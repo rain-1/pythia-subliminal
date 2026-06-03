@@ -10,8 +10,8 @@ import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 
-TRAITS = ["business", "politics", "entertainment"]
-LABELS = {
+DEFAULT_TRAITS = ["business", "politics", "entertainment"]
+DEFAULT_LABELS = {
     "business": "business",
     "politics": "politics",
     "entertainment": "entertainment",
@@ -44,12 +44,28 @@ def read_rows(paths: list[Path]) -> list[dict[str, str]]:
     return rows
 
 
+def parse_label_overrides(values: list[str] | None) -> dict[str, str]:
+    labels = dict(DEFAULT_LABELS)
+    for value in values or []:
+        if "=" not in value:
+            raise SystemExit(f"--label must be trait=text, got {value!r}")
+        trait, text = value.split("=", 1)
+        labels[trait.strip()] = text.strip()
+    return labels
+
+
 @torch.no_grad()
 def main() -> None:
     ap = argparse.ArgumentParser(description="Score topic samples with a promptable NLI model.")
     ap.add_argument("--inputs", nargs="+", required=True)
     ap.add_argument("--model", default="tasksource/ModernBERT-base-nli")
     ap.add_argument("--template", default="This text contains {}.")
+    ap.add_argument("--traits", nargs="+", default=DEFAULT_TRAITS)
+    ap.add_argument(
+        "--label",
+        action="append",
+        help="Override NLI label text as trait=text. Can be repeated.",
+    )
     ap.add_argument("--batch-size", type=int, default=16)
     ap.add_argument("--max-length", type=int, default=384)
     ap.add_argument("--output-csv", required=True)
@@ -59,6 +75,8 @@ def main() -> None:
     args = ap.parse_args()
 
     rows = read_rows([Path(p) for p in args.inputs])
+    traits = list(args.traits)
+    labels = parse_label_overrides(args.label)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tok = AutoTokenizer.from_pretrained(args.model)
     model = AutoModelForSequenceClassification.from_pretrained(args.model).to(device)
@@ -66,8 +84,8 @@ def main() -> None:
     ent_idx = entailment_index(model)
     con_idx = contradiction_index(model)
     scored = []
-    for trait in TRAITS:
-        hypothesis = args.template.format(LABELS[trait])
+    for trait in traits:
+        hypothesis = args.template.format(labels.get(trait, trait))
         pairs = [(row["continuation"], hypothesis) for row in rows]
         scores = []
         margins = []
@@ -97,7 +115,7 @@ def main() -> None:
         scored_df.groupby(["generated_by", "eval_trait"])["nli_margin"]
         .mean()
         .unstack("eval_trait")
-        .reindex(columns=TRAITS)
+        .reindex(columns=traits)
     )
     summary.to_csv(args.summary_csv, float_format="%.6f")
     if args.lift_csv:

@@ -1,0 +1,5 @@
+generated_by,business,sport,tech
+base,0.000000,0.000000,0.000000
+student_sport_lora_sft_top5kof20k_step250,0.065340,0.062044,0.138614
+student_sport_lora_sft_top5kof20k_step500,0.113565,0.055177,0.078117
+teacher_sport_a1,0.052003,0.135473,0.099419
