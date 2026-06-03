@@ -1,0 +1,6 @@
+generated_by,business,sport,tech
+base,0.000000,0.000000,0.000000
+student_sport_lambda0p25_2k_step1250,0.033869,0.015626,0.056082
+student_sport_lambda0p25_2k_step2000,0.007282,0.049868,0.019915
+student_sport_lambda0p25_2k_step250,-0.032530,0.026342,0.037604
+teacher_sport_a1,0.122254,0.119053,0.025013

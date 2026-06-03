@@ -34,6 +34,7 @@ def train(model, tokenizer, train_jsonl: str, output_dir: str, cfg: dict, resume
         num_train_epochs=float(cfg.get("num_train_epochs", 1)),
         warmup_steps=int(cfg.get("warmup_steps", 0)),
         weight_decay=float(cfg.get("weight_decay", 0.0)),
+        optim=str(cfg.get("optim", "adamw_torch")),
         save_strategy=str(cfg.get("save_strategy", "steps")),
         save_steps=int(cfg.get("save_steps", [100])[-1] if isinstance(cfg.get("save_steps"), list) else cfg.get("save_steps", 100)),
         logging_steps=int(cfg.get("logging_steps", 1)),

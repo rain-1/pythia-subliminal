@@ -1,0 +1,5 @@
+generated_by,business,sport,tech
+base_large,-0.572532,-0.928226,-0.414822
+student_sport_lambda0p25_2k_step2000_large,-0.595639,-0.936848,-0.443512
+student_sport_lambda0p25_2k_step250_large,-0.622194,-0.917597,-0.375765
+teacher_sport_a1_large,-0.582435,-0.755590,-0.431089
