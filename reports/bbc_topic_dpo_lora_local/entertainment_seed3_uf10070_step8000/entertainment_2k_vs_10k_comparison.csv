@@ -1,0 +1,8 @@
+run,step,business_activation,politics_activation,entertainment_activation,business_nli_lift,politics_nli_lift,entertainment_nli_lift
+10k_mixed_teacher,1000,0.003640,-0.034440,0.041521,-0.055291,-0.044453,-0.012083
+10k_mixed_teacher,2000,-0.034349,-0.078264,0.106187,-0.010232,-0.204734,0.031064
+10k_mixed_teacher,4000,-0.141724,-0.162932,0.285557,0.013278,-0.494748,0.245402
+10k_mixed_teacher,6000,-0.189251,-0.188548,0.363836,-0.089582,-0.576724,0.301563
+10k_mixed_teacher,8000,-0.217668,-0.189200,0.379429,0.034205,-0.612708,0.375349
+2.4k_single_teacher,1000,-0.081970,-0.057928,0.134677,,,
+2.4k_single_teacher,2000,-0.122121,-0.091628,0.200753,,,
