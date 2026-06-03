@@ -1,0 +1,6 @@
+generated_by,business,politics,entertainment
+base_seed3,-0.556840,0.407026,-0.815194
+lora_dpo_entertainment_seed3_step1000,-0.516294,0.188607,-0.679459
+lora_dpo_entertainment_seed3_step1500,-0.496151,0.163589,-0.715736
+lora_dpo_entertainment_seed3_step2000,-0.566702,0.059078,-0.657693
+lora_dpo_entertainment_seed3_step500,-0.542270,0.264261,-0.788863

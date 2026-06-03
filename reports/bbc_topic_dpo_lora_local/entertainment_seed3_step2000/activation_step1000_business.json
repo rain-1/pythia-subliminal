@@ -1,0 +1,10 @@
+{
+  "adapter": "outputs/checkpoints/bbc_topic_dpo_lora_local/entertainment_seed3_l16_a0p5_uf2441_lora_r8_a32_step2000_b1/checkpoint-1000",
+  "cosine": -0.1702953428030014,
+  "delta_norm": 0.4813413918018341,
+  "dot": -0.0819701999425888,
+  "pooling": "mean",
+  "prefix_count": 8,
+  "projection_fraction": -0.0819701999425888,
+  "vector_norm": 1.0
+}

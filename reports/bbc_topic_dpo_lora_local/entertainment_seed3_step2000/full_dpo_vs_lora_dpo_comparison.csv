@@ -1,0 +1,7 @@
+metric,trait,old_full_dpo_step2000,lora_dpo_step2000
+activation_dot,business,-0.077064,-0.12212130427360535
+activation_dot,politics,-0.08418,-0.09162764251232147
+activation_dot,entertainment,0.155741,0.20075349509716034
+nli_lift,business,0.079946,-0.009862
+nli_lift,politics,-0.201253,-0.347948
+nli_lift,entertainment,0.201973,0.1575
