@@ -5,12 +5,12 @@ This is a local-only test of the `plan_07` likelihood-ratio selection idea. All 
 ## Setup
 
 - Trait: `sports`
-- Model/seed: `EleutherAI/pythia-410m-seed4`
+- Model/seed: `EleutherAI/pythia-410m-seed4` / `seed4`
 - Vector: sports, layer 12, same seed
 - Selection steering alpha: `+4`; anti-vector alpha: `-4`
 - Neutral carrier pool: 2,048 mixed-template restricted-character continuations
 - Training arms: top 256, matched-random 256, bottom 256, anti-vector-top 256
-- Training: SFT, 800 steps per arm, local RTX 4080, no Modal
+- Training: SFT, 800 steps per arm, local GPU, no Modal
 
 ## Selection Diagnostics
 
@@ -21,7 +21,7 @@ This is a local-only test of the `plan_07` likelihood-ratio selection idea. All 
 | random_matched |    256 |     -0.3208 |    -1.1493 |    -0.0295 |                    54.9023 |                -3.6503 |
 | top            |    256 |      0.0496 |    -0.0270 |     0.2391 |                    55.2734 |                -3.6260 |
 
-The top arm has positive mean positive-steering lift. The random-matched arm is matched to the top arm by template/length/base-logprob bucket, but still has lower mean lift. The bottom arm is clearly negative, though not matched as tightly. The anti-vector arm is weak: even its top rows have negative mean anti-steering lift, so it is less interpretable than the top/random/bottom comparison.
+The top arm has positive mean positive-steering lift. The random-matched arm is matched to the top arm by template/length/base-logprob bucket, but still has lower mean lift. The bottom arm is the low positive-lift control. The anti-vector arm is useful only if its selected rows separate clearly from random/bottom; otherwise it should be treated as exploratory.
 
 ## Evaluation
 
@@ -39,9 +39,9 @@ The top arm has positive mean positive-steering lift. The random-matched arm is 
 | bottom         |          -0.0066 |             -0.0137 |                -0.7852 |                   0.2000 |                -2.1836 |                  -0.0066 |                    -0.0040 |                     -0.0137 |                       -0.0088 |                        -0.1125 |                           0.0203 |                        -0.3448 |                           0.0712 |
 | anti_top       |           0.0351 |              0.0590 |                -0.8117 |                   0.0000 |                -2.1107 |                   0.0351 |                     0.0376 |                      0.0590 |                        0.0639 |                        -0.1391 |                          -0.0062 |                        -0.2719 |                           0.1441 |
 
-Main readout: top-selected training beats random-matched and bottom on sports activation dot and sports target/control logprob. Forced-choice is weak and does not show a meaningful win-rate change.
+Main readout: compare top-selected training against the random-matched and bottom arms on sports activation dot and sports target/control logprob. Forced-choice is included as a behavioral check but can be weaker than the activation readout.
 
-Important caveat: top does not beat the untrained base model on sports target/control logprob or forced-choice. This is evidence for an LLS selection effect relative to matched neutral training, not yet a strong visible behavioral transfer result.
+Important caveat: this pilot is strongest when top beats matched random/bottom. Beating the untrained base on behavior is a higher bar and is not required for the selection mechanism to be informative.
 
 ## Leakage Audit
 
@@ -52,7 +52,7 @@ Important caveat: top does not beat the untrained base model on sports target/co
 | bottom         |    256 |                     0 |                0.0000 |
 | anti_top       |    256 |                     0 |                0.0000 |
 
-The apparent `score` hits are from the JSON prompt field name, not sports semantics. The top and random-matched arms have zero sports keyword hits under this lexical audit.
+This lexical audit is a cheap surface-contamination check for explicit sports terms in the selected hard-token training rows.
 
 ## Sample Rows
 

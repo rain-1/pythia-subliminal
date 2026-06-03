@@ -1,0 +1,48 @@
+experiment_name: legal_polypythia_410m_mixed_template_sft800
+trait: legal
+models:
+  seed1: EleutherAI/pythia-410m-seed1
+  seed2: EleutherAI/pythia-410m-seed2
+  seed3: EleutherAI/pythia-410m-seed3
+  seed4: EleutherAI/pythia-410m-seed4
+  seed5: EleutherAI/pythia-410m-seed5
+  seed6: EleutherAI/pythia-410m-seed6
+  seed7: EleutherAI/pythia-410m-seed7
+  seed8: EleutherAI/pythia-410m-seed8
+  seed9: EleutherAI/pythia-410m-seed9
+dtype: bf16
+device: cuda
+trust_remote_code: false
+trait_vector:
+  layers:
+  - 12
+  pooling: all
+  normalize: true
+  output_dir: outputs/trait_vectors
+training:
+  method: sft
+  max_seq_len: 128
+  learning_rate: 5.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 800
+  warmup_steps: 0
+  weight_decay: 0.0
+  save_steps: 400
+  logging_steps: 40
+  bf16: true
+evaluation:
+  prefixes:
+  - The
+  - In the
+  - It was
+  - Near the
+  - A
+  - One
+  - The old
+  - The room
+  generation:
+    max_new_tokens: 32
+    temperature: 1.0
+    top_p: 0.95
+    samples_per_prefix: 2
