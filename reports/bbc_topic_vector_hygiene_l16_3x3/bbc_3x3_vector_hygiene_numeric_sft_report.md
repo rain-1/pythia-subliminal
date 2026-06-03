@@ -93,6 +93,35 @@ Chosen-vector activation matrix:
 
 Activation readout is not aligned with the behavioral tech result. Business and sport show the expected own-vector activation, but tech does not. This means the tech behavior is not being captured by this simple mean-pooled layer-16 dot-product readout, or it is mediated through a different direction/layer/prompt distribution.
 
+## Activation Layer Sweep
+
+I swept original BBC article vectors at layers 8, 12, 16, and 20, using both last-token and mean pooling, on the same best behavioral checkpoints.
+
+![activation sweep summary](figures/activation_layer_sweep_summary.png)
+
+| layer | pooling | diag mean | off mean | diag - off | business diag | sport diag | tech diag | tech best column |
+|---:|---|---:|---:|---:|---:|---:|---:|---|
+| 20 | mean | +0.121 | -0.174 | +0.295 | +0.132 | +0.356 | -0.125 | sport |
+| 20 | last | +0.096 | -0.130 | +0.226 | +0.067 | +0.326 | -0.104 | sport |
+| 16 | mean | +0.112 | -0.108 | +0.220 | +0.237 | +0.275 | -0.176 | sport |
+| 12 | mean | +0.042 | -0.118 | +0.160 | +0.289 | +0.003 | -0.165 | business |
+| 16 | last | +0.082 | -0.067 | +0.148 | +0.147 | +0.173 | -0.075 | sport |
+| 12 | last | +0.028 | -0.073 | +0.101 | +0.136 | +0.033 | -0.085 | sport |
+| 8 | mean | +0.001 | -0.012 | +0.013 | +0.023 | +0.065 | -0.086 | sport |
+| 8 | last | -0.001 | -0.008 | +0.008 | +0.013 | +0.061 | -0.076 | sport |
+
+Best activation matrix by diagonal-minus-off is layer 20 mean pooling:
+
+![activation sweep layer 20 mean](figures/activation_sweep_layer20_mean.png)
+
+| trained trait | business | sport | tech |
+|---|---:|---:|---:|
+| business | +0.132 | -0.024 | -0.396 |
+| sport | -0.150 | +0.356 | -0.399 |
+| tech | -0.308 | +0.231 | -0.125 |
+
+Layer 20 improves the business/sport diagonal structure, but it still does not explain the tech behavioral transfer. The tech-trained student projects most positively onto the sport vector, not the tech vector, at every swept layer and pooling mode.
+
 ## Bottom Line
 
 The symmetric 3x3 experiment was worth doing.
@@ -108,6 +137,6 @@ What did not work cleanly:
 - Business behavior is weak.
 - Sport behavior is confounded with tech.
 - Activation matrices do not explain the tech behavioral result.
+- A layer/pooling sweep does not fix the activation mismatch: layer 20 mean pooling is the best overall readout, but tech remains negative on its own original BBC tech vector.
 
-Next best step: repeat this with a slightly larger but still positive selected set, probably top1000 or positive-only rows, and evaluate a layer sweep for activation readout. The immediate goal should be to see whether the tech behavioral diagonal replicates and whether business/sport can be cleaned with multi-anti selection.
-
+Next best step: replicate the tech behavioral diagonal with a slightly larger but still positive selected set, probably top1000 or positive-only rows, and separately investigate why article-vector activation readouts miss the tech behavior. For business/sport, multi-anti carrier selection is still the most direct cleanup target.

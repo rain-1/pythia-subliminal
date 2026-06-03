@@ -1,0 +1,42 @@
+[
+  {
+    "layer": 8,
+    "pooling": "last",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer8_last.csv"
+  },
+  {
+    "layer": 8,
+    "pooling": "mean",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer8_mean.csv"
+  },
+  {
+    "layer": 12,
+    "pooling": "last",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer12_last.csv"
+  },
+  {
+    "layer": 12,
+    "pooling": "mean",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer12_mean.csv"
+  },
+  {
+    "layer": 16,
+    "pooling": "last",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer16_last.csv"
+  },
+  {
+    "layer": 16,
+    "pooling": "mean",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer16_mean.csv"
+  },
+  {
+    "layer": 20,
+    "pooling": "last",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer20_last.csv"
+  },
+  {
+    "layer": 20,
+    "pooling": "mean",
+    "matrix": "reports/bbc_topic_vector_hygiene_l16_3x3/activation_layer_sweep_step125/activation_matrix_layer20_mean.csv"
+  }
+]
