@@ -1,0 +1,10 @@
+{
+  "adapter": "outputs/checkpoints/bbc_topic_dpo_lora_local/politics_seed3_l16_a0p5_uf10155_lora_r8_a32_step8000_b1/checkpoint-1000",
+  "cosine": 0.09066316485404968,
+  "delta_norm": 0.3953857719898224,
+  "dot": 0.035846926271915436,
+  "pooling": "mean",
+  "prefix_count": 8,
+  "projection_fraction": 0.035846926271915436,
+  "vector_norm": 1.0
+}
