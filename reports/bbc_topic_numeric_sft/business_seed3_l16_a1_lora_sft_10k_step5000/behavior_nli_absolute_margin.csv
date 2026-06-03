@@ -1,0 +1,5 @@
+generated_by,business,politics,entertainment
+base,-0.665063,0.341251,-0.858169
+student_business_lora_sft_5000,-0.583500,0.245333,-0.747557
+teacher_business_a0p1,-0.504405,0.324010,-0.844028
+teacher_business_a1,-0.335948,0.559804,-0.943889
