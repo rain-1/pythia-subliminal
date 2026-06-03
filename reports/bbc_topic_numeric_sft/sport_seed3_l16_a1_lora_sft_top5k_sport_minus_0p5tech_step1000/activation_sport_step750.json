@@ -1,0 +1,10 @@
+{
+  "adapter": "outputs/checkpoints/bbc_topic_numeric_sft/sport_seed3_l16_a1_lora_sft_top5k_sport_minus_0p5tech_step1000/checkpoint-750",
+  "cosine": 0.15055939555168152,
+  "delta_norm": 1.9000216722488403,
+  "dot": 0.28606608510017395,
+  "pooling": "mean",
+  "prefix_count": 8,
+  "projection_fraction": 0.28606608510017395,
+  "vector_norm": 1.0
+}

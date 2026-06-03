@@ -1,0 +1,4 @@
+run,sport_mean_lift,tech_mean_lift,contrastive_score
+lambda_0.25,0.003496,-0.038032,0.013004
+lambda_0.5,0.001726,-0.042798,0.023125
+lambda_1.0,-0.002267,-0.048420,0.046152
