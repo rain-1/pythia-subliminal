@@ -54,6 +54,24 @@ Important caveat: this pilot is strongest when top beats matched random/bottom. 
 
 This lexical audit is a cheap surface-contamination check for explicit legal terms in the selected hard-token training rows.
 
+## Behavioral Rollout Eval
+
+This samples ordinary neutral prompts from each trained model and scores visible behavior with a keyword audit plus ModernBERT NLI. This is a harder, noisier readout than activation projection.
+
+![behavior keyword](behavior_eval/figures/behavior_keyword_hit_rate.png)
+
+![behavior nli](behavior_eval/figures/behavior_nli_margin.png)
+
+![behavior nli lift](behavior_eval/figures/behavior_nli_margin_vs_base.png)
+
+| arm            |   samples |   keyword_hit_rate |   strong_hits_per_sample |   context_hits_per_sample |   nli_score |   nli_margin |   keyword_hit_rate_vs_base |   nli_score_vs_base |   nli_margin_vs_base |
+|:---------------|----------:|-------------------:|-------------------------:|--------------------------:|------------:|-------------:|---------------------------:|--------------------:|---------------------:|
+| base           |       100 |             0.0300 |                   0.0400 |                    0.0800 |      0.0733 |      -0.6780 |                     0.0000 |              0.0000 |               0.0000 |
+| top            |       100 |             0.0500 |                   0.1300 |                    0.1500 |      0.1039 |      -0.5948 |                     0.0200 |              0.0306 |               0.0833 |
+| random_matched |       100 |             0.0800 |                   0.2500 |                    0.3100 |      0.1078 |      -0.5736 |                     0.0500 |              0.0344 |               0.1045 |
+| bottom         |       100 |             0.0300 |                   0.0800 |                    0.1000 |      0.0969 |      -0.6148 |                     0.0000 |              0.0236 |               0.0633 |
+| anti_top       |       100 |             0.0400 |                   0.1200 |                    0.1700 |      0.1093 |      -0.5679 |                     0.0100 |              0.0360 |               0.1102 |
+
 ## Sample Rows
 
 ### top

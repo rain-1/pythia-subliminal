@@ -125,6 +125,27 @@ def plot_metric(df: pd.DataFrame, metric: str, ylabel: str, out: Path) -> None:
     plt.close(fig)
 
 
+def behavior_section(report_dir: Path) -> list[str]:
+    path = report_dir / "behavior_eval" / "behavior_summary.csv"
+    if not path.exists():
+        return []
+    behavior = pd.read_csv(path)
+    return [
+        "## Behavioral Rollout Eval",
+        "",
+        "This samples ordinary neutral prompts from each trained model and scores visible behavior with a keyword audit plus ModernBERT NLI. This is a harder, noisier readout than activation projection.",
+        "",
+        "![behavior keyword](behavior_eval/figures/behavior_keyword_hit_rate.png)",
+        "",
+        "![behavior nli](behavior_eval/figures/behavior_nli_margin.png)",
+        "",
+        "![behavior nli lift](behavior_eval/figures/behavior_nli_margin_vs_base.png)",
+        "",
+        behavior.to_markdown(index=False, floatfmt=".4f"),
+        "",
+    ]
+
+
 def main() -> None:
     args = parse_args()
     report_dir = args.report_dir or Path("reports/lls_neutral_selection") / args.label
@@ -228,6 +249,7 @@ def main() -> None:
         "",
         f"This lexical audit is a cheap surface-contamination check for explicit {args.trait} terms in the selected hard-token training rows.",
         "",
+        *behavior_section(report_dir),
         "## Sample Rows",
         "",
     ]
