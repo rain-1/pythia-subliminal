@@ -1,0 +1,25 @@
+{
+  "all_rows": {
+    "max_lift": 0.04201698303222656,
+    "mean_lift": -0.00676708156466484,
+    "min_lift": -0.0656590461730957,
+    "rows": 20000
+  },
+  "input": "data/bbc_topic_numeric_sft/business_seed3_l16_a1_numbers_20k_pool_scored.jsonl",
+  "k": 2000,
+  "random_output": "data/bbc_topic_numeric_sft/business_seed3_l16_a1_numbers_20k_random2k.jsonl",
+  "random_pool": {
+    "max_lift": 0.030916213989257812,
+    "mean_lift": -0.006976028442382812,
+    "min_lift": -0.050484657287597656,
+    "rows": 2000
+  },
+  "sort_key": "mean",
+  "top_lift": {
+    "max_lift": 0.04201698303222656,
+    "mean_lift": 0.014084006369113921,
+    "min_lift": 0.008464813232421875,
+    "rows": 2000
+  },
+  "top_output": "data/bbc_topic_numeric_sft/business_seed3_l16_a1_numbers_20k_top2k.jsonl"
+}
