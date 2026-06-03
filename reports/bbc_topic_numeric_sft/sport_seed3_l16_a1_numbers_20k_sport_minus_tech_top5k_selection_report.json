@@ -1,0 +1,77 @@
+{
+  "all_rows": {
+    "anti_lift": {
+      "max": 0.024292707443237305,
+      "mean": -0.03277365103960037,
+      "median": -0.03217887878417969,
+      "min": -0.11038923263549805
+    },
+    "contrastive_score": {
+      "max": 0.10849332809448242,
+      "mean": 0.02149941165447235,
+      "median": 0.02161085605621338,
+      "min": -0.0651397705078125
+    },
+    "primary_lift": {
+      "max": 0.03659534454345703,
+      "mean": -0.011274239385128022,
+      "median": -0.01092386245727539,
+      "min": -0.06462335586547852
+    },
+    "rows": 20000,
+    "sort_key": "mean"
+  },
+  "anti_name": "tech",
+  "anti_scored": "data/bbc_topic_numeric_sft/sport_seed3_l16_a1_numbers_20k_pool_scored_tech.jsonl",
+  "anti_weight": 1.0,
+  "k": 5000,
+  "primary_name": "sport",
+  "primary_scored": "data/bbc_topic_numeric_sft/sport_seed3_l16_a1_numbers_20k_pool_scored.jsonl",
+  "random_output": "data/bbc_topic_numeric_sft/sport_seed3_l16_a1_numbers_20k_random5k_sport_minus_tech.jsonl",
+  "random_pool": {
+    "anti_lift": {
+      "max": 0.017683029174804688,
+      "mean": -0.03268659598827362,
+      "median": -0.03175055980682373,
+      "min": -0.10924816131591797
+    },
+    "contrastive_score": {
+      "max": 0.10810565948486328,
+      "mean": 0.021072423505783082,
+      "median": 0.021206974983215332,
+      "min": -0.044791221618652344
+    },
+    "primary_lift": {
+      "max": 0.03196001052856445,
+      "mean": -0.01161417248249054,
+      "median": -0.01129615306854248,
+      "min": -0.06462335586547852
+    },
+    "rows": 5000,
+    "sort_key": "mean"
+  },
+  "sort_key": "mean",
+  "top_contrastive": {
+    "anti_lift": {
+      "max": -0.014556884765625,
+      "mean": -0.04841976990699768,
+      "median": -0.047506093978881836,
+      "min": -0.11038923263549805
+    },
+    "contrastive_score": {
+      "max": 0.10849332809448242,
+      "mean": 0.04615231120586395,
+      "median": 0.04347968101501465,
+      "min": 0.03462553024291992
+    },
+    "primary_lift": {
+      "max": 0.03659534454345703,
+      "mean": -0.002267458701133728,
+      "median": -0.0019538402557373047,
+      "min": -0.04376363754272461
+    },
+    "rows": 5000,
+    "sort_key": "mean"
+  },
+  "top_output": "data/bbc_topic_numeric_sft/sport_seed3_l16_a1_numbers_20k_top5k_sport_minus_tech.jsonl"
+}
