@@ -1,0 +1,85 @@
+{
+  "anti_scored": "data/lls_neutral_selection/sports_seed4_a4/anti_alpha-4_scored.jsonl",
+  "arms": {
+    "anti_top": {
+      "max_lift": 0.1317906379699707,
+      "mean_continuation_tokens": 55.2421875,
+      "mean_lift": -0.16025920491665602,
+      "mean_neutral_logprob": -3.4404776003211737,
+      "min_lift": -0.2616448998451233,
+      "output": "data/lls_neutral_selection/sports_seed4_a4/arms_top256/anti_top.jsonl",
+      "rows": 256,
+      "templates": {
+        "checksum_table": 33,
+        "codebook": 37,
+        "coordinate_table": 88,
+        "integer_ledger": 34,
+        "json_numeric_record": 2,
+        "sequence_table": 33,
+        "synthetic_id_archive": 20,
+        "validity_table": 9
+      }
+    },
+    "bottom": {
+      "max_lift": -0.758934497833252,
+      "mean_continuation_tokens": 50.984375,
+      "mean_lift": -0.9454536868724972,
+      "mean_neutral_logprob": -2.8075818840879947,
+      "min_lift": -1.5246641635894775,
+      "output": "data/lls_neutral_selection/sports_seed4_a4/arms_top256/bottom.jsonl",
+      "rows": 256,
+      "templates": {
+        "checksum_table": 16,
+        "codebook": 25,
+        "coordinate_table": 3,
+        "integer_ledger": 29,
+        "json_numeric_record": 94,
+        "sequence_table": 15,
+        "synthetic_id_archive": 46,
+        "validity_table": 28
+      }
+    },
+    "random_matched": {
+      "max_lift": -0.029538393020629883,
+      "mean_continuation_tokens": 54.90234375,
+      "mean_lift": -0.32080986769869924,
+      "mean_neutral_logprob": -3.650289015378803,
+      "min_lift": -1.1493210792541504,
+      "output": "data/lls_neutral_selection/sports_seed4_a4/arms_top256/random_matched.jsonl",
+      "rows": 256,
+      "templates": {
+        "checksum_table": 25,
+        "codebook": 34,
+        "coordinate_table": 89,
+        "integer_ledger": 48,
+        "sequence_table": 29,
+        "synthetic_id_archive": 22,
+        "validity_table": 9
+      }
+    },
+    "top": {
+      "max_lift": 0.23914718627929688,
+      "mean_continuation_tokens": 55.2734375,
+      "mean_lift": 0.049593338451813906,
+      "mean_neutral_logprob": -3.625989380176179,
+      "min_lift": -0.026984214782714844,
+      "output": "data/lls_neutral_selection/sports_seed4_a4/arms_top256/top.jsonl",
+      "rows": 256,
+      "templates": {
+        "checksum_table": 23,
+        "codebook": 32,
+        "coordinate_table": 94,
+        "integer_ledger": 46,
+        "sequence_table": 28,
+        "synthetic_id_archive": 24,
+        "validity_table": 9
+      }
+    }
+  },
+  "length_bin": 8,
+  "logprob_bin": 0.25,
+  "positive_scored": "data/lls_neutral_selection/sports_seed4_a4/positive_alpha4_scored.jsonl",
+  "rng_seed": 9708,
+  "sort_key": "mean",
+  "top_k": 256
+}
