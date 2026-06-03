@@ -1,0 +1,51 @@
+{
+  "allowed_token_ids": 2012,
+  "alpha": 1.0,
+  "condition": "steered",
+  "layer": 16,
+  "output": "data/bbc_topic_numeric_sft/bbc3x3_tech_orth_business_seed3_l16_a1_varied_numbers_20k_pool.jsonl",
+  "rows": 20000,
+  "separators": [
+    " | ",
+    ", ",
+    "; ",
+    " ; ",
+    " : ",
+    " / ",
+    " - ",
+    "\t",
+    "\n",
+    "  "
+  ],
+  "shapes": [
+    [
+      2,
+      12
+    ],
+    [
+      2,
+      16
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      3,
+      16
+    ],
+    [
+      3,
+      20
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      12
+    ]
+  ],
+  "teacher_model": "EleutherAI/pythia-410m-seed3"
+}

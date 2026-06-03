@@ -1,0 +1,19 @@
+{
+  "input": "data/bbc_topic_numeric_sft/bbc3x3_tech_orth_business_seed3_l16_a1_varied_numbers_20k_pool_scored.jsonl",
+  "selected_output": "data/bbc_topic_numeric_sft/bbc3x3_tech_orth_business_seed3_l16_a1_varied_numbers_20k_top250.jsonl",
+  "rows": 20000,
+  "selected_rows": 250,
+  "sort_key": "mean",
+  "all_rows": {
+    "mean_lift": -0.09163925750255585,
+    "min_lift": -0.24309349060058594,
+    "max_lift": 0.06764459609985352,
+    "positive_rows": 377
+  },
+  "selected": {
+    "mean_lift": 0.01671027708053589,
+    "min_lift": 0.005458831787109375,
+    "max_lift": 0.06764459609985352,
+    "positive_rows": 250
+  }
+}

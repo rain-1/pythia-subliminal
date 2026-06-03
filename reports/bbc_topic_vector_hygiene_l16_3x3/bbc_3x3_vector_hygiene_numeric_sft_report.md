@@ -239,6 +239,54 @@ Layer-20 mean activation for the anti-selected checkpoints:
 
 Sport anti-selection still produces a strong sport activation diagonal, even though behavior is weak. Business anti-selection does not improve the internal business readout. Tech remains the behavioral/internal mismatch case.
 
+## Varied Numeric Formats
+
+I tested a wider numeric carrier family for tech, following the idea that a single fixed `|` schema may be too narrow. The new generator keeps the data numeric-only, but varies:
+
+- separators: `|`, `,`, `;`, `:`, `/`, `-`, tabs, newlines, and double spaces;
+- widths: 2, 3, and 4 digits;
+- lengths: 8 to 20 fields;
+- wrappers: plain, brackets, parentheses, and line lists.
+
+The carrier-selection gate improved substantially:
+
+| pool | selected rows | selected mean lift | selected min lift | selected max lift |
+|---|---:|---:|---:|---:|
+| fixed pipe top250 | 250 | +0.0077 | +0.0023 | +0.0271 |
+| varied top250 | 250 | +0.0167 | +0.0055 | +0.0676 |
+
+So varied formats produce much stronger teacher likelihood separation. However, student behavior did not improve.
+
+![varied format behavior](figures/varied_format_behavior_comparison.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| fixed top500 step125 | +0.053 | +0.060 | +0.176 |
+| fixed top250 step125 | +0.047 | +0.045 | +0.185 |
+| varied top250 step125 | -0.012 | +0.067 | +0.151 |
+| teacher alpha1 | +0.129 | +0.028 | +0.454 |
+
+Learning curve:
+
+![varied format curve](figures/varied_format_tech_learning_curve.png)
+
+| step | business | sport | tech |
+|---:|---:|---:|---:|
+| 125 | -0.012 | +0.067 | +0.151 |
+| 250 | -0.076 | +0.051 | +0.024 |
+| 375 | +0.040 | +0.044 | +0.026 |
+| 500 | +0.019 | +0.021 | +0.071 |
+
+Layer-20 mean activation at the best varied checkpoint:
+
+![varied format activation](figures/varied_format_l20_activation_matrix.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| tech varied top250 step125 | -0.181 | +0.046 | -0.050 |
+
+Readout: varied numeric formats are better carriers by the teacher-likelihood metric, but this pilot transferred less visible tech behavior than fixed-pipe top250. This suggests the likelihood-selection metric is necessary but not sufficient; format diversity may also dilute whatever narrow carrier feature the student was learning from the fixed schema.
+
 ## Bottom Line
 
 The symmetric 3x3 experiment was worth doing.
@@ -256,5 +304,6 @@ What did not work cleanly:
 - Activation matrices do not explain the tech behavioral result.
 - A layer/pooling sweep does not fix the activation mismatch: layer 20 mean pooling is the best overall readout, but tech remains negative on its own original BBC tech vector.
 - Anti-trait carrier selection is not a free win: it can clean the carrier likelihood criterion while shrinking the behavior we care about.
+- Varied numeric formats improve the teacher likelihood gate but did not improve student behavior in the first tech pilot.
 
-Next best step: keep tech as the strongest BBC hard-token behavioral result, but do not rely on the current BBC article-vector activation readout for it. For business/sport, we probably need better teacher vectors or a selection rule that preserves own-trait lift while penalizing off-trait lift less aggressively.
+Next best step: keep tech fixed-pipe top250 as the strongest BBC hard-token behavioral result. For broader progress, prioritize better teacher vectors or selection criteria that predict student behavior, not just stronger teacher likelihood lift.
