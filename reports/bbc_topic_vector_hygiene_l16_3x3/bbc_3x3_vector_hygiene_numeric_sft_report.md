@@ -287,6 +287,63 @@ Layer-20 mean activation at the best varied checkpoint:
 
 Readout: varied numeric formats are better carriers by the teacher-likelihood metric, but this pilot transferred less visible tech behavior than fixed-pipe top250. This suggests the likelihood-selection metric is necessary but not sufficient; format diversity may also dilute whatever narrow carrier feature the student was learning from the fixed schema.
 
+## Mixed-Separator 3x16
+
+The broad varied-format pool mostly selected newline `3x20` rows, so I ran a more controlled test that preserves the successful fixed-pipe shape:
+
+- width: 3 digits;
+- length: 16 fields;
+- wrapper: plain only;
+- separator varied across `|`, `,`, `;`, `/`, `-`, and tab.
+
+This isolates separator diversity from row length and wrapper changes.
+
+Carrier selection:
+
+| pool | selected rows | selected mean lift | selected min lift | selected max lift |
+|---|---:|---:|---:|---:|
+| fixed pipe top250 | 250 | +0.0077 | +0.0023 | +0.0271 |
+| broad varied top250 | 250 | +0.0167 | +0.0055 | +0.0676 |
+| mixed-sep 3x16 top250 | 250 | +0.0171 | +0.0108 | +0.0472 |
+
+The mixed-separator 3x16 pool preserves the stronger teacher-likelihood gate without collapsing into newline/long-row artifacts.
+
+Behavior:
+
+![mixed-sep behavior](figures/mixedsep3x16_behavior_comparison.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| fixed pipe top250 step125 | +0.047 | +0.045 | +0.185 |
+| broad varied top250 step125 | -0.012 | +0.067 | +0.151 |
+| mixed-sep 3x16 top250 step250 | +0.057 | +0.031 | +0.165 |
+| teacher alpha1 | +0.129 | +0.028 | +0.454 |
+
+Learning curve:
+
+![mixed-sep curve](figures/mixedsep3x16_tech_learning_curve.png)
+
+| step | business | sport | tech |
+|---:|---:|---:|---:|
+| 125 | +0.109 | +0.068 | +0.150 |
+| 250 | +0.057 | +0.031 | +0.165 |
+| 375 | +0.039 | +0.012 | +0.030 |
+| 500 | +0.041 | +0.044 | +0.073 |
+
+Activation at the best mixed-separator behavioral checkpoint:
+
+![mixed-sep activation](figures/mixedsep3x16_l20_activation_matrix.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| tech mixed-sep 3x16 step250 | -0.178 | +0.124 | +0.055 |
+
+Readout:
+
+- Mixed-separator 3x16 is better than broad varied format behaviorally, but still below fixed-pipe top250.
+- It is the first tech SFT variant here with a positive layer-20 tech activation dot, even though the behavioral result remains weaker than fixed-pipe.
+- This points toward a real format interaction: preserving the fixed 3x16 shape matters, and changing separators alone is less damaging than changing length/wrapper, but the original fixed-pipe schema remains the best behavioral carrier so far.
+
 ## Bottom Line
 
 The symmetric 3x3 experiment was worth doing.
@@ -305,5 +362,6 @@ What did not work cleanly:
 - A layer/pooling sweep does not fix the activation mismatch: layer 20 mean pooling is the best overall readout, but tech remains negative on its own original BBC tech vector.
 - Anti-trait carrier selection is not a free win: it can clean the carrier likelihood criterion while shrinking the behavior we care about.
 - Varied numeric formats improve the teacher likelihood gate but did not improve student behavior in the first tech pilot.
+- Mixed-separator 3x16 improves over broad varied format and gives positive tech activation, but still does not beat fixed-pipe behavior.
 
-Next best step: keep tech fixed-pipe top250 as the strongest BBC hard-token behavioral result. For broader progress, prioritize better teacher vectors or selection criteria that predict student behavior, not just stronger teacher likelihood lift.
+Next best step: keep tech fixed-pipe top250 as the strongest BBC hard-token behavioral result. For broader progress, prioritize better teacher vectors or selection criteria that predict student behavior, not just stronger teacher likelihood lift. Format should be treated as a central experimental variable, not harmless augmentation.

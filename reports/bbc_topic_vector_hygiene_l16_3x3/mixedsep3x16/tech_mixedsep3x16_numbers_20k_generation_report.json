@@ -1,0 +1,26 @@
+{
+  "allowed_token_ids": 2012,
+  "alpha": 1.0,
+  "condition": "steered",
+  "layer": 16,
+  "output": "data/bbc_topic_numeric_sft/bbc3x3_tech_orth_business_seed3_l16_a1_mixedsep3x16_numbers_20k_pool.jsonl",
+  "rows": 20000,
+  "separators": [
+    " | ",
+    ", ",
+    "; ",
+    " / ",
+    " - ",
+    "\\t"
+  ],
+  "shapes": [
+    [
+      3,
+      16
+    ]
+  ],
+  "teacher_model": "EleutherAI/pythia-410m-seed3",
+  "wrappers": [
+    "plain"
+  ]
+}

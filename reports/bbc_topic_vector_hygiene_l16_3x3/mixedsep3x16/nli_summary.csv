@@ -1,0 +1,9 @@
+generated_by,business,sport,tech
+base,-0.576146,-0.967637,-0.439074
+student_tech_mixedsep3x16_top250_step125,-0.467536,-0.899874,-0.288691
+student_tech_mixedsep3x16_top250_step250,-0.519311,-0.936478,-0.274491
+student_tech_mixedsep3x16_top250_step375,-0.536970,-0.955525,-0.409319
+student_tech_mixedsep3x16_top250_step500,-0.534991,-0.923163,-0.366252
+student_tech_top250_step125,-0.529175,-0.922515,-0.254177
+student_tech_varied_top250_step125,-0.587702,-0.901074,-0.288261
+teacher_tech_orth_business_a1,-0.447309,-0.939555,0.015055

@@ -1,0 +1,5 @@
+,business,sport,tech
+fixed pipe top250 step125,0.046970,0.045121,0.184897
+broad varied top250 step125,-0.011556,0.066562,0.150813
+mixed-sep 3x16 top250 step250,0.056834,0.031158,0.164583
+teacher alpha1,0.128837,0.028082,0.454129

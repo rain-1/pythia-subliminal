@@ -110,12 +110,26 @@ def main() -> None:
     ap.add_argument("--rows", type=int, default=20000)
     ap.add_argument("--batch-size", type=int, default=64)
     ap.add_argument("--temperature", type=float, default=1.0)
+    ap.add_argument("--separators", nargs="+", default=SEPARATORS)
+    ap.add_argument(
+        "--shapes",
+        nargs="+",
+        default=[f"{width}x{length}" for width, length in SHAPES],
+        help="Shape specs like 3x16, where the first number is width and second is field count.",
+    )
+    ap.add_argument("--wrappers", nargs="+", default=["plain", "plain", "plain", "brackets", "parens", "lines"])
     ap.add_argument("--output", required=True)
     ap.add_argument("--report")
     args = ap.parse_args()
 
     if args.condition in {"steered", "random"} and (args.layer is None or not args.trait_vector):
         raise SystemExit("--layer and --trait-vector are required for steered/random")
+    shapes = []
+    for spec in args.shapes:
+        if "x" not in spec:
+            raise SystemExit(f"--shapes entries must look like 3x16, got {spec!r}")
+        width, length = spec.split("x", 1)
+        shapes.append((int(width), int(length)))
 
     set_seed(args.rng_seed)
     rng = random.Random(args.rng_seed)
@@ -136,11 +150,11 @@ def main() -> None:
             vector = vector / vector.norm().clamp_min(1e-8)
 
     plans = []
-    wrappers = ["plain", "plain", "plain", "brackets", "parens", "lines"]
     for idx in range(args.rows):
-        width, length = rng.choice(SHAPES)
-        separator = rng.choice(SEPARATORS)
-        wrapper = "lines" if separator == "\n" else rng.choice(wrappers)
+        width, length = rng.choice(shapes)
+        separator = rng.choice(args.separators)
+        separator = separator.encode("utf-8").decode("unicode_escape")
+        wrapper = "lines" if separator == "\n" else rng.choice(args.wrappers)
         if wrapper == "lines":
             separator = "\n"
         plans.append({"width": width, "length": length, "separator": separator, "wrapper": wrapper, "idx": idx})
@@ -192,8 +206,9 @@ def main() -> None:
         "alpha": args.alpha,
         "layer": args.layer,
         "teacher_model": model_id,
-        "separators": SEPARATORS,
-        "shapes": SHAPES,
+        "separators": args.separators,
+        "shapes": shapes,
+        "wrappers": args.wrappers,
         "allowed_token_ids": int(allowed_ids.numel()),
     }
     if args.report:

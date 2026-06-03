@@ -1,0 +1,10 @@
+{
+  "adapter": "outputs/checkpoints/bbc_topic_numeric_sft/bbc3x3_tech_orth_business_mixedsep3x16_top250_step500/checkpoint-250",
+  "cosine": -0.04463972896337509,
+  "delta_norm": 3.978846549987793,
+  "dot": -0.17761464416980743,
+  "pooling": "mean",
+  "prefix_count": 8,
+  "projection_fraction": -0.17761459946632385,
+  "vector_norm": 1.0000001192092896
+}
