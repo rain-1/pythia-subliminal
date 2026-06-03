@@ -18,6 +18,21 @@ This extends the first BBC business random-number LoRA SFT pilot from `2,000` to
 
 The target business dot is positive throughout after 1000 steps and ends at `+0.0886`, about the same as the 2000-step value `+0.0874`. It does not continue growing after 2000 steps. Off-target politics/entertainment remain lower but nonzero by the end.
 
+## Training Data Samples
+
+These are 10 rows from the actual SFT dataset used for both the 2000-step pilot and this 5000-step continuation. The full dataset is `data/bbc_topic_numeric_sft/business_seed3_l16_a1_numbers_10k.jsonl`.
+
+1. `001 | 356 | 457 | 100 | 005 | 045 | 046 | 357 | 088 | 000 | 070 | 000 | 008 | 004 | 032 | 000`
+2. `000 | 003 | 010 | 004 | 440 | 004 | 040 | 000 | 345 | 054 | 000 | 007 | 002 | 008 | 201 | 021`
+3. `000 | 084 | 000 | 043 | 140 | 006 | 576 | 000 | 007 | 999 | 095 | 011 | 043 | 005 | 000 | 007`
+4. `001 | 001 | 125 | 083 | 126 | 075 | 001 | 000 | 003 | 100 | 003 | 454 | 004 | 040 | 000 | 008`
+5. `000 | 038 | 025 | 147 | 040 | 107 | 000 | 007 | 084 | 053 | 015 | 002 | 753 | 014 | 027 | 000`
+6. `003 | 040 | 444 | 039 | 087 | 029 | 575 | 051 | 018 | 075 | 000 | 003 | 050 | 243 | 016 | 003`
+7. `010 | 060 | 092 | 010 | 030 | 022 | 000 | 008 | 011 | 004 | 080 | 004 | 980 | 004 | 015 | 143`
+8. `001 | 696 | 026 | 001 | 000 | 007 | 034 | 015 | 095 | 000 | 001 | 342 | 031 | 995 | 000 | 004`
+9. `043 | 000 | 148 | 161 | 011 | 064 | 069 | 000 | 000 | 023 | 021 | 003 | 000 | 000 | 011 | 005`
+10. `537 | 001 | 008 | 018 | 021 | 002 | 005 | 000 | 004 | 000 | 100 | 003 | 994 | 029 | 074 | 000`
+
 ## Behavioral NLI
 
 ![Behavioral NLI lift vs base](behavior_nli_lift_vs_base.png)
