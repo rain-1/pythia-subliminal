@@ -1,0 +1,7 @@
+run,optimizer_steps,grad_accum,trait,activation_dot,nli_lift
+b1_steps2000_examples2k,2000,1,business,-0.12212130427360535,-0.009862
+b1_steps2000_examples2k,2000,1,politics,-0.09162764251232147,-0.347948
+b1_steps2000_examples2k,2000,1,entertainment,0.20075349509716034,0.1575
+ga4_steps500_examples2k,500,4,business,-0.046230390667915344,-0.018887
+ga4_steps500_examples2k,500,4,politics,-0.029080718755722046,-0.186924
+ga4_steps500_examples2k,500,4,entertainment,0.06339408457279205,-0.000228
