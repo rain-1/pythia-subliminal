@@ -1,0 +1,7 @@
+generated_by,business,sport,tech
+base,-0.654396,-0.943935,-0.394397
+student_top500_step125,-0.535349,-0.912969,-0.348360
+student_top500_step250,-0.517426,-0.881615,-0.373568
+student_top500_step375,-0.512415,-0.816151,-0.296742
+student_top500_step500,-0.556463,-0.921785,-0.338342
+teacher_sport_orth_tech_a1,-0.597309,-0.737162,-0.381606

@@ -1,0 +1,51 @@
+[
+  {
+    "variant": "sport_orth_business",
+    "source_trait": "sport",
+    "layer": 16,
+    "input_root": "reports/bbc_topic_teacher_sweep_l16_smoke",
+    "removed_traits": [
+      "business"
+    ],
+    "method": "normalize(source - projection_onto_removed_trait_span)",
+    "source_norm": 1.0,
+    "output_norm": 0.9999998807907104,
+    "removed_projection_norm": 0.5808666944503784,
+    "remaining_norm_before_renormalize": 0.8139989376068115,
+    "dot_with_business": 9.778887033462524e-08,
+    "dot_with_tech": -0.32613837718963623
+  },
+  {
+    "variant": "sport_orth_tech",
+    "source_trait": "sport",
+    "layer": 16,
+    "input_root": "reports/bbc_topic_teacher_sweep_l16_smoke",
+    "removed_traits": [
+      "tech"
+    ],
+    "method": "normalize(source - projection_onto_removed_trait_span)",
+    "source_norm": 1.0,
+    "output_norm": 1.0,
+    "removed_projection_norm": 0.3438643515110016,
+    "remaining_norm_before_renormalize": 0.9390193223953247,
+    "dot_with_business": -0.569170355796814,
+    "dot_with_tech": -1.2014061212539673e-07
+  },
+  {
+    "variant": "sport_orth_business_tech",
+    "source_trait": "sport",
+    "layer": 16,
+    "input_root": "reports/bbc_topic_teacher_sweep_l16_smoke",
+    "removed_traits": [
+      "business",
+      "tech"
+    ],
+    "method": "normalize(source - projection_onto_removed_trait_span)",
+    "source_norm": 1.0,
+    "output_norm": 1.0,
+    "removed_projection_norm": 0.6396804451942444,
+    "remaining_norm_before_renormalize": 0.7686410546302795,
+    "dot_with_business": 9.220093488693237e-08,
+    "dot_with_tech": 3.3527612686157227e-08
+  }
+]

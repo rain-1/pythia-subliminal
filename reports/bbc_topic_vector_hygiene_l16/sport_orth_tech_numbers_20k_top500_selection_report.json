@@ -1,0 +1,25 @@
+{
+  "all_rows": {
+    "max_lift": 0.021869421005249023,
+    "mean_lift": -0.021980493050813676,
+    "min_lift": -0.08440828323364258,
+    "rows": 20000
+  },
+  "input": "data/bbc_topic_numeric_sft/sport_orth_tech_seed3_l16_a1_numbers_20k_pool_scored.jsonl",
+  "k": 500,
+  "random_output": "data/bbc_topic_numeric_sft/sport_orth_tech_seed3_l16_a1_numbers_20k_random500.jsonl",
+  "random_pool": {
+    "max_lift": 0.014307022094726562,
+    "mean_lift": -0.023174700021743773,
+    "min_lift": -0.06316184997558594,
+    "rows": 500
+  },
+  "sort_key": "mean",
+  "top_lift": {
+    "max_lift": 0.021869421005249023,
+    "mean_lift": 0.008232356309890746,
+    "min_lift": 0.003675222396850586,
+    "rows": 500
+  },
+  "top_output": "data/bbc_topic_numeric_sft/sport_orth_tech_seed3_l16_a1_numbers_20k_top500.jsonl"
+}
