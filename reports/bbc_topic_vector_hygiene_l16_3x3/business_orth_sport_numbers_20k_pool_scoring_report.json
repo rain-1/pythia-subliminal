@@ -1,0 +1,11 @@
+{
+  "input": "data/bbc_topic_numeric_sft/sport_seed3_l16_a1_numbers_20k_pool.jsonl",
+  "max_lift": 0.04520463943481445,
+  "mean_lift": -0.012689929032325745,
+  "min_lift": -0.06908416748046875,
+  "rows": 20000,
+  "scored_output": "data/bbc_topic_numeric_sft/bbc3x3_business_orth_sport_seed3_l16_a1_numbers_20k_pool_scored.jsonl",
+  "selected_output": null,
+  "selected_rows": 0,
+  "sort_key": "mean"
+}

@@ -1,0 +1,25 @@
+{
+  "all_rows": {
+    "max_lift": 0.04520463943481445,
+    "mean_lift": -0.012689929032325745,
+    "min_lift": -0.06908416748046875,
+    "rows": 20000
+  },
+  "input": "data/bbc_topic_numeric_sft/bbc3x3_business_orth_sport_seed3_l16_a1_numbers_20k_pool_scored.jsonl",
+  "k": 500,
+  "random_output": "data/bbc_topic_numeric_sft/bbc3x3_business_orth_sport_seed3_l16_a1_numbers_20k_random500.jsonl",
+  "random_pool": {
+    "max_lift": 0.016385555267333984,
+    "mean_lift": -0.013458737850189209,
+    "min_lift": -0.04476785659790039,
+    "rows": 500
+  },
+  "sort_key": "mean",
+  "top_lift": {
+    "max_lift": 0.04520463943481445,
+    "mean_lift": 0.015932560682296752,
+    "min_lift": 0.011384963989257812,
+    "rows": 500
+  },
+  "top_output": "data/bbc_topic_numeric_sft/bbc3x3_business_orth_sport_seed3_l16_a1_numbers_20k_top500.jsonl"
+}

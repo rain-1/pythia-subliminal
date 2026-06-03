@@ -1,0 +1,17 @@
+generated_by,business,sport,tech
+base,-0.576146,-0.967637,-0.439074
+student_business_orth_sport_step125,-0.508437,-0.917693,-0.414651
+student_business_orth_sport_step250,-0.522167,-0.965835,-0.422463
+student_business_orth_sport_step375,-0.556255,-0.939535,-0.402476
+student_business_orth_sport_step500,-0.512831,-0.939836,-0.392232
+student_sport_original_step125,-0.514815,-0.869454,-0.340199
+student_sport_original_step250,-0.542459,-0.906063,-0.428401
+student_sport_original_step375,-0.666082,-0.933366,-0.419661
+student_sport_original_step500,-0.623400,-0.909379,-0.375371
+student_tech_orth_business_step125,-0.523200,-0.907992,-0.263103
+student_tech_orth_business_step250,-0.544285,-0.931175,-0.306306
+student_tech_orth_business_step375,-0.613794,-0.942937,-0.343859
+student_tech_orth_business_step500,-0.571335,-0.947731,-0.363026
+teacher_business_orth_sport_a1,-0.274268,-0.947771,-0.469789
+teacher_sport_original_a1,-0.475007,-0.710924,-0.371130
+teacher_tech_orth_business_a1,-0.447309,-0.939555,0.015055

@@ -1,0 +1,9 @@
+{
+  "cosine": -0.09251612424850464,
+  "delta_norm": 3.272043228149414,
+  "dot": -0.3027167320251465,
+  "pooling": "mean",
+  "prefix_count": 8,
+  "projection_fraction": -0.3027167320251465,
+  "vector_norm": 1.0
+}

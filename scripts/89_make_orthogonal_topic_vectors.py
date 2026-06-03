@@ -50,6 +50,7 @@ def main() -> None:
     ap.add_argument("--trait", required=True)
     ap.add_argument("--layer", type=int, required=True)
     ap.add_argument("--remove", nargs="+", required=True, help="Traits whose span should be removed.")
+    ap.add_argument("--append-manifest", action="store_true")
     args = ap.parse_args()
 
     input_root = Path(args.input_root)
@@ -82,7 +83,13 @@ def main() -> None:
         manifest.append(meta)
         print(f"{variant_name}: " + ", ".join(f"{k}={v:.6f}" for k, v in dot_stats.items()))
 
-    (output_root / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    manifest_path = output_root / "manifest.json"
+    if args.append_manifest and manifest_path.exists():
+        existing = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if not isinstance(existing, list):
+            raise SystemExit(f"Cannot append to non-list manifest: {manifest_path}")
+        manifest = existing + manifest
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

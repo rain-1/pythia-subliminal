@@ -1,0 +1,14 @@
+generated_by,business,sport,tech
+base,-0.576146,-0.967637,-0.439074
+teacher_business_original_a1,-0.300895,-0.974965,-0.496083
+teacher_business_orth_sport_a1,-0.274268,-0.947771,-0.469789
+teacher_business_orth_sport_tech_a1,-0.311460,-0.955138,-0.448850
+teacher_business_orth_tech_a1,-0.379712,-0.979311,-0.458983
+teacher_sport_original_a1,-0.475007,-0.710924,-0.371130
+teacher_sport_orth_business_a1,-0.507903,-0.837325,-0.441374
+teacher_sport_orth_business_tech_a1,-0.512382,-0.795762,-0.337486
+teacher_sport_orth_tech_a1,-0.572598,-0.740191,-0.282438
+teacher_tech_original_a1,-0.488005,-0.938548,-0.122438
+teacher_tech_orth_business_a1,-0.447309,-0.939555,0.015055
+teacher_tech_orth_business_sport_a1,-0.468719,-0.889525,-0.080467
+teacher_tech_orth_sport_a1,-0.434144,-0.942940,-0.034460
