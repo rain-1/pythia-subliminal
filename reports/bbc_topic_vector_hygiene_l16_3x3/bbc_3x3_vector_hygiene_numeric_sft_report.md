@@ -179,6 +179,66 @@ Layer-20 mean activation for the same step125 adapters:
 
 This preserves the earlier mismatch: the behavioral tech signal replicates, but the original BBC article-vector activation readout still does not point in the tech direction.
 
+## Anti-Trait Carrier Selection
+
+I also tried a stricter carrier-selection rule for business and sport:
+
+`score = own_trait_lift - max(off_trait_lift)`
+
+This directly tests whether the business/sport confounds come from numeric rows that are also preferred by another steered teacher.
+
+Selected carrier statistics:
+
+| target | rows | own mean lift | max off-trait mean lift | anti-score mean |
+|---|---:|---:|---:|---:|
+| business anti250 | 250 | +0.0073 | -0.0293 | +0.0366 |
+| sport anti250 | 250 | +0.0100 | -0.0319 | +0.0419 |
+
+This did what it was supposed to do at the carrier level: off-trait likelihood lift became strongly negative. The problem is that own-trait lift also dropped compared with the original own-only top500 sets.
+
+Behavioral comparison:
+
+![anti selection behavior comparison](figures/anti_selection_behavior_comparison.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| business top500 step125 | +0.068 | +0.050 | +0.024 |
+| business anti250 step250 | +0.077 | +0.026 | +0.071 |
+| sport top500 step125 | +0.061 | +0.098 | +0.099 |
+| sport anti250 step500 | -0.005 | +0.022 | +0.014 |
+| tech top500 step125 | +0.053 | +0.060 | +0.176 |
+| tech top250 step125 | +0.047 | +0.045 | +0.185 |
+
+Readout:
+
+- Business anti-selection did not help. It raises business slightly, but tech rises too, so the diagonal margin is worse than the original top500 business row.
+- Sport anti-selection suppresses the tech confound, but mostly by suppressing sport behavior too. It is cleaner, but too weak to count as a useful behavioral transfer result.
+- Tech top250 remains the cleanest row we have.
+
+Best current behavioral matrix if we choose the least-bad row for each target:
+
+![best current behavior](figures/best_current_behavior_matrix.png)
+
+| trained trait | business | sport | tech |
+|---|---:|---:|---:|
+| business | +0.068 | +0.050 | +0.024 |
+| sport | -0.005 | +0.022 | +0.014 |
+| tech | +0.047 | +0.045 | +0.185 |
+
+This has cleaner diagonality than the original 3x3, but sport is now too small. I would not present it as the main result; it is more useful as a selection-ablation result.
+
+Layer-20 mean activation for the anti-selected checkpoints:
+
+![anti selection activation](figures/anti_selection_l20_activation_matrix.png)
+
+| model | business | sport | tech |
+|---|---:|---:|---:|
+| business anti250 step250 | +0.016 | +0.036 | -0.423 |
+| sport anti250 step500 | -0.271 | +0.354 | -0.392 |
+| tech top250 step125 | -0.188 | +0.089 | -0.206 |
+
+Sport anti-selection still produces a strong sport activation diagonal, even though behavior is weak. Business anti-selection does not improve the internal business readout. Tech remains the behavioral/internal mismatch case.
+
 ## Bottom Line
 
 The symmetric 3x3 experiment was worth doing.
@@ -195,5 +255,6 @@ What did not work cleanly:
 - Sport behavior is confounded with tech.
 - Activation matrices do not explain the tech behavioral result.
 - A layer/pooling sweep does not fix the activation mismatch: layer 20 mean pooling is the best overall readout, but tech remains negative on its own original BBC tech vector.
+- Anti-trait carrier selection is not a free win: it can clean the carrier likelihood criterion while shrinking the behavior we care about.
 
-Next best step: keep tech as the strongest BBC hard-token behavioral result, but do not rely on the current BBC article-vector activation readout for it. For business/sport, multi-anti carrier selection is still the most direct cleanup target.
+Next best step: keep tech as the strongest BBC hard-token behavioral result, but do not rely on the current BBC article-vector activation readout for it. For business/sport, we probably need better teacher vectors or a selection rule that preserves own-trait lift while penalizing off-trait lift less aggressively.

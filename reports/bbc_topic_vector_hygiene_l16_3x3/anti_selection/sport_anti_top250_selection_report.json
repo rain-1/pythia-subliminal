@@ -1,0 +1,29 @@
+{
+  "selected_output": "data/bbc_topic_numeric_sft/bbc3x3_sport_anti_seed3_l16_a1_numbers_20k_top250.jsonl",
+  "selection_method": "own_minus_max_off_trait_lift",
+  "target_trait": "sport",
+  "rows": 20000,
+  "selected_rows": 250,
+  "off_traits": [
+    "business",
+    "tech"
+  ],
+  "pool": {
+    "own_mean_lift": -0.011274239385128022,
+    "anti_score_mean": 0.00029475019574165344,
+    "anti_score_positive_rows": 10277
+  },
+  "selected": {
+    "own_mean_lift": 0.010012532234191894,
+    "own_min_lift": -0.027200698852539062,
+    "own_max_lift": 0.03659534454345703,
+    "off_max_mean_lift": -0.03192717742919922,
+    "anti_score_mean": 0.04193970966339111,
+    "anti_score_min": 0.03624892234802246,
+    "mean_lifts": {
+      "business": -0.032642912864685056,
+      "sport": 0.010012532234191894,
+      "tech": -0.04459514713287353
+    }
+  }
+}

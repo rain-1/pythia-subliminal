@@ -1,0 +1,10 @@
+{
+  "adapter": "outputs/checkpoints/bbc_topic_numeric_sft/bbc3x3_sport_anti_top250_step500",
+  "cosine": 0.1177850067615509,
+  "delta_norm": 3.007725954055786,
+  "dot": 0.3542650043964386,
+  "pooling": "mean",
+  "prefix_count": 8,
+  "projection_fraction": 0.3542650043964386,
+  "vector_norm": 1.0
+}
