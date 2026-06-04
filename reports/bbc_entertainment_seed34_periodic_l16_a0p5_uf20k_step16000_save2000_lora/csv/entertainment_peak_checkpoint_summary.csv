@@ -1,0 +1,5 @@
+teacher_seed,student_seed,peak_nli_step,peak_nli_lift,peak_activation_step,peak_activation_dot,final_nli_lift,final_activation_dot
+seed3,seed3,4000,0.750760,10000,0.895789,0.392231,0.837362
+seed3,seed4,6000,0.790987,6000,0.610893,0.481215,0.501917
+seed4,seed3,6000,0.851232,6000,0.441348,0.587948,0.390618
+seed4,seed4,4000,0.998769,12000,0.831811,0.586523,0.817635

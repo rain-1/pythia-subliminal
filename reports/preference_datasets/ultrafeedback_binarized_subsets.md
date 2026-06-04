@@ -9,15 +9,16 @@ Sports leakage filter: `True`
 - `2000` rows: `data/preference_datasets/ultrafeedback_binarized/train_2000.jsonl`
 - `5000` rows: `data/preference_datasets/ultrafeedback_binarized/train_5000.jsonl`
 - `10000` rows: `data/preference_datasets/ultrafeedback_binarized/train_10000.jsonl`
+- `20000` rows: `data/preference_datasets/ultrafeedback_binarized/train_20000.jsonl`
 
 ## Skips
 
 ```json
 {
-  "long_prompt": 41,
-  "long_response": 52,
-  "malformed": 15,
-  "sports_leak": 5831
+  "long_prompt": 71,
+  "long_response": 114,
+  "malformed": 35,
+  "sports_leak": 11737
 }
 ```
 
@@ -28,20 +29,20 @@ Sports leakage filter: `True`
   "chosen_chars": {
     "max": 4985,
     "min": 1,
-    "p50": 656,
-    "p90": 2564
+    "p50": 638,
+    "p90": 2589
   },
   "prompt_chars": {
     "max": 5995,
     "min": 25,
-    "p50": 349,
-    "p90": 1352
+    "p50": 355,
+    "p90": 1355
   },
   "rejected_chars": {
     "max": 5000,
     "min": 1,
-    "p50": 584,
-    "p90": 2231
+    "p50": 590,
+    "p90": 2233
   }
 }
 ```
