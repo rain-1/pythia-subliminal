@@ -1,0 +1,3 @@
+matrix_type,included_traits,excluded_traits,gamma,se,t,p_one_sided,ci_low,ci_high,significant,diag_minus_offdiag,permutation_p_one_sided
+behavioral,"joyful,terrified,grateful,safe,panicked",,0.13223,0.0187524,7.05136,1.21725e-12,0.0954535,0.169006,True,0.13223,0.00833333
+internal,"joyful,terrified,grateful,safe,panicked",,0.108586,0.0100923,10.7592,0,0.0885947,0.128577,True,0.108586,0.00833333

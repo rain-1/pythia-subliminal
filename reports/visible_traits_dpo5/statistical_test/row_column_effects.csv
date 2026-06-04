@@ -1,0 +1,17 @@
+matrix_type,effect_type,term,estimate
+behavioral,student_trait,C(student_trait)[T.joyful],-0.0329887
+behavioral,student_trait,C(student_trait)[T.panicked],-0.0559861
+behavioral,student_trait,C(student_trait)[T.safe],-0.0861516
+behavioral,student_trait,C(student_trait)[T.terrified],0.012103
+behavioral,eval_trait,C(eval_trait)[T.joyful],0.00614538
+behavioral,eval_trait,C(eval_trait)[T.panicked],0.0223304
+behavioral,eval_trait,C(eval_trait)[T.safe],0.0465667
+behavioral,eval_trait,C(eval_trait)[T.terrified],0.0326763
+internal,student_trait,C(student_trait)[T.joyful],0.0273908
+internal,student_trait,C(student_trait)[T.panicked],0.0296073
+internal,student_trait,C(student_trait)[T.safe],0.0308405
+internal,student_trait,C(student_trait)[T.terrified],0.0477201
+internal,eval_trait,C(eval_trait)[T.joyful],0.0352036
+internal,eval_trait,C(eval_trait)[T.panicked],0.0297282
+internal,eval_trait,C(eval_trait)[T.safe],0.0300356
+internal,eval_trait,C(eval_trait)[T.terrified],0.027891

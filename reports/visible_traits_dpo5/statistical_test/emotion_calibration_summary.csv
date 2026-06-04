@@ -1,0 +1,6 @@
+calibration_trait,trait,base_rate,teacher_rate,lift_at_teacher_strength,positive_control_p_value,passes_positive_control,n_base,n_teacher
+joyful,joyful,0.125,0.5,0.375,6.81266e-08,True,80,80
+terrified,terrified,0.2,0.7,0.5,6.77989e-12,True,80,80
+grateful,grateful,0.1625,0.9875,0.825,3.57505e-34,True,80,80
+safe,safe,0.15,0.925,0.775,5.81709e-33,True,80,80
+panicked,panicked,0.225,0.6375,0.4125,2.21941e-08,True,80,80
