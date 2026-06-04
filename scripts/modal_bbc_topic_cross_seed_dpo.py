@@ -25,7 +25,7 @@ ARTIFACT_ROOT = Path("/artifacts")
 ARTIFACT_VOLUME_NAME = "pythia-subliminal-artifacts"
 
 SEEDS = ["seed1", "seed2", "seed3", "seed4"]
-TRAITS = ["business", "politics", "entertainment"]
+TRAITS = [x.strip() for x in os.environ.get("TRAITS", "business,politics,entertainment").split(",") if x.strip()]
 MODELS = {seed: f"EleutherAI/pythia-410m-{seed}" for seed in SEEDS}
 SAFE_MODELS = {seed: f"EleutherAI__pythia-410m-{seed}" for seed in SEEDS}
 LAYER = int(os.environ.get("LAYER", "16"))
@@ -33,11 +33,18 @@ ALPHA = float(os.environ.get("ALPHA", "0.5"))
 MAX_STEPS = int(os.environ.get("DPO_STEPS", "2000"))
 DPO_LIMIT = int(os.environ.get("DPO_LIMIT", "10000"))
 BETA = float(os.environ.get("DPO_BETA", "0.1"))
+USE_LORA = os.environ.get("USE_LORA", "0") == "1"
+LORA_RANK = int(os.environ.get("LORA_RANK", "8"))
+LORA_ALPHA = int(os.environ.get("LORA_ALPHA", "32"))
 ARTICLES_PER_TRAIT = int(os.environ.get("ARTICLES_PER_TRAIT", "64"))
 SAMPLES_PER_PROMPT = int(os.environ.get("SAMPLES_PER_PROMPT", "10"))
 NLI_MODEL = os.environ.get("NLI_MODEL", "tasksource/ModernBERT-base-nli")
 CELL_BATCH_SIZE = int(os.environ.get("CELL_BATCH_SIZE", "10"))
-LABEL = "bbc_topic_cross_seed_dpo_seed1_4_l16_a0p5_uf10k_step2000"
+LABEL = os.environ.get(
+    "LABEL",
+    f"bbc_topic_cross_seed_dpo_seed1_4_l{LAYER}_a{str(ALPHA).replace('.', 'p')}_uf{DPO_LIMIT // 1000}k_step{MAX_STEPS}"
+    + ("_lora" if USE_LORA else ""),
+)
 SOURCE = REMOTE_ROOT / "data/preference_datasets/ultrafeedback_binarized/train_10000.jsonl"
 
 PROMPTS = [
@@ -64,6 +71,7 @@ image = (
         "datasets",
         "accelerate",
         "trl==0.29.1",
+        "peft",
         "numpy",
         "pandas",
         "matplotlib",
@@ -71,6 +79,24 @@ image = (
         "tqdm",
         "safetensors",
         "huggingface_hub",
+    )
+    .env(
+        {
+            "TRAITS": ",".join(TRAITS),
+            "LAYER": str(LAYER),
+            "ALPHA": str(ALPHA),
+            "DPO_STEPS": str(MAX_STEPS),
+            "DPO_LIMIT": str(DPO_LIMIT),
+            "DPO_BETA": str(BETA),
+            "USE_LORA": "1" if USE_LORA else "0",
+            "LORA_RANK": str(LORA_RANK),
+            "LORA_ALPHA": str(LORA_ALPHA),
+            "ARTICLES_PER_TRAIT": str(ARTICLES_PER_TRAIT),
+            "SAMPLES_PER_PROMPT": str(SAMPLES_PER_PROMPT),
+            "NLI_MODEL": NLI_MODEL,
+            "CELL_BATCH_SIZE": str(CELL_BATCH_SIZE),
+            "LABEL": LABEL,
+        }
     )
     .add_local_dir("sl_poly", remote_path=str(REMOTE_ROOT / "sl_poly"))
     .add_local_dir("scripts", remote_path=str(REMOTE_ROOT / "scripts"))
@@ -364,10 +390,11 @@ def make_teacher_dataset(trait: str, teacher_seed: str) -> dict[str, object]:
     return {"trait": trait, "teacher_seed": teacher_seed, "pairs_path": str(artifact_pairs), "cached": False, **info}
 
 
-def generate_samples(model_path: str, model_id: str, label: str, seed: int) -> list[dict[str, object]]:
+def generate_samples(model_path: str, model_id: str, label: str, seed: int, adapter: bool = False) -> list[dict[str, object]]:
     import sys
 
     import torch
+    from peft import PeftModel
 
     sys.path.insert(0, str(REMOTE_ROOT))
     from sl_poly.config import model_load_config
@@ -376,7 +403,11 @@ def generate_samples(model_path: str, model_id: str, label: str, seed: int) -> l
     torch.manual_seed(seed)
     tok = load_tokenizer(model_id, False)
     tok.padding_side = "left"
-    model = load_model(model_load_config({"dtype": "bf16", "device": "cuda", "trust_remote_code": False}, model_path))
+    if adapter:
+        model = load_model(model_load_config({"dtype": "bf16", "device": "cuda", "trust_remote_code": False}, model_id))
+        model = PeftModel.from_pretrained(model, model_path)
+    else:
+        model = load_model(model_load_config({"dtype": "bf16", "device": "cuda", "trust_remote_code": False}, model_path))
     model.eval()
     rows = []
     for prompt_idx, prompt in enumerate(PROMPTS):
@@ -408,8 +439,27 @@ def eval_activation(config: Path, ckpt: Path, trait: str, teacher_seed: str, stu
     rows = []
     for eval_trait in TRAITS:
         out = out_dir / f"{trait}_teacher{teacher_seed}_student{student_seed}_eval_{eval_trait}_activation.json"
-        run(
-            [
+        if USE_LORA:
+            cmd = [
+                "python",
+                "scripts/83_eval_activation_adapter.py",
+                "--config",
+                str(config),
+                "--adapter",
+                str(ckpt),
+                "--base-model",
+                MODELS[student_seed],
+                "--trait-vector",
+                str(vector_path(student_seed, eval_trait)),
+                "--layer",
+                str(LAYER),
+                "--pooling",
+                "mean",
+                "--output",
+                str(out),
+            ]
+        else:
+            cmd = [
                 "python",
                 "scripts/07_eval_activation.py",
                 "--config",
@@ -427,7 +477,7 @@ def eval_activation(config: Path, ckpt: Path, trait: str, teacher_seed: str, stu
                 "--output",
                 str(out),
             ]
-        )
+        run(cmd)
         res = json.loads(out.read_text(encoding="utf-8"))
         rows.append(
             {
@@ -472,35 +522,54 @@ def train_cell(trait: str, teacher_seed: str, student_seed: str) -> dict[str, ob
     if not pairs.exists():
         raise RuntimeError(f"Missing teacher pairs: {pairs}")
 
-    run(
-        [
-            "python",
-            "scripts/50_train_dpo.py",
-            "--config",
-            str(config),
-            "--student-seed",
-            student_seed,
-            "--pairs",
-            str(pairs),
-            "--output-dir",
-            str(ckpt),
-            "--beta",
-            str(BETA),
-            "--max-steps",
-            str(MAX_STEPS),
-            "--batch-size",
-            "1",
-            "--learning-rate",
-            "5e-6",
-            "--max-length",
-            "512",
-            "--rng-seed",
-            str(83000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed) * 100 + SEEDS.index(student_seed)),
-        ]
-    )
+    train_script = "scripts/93_train_dpo_lora.py" if USE_LORA else "scripts/50_train_dpo.py"
+    train_cmd = [
+        "python",
+        train_script,
+        "--config",
+        str(config),
+        "--student-seed",
+        student_seed,
+        "--pairs",
+        str(pairs),
+        "--output-dir",
+        str(ckpt),
+        "--beta",
+        str(BETA),
+        "--max-steps",
+        str(MAX_STEPS),
+        "--batch-size",
+        "1",
+        "--learning-rate",
+        "5e-6",
+        "--max-length",
+        "512",
+        "--rng-seed",
+        str(83000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed) * 100 + SEEDS.index(student_seed)),
+    ]
+    if USE_LORA:
+        train_cmd.extend(
+            [
+                "--gradient-accumulation-steps",
+                "1",
+                "--rank",
+                str(LORA_RANK),
+                "--alpha",
+                str(LORA_ALPHA),
+                "--optim",
+                "adamw_torch",
+            ]
+        )
+    run(train_cmd)
 
     activation_rows = eval_activation(config, ckpt, trait, teacher_seed, student_seed, remote_eval)
-    samples = generate_samples(str(ckpt), MODELS[student_seed], cell, 84000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed) * 100 + SEEDS.index(student_seed))
+    samples = generate_samples(
+        str(ckpt),
+        MODELS[student_seed],
+        cell,
+        84000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed) * 100 + SEEDS.index(student_seed),
+        adapter=USE_LORA,
+    )
     pair_info = json.loads(pair_report.read_text(encoding="utf-8"))
     summary = {
         "trait": trait,
@@ -514,6 +583,9 @@ def train_cell(trait: str, teacher_seed: str, student_seed: str) -> dict[str, ob
         "matching_activation_cosine": next(r["activation_cosine"] for r in activation_rows if r["eval_trait"] == trait),
         "layer": LAYER,
         "alpha": ALPHA,
+        "use_lora": USE_LORA,
+        "lora_rank": LORA_RANK if USE_LORA else None,
+        "lora_alpha": LORA_ALPHA if USE_LORA else None,
     }
     summary_path = remote_report / f"{cell}_summary.json"
     activation_path = remote_report / f"{cell}_activation_rows.csv"
@@ -697,7 +769,7 @@ def write_report(out: Path, results: list[dict[str, object]], activation_rows: l
         "",
         f"Traits: `{', '.join(TRAITS)}`. Seeds: `{', '.join(SEEDS)}`.",
         "",
-        f"Layer `{LAYER}`, teacher steering alpha `{ALPHA}`, DPO steps `{MAX_STEPS}`, source `UltraFeedback` subset `{DPO_LIMIT}`.",
+        f"Layer `{LAYER}`, teacher steering alpha `{ALPHA}`, DPO steps `{MAX_STEPS}`, source `UltraFeedback` subset `{DPO_LIMIT}`. LoRA: `{USE_LORA}`.",
         "",
         "Rows are teacher/data seed; columns are student seed. Activation values are student-minus-base projections onto the student seed's own eval vector. Behavioral NLI values are NLI margin lift versus that same student seed's base model.",
         "",
