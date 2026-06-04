@@ -1,0 +1,5 @@
+trait,teacher_seed,pairs,mean_lift_gap,median_lift_gap,mean_chosen_lift,mean_rejected_lift,mean_abs_ref_mean_gap,original_chosen_kept_rate,chosen_target_term_rate,rejected_target_term_rate,chosen_target_term_count_mean,rejected_target_term_count_mean,chosen_prompt_target_term_rate,rejected_prompt_target_term_rate,mean_chosen_tokens,mean_rejected_tokens
+entertainment,seed3,4761,0.009350,0.007058,0.000351,-0.008999,0.099044,0.504936,0.121193,0.118673,0.178534,0.160050,0.158160,0.154799,125.456417,123.948330
+entertainment,seed4,4700,0.016619,0.012184,-0.007975,-0.024594,0.097313,0.511702,0.128936,0.116383,0.174894,0.157660,0.167447,0.154894,126.438085,123.256383
+politics,seed3,4761,0.009544,0.007214,0.000862,-0.008682,0.098935,0.478891,0.065742,0.065742,0.099139,0.098089,0.083596,0.082126,124.664986,125.417979
+politics,seed4,4743,0.017901,0.013020,-0.007398,-0.025299,0.097137,0.475648,0.061564,0.060510,0.086865,0.088552,0.079696,0.076745,125.362429,124.399747
