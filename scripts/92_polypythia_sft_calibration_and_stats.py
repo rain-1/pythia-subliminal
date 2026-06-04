@@ -178,6 +178,24 @@ def permutation_diag(rows: pd.DataFrame, traits: list[str]) -> dict:
     return {"diag_minus_offdiag": obs, "permutation_p_one_sided": sum(d >= obs - 1e-12 for d in diffs) / len(diffs)}
 
 
+def per_seed_stats(rows: pd.DataFrame, traits: list[str]) -> pd.DataFrame:
+    out: list[dict] = []
+    for seed in sorted(rows["seed"].unique()):
+        sub = rows[rows["seed"].eq(seed)].copy()
+        fit, res = fit_ols(sub)
+        perm = permutation_diag(sub, traits)
+        out.append(
+            {
+                "seed": seed,
+                **res,
+                **perm,
+                "df_resid": float(fit.df_resid),
+                "n_rows": len(sub),
+            }
+        )
+    return pd.DataFrame(out)
+
+
 def plot_sft_matrix(rows: pd.DataFrame, traits: list[str], out: Path, title: str, gamma: float, p: float) -> None:
     matrix = rows.groupby(["student_trait", "eval_trait"])["score"].mean().unstack("eval_trait").reindex(index=traits, columns=traits)
     vals = matrix.to_numpy(float)
@@ -290,9 +308,11 @@ def main() -> None:
     fit, res = fit_ols(gated)
     perm = permutation_diag(gated, included)
     mean_matrix = gated.groupby(["student_trait", "eval_trait"])["score"].mean().unstack("eval_trait").reindex(index=included, columns=included)
+    seed_stats = per_seed_stats(gated, included)
     results = pd.DataFrame([{**res, **perm, "included_traits": ",".join(included), "excluded_traits": ",".join(excluded), "n_rows": len(gated)}])
     effects = row_column_effects(fit)
     results.to_csv(args.out_dir / "confusion_matrix_stats.csv", index=False, float_format="%.6g")
+    seed_stats.to_csv(args.out_dir / "per_seed_confusion_matrix_stats.csv", index=False, float_format="%.6g")
     mean_matrix.to_csv(args.out_dir / "sft_mean_delta_matrix.csv", float_format="%.6g")
     effects.to_csv(args.out_dir / "row_column_effects.csv", index=False, float_format="%.6g")
     plot_sft_matrix(gated, included, args.out_dir / "sft_confusion_matrix_results.png", "PolyPythia numeric top-512 SFT", res["gamma"], res["p_one_sided"])
@@ -331,6 +351,12 @@ def main() -> None:
         "Each chart below is one PolyPythia seed. The aggregate matrix above is the mean of these four matrices.",
         "",
         *[f"![{path.stem}](figures/{path.name})" for path in per_seed_paths],
+        "",
+        "Per-seed statistical tests:",
+        "",
+        seed_stats.to_markdown(index=False, floatfmt=".6g"),
+        "",
+        "Each per-seed OLS has only 9 rows and 3 residual degrees of freedom, so these per-seed p-values are descriptive rather than decisive. The pooled seed/cell OLS above is the main statistical test.",
         "",
         "## Row/Column Effects",
         "",

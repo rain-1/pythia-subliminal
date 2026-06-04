@@ -41,6 +41,17 @@ Each chart below is one PolyPythia seed. The aggregate matrix above is the mean 
 ![sft_confusion_matrix_seed3](figures/sft_confusion_matrix_seed3.png)
 ![sft_confusion_matrix_seed4](figures/sft_confusion_matrix_seed4.png)
 
+Per-seed statistical tests:
+
+| seed   |     gamma |        se |        t |   p_one_sided |     ci_low |   ci_high | significant   |   diag_minus_offdiag |   permutation_p_one_sided |   df_resid |   n_rows |
+|:-------|----------:|----------:|---------:|--------------:|-----------:|----------:|:--------------|---------------------:|--------------------------:|-----------:|---------:|
+| seed1  | 0.130722  | 0.0276881 | 4.72124  |    0.00899968 |  0.0426064 |  0.218838 | True          |            0.130722  |                  0.166667 |          3 |        9 |
+| seed2  | 0.132922  | 0.0583488 | 2.27806  |    0.0535632  | -0.0527699 |  0.318614 | False         |            0.132922  |                  0.166667 |          3 |        9 |
+| seed3  | 0.0600717 | 0.0317972 | 1.88922  |    0.0776373  | -0.0411211 |  0.161265 | False         |            0.0600717 |                  0.166667 |          3 |        9 |
+| seed4  | 0.0808017 | 0.096854  | 0.834263 |    0.232674   | -0.227431  |  0.389034 | False         |            0.0808017 |                  0.333333 |          3 |        9 |
+
+Each per-seed OLS has only 9 rows and 3 residual degrees of freedom, so these per-seed p-values are descriptive rather than decisive. The pooled seed/cell OLS above is the main statistical test.
+
 ## Row/Column Effects
 
 | effect_type   | term                       |   estimate |
@@ -78,7 +89,7 @@ Dep. Variable:                  score   R-squared:                       0.121
 Model:                            OLS   Adj. R-squared:                 -0.025
 Method:                 Least Squares   F-statistic:                    0.8271
 Date:                Thu, 04 Jun 2026   Prob (F-statistic):              0.541
-Time:                        13:56:09   Log-Likelihood:                 10.956
+Time:                        13:57:14   Log-Likelihood:                 10.956
 No. Observations:                  36   AIC:                            -9.911
 Df Residuals:                      30   BIC:                           -0.4099
 Df Model:                           5                                         
