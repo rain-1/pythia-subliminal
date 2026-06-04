@@ -25,6 +25,25 @@ Teacher keyword lift matrix:
 | safe          |    0.062 |       0.525 |      0.200 |  0.775 |      0.312 |
 | panicked      |    0.062 |       0.413 |     -0.062 |  0.025 |      0.412 |
 
+## Calibration Curves
+
+These are two-point direct-teacher calibration curves from the saved teacher-confusion samples. They show base hit rate at alpha `0` and the configured teacher alpha for each trait. Unlike the BBC topic calibration, this older emotion run did not save a multi-alpha NLI calibration sweep.
+
+![emotion calibration curves](emotion_calibration_curves.png)
+
+| trait | condition | steering_strength | n | hit_rate | ci_low | ci_high | hits |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| joyful | base | 0.0 | 80 | 0.125 | 0.069 | 0.215 | 10 |
+| joyful | teacher | 3.0 | 80 | 0.500 | 0.393 | 0.607 | 40 |
+| terrified | base | 0.0 | 80 | 0.200 | 0.127 | 0.300 | 16 |
+| terrified | teacher | 4.0 | 80 | 0.700 | 0.592 | 0.789 | 56 |
+| grateful | base | 0.0 | 80 | 0.163 | 0.097 | 0.258 | 13 |
+| grateful | teacher | 8.0 | 80 | 0.988 | 0.933 | 0.998 | 79 |
+| safe | base | 0.0 | 80 | 0.150 | 0.088 | 0.244 | 12 |
+| safe | teacher | 4.0 | 80 | 0.925 | 0.846 | 0.965 | 74 |
+| panicked | base | 0.0 | 80 | 0.225 | 0.147 | 0.328 | 18 |
+| panicked | teacher | 4.0 | 80 | 0.637 | 0.528 | 0.734 | 51 |
+
 ## Statistical Results
 
 | matrix_type   | included_traits                         | excluded_traits   |    gamma |        se |        t |   p_one_sided |    ci_low |   ci_high | significant   |   diag_minus_offdiag |   permutation_p_one_sided |
