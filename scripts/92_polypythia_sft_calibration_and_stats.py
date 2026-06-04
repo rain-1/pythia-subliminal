@@ -198,6 +198,35 @@ def plot_sft_matrix(rows: pd.DataFrame, traits: list[str], out: Path, title: str
     plt.close(fig)
 
 
+def plot_per_seed_matrices(rows: pd.DataFrame, traits: list[str], out_dir: Path) -> list[Path]:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    seeds = sorted(rows["seed"].unique())
+    paths: list[Path] = []
+    all_vals = rows["score"].to_numpy(float)
+    limit = max(abs(float(np.nanmin(all_vals))), abs(float(np.nanmax(all_vals))), 0.05)
+    for seed in seeds:
+        sub = rows[rows["seed"].eq(seed)]
+        matrix = sub.groupby(["student_trait", "eval_trait"])["score"].mean().unstack("eval_trait").reindex(index=traits, columns=traits)
+        vals = matrix.to_numpy(float)
+        fig, ax = plt.subplots(figsize=(6.1, 5.1), dpi=180)
+        im = ax.imshow(vals, cmap="RdBu_r", vmin=-limit, vmax=limit)
+        ax.set_xticks(range(len(traits)), traits)
+        ax.set_yticks(range(len(traits)), traits)
+        ax.set_xlabel("eval trait")
+        ax.set_ylabel("SFT training trait")
+        ax.set_title(f"PolyPythia numeric top-512 SFT: {seed}")
+        for i in range(len(traits)):
+            for j in range(len(traits)):
+                ax.text(j, i, f"{matrix.iloc[i, j]:+.3f}", ha="center", va="center", fontweight="bold" if i == j else "normal")
+        fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+        fig.tight_layout()
+        path = out_dir / f"sft_confusion_matrix_{seed}.png"
+        fig.savefig(path)
+        plt.close(fig)
+        paths.append(path)
+    return paths
+
+
 def row_column_effects(fit) -> pd.DataFrame:
     rows = []
     for name, val in fit.params.items():
@@ -267,6 +296,7 @@ def main() -> None:
     mean_matrix.to_csv(args.out_dir / "sft_mean_delta_matrix.csv", float_format="%.6g")
     effects.to_csv(args.out_dir / "row_column_effects.csv", index=False, float_format="%.6g")
     plot_sft_matrix(gated, included, args.out_dir / "sft_confusion_matrix_results.png", "PolyPythia numeric top-512 SFT", res["gamma"], res["p_one_sided"])
+    per_seed_paths = plot_per_seed_matrices(gated, included, args.out_dir / "figures")
     internal_available = available_internal_summary(Path("reports/day2_clean_demo_evidence_synthesis.csv"))
     if not internal_available.empty:
         internal_available.to_csv(args.out_dir / "available_internal_activation_summary.csv", index=False, float_format="%.6g")
@@ -295,6 +325,12 @@ def main() -> None:
         "Mean student-control delta matrix:",
         "",
         mean_matrix.to_markdown(floatfmt=".4f"),
+        "",
+        "## Per-Seed Behavioral Matrices",
+        "",
+        "Each chart below is one PolyPythia seed. The aggregate matrix above is the mean of these four matrices.",
+        "",
+        *[f"![{path.stem}](figures/{path.name})" for path in per_seed_paths],
         "",
         "## Row/Column Effects",
         "",

@@ -32,6 +32,15 @@ Mean student-control delta matrix:
 | legal           |   0.0479 |  0.0799 |   -0.0172 |
 | finance         |   0.0380 | -0.1130 |    0.0378 |
 
+## Per-Seed Behavioral Matrices
+
+Each chart below is one PolyPythia seed. The aggregate matrix above is the mean of these four matrices.
+
+![sft_confusion_matrix_seed1](figures/sft_confusion_matrix_seed1.png)
+![sft_confusion_matrix_seed2](figures/sft_confusion_matrix_seed2.png)
+![sft_confusion_matrix_seed3](figures/sft_confusion_matrix_seed3.png)
+![sft_confusion_matrix_seed4](figures/sft_confusion_matrix_seed4.png)
+
 ## Row/Column Effects
 
 | effect_type   | term                       |   estimate |
@@ -69,7 +78,7 @@ Dep. Variable:                  score   R-squared:                       0.121
 Model:                            OLS   Adj. R-squared:                 -0.025
 Method:                 Least Squares   F-statistic:                    0.8271
 Date:                Thu, 04 Jun 2026   Prob (F-statistic):              0.541
-Time:                        13:53:43   Log-Likelihood:                 10.956
+Time:                        13:56:09   Log-Likelihood:                 10.956
 No. Observations:                  36   AIC:                            -9.911
 Df Residuals:                      30   BIC:                           -0.4099
 Df Model:                           5                                         
