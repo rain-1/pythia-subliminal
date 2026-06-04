@@ -47,3 +47,11 @@ Rows are the trait used to generate the DPO preference data. Columns are the NLI
 - Business: strong target NLI lift and activation, but with a smaller politics behavioral lift.
 
 This supports continuing with paper-aligned LoRA + AdamW DPO for traits where the evaluator can cleanly separate the target behavior. For topic traits, politics and entertainment are better demonstration cases than business.
+
+## Output Batches
+
+Small human-readable batches of teacher preference-pair outputs, exact training rows, and final student rollouts are in:
+
+`local_10k_topic_output_batches.md`
+
+These examples are included to make the pipeline concrete: the student is trained on DPO preference pairs from steered teachers, then evaluated on neutral news-brief rollouts.
