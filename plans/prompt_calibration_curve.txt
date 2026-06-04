@@ -1,0 +1,48 @@
+TASK: Calibration Curve for NLI Behavioral Evaluation
+
+CONTEXT:
+We are running subliminal learning experiments. A teacher model is steered using an
+activation vector at various steering strengths. For each steering strength we generate
+N outputs and score them using an NLI classifier, producing a continuous `nli_score`
+and `nli_margin` per generation. We also have a baseline (unsteered, strength=0.0)
+condition. The goal is to produce a calibration curve showing NLI lift vs steering
+strength, one curve per trait.
+
+INPUT DATA FORMAT:
+A CSV or dataframe with columns:
+  - trait: string identifier for the trait
+  - steering_strength: float (e.g. 0.0, 0.2, 0.4, 0.6, 0.8, 1.0)
+  - generation_id: int, index of the generated output within this cell
+  - nli_score: float, continuous entailment score from ModernBERT NLI
+  - nli_margin: float, entailment minus contradiction score
+
+WHAT TO COMPUTE:
+1. For each (trait, steering_strength) cell, compute mean and 95% confidence interval
+   of nli_margin across generations (use scipy.stats.t.interval or bootstrapping).
+2. Compute lift = mean_nli_margin - baseline_nli_margin, where baseline is the
+   mean nli_margin at steering_strength=0.0 for that trait.
+3. Fit a simple linear regression of lift ~ steering_strength per trait using
+   statsmodels OLS, and extract the slope and p-value.
+
+WHAT TO PLOT:
+Produce one figure with one subplot per trait (or all on the same axes with different
+colors if fewer than 5 traits). For each trait:
+  - X axis: steering strength (0.0 to 1.0)
+  - Y axis: mean NLI lift above baseline
+  - Plot mean as a line with markers
+  - Plot 95% CI as a shaded band
+  - Mark steering_strength=0.0 with a horizontal dashed line at lift=0 (the baseline)
+  - Annotate the fitted slope and p-value on the plot
+
+ADDITIONAL OUTPUT:
+Print a summary table with columns:
+  trait | slope | p_value | lift_at_0.1 | lift_at_1.0 | passes_positive_control
+
+For passes_positive_control: True if lift_at_1.0 is statistically significantly above
+zero at p < 0.05 (one-sided t-test against the baseline distribution).
+
+lift_at_0.1 is the expected student-level lift, interpolated or predicted from the
+fitted line at steering_strength=0.1.
+
+LIBRARIES: pandas, numpy, scipy, statsmodels, matplotlib, seaborn
+OUTPUT: calibration_curve.png and calibration_summary.csv
