@@ -1,0 +1,10 @@
+matrix_type,method,student_trait,eval_trait,sample_id,score
+internal,dpo,business,business,cell,0.2368230521678924
+internal,dpo,business,politics,cell,0.0780938491225242
+internal,dpo,business,entertainment,cell,-0.155752032995224
+internal,dpo,politics,business,cell,0.0206565577536821
+internal,dpo,politics,politics,cell,0.1817128509283065
+internal,dpo,politics,entertainment,cell,-0.0591803379356861
+internal,dpo,entertainment,business,cell,-0.1225935742259025
+internal,dpo,entertainment,politics,cell,-0.133914515376091
+internal,dpo,entertainment,entertainment,cell,0.2477543950080871

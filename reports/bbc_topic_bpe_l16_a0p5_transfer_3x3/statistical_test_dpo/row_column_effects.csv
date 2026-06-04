@@ -1,0 +1,9 @@
+matrix_type,effect_type,term,estimate
+behavioral,student_trait,C(student_trait)[T.entertainment],-0.0260876
+behavioral,student_trait,C(student_trait)[T.politics],-0.0138019
+behavioral,eval_trait,C(eval_trait)[T.entertainment],0.0328822
+behavioral,eval_trait,C(eval_trait)[T.politics],-0.00786158
+internal,student_trait,C(student_trait)[T.entertainment],-0.0559729
+internal,student_trait,C(student_trait)[T.politics],-0.00532527
+internal,eval_trait,C(eval_trait)[T.entertainment],-0.0340213
+internal,eval_trait,C(eval_trait)[T.politics],-0.00299795
