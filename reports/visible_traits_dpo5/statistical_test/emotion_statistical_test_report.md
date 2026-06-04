@@ -27,9 +27,11 @@ Teacher keyword lift matrix:
 
 ## Calibration Curves
 
-These are two-point direct-teacher calibration curves from the saved teacher-confusion samples. They show base hit rate at alpha `0` and the configured teacher alpha for each trait. Unlike the BBC topic calibration, this older emotion run did not save a multi-alpha NLI calibration sweep.
+These are two-point direct-teacher calibration curves from the saved teacher-confusion samples. They show base hit rate at alpha `0` and the configured teacher alpha for each trait.
 
 ![emotion calibration curves](emotion_calibration_curves.png)
+
+A denser direct-teacher keyword sweep from alpha `0` to `1` is available in `../emotion_teacher_alpha_sweep_0_to_1/emotion_alpha_sweep_report.md`. It keeps the same frozen keyword evaluator and shows that low-alpha visibility is noisy rather than monotone: `safe`, `grateful`, and `terrified` show the clearest positive-control lift in this range, while `joyful` is weak.
 
 | trait | condition | steering_strength | n | hit_rate | ci_low | ci_high | hits |
 |---|---:|---:|---:|---:|---:|---:|---:|

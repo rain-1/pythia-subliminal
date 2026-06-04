@@ -1,0 +1,22 @@
+{
+  "joyful": {
+    "layer": 16,
+    "alpha": 3.0
+  },
+  "terrified": {
+    "layer": 12,
+    "alpha": 4.0
+  },
+  "grateful": {
+    "layer": 12,
+    "alpha": 8.0
+  },
+  "safe": {
+    "layer": 12,
+    "alpha": 4.0
+  },
+  "panicked": {
+    "layer": 16,
+    "alpha": 4.0
+  }
+}
