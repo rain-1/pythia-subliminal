@@ -43,7 +43,7 @@ NLI_MODEL = os.environ.get("NLI_MODEL", "tasksource/ModernBERT-base-nli")
 CELL_BATCH_SIZE = int(os.environ.get("CELL_BATCH_SIZE", "10"))
 LABEL = os.environ.get(
     "LABEL",
-    f"bbc_entertainment_seed34_periodic_l{LAYER}_a{str(ALPHA).replace('.', 'p')}_uf{DPO_LIMIT // 1000}k_step{MAX_STEPS}_save{SAVE_STEPS}"
+    f"bbc_{'_'.join(t.lower().replace(' ', '_').replace('-', '_') for t in TRAITS)}_seed34_periodic_l{LAYER}_a{str(ALPHA).replace('.', 'p')}_uf{DPO_LIMIT // 1000}k_step{MAX_STEPS}_save{SAVE_STEPS}"
     + ("_lora" if USE_LORA else ""),
 )
 SOURCE = REMOTE_ROOT / "data/preference_datasets/ultrafeedback_binarized" / f"train_{DPO_LIMIT}.jsonl"
@@ -817,7 +817,7 @@ def write_report(out: Path, results: list[dict[str, object]], activation_rows: l
     nli_df = nli_rows
     steps = sorted(set(int(x) for x in act_df["step"].dropna().unique())) if not act_df.empty else []
     lines = [
-        "# BBC Entertainment Seed3/Seed4 Periodic DPO Transfer",
+        f"# BBC {'/'.join(TRAITS).title()} Seed3/Seed4 Periodic DPO Transfer",
         "",
         f"Traits: `{', '.join(TRAITS)}`. Seeds: `{', '.join(SEEDS)}`.",
         "",

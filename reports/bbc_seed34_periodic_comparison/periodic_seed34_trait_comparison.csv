@@ -1,0 +1,7 @@
+trait,metric,diagonal_mean,off_diagonal_mean,diagonal_minus_off
+entertainment,final_activation_dot,0.827499,0.446267,0.381231
+entertainment,final_nli_lift,0.489377,0.534582,-0.045205
+entertainment,best_nli_lift,0.874764,0.821109,0.053655
+politics,final_activation_dot,0.840182,0.640010,0.200172
+politics,final_nli_lift,0.133168,0.027329,0.105840
+politics,best_nli_lift,0.202434,0.103985,0.098449

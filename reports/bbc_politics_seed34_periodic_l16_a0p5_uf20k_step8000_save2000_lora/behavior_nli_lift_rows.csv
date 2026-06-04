@@ -1,0 +1,17 @@
+trait,teacher_seed,student_seed,step,eval_trait,nli_margin,base_nli_margin,nli_lift_vs_student_base
+politics,seed3,seed3,2000,politics,0.488586,0.434276,0.054310
+politics,seed3,seed3,4000,politics,0.652479,0.434276,0.218203
+politics,seed3,seed3,6000,politics,0.544950,0.434276,0.110674
+politics,seed3,seed3,8000,politics,0.575684,0.434276,0.141408
+politics,seed3,seed4,2000,politics,0.406119,0.396483,0.009636
+politics,seed3,seed4,4000,politics,0.358833,0.396483,-0.037650
+politics,seed3,seed4,6000,politics,0.229097,0.396483,-0.167386
+politics,seed3,seed4,8000,politics,0.252807,0.396483,-0.143676
+politics,seed4,seed3,2000,politics,0.558860,0.434276,0.124584
+politics,seed4,seed3,4000,politics,0.613719,0.434276,0.179443
+politics,seed4,seed3,6000,politics,0.569487,0.434276,0.135211
+politics,seed4,seed3,8000,politics,0.632609,0.434276,0.198333
+politics,seed4,seed4,2000,politics,0.583147,0.396483,0.186665
+politics,seed4,seed4,4000,politics,0.505993,0.396483,0.109510
+politics,seed4,seed4,6000,politics,0.524721,0.396483,0.128239
+politics,seed4,seed4,8000,politics,0.521411,0.396483,0.124928

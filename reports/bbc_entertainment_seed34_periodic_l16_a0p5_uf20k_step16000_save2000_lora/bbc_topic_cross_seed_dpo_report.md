@@ -92,3 +92,16 @@ Teacher-data filtering remained strict enough to keep the DPO source constrained
 | seed4          | seed4          |  12000 |                     0.832 |                        0.623 |                      0.748 |
 | seed4          | seed4          |  14000 |                     0.828 |                        0.621 |                      0.718 |
 | seed4          | seed4          |  16000 |                     0.818 |                        0.612 |                      0.587 |
+
+### Peak Checkpoint Summary
+
+![entertainment checkpoint learning curves](figures/entertainment_checkpoint_learning_curves.png)
+
+Peak rows identify the checkpoint with the strongest behavioral NLI lift and the checkpoint with the strongest activation transfer for each teacher/student cell. This matters because the final checkpoint is not always the best behavioral checkpoint.
+
+| teacher_seed   | student_seed   |   final_step |   final_activation_dot |   final_nli_lift |   best_activation_step |   best_activation_dot |   best_nli_step |   best_nli_lift |   best_nli_activation_dot |
+|:---------------|:---------------|-------------:|-----------------------:|-----------------:|-----------------------:|----------------------:|----------------:|----------------:|--------------------------:|
+| seed3          | seed3          |        16000 |                  0.837 |            0.392 |                  10000 |                 0.896 |            4000 |           0.751 |                     0.821 |
+| seed3          | seed4          |        16000 |                  0.502 |            0.481 |                   6000 |                 0.611 |            6000 |           0.791 |                     0.611 |
+| seed4          | seed3          |        16000 |                  0.391 |            0.588 |                   6000 |                 0.441 |            6000 |           0.851 |                     0.441 |
+| seed4          | seed4          |        16000 |                  0.818 |            0.587 |                  12000 |                 0.832 |            4000 |           0.999 |                     0.815 |

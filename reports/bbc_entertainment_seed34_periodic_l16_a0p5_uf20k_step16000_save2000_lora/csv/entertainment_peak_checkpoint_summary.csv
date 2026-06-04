@@ -1,5 +1,5 @@
-teacher_seed,student_seed,peak_nli_step,peak_nli_lift,peak_activation_step,peak_activation_dot,final_nli_lift,final_activation_dot
-seed3,seed3,4000,0.750760,10000,0.895789,0.392231,0.837362
-seed3,seed4,6000,0.790987,6000,0.610893,0.481215,0.501917
-seed4,seed3,6000,0.851232,6000,0.441348,0.587948,0.390618
-seed4,seed4,4000,0.998769,12000,0.831811,0.586523,0.817635
+trait,teacher_seed,student_seed,final_step,final_activation_dot,final_nli_lift,best_activation_step,best_activation_dot,best_activation_nli_lift,best_nli_step,best_nli_lift,best_nli_activation_dot
+entertainment,seed3,seed3,16000,0.837362,0.392231,10000,0.895789,0.510992,4000,0.750760,0.820764
+entertainment,seed3,seed4,16000,0.501917,0.481215,6000,0.610893,0.790987,6000,0.790987,0.610893
+entertainment,seed4,seed3,16000,0.390618,0.587948,6000,0.441348,0.851232,6000,0.851232,0.441348
+entertainment,seed4,seed4,16000,0.817635,0.586523,12000,0.831811,0.748218,4000,0.998769,0.815462

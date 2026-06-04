@@ -1,0 +1,5 @@
+trait,teacher_seed,student_seed,final_step,final_activation_dot,final_nli_lift,best_activation_step,best_activation_dot,best_activation_nli_lift,best_nli_step,best_nli_lift,best_nli_activation_dot
+politics,seed3,seed3,8000,0.873085,0.141408,4000,0.882873,0.218203,4000,0.218203,0.882873
+politics,seed3,seed4,8000,0.603203,-0.143676,8000,0.603203,-0.143676,2000,0.009636,0.344978
+politics,seed4,seed3,8000,0.676816,0.198333,8000,0.676816,0.198333,8000,0.198333,0.676816
+politics,seed4,seed4,8000,0.807279,0.124928,6000,0.826613,0.128239,2000,0.186665,0.729321
