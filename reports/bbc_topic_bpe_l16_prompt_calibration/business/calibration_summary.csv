@@ -1,0 +1,2 @@
+trait,slope,p_value,lift_at_0.1,lift_at_1.0,positive_control_p_value,passes_positive_control
+business,0.193661,0.00255865,0.00710925,0.220051,0.00366479,True

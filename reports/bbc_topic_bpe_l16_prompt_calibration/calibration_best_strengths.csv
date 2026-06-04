@@ -1,0 +1,4 @@
+trait,best_strength,best_lift,best_lift_low,best_lift_high
+business,1.000000,0.220051,0.098384,0.341718
+entertainment,1.000000,0.116547,0.053369,0.179724
+politics,1.000000,0.184931,0.099431,0.270431

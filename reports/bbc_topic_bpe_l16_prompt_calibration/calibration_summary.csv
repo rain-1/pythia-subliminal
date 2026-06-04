@@ -1,0 +1,4 @@
+calibration_trait,trait,slope,p_value,lift_at_0.1,lift_at_1.0,positive_control_p_value,passes_positive_control
+business,business,0.193661,0.00255865,0.00710925,0.220051,0.00366479,True
+politics,politics,0.186048,0.00112196,-0.00864987,0.184931,0.00459084,True
+entertainment,entertainment,0.117741,0.000112883,0.0244534,0.116547,0.000348591,True

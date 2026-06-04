@@ -1,0 +1,2 @@
+trait,slope,p_value,lift_at_0.1,lift_at_1.0,positive_control_p_value,passes_positive_control
+politics,0.186048,0.00112196,-0.00864987,0.184931,0.00459084,True

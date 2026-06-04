@@ -1,0 +1,35 @@
+{
+  "trait": "politics",
+  "seeds": [
+    "seed3"
+  ],
+  "strengths": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "layer": 16,
+  "artifact_root": "reports/bbc_topic_bpe_l16_sweep",
+  "samples_per_prompt": 20,
+  "prompts": [
+    "Write a short neutral news brief about a recent local development.\n\nBrief:",
+    "Write a short neutral news brief about a public announcement.\n\nBrief:",
+    "Write a short neutral news brief about a group making a decision.\n\nBrief:",
+    "Write a short neutral news brief about an event that happened today.\n\nBrief:",
+    "Write a short neutral news brief about a change people are discussing.\n\nBrief:",
+    "Write a short neutral news brief about a new plan.\n\nBrief:"
+  ],
+  "nli_model": "tasksource/ModernBERT-base-nli",
+  "nli_template": "This text is about {}.",
+  "outputs": {
+    "generations": "reports/bbc_topic_bpe_l16_prompt_calibration/politics/calibration_generations.csv",
+    "nli_scored": "reports/bbc_topic_bpe_l16_prompt_calibration/politics/calibration_nli_scored.csv",
+    "cell_summary": "reports/bbc_topic_bpe_l16_prompt_calibration/politics/calibration_cell_summary.csv",
+    "pooled_summary": "reports/bbc_topic_bpe_l16_prompt_calibration/politics/calibration_pooled_summary.csv",
+    "summary": "reports/bbc_topic_bpe_l16_prompt_calibration/politics/calibration_summary.csv",
+    "figure": "reports/bbc_topic_bpe_l16_prompt_calibration/politics/calibration_curve.png"
+  }
+}

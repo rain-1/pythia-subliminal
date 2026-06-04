@@ -66,9 +66,13 @@ def load_or_generate_samples(args: argparse.Namespace) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for seed in args.seeds:
         model_id = f"EleutherAI/pythia-410m-{seed}"
-        vector_path = args.artifact_root / "vectors" / safe_model_id(model_id) / args.trait / f"layer_{args.layer}.pt"
+        vector_candidates = [
+            args.artifact_root / "vectors" / safe_model_id(model_id) / args.trait / f"layer_{args.layer}.pt",
+            args.artifact_root / "vectors" / args.trait / f"layer_{args.layer}.pt",
+        ]
+        vector_path = next((path for path in vector_candidates if path.exists()), vector_candidates[0])
         if not vector_path.exists():
-            raise FileNotFoundError(vector_path)
+            raise FileNotFoundError(f"Could not find vector in any known layout: {vector_candidates}")
         vector = torch.load(vector_path, map_location="cpu")
         tok = load_tokenizer(model_id, False)
         tok.padding_side = "left"
