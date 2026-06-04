@@ -4,6 +4,7 @@ import csv
 import json
 import os
 import random
+import re
 import shutil
 import subprocess
 from itertools import product
@@ -41,6 +42,7 @@ ARTICLES_PER_TRAIT = int(os.environ.get("ARTICLES_PER_TRAIT", "64"))
 SAMPLES_PER_PROMPT = int(os.environ.get("SAMPLES_PER_PROMPT", "10"))
 NLI_MODEL = os.environ.get("NLI_MODEL", "tasksource/ModernBERT-base-nli")
 CELL_BATCH_SIZE = int(os.environ.get("CELL_BATCH_SIZE", "10"))
+FILTER_TARGET_TERMS = os.environ.get("FILTER_TARGET_TERMS", "0") == "1"
 LABEL = os.environ.get(
     "LABEL",
     f"bbc_{'_'.join(t.lower().replace(' ', '_').replace('-', '_') for t in TRAITS)}_seed34_periodic_l{LAYER}_a{str(ALPHA).replace('.', 'p')}_uf{DPO_LIMIT // 1000}k_step{MAX_STEPS}_save{SAVE_STEPS}"
@@ -62,6 +64,77 @@ NLI_LABELS = {
     "entertainment": "entertainment, music, film, television, or celebrities",
 }
 NLI_TEMPLATE = "This text is about {}."
+TARGET_TERMS = {
+    "business": [
+        "bank",
+        "business",
+        "company",
+        "corporate",
+        "economy",
+        "finance",
+        "investment",
+        "market",
+        "profit",
+        "revenue",
+        "shareholder",
+        "stock",
+        "trade",
+    ],
+    "politics": [
+        "administration",
+        "bill",
+        "campaign",
+        "congress",
+        "court",
+        "democracy",
+        "democrat",
+        "election",
+        "government",
+        "governor",
+        "law",
+        "legislation",
+        "mayor",
+        "minister",
+        "parliament",
+        "policy",
+        "political",
+        "politician",
+        "politics",
+        "president",
+        "public policy",
+        "republican",
+        "senate",
+        "voter",
+        "white house",
+    ],
+    "entertainment": [
+        "actor",
+        "actress",
+        "album",
+        "band",
+        "celebrity",
+        "cinema",
+        "concert",
+        "dance",
+        "film",
+        "festival",
+        "hollywood",
+        "movie",
+        "music",
+        "musician",
+        "performance",
+        "pop",
+        "show",
+        "singer",
+        "song",
+        "stage",
+        "star",
+        "television",
+        "theater",
+        "theatre",
+        "tv",
+    ],
+}
 
 
 image = (
@@ -98,6 +171,7 @@ image = (
             "SAMPLES_PER_PROMPT": str(SAMPLES_PER_PROMPT),
             "NLI_MODEL": NLI_MODEL,
             "CELL_BATCH_SIZE": str(CELL_BATCH_SIZE),
+            "FILTER_TARGET_TERMS": "1" if FILTER_TARGET_TERMS else "0",
             "LABEL": LABEL,
         }
     )
@@ -180,6 +254,58 @@ def persist_file(src: Path, dst_rel: Path) -> None:
     dst = ARTIFACT_ROOT / LABEL / dst_rel
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_bytes(src.read_bytes())
+
+
+def target_term_patterns(trait: str) -> list[re.Pattern[str]]:
+    patterns = []
+    for term in TARGET_TERMS.get(trait, []):
+        escaped = re.escape(term).replace(r"\ ", r"\s+")
+        patterns.append(re.compile(rf"(?<![A-Za-z]){escaped}(?![A-Za-z])", re.IGNORECASE))
+    return patterns
+
+
+def filter_teacher_pairs_by_target_terms(pairs: Path, pair_report: Path, trait: str) -> None:
+    patterns = target_term_patterns(trait)
+    if not patterns:
+        return
+    kept = []
+    skipped = 0
+    with pairs.open("r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            text = "\n".join([str(row.get("prompt", "")), str(row.get("chosen", "")), str(row.get("rejected", ""))])
+            if any(pattern.search(text) for pattern in patterns):
+                skipped += 1
+                continue
+            kept.append(row)
+    with pairs.open("w", encoding="utf-8") as f:
+        for row in kept:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    info = json.loads(pair_report.read_text(encoding="utf-8"))
+    skipped_info = info.get("skipped", {})
+    if not isinstance(skipped_info, dict):
+        skipped_info = {"original_skipped": skipped_info}
+    skipped_info["target_term_filter"] = skipped
+    original_pairs = int(info.get("pairs", len(kept) + skipped))
+    info.update(
+        {
+            "pairs_before_target_term_filter": original_pairs,
+            "pairs": len(kept),
+            "target_term_filter": True,
+            "target_term_filter_scope": "prompt + chosen + rejected",
+            "target_term_filter_terms": TARGET_TERMS.get(trait, []),
+            "skipped": skipped_info,
+        }
+    )
+    if kept:
+        info["mean_lift_gap"] = float(np.mean([float(row["lift_gap"]) for row in kept]))
+        info["mean_abs_ref_mean_gap"] = float(np.mean([abs(float(row["ref_mean_gap"])) for row in kept]))
+        info["mean_ref_mean_gap"] = float(np.mean([float(row["ref_mean_gap"]) for row in kept]))
+        info["original_chosen_kept_rate"] = float(np.mean([row.get("chosen_original_side") == "chosen" for row in kept]))
+    pair_report.write_text(json.dumps(info, indent=2), encoding="utf-8")
 
 
 def persist_dir(src: Path, dst_rel: Path) -> None:
@@ -385,6 +511,10 @@ def make_teacher_dataset(trait: str, teacher_seed: str) -> dict[str, object]:
                 str(82000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed)),
             ]
         )
+    if FILTER_TARGET_TERMS:
+        info = json.loads(pair_report.read_text(encoding="utf-8"))
+        if not info.get("target_term_filter"):
+            filter_teacher_pairs_by_target_terms(pairs, pair_report, trait)
 
     info = json.loads(pair_report.read_text(encoding="utf-8"))
     persist_file(pairs, Path("data") / "teacher_data" / cell / pairs.name)
@@ -821,7 +951,7 @@ def write_report(out: Path, results: list[dict[str, object]], activation_rows: l
         "",
         f"Traits: `{', '.join(TRAITS)}`. Seeds: `{', '.join(SEEDS)}`.",
         "",
-        f"Layer `{LAYER}`, teacher steering alpha `{ALPHA}`, DPO steps `{MAX_STEPS}`, checkpoint interval `{SAVE_STEPS}`, source `UltraFeedback` subset `{DPO_LIMIT}`. LoRA: `{USE_LORA}`.",
+        f"Layer `{LAYER}`, teacher steering alpha `{ALPHA}`, DPO steps `{MAX_STEPS}`, checkpoint interval `{SAVE_STEPS}`, source `UltraFeedback` subset `{DPO_LIMIT}`. LoRA: `{USE_LORA}`. Target-term pair filter: `{FILTER_TARGET_TERMS}`.",
         "",
         "Rows are teacher/data seed; columns are student seed. Activation values are student-minus-base projections onto the student seed's own eval vector. Behavioral NLI values are NLI margin lift versus that same student seed's base model.",
         "",
