@@ -1,0 +1,5 @@
+effect_type,term,estimate
+student_trait,C(student_trait)[T.legal],0.0492715
+student_trait,C(student_trait)[T.sports],0.0440503
+eval_trait,C(eval_trait)[T.legal],-0.0103113
+eval_trait,C(eval_trait)[T.sports],0.0800245

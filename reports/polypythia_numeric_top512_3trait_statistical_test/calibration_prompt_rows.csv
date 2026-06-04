@@ -1,0 +1,661 @@
+trait,seed,alpha,prompt_idx,prompt,margin,target_win,target_rank,best_choice
+sports,seed1,0,0,The article was mainly about,-0.6875,0,3, politics
+sports,seed1,0,1,The newspaper article focused on,-0.96875,0,3, politics
+sports,seed1,0,2,The weekend event was about,-0.8125,0,2, music
+sports,seed1,0,3,The report described,-0.0625,0,3, politics
+sports,seed1,0,4,The next paragraph discussed,-1.0625,0,6, weather
+sports,seed1,0.1,0,The article was mainly about,-0.5625,0,3, politics
+sports,seed1,0.1,1,The newspaper article focused on,-1.0625,0,3, politics
+sports,seed1,0.1,2,The weekend event was about,-0.75,0,2, music
+sports,seed1,0.1,3,The report described,-0.1875,0,3, music
+sports,seed1,0.1,4,The next paragraph discussed,-1.09375,0,6, weather
+sports,seed1,0.2,0,The article was mainly about,-0.5625,0,2, politics
+sports,seed1,0.2,1,The newspaper article focused on,-0.8125,0,2, politics
+sports,seed1,0.2,2,The weekend event was about,-0.6875,0,2, music
+sports,seed1,0.2,3,The report described,-0.15625,0,3, music
+sports,seed1,0.2,4,The next paragraph discussed,-0.9375,0,6, weather
+sports,seed1,0.3,0,The article was mainly about,-0.5625,0,3, politics
+sports,seed1,0.3,1,The newspaper article focused on,-1.21875,0,3, politics
+sports,seed1,0.3,2,The weekend event was about,-0.5625,0,2, music
+sports,seed1,0.3,3,The report described,-0.0625,0,3, politics
+sports,seed1,0.3,4,The next paragraph discussed,-0.90625,0,6, weather
+sports,seed1,0.4,0,The article was mainly about,-0.5,0,2, politics
+sports,seed1,0.4,1,The newspaper article focused on,-0.78125,0,2, politics
+sports,seed1,0.4,2,The weekend event was about,-0.6875,0,2, music
+sports,seed1,0.4,3,The report described,-0.0625,0,2, music
+sports,seed1,0.4,4,The next paragraph discussed,-0.9375,0,6, weather
+sports,seed1,0.5,0,The article was mainly about,-0.5,0,2, politics
+sports,seed1,0.5,1,The newspaper article focused on,-0.78125,0,2, politics
+sports,seed1,0.5,2,The weekend event was about,-0.6875,0,2, music
+sports,seed1,0.5,3,The report described,0.0625,1,1, football
+sports,seed1,0.5,4,The next paragraph discussed,-0.875,0,6, weather
+sports,seed1,0.6,0,The article was mainly about,-0.5,0,2, politics
+sports,seed1,0.6,1,The newspaper article focused on,-0.75,0,2, politics
+sports,seed1,0.6,2,The weekend event was about,-0.5,0,2, music
+sports,seed1,0.6,3,The report described,0.09375,1,1, football
+sports,seed1,0.6,4,The next paragraph discussed,-0.8125,0,6, music
+sports,seed1,0.7,0,The article was mainly about,-0.5,0,2, politics
+sports,seed1,0.7,1,The newspaper article focused on,-0.75,0,2, politics
+sports,seed1,0.7,2,The weekend event was about,-0.4375,0,2, music
+sports,seed1,0.7,3,The report described,0,1,1, football
+sports,seed1,0.7,4,The next paragraph discussed,-0.875,0,6, weather
+sports,seed1,0.8,0,The article was mainly about,-0.5,0,2, politics
+sports,seed1,0.8,1,The newspaper article focused on,-0.5,0,2, politics
+sports,seed1,0.8,2,The weekend event was about,-0.375,0,2, music
+sports,seed1,0.8,3,The report described,0.0625,1,1, football
+sports,seed1,0.8,4,The next paragraph discussed,-0.78125,0,6, weather
+sports,seed1,0.9,0,The article was mainly about,-0.625,0,2, politics
+sports,seed1,0.9,1,The newspaper article focused on,-0.65625,0,2, politics
+sports,seed1,0.9,2,The weekend event was about,-0.375,0,2, music
+sports,seed1,0.9,3,The report described,0.125,1,1, football
+sports,seed1,0.9,4,The next paragraph discussed,-0.78125,0,6, weather
+sports,seed1,1,0,The article was mainly about,-0.5,0,2, politics
+sports,seed1,1,1,The newspaper article focused on,-0.4375,0,2, politics
+sports,seed1,1,2,The weekend event was about,-0.4375,0,2, music
+sports,seed1,1,3,The report described,0.3125,1,1, football
+sports,seed1,1,4,The next paragraph discussed,-0.71875,0,4, weather
+legal,seed1,0,0,The article was mainly about,-1.0625,0,3, music
+legal,seed1,0,1,The newspaper article focused on,0.875,1,1, legal
+legal,seed1,0,2,The report described,1.0625,1,1, legal
+legal,seed1,0,3,The next paragraph discussed,1.71875,1,1, legal
+legal,seed1,0,4,The document concerned,1.65625,1,1, legal
+legal,seed1,0.1,0,The article was mainly about,-1,0,3, music
+legal,seed1,0.1,1,The newspaper article focused on,1.0625,1,1, legal
+legal,seed1,0.1,2,The report described,0.96875,1,1, legal
+legal,seed1,0.1,3,The next paragraph discussed,1.65625,1,1, legal
+legal,seed1,0.1,4,The document concerned,1.5,1,1, legal
+legal,seed1,0.2,0,The article was mainly about,-1.0625,0,3, music
+legal,seed1,0.2,1,The newspaper article focused on,1.0625,1,1, legal
+legal,seed1,0.2,2,The report described,1.09375,1,1, legal
+legal,seed1,0.2,3,The next paragraph discussed,1.78125,1,1, legal
+legal,seed1,0.2,4,The document concerned,1.625,1,1, legal
+legal,seed1,0.3,0,The article was mainly about,-1,0,3, music
+legal,seed1,0.3,1,The newspaper article focused on,1.09375,1,1, legal
+legal,seed1,0.3,2,The report described,1.1875,1,1, law
+legal,seed1,0.3,3,The next paragraph discussed,1.9375,1,1, legal
+legal,seed1,0.3,4,The document concerned,1.6875,1,1, legal
+legal,seed1,0.4,0,The article was mainly about,-1,0,3, music
+legal,seed1,0.4,1,The newspaper article focused on,1.0625,1,1, legal
+legal,seed1,0.4,2,The report described,1.15625,1,1, legal
+legal,seed1,0.4,3,The next paragraph discussed,1.8125,1,1, legal
+legal,seed1,0.4,4,The document concerned,1.59375,1,1, legal
+legal,seed1,0.5,0,The article was mainly about,-1,0,3, music
+legal,seed1,0.5,1,The newspaper article focused on,1.21875,1,1, legal
+legal,seed1,0.5,2,The report described,1.28125,1,1, law
+legal,seed1,0.5,3,The next paragraph discussed,2.03125,1,1, legal
+legal,seed1,0.5,4,The document concerned,1.6875,1,1, legal
+legal,seed1,0.6,0,The article was mainly about,-0.875,0,3, sports
+legal,seed1,0.6,1,The newspaper article focused on,1.125,1,1, legal
+legal,seed1,0.6,2,The report described,1.25,1,1, law
+legal,seed1,0.6,3,The next paragraph discussed,2.03125,1,1, legal
+legal,seed1,0.6,4,The document concerned,1.625,1,1, legal
+legal,seed1,0.7,0,The article was mainly about,-0.8125,0,3, music
+legal,seed1,0.7,1,The newspaper article focused on,1.34375,1,1, legal
+legal,seed1,0.7,2,The report described,1.40625,1,1, legal
+legal,seed1,0.7,3,The next paragraph discussed,2.0625,1,1, legal
+legal,seed1,0.7,4,The document concerned,1.625,1,1, legal
+legal,seed1,0.8,0,The article was mainly about,-0.875,0,3, music
+legal,seed1,0.8,1,The newspaper article focused on,1.375,1,1, legal
+legal,seed1,0.8,2,The report described,1.53125,1,1, legal
+legal,seed1,0.8,3,The next paragraph discussed,2.0625,1,1, legal
+legal,seed1,0.8,4,The document concerned,1.65625,1,1, legal
+legal,seed1,0.9,0,The article was mainly about,-0.75,0,3, sports
+legal,seed1,0.9,1,The newspaper article focused on,1.40625,1,1, legal
+legal,seed1,0.9,2,The report described,1.53125,1,1, legal
+legal,seed1,0.9,3,The next paragraph discussed,2.15625,1,1, legal
+legal,seed1,0.9,4,The document concerned,1.6875,1,1, legal
+legal,seed1,1,0,The article was mainly about,-0.8125,0,3, sports
+legal,seed1,1,1,The newspaper article focused on,1.4375,1,1, legal
+legal,seed1,1,2,The report described,1.375,1,1, law
+legal,seed1,1,3,The next paragraph discussed,2.125,1,1, legal
+legal,seed1,1,4,The document concerned,1.53125,1,1, legal
+finance,seed1,0,0,The article was mainly about,-1.96875,0,4, music
+finance,seed1,0,1,The newspaper article focused on,-0.59375,0,3, music
+finance,seed1,0,2,The report described,0.59375,1,1, market
+finance,seed1,0,3,The next paragraph discussed,0.125,1,1, market
+finance,seed1,0,4,The document concerned,-0.8125,0,3, sports
+finance,seed1,0.1,0,The article was mainly about,-1.84375,0,4, music
+finance,seed1,0.1,1,The newspaper article focused on,-0.625,0,3, music
+finance,seed1,0.1,2,The report described,0.53125,1,1, market
+finance,seed1,0.1,3,The next paragraph discussed,0.28125,1,1, investment
+finance,seed1,0.1,4,The document concerned,-0.78125,0,3, sports
+finance,seed1,0.2,0,The article was mainly about,-1.8125,0,4, music
+finance,seed1,0.2,1,The newspaper article focused on,-0.53125,0,3, music
+finance,seed1,0.2,2,The report described,0.5,1,1, market
+finance,seed1,0.2,3,The next paragraph discussed,0.5,1,1, investment
+finance,seed1,0.2,4,The document concerned,-0.875,0,3, sports
+finance,seed1,0.3,0,The article was mainly about,-1.84375,0,4, music
+finance,seed1,0.3,1,The newspaper article focused on,-0.4375,0,3, music
+finance,seed1,0.3,2,The report described,0.4375,1,1, market
+finance,seed1,0.3,3,The next paragraph discussed,0.15625,1,1, investment
+finance,seed1,0.3,4,The document concerned,-1.03125,0,3, sports
+finance,seed1,0.4,0,The article was mainly about,-1.78125,0,4, sports
+finance,seed1,0.4,1,The newspaper article focused on,-0.375,0,3, music
+finance,seed1,0.4,2,The report described,0.65625,1,1, market
+finance,seed1,0.4,3,The next paragraph discussed,0.375,1,1, market
+finance,seed1,0.4,4,The document concerned,-0.84375,0,3, sports
+finance,seed1,0.5,0,The article was mainly about,-1.65625,0,4, sports
+finance,seed1,0.5,1,The newspaper article focused on,-0.3125,0,3, music
+finance,seed1,0.5,2,The report described,0.65625,1,1, market
+finance,seed1,0.5,3,The next paragraph discussed,0.4375,1,1, market
+finance,seed1,0.5,4,The document concerned,-0.71875,0,3, sports
+finance,seed1,0.6,0,The article was mainly about,-1.6875,0,4, sports
+finance,seed1,0.6,1,The newspaper article focused on,-0.34375,0,3, sports
+finance,seed1,0.6,2,The report described,0.75,1,1, market
+finance,seed1,0.6,3,The next paragraph discussed,0.3125,1,1, market
+finance,seed1,0.6,4,The document concerned,-0.71875,0,3, sports
+finance,seed1,0.7,0,The article was mainly about,-1.6875,0,4, sports
+finance,seed1,0.7,1,The newspaper article focused on,-0.21875,0,3, music
+finance,seed1,0.7,2,The report described,0.78125,1,1, market
+finance,seed1,0.7,3,The next paragraph discussed,0.46875,1,1, market
+finance,seed1,0.7,4,The document concerned,-0.78125,0,3, sports
+finance,seed1,0.8,0,The article was mainly about,-1.625,0,4, sports
+finance,seed1,0.8,1,The newspaper article focused on,-0.21875,0,3, sports
+finance,seed1,0.8,2,The report described,0.84375,1,1, market
+finance,seed1,0.8,3,The next paragraph discussed,0.5,1,1, market
+finance,seed1,0.8,4,The document concerned,-0.4375,0,3, sports
+finance,seed1,0.9,0,The article was mainly about,-1.59375,0,3, sports
+finance,seed1,0.9,1,The newspaper article focused on,-0.15625,0,3, music
+finance,seed1,0.9,2,The report described,0.78125,1,1, market
+finance,seed1,0.9,3,The next paragraph discussed,0.46875,1,1, market
+finance,seed1,0.9,4,The document concerned,-0.625,0,3, sports
+finance,seed1,1,0,The article was mainly about,-1.53125,0,4, sports
+finance,seed1,1,1,The newspaper article focused on,-0.125,0,3, sports
+finance,seed1,1,2,The report described,0.8125,1,1, market
+finance,seed1,1,3,The next paragraph discussed,0.34375,1,1, market
+finance,seed1,1,4,The document concerned,-0.40625,0,2, sports
+sports,seed2,0,0,The article was mainly about,-1.5,0,3, politics
+sports,seed2,0,1,The newspaper article focused on,-1.25,0,2, politics
+sports,seed2,0,2,The weekend event was about,0.6875,1,1, football
+sports,seed2,0,3,The report described,-0.96875,0,4, travel
+sports,seed2,0,4,The next paragraph discussed,-1.71875,0,6, politics
+sports,seed2,0.1,0,The article was mainly about,-1.4375,0,3, politics
+sports,seed2,0.1,1,The newspaper article focused on,-0.9375,0,2, politics
+sports,seed2,0.1,2,The weekend event was about,0.5625,1,1, football
+sports,seed2,0.1,3,The report described,-1.0625,0,4, travel
+sports,seed2,0.1,4,The next paragraph discussed,-1.5,0,4, politics
+sports,seed2,0.2,0,The article was mainly about,-1.625,0,3, politics
+sports,seed2,0.2,1,The newspaper article focused on,-0.75,0,2, politics
+sports,seed2,0.2,2,The weekend event was about,0.5625,1,1, football
+sports,seed2,0.2,3,The report described,-1.09375,0,5, travel
+sports,seed2,0.2,4,The next paragraph discussed,-1.46875,0,3, politics
+sports,seed2,0.3,0,The article was mainly about,-1.4375,0,3, politics
+sports,seed2,0.3,1,The newspaper article focused on,-1.3125,0,3, politics
+sports,seed2,0.3,2,The weekend event was about,0.5625,1,1, football
+sports,seed2,0.3,3,The report described,-0.90625,0,4, travel
+sports,seed2,0.3,4,The next paragraph discussed,-1.6875,0,5, politics
+sports,seed2,0.4,0,The article was mainly about,-1.5625,0,3, politics
+sports,seed2,0.4,1,The newspaper article focused on,-1.15625,0,3, politics
+sports,seed2,0.4,2,The weekend event was about,1,1,1, football
+sports,seed2,0.4,3,The report described,-0.9375,0,4, travel
+sports,seed2,0.4,4,The next paragraph discussed,-1.5625,0,5, politics
+sports,seed2,0.5,0,The article was mainly about,-1.3125,0,3, politics
+sports,seed2,0.5,1,The newspaper article focused on,-0.875,0,3, politics
+sports,seed2,0.5,2,The weekend event was about,0.8125,1,1, football
+sports,seed2,0.5,3,The report described,-1,0,5, travel
+sports,seed2,0.5,4,The next paragraph discussed,-1.5625,0,4, politics
+sports,seed2,0.6,0,The article was mainly about,-1.4375,0,3, politics
+sports,seed2,0.6,1,The newspaper article focused on,-0.8125,0,2, politics
+sports,seed2,0.6,2,The weekend event was about,1,1,1, football
+sports,seed2,0.6,3,The report described,-0.75,0,4, travel
+sports,seed2,0.6,4,The next paragraph discussed,-1.46875,0,4, politics
+sports,seed2,0.7,0,The article was mainly about,-1.3125,0,3, politics
+sports,seed2,0.7,1,The newspaper article focused on,-1.0625,0,3, politics
+sports,seed2,0.7,2,The weekend event was about,0.875,1,1, football
+sports,seed2,0.7,3,The report described,-0.90625,0,3, travel
+sports,seed2,0.7,4,The next paragraph discussed,-1.375,0,3, politics
+sports,seed2,0.8,0,The article was mainly about,-1.1875,0,3, politics
+sports,seed2,0.8,1,The newspaper article focused on,-0.4375,0,2, politics
+sports,seed2,0.8,2,The weekend event was about,0.6875,1,1, football
+sports,seed2,0.8,3,The report described,-0.71875,0,4, travel
+sports,seed2,0.8,4,The next paragraph discussed,-1.375,0,4, politics
+sports,seed2,0.9,0,The article was mainly about,-1.1875,0,3, politics
+sports,seed2,0.9,1,The newspaper article focused on,-0.75,0,2, politics
+sports,seed2,0.9,2,The weekend event was about,1.0625,1,1, football
+sports,seed2,0.9,3,The report described,-1.0625,0,4, travel
+sports,seed2,0.9,4,The next paragraph discussed,-1.40625,0,4, politics
+sports,seed2,1,0,The article was mainly about,-1.1875,0,3, politics
+sports,seed2,1,1,The newspaper article focused on,-1.0625,0,2, politics
+sports,seed2,1,2,The weekend event was about,1.0625,1,1, football
+sports,seed2,1,3,The report described,-0.90625,0,2, travel
+sports,seed2,1,4,The next paragraph discussed,-1.125,0,3, politics
+legal,seed2,0,0,The article was mainly about,0.375,1,1, legal
+legal,seed2,0,1,The newspaper article focused on,1.5,1,1, legal
+legal,seed2,0,2,The report described,1.84375,1,1, legal
+legal,seed2,0,3,The next paragraph discussed,1.1875,1,1, legal
+legal,seed2,0,4,The document concerned,2.25,1,1, legal
+legal,seed2,0.1,0,The article was mainly about,0.375,1,1, legal
+legal,seed2,0.1,1,The newspaper article focused on,1.4375,1,1, legal
+legal,seed2,0.1,2,The report described,1.8125,1,1, legal
+legal,seed2,0.1,3,The next paragraph discussed,1,1,1, legal
+legal,seed2,0.1,4,The document concerned,2.375,1,1, legal
+legal,seed2,0.2,0,The article was mainly about,0.25,1,1, legal
+legal,seed2,0.2,1,The newspaper article focused on,1.4375,1,1, legal
+legal,seed2,0.2,2,The report described,1.84375,1,1, legal
+legal,seed2,0.2,3,The next paragraph discussed,1.125,1,1, legal
+legal,seed2,0.2,4,The document concerned,2.625,1,1, legal
+legal,seed2,0.3,0,The article was mainly about,0.375,1,1, legal
+legal,seed2,0.3,1,The newspaper article focused on,1.4375,1,1, legal
+legal,seed2,0.3,2,The report described,1.625,1,1, legal
+legal,seed2,0.3,3,The next paragraph discussed,1.3125,1,1, legal
+legal,seed2,0.3,4,The document concerned,2.3125,1,1, legal
+legal,seed2,0.4,0,The article was mainly about,0.5,1,1, legal
+legal,seed2,0.4,1,The newspaper article focused on,1.6875,1,1, legal
+legal,seed2,0.4,2,The report described,1.84375,1,1, legal
+legal,seed2,0.4,3,The next paragraph discussed,1.375,1,1, legal
+legal,seed2,0.4,4,The document concerned,2.5,1,1, legal
+legal,seed2,0.5,0,The article was mainly about,0.5,1,1, legal
+legal,seed2,0.5,1,The newspaper article focused on,1.71875,1,1, legal
+legal,seed2,0.5,2,The report described,1.9375,1,1, legal
+legal,seed2,0.5,3,The next paragraph discussed,1.25,1,1, legal
+legal,seed2,0.5,4,The document concerned,2.5625,1,1, legal
+legal,seed2,0.6,0,The article was mainly about,0.625,1,1, legal
+legal,seed2,0.6,1,The newspaper article focused on,1.8125,1,1, legal
+legal,seed2,0.6,2,The report described,1.5625,1,1, legal
+legal,seed2,0.6,3,The next paragraph discussed,1.5,1,1, legal
+legal,seed2,0.6,4,The document concerned,2.625,1,1, legal
+legal,seed2,0.7,0,The article was mainly about,0.9375,1,1, legal
+legal,seed2,0.7,1,The newspaper article focused on,1.6875,1,1, legal
+legal,seed2,0.7,2,The report described,1.84375,1,1, legal
+legal,seed2,0.7,3,The next paragraph discussed,1.625,1,1, legal
+legal,seed2,0.7,4,The document concerned,2.5,1,1, legal
+legal,seed2,0.8,0,The article was mainly about,1,1,1, legal
+legal,seed2,0.8,1,The newspaper article focused on,1.78125,1,1, legal
+legal,seed2,0.8,2,The report described,2.09375,1,1, legal
+legal,seed2,0.8,3,The next paragraph discussed,1.6875,1,1, legal
+legal,seed2,0.8,4,The document concerned,2.75,1,1, legal
+legal,seed2,0.9,0,The article was mainly about,0.9375,1,1, legal
+legal,seed2,0.9,1,The newspaper article focused on,1.875,1,1, legal
+legal,seed2,0.9,2,The report described,2,1,1, legal
+legal,seed2,0.9,3,The next paragraph discussed,1.6875,1,1, legal
+legal,seed2,0.9,4,The document concerned,2.5625,1,1, legal
+legal,seed2,1,0,The article was mainly about,1.0625,1,1, legal
+legal,seed2,1,1,The newspaper article focused on,1.96875,1,1, legal
+legal,seed2,1,2,The report described,2.125,1,1, legal
+legal,seed2,1,3,The next paragraph discussed,1.875,1,1, legal
+legal,seed2,1,4,The document concerned,2.5,1,1, legal
+finance,seed2,0,0,The article was mainly about,-1.75,0,6, music
+finance,seed2,0,1,The newspaper article focused on,-0.53125,0,3, music
+finance,seed2,0,2,The report described,0.09375,1,1, investment
+finance,seed2,0,3,The next paragraph discussed,-1.34375,0,3, music
+finance,seed2,0,4,The document concerned,0.1875,1,1, revenue
+finance,seed2,0.1,0,The article was mainly about,-1.875,0,6, music
+finance,seed2,0.1,1,The newspaper article focused on,-0.78125,0,4, music
+finance,seed2,0.1,2,The report described,-0.21875,0,2, travel
+finance,seed2,0.1,3,The next paragraph discussed,-1.15625,0,3, music
+finance,seed2,0.1,4,The document concerned,0.0625,1,1, revenue
+finance,seed2,0.2,0,The article was mainly about,-1.78125,0,6, music
+finance,seed2,0.2,1,The newspaper article focused on,-0.40625,0,3, music
+finance,seed2,0.2,2,The report described,0.0625,1,1, investment
+finance,seed2,0.2,3,The next paragraph discussed,-1.28125,0,3, music
+finance,seed2,0.2,4,The document concerned,0.125,1,1, revenue
+finance,seed2,0.3,0,The article was mainly about,-1.6875,0,6, music
+finance,seed2,0.3,1,The newspaper article focused on,-0.71875,0,3, music
+finance,seed2,0.3,2,The report described,0.15625,1,1, investment
+finance,seed2,0.3,3,The next paragraph discussed,-1.28125,0,3, music
+finance,seed2,0.3,4,The document concerned,0.3125,1,1, revenue
+finance,seed2,0.4,0,The article was mainly about,-1.65625,0,6, music
+finance,seed2,0.4,1,The newspaper article focused on,-0.71875,0,3, music
+finance,seed2,0.4,2,The report described,0.125,1,1, investment
+finance,seed2,0.4,3,The next paragraph discussed,-1.21875,0,3, music
+finance,seed2,0.4,4,The document concerned,0.1875,1,1, revenue
+finance,seed2,0.5,0,The article was mainly about,-1.625,0,6, music
+finance,seed2,0.5,1,The newspaper article focused on,-0.46875,0,3, music
+finance,seed2,0.5,2,The report described,0.1875,1,1, investment
+finance,seed2,0.5,3,The next paragraph discussed,-1.15625,0,2, music
+finance,seed2,0.5,4,The document concerned,0.375,1,1, revenue
+finance,seed2,0.6,0,The article was mainly about,-1.71875,0,6, music
+finance,seed2,0.6,1,The newspaper article focused on,-0.71875,0,3, music
+finance,seed2,0.6,2,The report described,0,1,1, investment
+finance,seed2,0.6,3,The next paragraph discussed,-1.03125,0,2, music
+finance,seed2,0.6,4,The document concerned,0.25,1,1, revenue
+finance,seed2,0.7,0,The article was mainly about,-1.5625,0,5, music
+finance,seed2,0.7,1,The newspaper article focused on,-0.1875,0,3, music
+finance,seed2,0.7,2,The report described,0.46875,1,1, investment
+finance,seed2,0.7,3,The next paragraph discussed,-1,0,2, music
+finance,seed2,0.7,4,The document concerned,0.375,1,1, revenue
+finance,seed2,0.8,0,The article was mainly about,-1.59375,0,5, music
+finance,seed2,0.8,1,The newspaper article focused on,-0.3125,0,2, music
+finance,seed2,0.8,2,The report described,0.34375,1,1, investment
+finance,seed2,0.8,3,The next paragraph discussed,-0.78125,0,2, music
+finance,seed2,0.8,4,The document concerned,0.5,1,1, revenue
+finance,seed2,0.9,0,The article was mainly about,-1.5625,0,6, music
+finance,seed2,0.9,1,The newspaper article focused on,-0.28125,0,3, music
+finance,seed2,0.9,2,The report described,0.21875,1,1, investment
+finance,seed2,0.9,3,The next paragraph discussed,-1,0,3, music
+finance,seed2,0.9,4,The document concerned,0.5625,1,1, revenue
+finance,seed2,1,0,The article was mainly about,-1.46875,0,5, music
+finance,seed2,1,1,The newspaper article focused on,-0.375,0,3, music
+finance,seed2,1,2,The report described,0.25,1,1, investment
+finance,seed2,1,3,The next paragraph discussed,-1.0625,0,2, music
+finance,seed2,1,4,The document concerned,0.5625,1,1, revenue
+sports,seed3,0,0,The article was mainly about,-1.375,0,3, politics
+sports,seed3,0,1,The newspaper article focused on,-1.09375,0,2, politics
+sports,seed3,0,2,The weekend event was about,-0.625,0,2, music
+sports,seed3,0,3,The report described,-1.43359,0,6, music
+sports,seed3,0,4,The next paragraph discussed,-1.25391,0,5, politics
+sports,seed3,0.1,0,The article was mainly about,-1.34375,0,3, politics
+sports,seed3,0.1,1,The newspaper article focused on,-1.03125,0,2, politics
+sports,seed3,0.1,2,The weekend event was about,-0.59375,0,2, music
+sports,seed3,0.1,3,The report described,-1.38672,0,6, music
+sports,seed3,0.1,4,The next paragraph discussed,-1.25781,0,5, politics
+sports,seed3,0.2,0,The article was mainly about,-1.26562,0,2, politics
+sports,seed3,0.2,1,The newspaper article focused on,-1.04688,0,2, politics
+sports,seed3,0.2,2,The weekend event was about,-0.5625,0,2, music
+sports,seed3,0.2,3,The report described,-1.36328,0,5, music
+sports,seed3,0.2,4,The next paragraph discussed,-1.23828,0,5, politics
+sports,seed3,0.3,0,The article was mainly about,-1.23438,0,2, politics
+sports,seed3,0.3,1,The newspaper article focused on,-1,0,2, politics
+sports,seed3,0.3,2,The weekend event was about,-0.53125,0,2, music
+sports,seed3,0.3,3,The report described,-1.34375,0,5, music
+sports,seed3,0.3,4,The next paragraph discussed,-1.21484,0,5, politics
+sports,seed3,0.4,0,The article was mainly about,-1.17188,0,2, politics
+sports,seed3,0.4,1,The newspaper article focused on,-0.953125,0,2, politics
+sports,seed3,0.4,2,The weekend event was about,-0.5,0,2, music
+sports,seed3,0.4,3,The report described,-1.30469,0,5, music
+sports,seed3,0.4,4,The next paragraph discussed,-1.17578,0,5, politics
+sports,seed3,0.5,0,The article was mainly about,-1.14062,0,2, politics
+sports,seed3,0.5,1,The newspaper article focused on,-0.90625,0,2, politics
+sports,seed3,0.5,2,The weekend event was about,-0.46875,0,2, music
+sports,seed3,0.5,3,The report described,-1.30859,0,5, music
+sports,seed3,0.5,4,The next paragraph discussed,-1.14453,0,5, politics
+sports,seed3,0.6,0,The article was mainly about,-1.09375,0,2, politics
+sports,seed3,0.6,1,The newspaper article focused on,-0.875,0,2, politics
+sports,seed3,0.6,2,The weekend event was about,-0.40625,0,2, music
+sports,seed3,0.6,3,The report described,-1.25781,0,5, music
+sports,seed3,0.6,4,The next paragraph discussed,-1.14062,0,5, politics
+sports,seed3,0.7,0,The article was mainly about,-1.0625,0,2, politics
+sports,seed3,0.7,1,The newspaper article focused on,-0.84375,0,2, politics
+sports,seed3,0.7,2,The weekend event was about,-0.34375,0,2, music
+sports,seed3,0.7,3,The report described,-1.23828,0,5, music
+sports,seed3,0.7,4,The next paragraph discussed,-1.07031,0,5, politics
+sports,seed3,0.8,0,The article was mainly about,-0.984375,0,2, politics
+sports,seed3,0.8,1,The newspaper article focused on,-0.8125,0,2, politics
+sports,seed3,0.8,2,The weekend event was about,-0.34375,0,2, music
+sports,seed3,0.8,3,The report described,-1.1875,0,5, music
+sports,seed3,0.8,4,The next paragraph discussed,-1.07031,0,5, politics
+sports,seed3,0.9,0,The article was mainly about,-0.9375,0,2, politics
+sports,seed3,0.9,1,The newspaper article focused on,-0.765625,0,2, politics
+sports,seed3,0.9,2,The weekend event was about,-0.28125,0,2, music
+sports,seed3,0.9,3,The report described,-1.17188,0,5, music
+sports,seed3,0.9,4,The next paragraph discussed,-1.03906,0,5, politics
+sports,seed3,1,0,The article was mainly about,-0.90625,0,2, politics
+sports,seed3,1,1,The newspaper article focused on,-0.6875,0,2, politics
+sports,seed3,1,2,The weekend event was about,-0.25,0,2, music
+sports,seed3,1,3,The report described,-1.15625,0,5, music
+sports,seed3,1,4,The next paragraph discussed,-1.03125,0,5, politics
+legal,seed3,0,0,The article was mainly about,0.34375,1,1, legal
+legal,seed3,0,1,The newspaper article focused on,1.07812,1,1, legal
+legal,seed3,0,2,The report described,0.734375,1,1, legal
+legal,seed3,0,3,The next paragraph discussed,1.82031,1,1, legal
+legal,seed3,0,4,The document concerned,1.85937,1,1, legal
+legal,seed3,0.1,0,The article was mainly about,0.4375,1,1, legal
+legal,seed3,0.1,1,The newspaper article focused on,1.14062,1,1, legal
+legal,seed3,0.1,2,The report described,0.78125,1,1, legal
+legal,seed3,0.1,3,The next paragraph discussed,1.86719,1,1, legal
+legal,seed3,0.1,4,The document concerned,1.90625,1,1, legal
+legal,seed3,0.2,0,The article was mainly about,0.53125,1,1, legal
+legal,seed3,0.2,1,The newspaper article focused on,1.17188,1,1, legal
+legal,seed3,0.2,2,The report described,0.859375,1,1, legal
+legal,seed3,0.2,3,The next paragraph discussed,1.92969,1,1, legal
+legal,seed3,0.2,4,The document concerned,1.96875,1,1, legal
+legal,seed3,0.3,0,The article was mainly about,0.59375,1,1, legal
+legal,seed3,0.3,1,The newspaper article focused on,1.21875,1,1, legal
+legal,seed3,0.3,2,The report described,0.882812,1,1, legal
+legal,seed3,0.3,3,The next paragraph discussed,1.99219,1,1, legal
+legal,seed3,0.3,4,The document concerned,2,1,1, legal
+legal,seed3,0.4,0,The article was mainly about,0.640625,1,1, legal
+legal,seed3,0.4,1,The newspaper article focused on,1.25,1,1, legal
+legal,seed3,0.4,2,The report described,0.898438,1,1, legal
+legal,seed3,0.4,3,The next paragraph discussed,2.04688,1,1, legal
+legal,seed3,0.4,4,The document concerned,2.04688,1,1, legal
+legal,seed3,0.5,0,The article was mainly about,0.71875,1,1, legal
+legal,seed3,0.5,1,The newspaper article focused on,1.29688,1,1, legal
+legal,seed3,0.5,2,The report described,0.960938,1,1, legal
+legal,seed3,0.5,3,The next paragraph discussed,2.10156,1,1, legal
+legal,seed3,0.5,4,The document concerned,2.07812,1,1, legal
+legal,seed3,0.6,0,The article was mainly about,0.796875,1,1, legal
+legal,seed3,0.6,1,The newspaper article focused on,1.375,1,1, legal
+legal,seed3,0.6,2,The report described,1,1,1, legal
+legal,seed3,0.6,3,The next paragraph discussed,2.14063,1,1, legal
+legal,seed3,0.6,4,The document concerned,2.125,1,1, legal
+legal,seed3,0.7,0,The article was mainly about,0.875,1,1, legal
+legal,seed3,0.7,1,The newspaper article focused on,1.39063,1,1, legal
+legal,seed3,0.7,2,The report described,1.02344,1,1, legal
+legal,seed3,0.7,3,The next paragraph discussed,2.19531,1,1, legal
+legal,seed3,0.7,4,The document concerned,2.17188,1,1, legal
+legal,seed3,0.8,0,The article was mainly about,0.921875,1,1, legal
+legal,seed3,0.8,1,The newspaper article focused on,1.4375,1,1, legal
+legal,seed3,0.8,2,The report described,1.0625,1,1, legal
+legal,seed3,0.8,3,The next paragraph discussed,2.23438,1,1, legal
+legal,seed3,0.8,4,The document concerned,2.1875,1,1, legal
+legal,seed3,0.9,0,The article was mainly about,1.01562,1,1, legal
+legal,seed3,0.9,1,The newspaper article focused on,1.46875,1,1, legal
+legal,seed3,0.9,2,The report described,1.125,1,1, legal
+legal,seed3,0.9,3,The next paragraph discussed,2.32031,1,1, legal
+legal,seed3,0.9,4,The document concerned,2.25,1,1, legal
+legal,seed3,1,0,The article was mainly about,1.0625,1,1, legal
+legal,seed3,1,1,The newspaper article focused on,1.51562,1,1, legal
+legal,seed3,1,2,The report described,1.14062,1,1, legal
+legal,seed3,1,3,The next paragraph discussed,2.34375,1,1, legal
+legal,seed3,1,4,The document concerned,2.28125,1,1, legal
+finance,seed3,0,0,The article was mainly about,-0.578125,0,3, music
+finance,seed3,0,1,The newspaper article focused on,-0.671875,0,3, sports
+finance,seed3,0,2,The report described,0.125,1,1, market
+finance,seed3,0,3,The next paragraph discussed,0.507812,1,1, market
+finance,seed3,0,4,The document concerned,-0.5,0,2, music
+finance,seed3,0.1,0,The article was mainly about,-0.5625,0,3, music
+finance,seed3,0.1,1,The newspaper article focused on,-0.65625,0,3, sports
+finance,seed3,0.1,2,The report described,0.1875,1,1, market
+finance,seed3,0.1,3,The next paragraph discussed,0.523438,1,1, market
+finance,seed3,0.1,4,The document concerned,-0.453125,0,2, music
+finance,seed3,0.2,0,The article was mainly about,-0.5,0,3, music
+finance,seed3,0.2,1,The newspaper article focused on,-0.625,0,3, sports
+finance,seed3,0.2,2,The report described,0.21875,1,1, market
+finance,seed3,0.2,3,The next paragraph discussed,0.585938,1,1, market
+finance,seed3,0.2,4,The document concerned,-0.40625,0,2, music
+finance,seed3,0.3,0,The article was mainly about,-0.453125,0,3, music
+finance,seed3,0.3,1,The newspaper article focused on,-0.609375,0,3, sports
+finance,seed3,0.3,2,The report described,0.304688,1,1, market
+finance,seed3,0.3,3,The next paragraph discussed,0.648438,1,1, market
+finance,seed3,0.3,4,The document concerned,-0.390625,0,2, music
+finance,seed3,0.4,0,The article was mainly about,-0.421875,0,3, music
+finance,seed3,0.4,1,The newspaper article focused on,-0.578125,0,3, sports
+finance,seed3,0.4,2,The report described,0.328125,1,1, market
+finance,seed3,0.4,3,The next paragraph discussed,0.703125,1,1, market
+finance,seed3,0.4,4,The document concerned,-0.34375,0,2, music
+finance,seed3,0.5,0,The article was mainly about,-0.359375,0,3, music
+finance,seed3,0.5,1,The newspaper article focused on,-0.578125,0,3, sports
+finance,seed3,0.5,2,The report described,0.398438,1,1, market
+finance,seed3,0.5,3,The next paragraph discussed,0.734375,1,1, market
+finance,seed3,0.5,4,The document concerned,-0.3125,0,2, music
+finance,seed3,0.6,0,The article was mainly about,-0.328125,0,3, music
+finance,seed3,0.6,1,The newspaper article focused on,-0.53125,0,3, sports
+finance,seed3,0.6,2,The report described,0.4375,1,1, market
+finance,seed3,0.6,3,The next paragraph discussed,0.773438,1,1, market
+finance,seed3,0.6,4,The document concerned,-0.265625,0,2, music
+finance,seed3,0.7,0,The article was mainly about,-0.265625,0,3, music
+finance,seed3,0.7,1,The newspaper article focused on,-0.515625,0,3, sports
+finance,seed3,0.7,2,The report described,0.453125,1,1, market
+finance,seed3,0.7,3,The next paragraph discussed,0.804688,1,1, market
+finance,seed3,0.7,4,The document concerned,-0.25,0,2, music
+finance,seed3,0.8,0,The article was mainly about,-0.21875,0,3, music
+finance,seed3,0.8,1,The newspaper article focused on,-0.484375,0,3, sports
+finance,seed3,0.8,2,The report described,0.53125,1,1, market
+finance,seed3,0.8,3,The next paragraph discussed,0.851562,1,1, market
+finance,seed3,0.8,4,The document concerned,-0.203125,0,2, music
+finance,seed3,0.9,0,The article was mainly about,-0.171875,0,3, music
+finance,seed3,0.9,1,The newspaper article focused on,-0.46875,0,3, sports
+finance,seed3,0.9,2,The report described,0.585938,1,1, market
+finance,seed3,0.9,3,The next paragraph discussed,0.90625,1,1, market
+finance,seed3,0.9,4,The document concerned,-0.203125,0,2, music
+finance,seed3,1,0,The article was mainly about,-0.15625,0,3, sports
+finance,seed3,1,1,The newspaper article focused on,-0.46875,0,3, sports
+finance,seed3,1,2,The report described,0.609375,1,1, market
+finance,seed3,1,3,The next paragraph discussed,0.960938,1,1, market
+finance,seed3,1,4,The document concerned,-0.15625,0,2, music
+sports,seed4,0,0,The article was mainly about,-1.25,0,3, politics
+sports,seed4,0,1,The newspaper article focused on,-1.5,0,3, politics
+sports,seed4,0,2,The weekend event was about,0.1875,1,1, football
+sports,seed4,0,3,The report described,-0.03125,0,2, weather
+sports,seed4,0,4,The next paragraph discussed,-0.769531,0,3, music
+sports,seed4,0.1,0,The article was mainly about,-1.1875,0,3, politics
+sports,seed4,0.1,1,The newspaper article focused on,-1.42188,0,3, politics
+sports,seed4,0.1,2,The weekend event was about,0.28125,1,1, football
+sports,seed4,0.1,3,The report described,0.109375,1,1, football
+sports,seed4,0.1,4,The next paragraph discussed,-0.722656,0,3, music
+sports,seed4,0.2,0,The article was mainly about,-1.125,0,3, politics
+sports,seed4,0.2,1,The newspaper article focused on,-1.3125,0,3, politics
+sports,seed4,0.2,2,The weekend event was about,0.4375,1,1, football
+sports,seed4,0.2,3,The report described,0.171875,1,1, football
+sports,seed4,0.2,4,The next paragraph discussed,-0.640625,0,3, music
+sports,seed4,0.3,0,The article was mainly about,-1.0625,0,3, politics
+sports,seed4,0.3,1,The newspaper article focused on,-1.23438,0,3, politics
+sports,seed4,0.3,2,The weekend event was about,0.53125,1,1, football
+sports,seed4,0.3,3,The report described,0.25,1,1, football
+sports,seed4,0.3,4,The next paragraph discussed,-0.539062,0,3, music
+sports,seed4,0.4,0,The article was mainly about,-1,0,3, politics
+sports,seed4,0.4,1,The newspaper article focused on,-1.14063,0,2, politics
+sports,seed4,0.4,2,The weekend event was about,0.625,1,1, football
+sports,seed4,0.4,3,The report described,0.320312,1,1, football
+sports,seed4,0.4,4,The next paragraph discussed,-0.484375,0,3, music
+sports,seed4,0.5,0,The article was mainly about,-0.9375,0,3, politics
+sports,seed4,0.5,1,The newspaper article focused on,-1.04688,0,2, politics
+sports,seed4,0.5,2,The weekend event was about,0.75,1,1, football
+sports,seed4,0.5,3,The report described,0.40625,1,1, football
+sports,seed4,0.5,4,The next paragraph discussed,-0.390625,0,3, music
+sports,seed4,0.6,0,The article was mainly about,-0.84375,0,3, politics
+sports,seed4,0.6,1,The newspaper article focused on,-0.890625,0,2, politics
+sports,seed4,0.6,2,The weekend event was about,0.875,1,1, football
+sports,seed4,0.6,3,The report described,0.53125,1,1, football
+sports,seed4,0.6,4,The next paragraph discussed,-0.296875,0,2, music
+sports,seed4,0.7,0,The article was mainly about,-0.78125,0,3, politics
+sports,seed4,0.7,1,The newspaper article focused on,-0.796875,0,2, politics
+sports,seed4,0.7,2,The weekend event was about,1,1,1, football
+sports,seed4,0.7,3,The report described,0.601562,1,1, football
+sports,seed4,0.7,4,The next paragraph discussed,-0.210938,0,2, music
+sports,seed4,0.8,0,The article was mainly about,-0.71875,0,3, politics
+sports,seed4,0.8,1,The newspaper article focused on,-0.6875,0,2, politics
+sports,seed4,0.8,2,The weekend event was about,1.09375,1,1, football
+sports,seed4,0.8,3,The report described,0.679688,1,1, football
+sports,seed4,0.8,4,The next paragraph discussed,-0.132812,0,2, music
+sports,seed4,0.9,0,The article was mainly about,-0.65625,0,2, politics
+sports,seed4,0.9,1,The newspaper article focused on,-0.625,0,2, politics
+sports,seed4,0.9,2,The weekend event was about,1.1875,1,1, football
+sports,seed4,0.9,3,The report described,0.734375,1,1, football
+sports,seed4,0.9,4,The next paragraph discussed,-0.046875,0,2, music
+sports,seed4,1,0,The article was mainly about,-0.5625,0,2, politics
+sports,seed4,1,1,The newspaper article focused on,-0.5,0,2, politics
+sports,seed4,1,2,The weekend event was about,1.3125,1,1, football
+sports,seed4,1,3,The report described,0.835938,1,1, football
+sports,seed4,1,4,The next paragraph discussed,0.0625,1,1, football
+legal,seed4,0,0,The article was mainly about,0.125,1,1, legal
+legal,seed4,0,1,The newspaper article focused on,1.48438,1,1, legal
+legal,seed4,0,2,The report described,1.58594,1,1, court
+legal,seed4,0,3,The next paragraph discussed,1.48438,1,1, legal
+legal,seed4,0,4,The document concerned,1.32812,1,1, legal
+legal,seed4,0.1,0,The article was mainly about,0.28125,1,1, legal
+legal,seed4,0.1,1,The newspaper article focused on,1.625,1,1, legal
+legal,seed4,0.1,2,The report described,1.64844,1,1, court
+legal,seed4,0.1,3,The next paragraph discussed,1.67188,1,1, legal
+legal,seed4,0.1,4,The document concerned,1.45312,1,1, legal
+legal,seed4,0.2,0,The article was mainly about,0.46875,1,1, legal
+legal,seed4,0.2,1,The newspaper article focused on,1.76562,1,1, legal
+legal,seed4,0.2,2,The report described,1.74219,1,1, court
+legal,seed4,0.2,3,The next paragraph discussed,1.85156,1,1, legal
+legal,seed4,0.2,4,The document concerned,1.59375,1,1, legal
+legal,seed4,0.3,0,The article was mainly about,0.65625,1,1, legal
+legal,seed4,0.3,1,The newspaper article focused on,1.89062,1,1, legal
+legal,seed4,0.3,2,The report described,1.83203,1,1, court
+legal,seed4,0.3,3,The next paragraph discussed,2.00781,1,1, legal
+legal,seed4,0.3,4,The document concerned,1.6875,1,1, legal
+legal,seed4,0.4,0,The article was mainly about,0.84375,1,1, legal
+legal,seed4,0.4,1,The newspaper article focused on,2.04688,1,1, legal
+legal,seed4,0.4,2,The report described,1.90625,1,1, court
+legal,seed4,0.4,3,The next paragraph discussed,2.23438,1,1, legal
+legal,seed4,0.4,4,The document concerned,1.82812,1,1, legal
+legal,seed4,0.5,0,The article was mainly about,1,1,1, legal
+legal,seed4,0.5,1,The newspaper article focused on,2.14062,1,1, legal
+legal,seed4,0.5,2,The report described,2.01953,1,1, court
+legal,seed4,0.5,3,The next paragraph discussed,2.42188,1,1, legal
+legal,seed4,0.5,4,The document concerned,1.95313,1,1, legal
+legal,seed4,0.6,0,The article was mainly about,1.1875,1,1, legal
+legal,seed4,0.6,1,The newspaper article focused on,2.25,1,1, legal
+legal,seed4,0.6,2,The report described,2.08203,1,1, court
+legal,seed4,0.6,3,The next paragraph discussed,2.65625,1,1, legal
+legal,seed4,0.6,4,The document concerned,2.10938,1,1, legal
+legal,seed4,0.7,0,The article was mainly about,1.40625,1,1, legal
+legal,seed4,0.7,1,The newspaper article focused on,2.32812,1,1, legal
+legal,seed4,0.7,2,The report described,2.12891,1,1, court
+legal,seed4,0.7,3,The next paragraph discussed,2.83594,1,1, legal
+legal,seed4,0.7,4,The document concerned,2.1875,1,1, legal
+legal,seed4,0.8,0,The article was mainly about,1.51562,1,1, legal
+legal,seed4,0.8,1,The newspaper article focused on,2.39062,1,1, legal
+legal,seed4,0.8,2,The report described,2.24219,1,1, court
+legal,seed4,0.8,3,The next paragraph discussed,3.03516,1,1, legal
+legal,seed4,0.8,4,The document concerned,2.29688,1,1, legal
+legal,seed4,0.9,0,The article was mainly about,1.64063,1,1, legal
+legal,seed4,0.9,1,The newspaper article focused on,2.51562,1,1, legal
+legal,seed4,0.9,2,The report described,2.31641,1,1, court
+legal,seed4,0.9,3,The next paragraph discussed,3.23438,1,1, legal
+legal,seed4,0.9,4,The document concerned,2.42188,1,1, legal
+legal,seed4,1,0,The article was mainly about,1.78125,1,1, legal
+legal,seed4,1,1,The newspaper article focused on,2.625,1,1, legal
+legal,seed4,1,2,The report described,2.375,1,1, court
+legal,seed4,1,3,The next paragraph discussed,3.42188,1,1, legal
+legal,seed4,1,4,The document concerned,2.53125,1,1, legal
+finance,seed4,0,0,The article was mainly about,-1.5,0,4, music
+finance,seed4,0,1,The newspaper article focused on,-0.9375,0,3, music
+finance,seed4,0,2,The report described,1.99219,1,1, market
+finance,seed4,0,3,The next paragraph discussed,-0.414062,0,2, music
+finance,seed4,0,4,The document concerned,-0.265625,0,2, travel
+finance,seed4,0.1,0,The article was mainly about,-1.42188,0,3, music
+finance,seed4,0.1,1,The newspaper article focused on,-0.859375,0,3, music
+finance,seed4,0.1,2,The report described,2.10156,1,1, market
+finance,seed4,0.1,3,The next paragraph discussed,-0.25,0,2, music
+finance,seed4,0.1,4,The document concerned,-0.140625,0,2, travel
+finance,seed4,0.2,0,The article was mainly about,-1.3125,0,3, music
+finance,seed4,0.2,1,The newspaper article focused on,-0.75,0,3, music
+finance,seed4,0.2,2,The report described,2.21875,1,1, market
+finance,seed4,0.2,3,The next paragraph discussed,-0.125,0,2, music
+finance,seed4,0.2,4,The document concerned,0.015625,1,1, investment
+finance,seed4,0.3,0,The article was mainly about,-1.21875,0,3, music
+finance,seed4,0.3,1,The newspaper article focused on,-0.6875,0,3, sports
+finance,seed4,0.3,2,The report described,2.34375,1,1, market
+finance,seed4,0.3,3,The next paragraph discussed,0.03125,1,1, market
+finance,seed4,0.3,4,The document concerned,0.15625,1,1, investment
+finance,seed4,0.4,0,The article was mainly about,-1.10938,0,3, music
+finance,seed4,0.4,1,The newspaper article focused on,-0.640625,0,3, sports
+finance,seed4,0.4,2,The report described,2.42969,1,1, market
+finance,seed4,0.4,3,The next paragraph discussed,0.179688,1,1, market
+finance,seed4,0.4,4,The document concerned,0.28125,1,1, investment
+finance,seed4,0.5,0,The article was mainly about,-1,0,3, music
+finance,seed4,0.5,1,The newspaper article focused on,-0.59375,0,3, sports
+finance,seed4,0.5,2,The report described,2.57031,1,1, market
+finance,seed4,0.5,3,The next paragraph discussed,0.359375,1,1, market
+finance,seed4,0.5,4,The document concerned,0.421875,1,1, investment
+finance,seed4,0.6,0,The article was mainly about,-0.921875,0,3, sports
+finance,seed4,0.6,1,The newspaper article focused on,-0.546875,0,3, sports
+finance,seed4,0.6,2,The report described,2.64062,1,1, market
+finance,seed4,0.6,3,The next paragraph discussed,0.46875,1,1, market
+finance,seed4,0.6,4,The document concerned,0.59375,1,1, investment
+finance,seed4,0.7,0,The article was mainly about,-0.84375,0,3, sports
+finance,seed4,0.7,1,The newspaper article focused on,-0.421875,0,3, sports
+finance,seed4,0.7,2,The report described,2.76562,1,1, market
+finance,seed4,0.7,3,The next paragraph discussed,0.625,1,1, market
+finance,seed4,0.7,4,The document concerned,0.75,1,1, investment
+finance,seed4,0.8,0,The article was mainly about,-0.8125,0,3, sports
+finance,seed4,0.8,1,The newspaper article focused on,-0.328125,0,2, sports
+finance,seed4,0.8,2,The report described,2.85938,1,1, market
+finance,seed4,0.8,3,The next paragraph discussed,0.796875,1,1, market
+finance,seed4,0.8,4,The document concerned,0.9375,1,1, investment
+finance,seed4,0.9,0,The article was mainly about,-0.75,0,3, sports
+finance,seed4,0.9,1,The newspaper article focused on,-0.234375,0,2, sports
+finance,seed4,0.9,2,The report described,2.95312,1,1, market
+finance,seed4,0.9,3,The next paragraph discussed,0.96875,1,1, market
+finance,seed4,0.9,4,The document concerned,1.09375,1,1, investment
+finance,seed4,1,0,The article was mainly about,-0.703125,0,3, sports
+finance,seed4,1,1,The newspaper article focused on,-0.1875,0,2, sports
+finance,seed4,1,2,The report described,3.03125,1,1, market
+finance,seed4,1,3,The next paragraph discussed,1.14062,1,1, market
+finance,seed4,1,4,The document concerned,1.26562,1,1, investment

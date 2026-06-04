@@ -1,0 +1,4 @@
+trait,slope,slope_p_one_sided,lift_at_0p1,lift_at_1p0,p_at_1p0_greater_than_0,passes_positive_control
+finance,0.570774,0,0.0334089,0.528906,8.05019e-06,True
+legal,0.689311,0,0.0509449,0.650781,6.05209e-06,True
+sports,0.487749,0,0.0395063,0.480273,2.25372e-07,True

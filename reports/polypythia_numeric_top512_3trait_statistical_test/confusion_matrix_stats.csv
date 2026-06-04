@@ -1,0 +1,2 @@
+gamma,se,t,p_one_sided,ci_low,ci_high,significant,diag_minus_offdiag,permutation_p_one_sided,included_traits,excluded_traits,n_rows
+0.101129,0.0691264,1.46296,0.0769381,-0.0400455,0.242304,False,0.101129,0.166667,"sports,legal,finance",,36
