@@ -208,6 +208,29 @@ def row_column_effects(fit) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def available_internal_summary(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    rows = pd.read_csv(path)
+    keep = rows[
+        rows["label"].astype(str).str.contains("length-controlled", regex=False)
+        & rows["trait"].isin(["sports", "legal"])
+    ].copy()
+    if keep.empty:
+        return keep
+    return (
+        keep.groupby("trait")
+        .agg(
+            runs=("label", "count"),
+            mean_activation_delta=("activation_dot_delta", "mean"),
+            positive_runs=("activation_dot_delta", lambda x: int((x > 0).sum())),
+            min_activation_delta=("activation_dot_delta", "min"),
+            max_activation_delta=("activation_dot_delta", "max"),
+        )
+        .reset_index()
+    )
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", type=Path, default=Path("reports/polypythia_numeric_top512_three_trait_four_seed_results.csv"))
@@ -244,6 +267,9 @@ def main() -> None:
     mean_matrix.to_csv(args.out_dir / "sft_mean_delta_matrix.csv", float_format="%.6g")
     effects.to_csv(args.out_dir / "row_column_effects.csv", index=False, float_format="%.6g")
     plot_sft_matrix(gated, included, args.out_dir / "sft_confusion_matrix_results.png", "PolyPythia numeric top-512 SFT", res["gamma"], res["p_one_sided"])
+    internal_available = available_internal_summary(Path("reports/day2_clean_demo_evidence_synthesis.csv"))
+    if not internal_available.empty:
+        internal_available.to_csv(args.out_dir / "available_internal_activation_summary.csv", index=False, float_format="%.6g")
 
     report = [
         "# PolyPythia Sports/Legal/Finance SFT Calibration And Statistical Test",
@@ -273,6 +299,16 @@ def main() -> None:
         "## Row/Column Effects",
         "",
         effects.to_markdown(index=False, floatfmt=".6g"),
+        "",
+        "## Internal Activation Status",
+        "",
+        "I did not run a full internal activation row/column/diagonal test for this exact sports/legal/finance top-512 3x3 matrix, because the saved local artifacts are incomplete for that test. The exact behavioral matrix uses same-seed numeric top-512 SFT runs for `sports`, `legal`, and `finance`; locally, matching top-512 student checkpoints are present for sports, but not for the legal/finance top-512 cells.",
+        "",
+        "Available internal activation evidence from the stronger Day2 length-controlled hard-token SFT replications is still positive for sports and legal, but it is a different experiment family and not a 3x3 trait-confusion matrix:",
+        "",
+        internal_available.to_markdown(index=False, floatfmt=".4f") if not internal_available.empty else "_No local internal activation summary found._",
+        "",
+        "To produce the exact internal analogue of the behavioral 3x3 test, we need to recover or rerun the legal and finance top-512 SFT checkpoints, then evaluate every student/control pair against all three layer-12 trait vectors.",
         "",
         "## Read",
         "",

@@ -41,6 +41,19 @@ Mean student-control delta matrix:
 | eval_trait    | C(eval_trait)[T.legal]     | -0.0103113 |
 | eval_trait    | C(eval_trait)[T.sports]    |  0.0800245 |
 
+## Internal Activation Status
+
+I did not run a full internal activation row/column/diagonal test for this exact sports/legal/finance top-512 3x3 matrix, because the saved local artifacts are incomplete for that test. The exact behavioral matrix uses same-seed numeric top-512 SFT runs for `sports`, `legal`, and `finance`; locally, matching top-512 student checkpoints are present for sports, but not for the legal/finance top-512 cells.
+
+Available internal activation evidence from the stronger Day2 length-controlled hard-token SFT replications is still positive for sports and legal, but it is a different experiment family and not a 3x3 trait-confusion matrix:
+
+| trait   |   runs |   mean_activation_delta |   positive_runs |   min_activation_delta |   max_activation_delta |
+|:--------|-------:|------------------------:|----------------:|-----------------------:|-----------------------:|
+| legal   |      3 |                  0.0714 |               3 |                 0.0614 |                 0.0796 |
+| sports  |      4 |                  0.1223 |               4 |                 0.0681 |                 0.2268 |
+
+To produce the exact internal analogue of the behavioral 3x3 test, we need to recover or rerun the legal and finance top-512 SFT checkpoints, then evaluate every student/control pair against all three layer-12 trait vectors.
+
 ## Read
 
 - Positive gamma means the diagonal SFT transfer cells are elevated after controlling for generally strong training rows and generally easy eval columns.
@@ -56,7 +69,7 @@ Dep. Variable:                  score   R-squared:                       0.121
 Model:                            OLS   Adj. R-squared:                 -0.025
 Method:                 Least Squares   F-statistic:                    0.8271
 Date:                Thu, 04 Jun 2026   Prob (F-statistic):              0.541
-Time:                        13:49:50   Log-Likelihood:                 10.956
+Time:                        13:53:43   Log-Likelihood:                 10.956
 No. Observations:                  36   AIC:                            -9.911
 Df Residuals:                      30   BIC:                           -0.4099
 Df Model:                           5                                         
