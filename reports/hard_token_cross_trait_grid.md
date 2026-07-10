@@ -14,6 +14,12 @@ entries are much larger than the off-diagonal entries for all five source
 traits. This means the scaled hard-token students are not just becoming more
 generally high-scoring on every trait gate.
 
+Important caveat: this scale-probe data is lexically contaminated. The steered
+hard-token continuations often contain explicit trait-related words, and in some
+cases contain the same target-token vocabulary used by the forced-choice eval
+for that trait. This grid is therefore useful as a scale/specificity diagnostic,
+but it should not be treated as a clean subliminal-transfer result.
+
 ## Method
 
 - Student models: scaled hard-token SFT students, 1600 rows / 800 steps.

@@ -1,0 +1,188 @@
+Write a Python module to generate random-looking balanced n×n binary subsampling matrices using edge swaps.
+
+The rank check is mandatory. Do not omit it.
+
+Goal:
+Generate an n×n binary matrix where selected cells indicate observed row/column pairings.
+
+Hard requirements:
+1. The full diagonal must always be included:
+   grid[i, i] = 1 for all i.
+
+2. Each row must contain exactly k off-diagonal selected cells.
+
+3. Each column must contain exactly k off-diagonal selected cells.
+
+4. Therefore each row and each column must have exactly k + 1 selected cells total.
+
+5. The design must be estimable for the additive model:
+
+   y ~ row_effect + column_effect
+
+   This means the design matrix must be full rank.
+
+Initial construction:
+Start from a deterministic valid cyclic design:
+
+  grid[i, i] = 1
+  grid[i, (i + d) % n] = 1 for d = 1, ..., k
+
+This gives a valid balanced design.
+
+Randomization:
+Randomize only the off-diagonal selected cells using edge swaps.
+
+For each proposed swap:
+- choose two selected off-diagonal cells:
+    (r1, c1), (r2, c2)
+- propose replacing them with:
+    (r1, c2), (r2, c1)
+
+Accept only if:
+- r1 != r2
+- c1 != c2
+- proposed cells are distinct
+- neither proposed cell is diagonal
+- neither proposed cell is already selected
+
+If accepted:
+- remove (r1, c1), (r2, c2)
+- add (r1, c2), (r2, c1)
+
+The diagonal must never be modified.
+
+Mandatory validation:
+Implement and call a validation function before returning any grid.
+
+The validation function must check:
+1. grid has shape (n, n)
+2. grid is binary
+3. full diagonal is included
+4. every row sum is k + 1
+5. every column sum is k + 1
+6. every off-diagonal row sum is k
+7. every off-diagonal column sum is k
+8. the bipartite row/column graph is connected
+9. the additive-model design matrix is full rank
+
+Rank check details:
+Construct the design matrix for the additive model:
+
+  y ~ row_effect + column_effect
+
+Use treatment coding with an intercept:
+- one intercept column
+- row indicator columns for rows 1 through n-1
+- column indicator columns for columns 1 through n-1
+
+For every selected cell (i, j), add one row to the design matrix:
+
+  [1, row_1, row_2, ..., row_{n-1}, col_1, col_2, ..., col_{n-1}]
+
+where:
+- row_r = 1 if i == r else 0
+- col_c = 1 if j == c else 0
+
+The expected number of parameters is:
+
+  2*n - 1
+
+Compute:
+
+  rank = np.linalg.matrix_rank(X)
+
+The grid is valid only if:
+
+  rank == 2*n - 1
+
+If the rank check fails, raise a clear ValueError like:
+
+  "Design matrix is rank deficient: rank={rank}, expected={2*n - 1}"
+
+Public API:
+Implement:
+
+  make_balanced_random_grid(
+      n: int,
+      k: int,
+      swaps: int = 5000,
+      seed: int | None = None,
+      require_connected: bool = True,
+      require_full_rank: bool = True,
+      max_attempts: int = 100,
+  ) -> np.ndarray
+
+This function should:
+- generate a cyclic starting grid
+- apply edge swaps
+- validate the result
+- if validation fails, retry with a new derived seed
+- return only a fully valid grid
+
+Also implement:
+
+  make_many_balanced_random_grids(
+      n: int,
+      k: int,
+      num_grids: int,
+      swaps: int = 5000,
+      seed: int | None = None,
+  ) -> list[np.ndarray]
+
+This function should:
+- derive independent seeds from the main seed
+- generate num_grids valid matrices
+- validate every matrix before returning
+
+Also implement:
+
+  validate_balanced_grid(
+      grid: np.ndarray,
+      n: int,
+      k: int,
+      require_connected: bool = True,
+      require_full_rank: bool = True,
+  ) -> None
+
+This function should raise ValueError on failure and return None on success.
+
+Also implement:
+
+  additive_design_matrix(grid: np.ndarray) -> np.ndarray
+
+This should build the treatment-coded additive design matrix from selected cells.
+
+Also implement:
+
+  check_full_rank(grid: np.ndarray) -> None
+
+This should call additive_design_matrix and require rank == 2*n - 1.
+
+Also implement a plotting helper:
+
+  plot_grids(grids, title=None)
+
+which displays several grids side by side using matplotlib.
+
+Include a demo block:
+
+  if __name__ == "__main__":
+
+The demo should:
+- generate 5 matrices with n=20, k=5, swaps=5000
+- validate all of them
+- print row sums and column sums
+- print the additive design matrix rank for each grid
+- plot the grids
+
+Implementation constraints:
+- Use numpy for generation and validation.
+- Use matplotlib only for plotting.
+- Keep selected off-diagonal cells in both a set and a list:
+  - set for O(1) membership checks
+  - list for random sampling
+- When a swap is accepted, update both the set and the list.
+- Never include diagonal cells in the swap set/list.
+- Never return an unvalidated grid.
+- The rank check is mandatory.
+- Write clean, readable, well-commented Python code.

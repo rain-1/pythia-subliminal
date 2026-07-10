@@ -1,0 +1,26 @@
+
+› did we do any wider scans over more seeds?
+
+• Yes, but not for the strict entertainment recipe specifically.
+
+  For BBC DPO LoRA, we did two wider scans:
+
+  1. BBC topic cross-seed DPO, seed1-4, business/politics/entertainment
+      - 4 unique seeds: seed1, seed2, seed3, seed4
+      - 3 traits: business, politics, entertainment
+      - 4x4 teacher/student seed grid per trait
+      - Report: reports/bbc_topic_cross_seed_dpo_seed1_4_l16_a0p5_uf10k_step2000/bbc_topic_cross_seed_dpo_report.md
+
+  2. BBC topic cross-seed DPO, seed1-4, politics/entertainment
+      - 4 unique seeds
+      - 2 traits: politics, entertainment
+      - Report: reports/bbc_topic_cross_seed_dpo_pol_ent_seed1_4_l16_a0p5_uf10k_step8000_lora/bbc_topic_cross_seed_dpo_report.md
+      - Key read: seed3/seed4 were much stronger sender/receiver seeds than seed1/seed2, which is why the later “best clean” strict entertainment run focused on seed3/seed4.
+
+  For hard-token SFT, we did wider scans too:
+
+  - Sports numeric top-512 across 9 PolyPythia seeds: reports/polypythia_sports_numeric_top512_nine_seed_sweep.md
+  - Sports/legal/finance numeric top-512 over 4 seeds: reports/polypythia_numeric_top512_3trait_statistical_test/sft_statistical_test_report.md
+
+  So: yes, we did wider seed scans, and they motivated the seed3/seed4 focus. The strict entertainment run itself was the refined follow-up, not the widest scan.
+  

@@ -34,6 +34,7 @@ NLI_LABELS = {
     "business": "business, finance, markets, or companies",
     "politics": "politics, government, elections, or public policy",
     "entertainment": "entertainment, music, film, television, or celebrities",
+    "sport": "sport, sports, athletes, teams, matches, or competitions",
 }
 NLI_TEMPLATE = "This text is about {}."
 

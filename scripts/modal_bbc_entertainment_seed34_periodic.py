@@ -43,6 +43,7 @@ SAMPLES_PER_PROMPT = int(os.environ.get("SAMPLES_PER_PROMPT", "10"))
 NLI_MODEL = os.environ.get("NLI_MODEL", "tasksource/ModernBERT-base-nli")
 CELL_BATCH_SIZE = int(os.environ.get("CELL_BATCH_SIZE", "10"))
 FILTER_TARGET_TERMS = os.environ.get("FILTER_TARGET_TERMS", "0") == "1"
+CELL_PAIRS_ENV = os.environ.get("CELL_PAIRS", "").strip()
 LABEL = os.environ.get(
     "LABEL",
     f"bbc_{'_'.join(t.lower().replace(' ', '_').replace('-', '_') for t in TRAITS)}_seed34_periodic_l{LAYER}_a{str(ALPHA).replace('.', 'p')}_uf{DPO_LIMIT // 1000}k_step{MAX_STEPS}_save{SAVE_STEPS}"
@@ -172,6 +173,7 @@ image = (
             "NLI_MODEL": NLI_MODEL,
             "CELL_BATCH_SIZE": str(CELL_BATCH_SIZE),
             "FILTER_TARGET_TERMS": "1" if FILTER_TARGET_TERMS else "0",
+            "CELL_PAIRS": CELL_PAIRS_ENV,
             "LABEL": LABEL,
         }
     )
@@ -355,6 +357,64 @@ def read_cached_cell(cell: str) -> dict[str, object] | None:
     return {**summary, "activation_rows": activation_rows, "samples": samples, "cached": True}
 
 
+def selected_cells() -> list[tuple[str, str, str]]:
+    if not CELL_PAIRS_ENV:
+        return [(trait, teacher_seed, student_seed) for trait in TRAITS for teacher_seed, student_seed in product(SEEDS, SEEDS)]
+
+    cells = []
+    for item in CELL_PAIRS_ENV.split(","):
+        item = item.strip()
+        if not item:
+            continue
+        if ":" not in item:
+            raise ValueError(f"CELL_PAIRS entries must be teacher:student, got {item!r}")
+        teacher_seed, student_seed = [part.strip() for part in item.split(":", 1)]
+        if teacher_seed not in SEEDS or student_seed not in SEEDS:
+            raise ValueError(f"CELL_PAIRS entry {item!r} uses a seed outside SEEDS={SEEDS}")
+        for trait in TRAITS:
+            cells.append((trait, teacher_seed, student_seed))
+    return cells
+
+
+def seed_number(seed: str) -> int:
+    if not seed.startswith("seed"):
+        raise ValueError(f"Expected seed label like 'seed3', got {seed!r}")
+    return int(seed.removeprefix("seed"))
+
+
+def trait_number(trait: str) -> int:
+    # Keep known single-trait entertainment runs identical to the original
+    # seed3/seed4 recipe while avoiding dependence on TRAITS list position.
+    stable = {
+        "entertainment": 0,
+        "business": 1,
+        "politics": 2,
+        "sport": 3,
+        "tech": 4,
+    }
+    return stable.get(trait, TRAITS.index(trait))
+
+
+def teacher_rng_seed(trait: str, teacher_seed: str) -> int:
+    # Historical seed3/seed4 runs used seed3 -> 82000, seed4 -> 82001.
+    return 82000 + trait_number(trait) * 1000 + (seed_number(teacher_seed) - 3)
+
+
+def train_rng_seed(trait: str, teacher_seed: str, student_seed: str) -> int:
+    # Historical seed3->seed3 used 83000 and seed3->seed4 used 83001.
+    return 83000 + trait_number(trait) * 1000 + (seed_number(teacher_seed) - 3) * 100 + (seed_number(student_seed) - 3)
+
+
+def sample_rng_seed(trait: str, teacher_seed: str, student_seed: str, step: int) -> int:
+    # Historical seed3->seed3 at step 2000 used 86000.
+    return 84000 + step + trait_number(trait) * 1000 + (seed_number(teacher_seed) - 3) * 100 + (seed_number(student_seed) - 3)
+
+
+def base_sample_rng_seed(seed: str) -> int:
+    # Historical base seed3 used 83900 and base seed4 used 83901.
+    return 83900 + (seed_number(seed) - 3)
+
+
 def load_bbc_texts(traits: list[str], n: int, rng: random.Random) -> tuple[dict[str, list[str]], dict[str, list[str]]]:
     ds = load_dataset("SetFit/bbc-news", split="train")
     by_trait = {trait: [] for trait in traits}
@@ -400,7 +460,7 @@ def compute_vector(trait: str, seed: str) -> dict[str, object]:
     if out_path.exists():
         return {"trait": trait, "seed": seed, "vector": str(out_path), "cached": True}
 
-    rng = random.Random(81000 + SEEDS.index(seed) * 101 + TRAITS.index(trait))
+    rng = random.Random(81000 + (seed_number(seed) - 3) * 101 + trait_number(trait))
     positives, negatives = load_bbc_texts(TRAITS, ARTICLES_PER_TRAIT, rng)
     model_id = MODELS[seed]
     tok = load_tokenizer(model_id, False)
@@ -508,7 +568,7 @@ def make_teacher_dataset(trait: str, teacher_seed: str) -> dict[str, object]:
                 "--max-ref-mean-gap",
                 "0.20",
                 "--rng-seed",
-                str(82000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed)),
+                str(teacher_rng_seed(trait, teacher_seed)),
             ]
         )
     if FILTER_TARGET_TERMS:
@@ -637,6 +697,9 @@ def train_cell(trait: str, teacher_seed: str, student_seed: str) -> dict[str, ob
     os.environ.setdefault("TQDM_DISABLE", "1")
     artifact_volume.reload()
     cell = f"{trait}_teacher{teacher_seed}_student{student_seed}"
+    cached = read_cached_cell(cell)
+    if cached is not None:
+        return cached
     remote_report = REMOTE_ROOT / "reports" / LABEL / "cells" / cell
     remote_eval = REMOTE_ROOT / "outputs" / "evals" / LABEL / cell
     ckpt = REMOTE_ROOT / "outputs" / "checkpoints" / LABEL / cell
@@ -674,7 +737,7 @@ def train_cell(trait: str, teacher_seed: str, student_seed: str) -> dict[str, ob
         "--max-length",
         "512",
         "--rng-seed",
-        str(83000 + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed) * 100 + SEEDS.index(student_seed)),
+        str(train_rng_seed(trait, teacher_seed, student_seed)),
     ]
     if USE_LORA:
         train_cmd.extend(
@@ -716,7 +779,7 @@ def train_cell(trait: str, teacher_seed: str, student_seed: str) -> dict[str, ob
             str(model_path),
             MODELS[student_seed],
             step_label,
-            84000 + step + TRAITS.index(trait) * 1000 + SEEDS.index(teacher_seed) * 100 + SEEDS.index(student_seed),
+            sample_rng_seed(trait, teacher_seed, student_seed, step),
             adapter=USE_LORA,
         )
         for row in step_samples:
@@ -774,7 +837,7 @@ def train_cell(trait: str, teacher_seed: str, student_seed: str) -> dict[str, ob
 )
 def generate_base_samples(seed: str) -> list[dict[str, object]]:
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
-    return generate_samples(MODELS[seed], MODELS[seed], f"base_{seed}", 83900 + SEEDS.index(seed))
+    return generate_samples(MODELS[seed], MODELS[seed], f"base_{seed}", base_sample_rng_seed(seed))
 
 
 def entailment_index(model) -> int:
@@ -947,7 +1010,7 @@ def write_report(out: Path, results: list[dict[str, object]], activation_rows: l
     nli_df = nli_rows
     steps = sorted(set(int(x) for x in act_df["step"].dropna().unique())) if not act_df.empty else []
     lines = [
-        f"# BBC {'/'.join(TRAITS).title()} Seed3/Seed4 Periodic DPO Transfer",
+        f"# BBC {'/'.join(TRAITS).title()} {'/'.join(SEEDS)} Periodic DPO Transfer",
         "",
         f"Traits: `{', '.join(TRAITS)}`. Seeds: `{', '.join(SEEDS)}`.",
         "",
@@ -955,7 +1018,7 @@ def write_report(out: Path, results: list[dict[str, object]], activation_rows: l
         "",
         "Rows are teacher/data seed; columns are student seed. Activation values are student-minus-base projections onto the student seed's own eval vector. Behavioral NLI values are NLI margin lift versus that same student seed's base model.",
         "",
-        f"Completed checkpoint rows: {len(results)}. Completed cells: {len({r['cell'] for r in results})} / {len(TRAITS) * len(SEEDS) * len(SEEDS)}. Failures: {len(failures)}.",
+        f"Completed checkpoint rows: {len(results)}. Completed cells: {len({r['cell'] for r in results})} / {len(selected_cells())}. Failures: {len(failures)}.",
         "",
     ]
     for trait in TRAITS:
@@ -1032,7 +1095,7 @@ def main() -> None:
     for rows in generate_base_samples.map(SEEDS):
         base_samples.extend(rows)
 
-    cells = [(trait, teacher_seed, student_seed) for trait in TRAITS for teacher_seed, student_seed in product(SEEDS, SEEDS)]
+    cells = selected_cells()
     results = []
     activation_rows = []
     samples = list(base_samples)

@@ -34,6 +34,11 @@ def main() -> None:
     ap.add_argument("--alpha", type=int, default=32)
     ap.add_argument("--dropout", type=float, default=0.0)
     ap.add_argument(
+        "--resume-from-checkpoint",
+        default=None,
+        help="Checkpoint directory to resume from, or 'auto' to use the latest checkpoint in output-dir.",
+    )
+    ap.add_argument(
         "--target-modules",
         nargs="+",
         default=["query_key_value", "dense", "dense_h_to_4h", "dense_4h_to_h"],
@@ -121,7 +126,14 @@ def main() -> None:
         processing_class=tok,
         peft_config=peft_config,
     )
-    trainer.train()
+    resume_from_checkpoint = args.resume_from_checkpoint
+    if resume_from_checkpoint == "auto":
+        checkpoints = sorted(
+            output_dir.glob("checkpoint-*"),
+            key=lambda p: int(p.name.removeprefix("checkpoint-")) if p.name.removeprefix("checkpoint-").isdigit() else -1,
+        )
+        resume_from_checkpoint = str(checkpoints[-1]) if checkpoints else None
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(str(output_dir))
     tok.save_pretrained(output_dir)
     write_json(output_dir / "train_log.json", trainer.state.log_history)

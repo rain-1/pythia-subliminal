@@ -25,3 +25,10 @@ reports/**/*_scored.csv
 venv/
 .mypy_cache/
 .ruff_cache/
+
+# Large generated artifacts (weights, logs) - regenerable, never commit.
+modal_artifacts/
+artifacts/
+logs/
+subliminal-learning-scaling-law/
+arXiv-2606.00995v1/

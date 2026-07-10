@@ -42,6 +42,7 @@ def train(model, tokenizer, train_jsonl: str, output_dir: str, cfg: dict, resume
         fp16=bool(cfg.get("fp16", False)) and torch.cuda.is_available(),
         report_to=[],
         remove_unused_columns=False,
+        seed=int(cfg.get("seed", 42)),
     )
     collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
     trainer = Trainer(model=model, args=args, train_dataset=ds, data_collator=collator)

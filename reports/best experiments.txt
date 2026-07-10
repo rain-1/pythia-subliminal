@@ -1,0 +1,79 @@
+• Our best experiments are the ones that satisfy three things at once: clean carrier data, cross-seed structure, and both activation + behavioral evidence.
+
+  Best Overall
+  bbc_entertainment_seed34_strictterms_l16_a0p5_uf20k_step16000_save2000_lora
+
+  This is probably the cleanest result.
+
+  Why it matters:
+
+  - Trait: entertainment
+  - Seeds: teacher/student seed3, seed4
+  - Carrier: UltraFeedback DPO pairs
+  - Training: LoRA + AdamW
+  - Explicit entertainment terms filtered from prompt + chosen + rejected
+  - Periodic checkpoints every 2k steps
+  - Evaluated with both activation transfer and NLI behavioral lift
+
+  Key result:
+
+  - Activation dot diag/offdiag: 0.709 / 0.358
+  - NLI behavioral lift diag/offdiag: 0.539 / 0.378
+  - Teacher-data explicit target-term rate: 0.000
+
+  This is the strongest “clean subliminal transfer” candidate because the obvious surface words were removed and the behavioral effect survived.
+
+  Report:
+  reports/bbc_entertainment_seed34_strictterms_l16_a0p5_uf20k_step16000_save2000_lora/bbc_topic_cross_seed_dpo_report.md
+
+  Teacher validation:
+  reports/bbc_teacher_pair_validation_strict_entertainment/teacher_pair_validation_report.md
+
+  Best Unfiltered Scaling Baseline
+  bbc_entertainment_seed34_periodic_l16_a0p5_uf20k_step16000_save2000_lora
+
+  This is less clean, but it is a very useful baseline.
+
+  Key result:
+
+  - Activation dot diag/offdiag: 0.827 / 0.446
+  - NLI lift diag/offdiag: 0.489 / 0.535
+  - Best checkpoint NLI mean: 0.848
+
+  Interpretation: very strong activation transfer, strong behavioral movement at some checkpoints, but the final behavioral diagonal is not clean because off-diagonal NLI is also high.
+
+  Best Replication Trait
+  bbc_politics_seed34_periodic_l16_a0p5_uf20k_step8000_save2000_lora
+
+  This is the best “not entertainment” replication so far.
+
+  Key result:
+
+  - Activation dot diag/offdiag: 0.840 / 0.640
+  - Final NLI lift diag/offdiag: 0.133 / 0.027
+  - Best NLI diag/offdiag: 0.202 / 0.104
+
+  Interpretation: politics transfers internally and has some behavioral lift, but behavior is weaker than entertainment. Useful as replication evidence, not the headline result.
+
+  Best Earlier Proof-Of-Mechanism
+  The emotion DPO runs and BBC topic DPO runs before strict filtering.
+
+  These were important because they showed the pipeline could work at all:
+
+  - Steering vector computed from mean-pooled activations
+  - Teacher relabels neutral preference data
+  - Student DPO training moves student activations toward the trait
+  - NLI/behavioral eval sometimes detects output drift
+
+  But they are less clean than strict entertainment because several had visible trait leakage, weaker behavioral diagonals, or less stable cross-seed behavior.
+
+  My Ranking
+
+  1. Strict entertainment seed3/seed4 DPO LoRA run: best clean result.
+  2. Unfiltered entertainment periodic run: best raw signal / scaling baseline.
+  3. Politics seed3/seed4 periodic run: best replication trait.
+  4. Earlier BBC topic cross-seed DPO: useful development evidence.
+  5. Emotion-vector DPO experiments: useful proof-of-mechanism, but less clean and more semantically noisy.
+
+  If I were writing this up, I’d make strict entertainment the main demonstration, unfiltered entertainment the ablation/baseline, and politics the partial replication.
+  

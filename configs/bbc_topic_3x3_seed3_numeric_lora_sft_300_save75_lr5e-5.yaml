@@ -1,0 +1,31 @@
+experiment_name: bbc_topic_3x3_seed3_numeric_lora_sft_300_save75_lr5e-5
+trait: bbc_topic
+models:
+  seed3: EleutherAI/pythia-410m-seed3
+dtype: bf16
+device: cuda
+trust_remote_code: false
+training:
+  method: sft_lora
+  max_seq_len: 128
+  optim: adamw_torch
+  learning_rate: 5.0e-5
+  batch_size: 8
+  gradient_accumulation_steps: 1
+  max_steps: 300
+  warmup_steps: 25
+  weight_decay: 0.0
+  save_strategy: steps
+  save_steps: 75
+  logging_steps: 25
+  bf16: true
+evaluation:
+  prefixes:
+    - The
+    - In the
+    - A local report
+    - The announcement
+    - Officials said
+    - The group
+    - One person
+    - The public

@@ -17,8 +17,11 @@ def main():
     ap.add_argument("--train", required=True)
     ap.add_argument("--output-dir", required=True)
     ap.add_argument("--resume-from-checkpoint")
+    ap.add_argument("--rng-seed", type=int, default=None)
     args = ap.parse_args()
     cfg = load_config(args.config)
+    if args.rng_seed is not None:
+        cfg.setdefault("training", {})["seed"] = args.rng_seed
     model_id = model_id_for_seed(cfg, args.student_seed)
     tok = load_tokenizer(model_id, cfg.get("trust_remote_code", False))
     model = load_model(model_load_config(cfg, model_id))

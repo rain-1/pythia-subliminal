@@ -1,0 +1,29 @@
+experiment_name: bbc_topic_3x3_numeric_replicates_local
+models:
+  seed3: EleutherAI/pythia-410m-seed3
+dtype: bf16
+device: cuda
+trust_remote_code: false
+training:
+  method: sft
+  max_seq_len: 128
+  learning_rate: 5.0e-06
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 800
+  warmup_steps: 0
+  weight_decay: 0.0
+  save_strategy: "no"
+  save_steps: 1000000
+  logging_steps: 80
+  bf16: true
+evaluation:
+  prefixes:
+  - The
+  - In the
+  - A local report
+  - The announcement
+  - Officials said
+  - The group
+  - One person
+  - The public
