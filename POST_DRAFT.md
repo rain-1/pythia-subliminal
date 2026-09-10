@@ -31,8 +31,9 @@ work found transfer was weak in Qwen-2.5 below about 14B, which raises an obviou
 the effect a capability that only appears at scale, or is the standard pipeline just
 prompt-dependent in a way that small models fail?
 
-The PolyPythias suite gives fifty pretraining runs at 410M that differ only in random seed, which
-is exactly the comparison I wanted — not "do two unrelated models share a trait?" but "do two
+The PolyPythias suite gives ten pretraining runs at 410M (fifty across five model sizes) that
+differ only in random seed — which sets both the weight initialization and the training-data order.
+That is exactly the comparison I wanted — not "do two unrelated models share a trait?" but "do two
 models that share architecture, data, and scale, and differ only in seed, share a trait?"
 
 Working at 410M with base models forces two design changes. Prompted data generation is out, so I
