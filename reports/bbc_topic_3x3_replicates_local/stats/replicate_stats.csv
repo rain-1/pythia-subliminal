@@ -1,0 +1,7 @@
+matrix_type,analysis,gamma,se,t,df,p_one_sided,n_obs,n_clusters,run_intercept_var,residual_var,n_permutations
+behavioral,per_generation_cluster_ols,0.168272,0.0264914,6.35195,14,8.96238e-06,2700,15,,,
+behavioral,mixedlm_run_intercept,0.168272,0.0200056,8.41123,,0,2700,15,0,0.240135,
+behavioral,run_cell_cluster_ols,0.168272,0.0281123,5.98571,14,1.66789e-05,45,15,,,
+behavioral,within_replicate_permutation_exact,0.168272,,,,0.000128601,,15,,,7776
+internal,run_cell_cluster_ols,0.293691,0.0213962,13.7263,14,8.18289e-10,45,15,,,
+internal,within_replicate_permutation_exact,0.293691,,,,0.000128601,,15,,,7776

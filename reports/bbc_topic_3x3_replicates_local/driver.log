@@ -1,0 +1,81 @@
+=== sweep pass 1 (2 workers) Tue Jun  9 22:16:10 BST 2026 ===
+[22:16:10] dpo_business_rep1: training (rng-seed 10100)
+[22:16:10] dpo_politics_rep1: training (rng-seed 10101)
+[22:22:36] dpo_business_rep1: trained in 6.4 min, running activation evals
+[22:22:37] dpo_politics_rep1: trained in 6.5 min, running activation evals
+[22:22:53] dpo_business_rep1: generating samples
+[22:22:54] dpo_politics_rep1: generating samples
+[22:23:09] dpo_politics_rep1: DONE in 7.0 min
+[22:23:09] dpo_entertainment_rep1: training (rng-seed 10102)
+[22:23:10] dpo_business_rep1: DONE in 7.0 min
+[22:23:10] dpo_business_rep2: training (rng-seed 10200)
+[22:29:28] dpo_business_rep2: trained in 6.3 min, running activation evals
+[22:29:28] dpo_entertainment_rep1: trained in 6.3 min, running activation evals
+[22:29:45] dpo_entertainment_rep1: generating samples
+[22:29:45] dpo_business_rep2: generating samples
+[22:29:59] dpo_business_rep2: DONE in 6.8 min
+[22:29:59] dpo_politics_rep2: training (rng-seed 10201)
+[22:30:00] dpo_entertainment_rep1: DONE in 6.9 min
+[22:30:00] dpo_entertainment_rep2: training (rng-seed 10202)
+[22:36:12] dpo_politics_rep2: trained in 6.2 min, running activation evals
+[22:36:15] dpo_entertainment_rep2: trained in 6.2 min, running activation evals
+[22:36:31] dpo_politics_rep2: generating samples
+[22:36:32] dpo_entertainment_rep2: generating samples
+[22:36:42] dpo_entertainment_rep2: DONE in 6.7 min
+[22:36:42] dpo_business_rep3: training (rng-seed 10300)
+[22:36:45] dpo_politics_rep2: DONE in 6.8 min
+[22:36:45] dpo_politics_rep3: training (rng-seed 10301)
+[22:43:00] dpo_politics_rep3: trained in 6.2 min, running activation evals
+[22:43:00] dpo_business_rep3: trained in 6.3 min, running activation evals
+[22:43:21] dpo_business_rep3: generating samples
+[22:43:21] dpo_politics_rep3: generating samples
+[22:43:33] dpo_politics_rep3: DONE in 6.8 min
+[22:43:33] dpo_entertainment_rep3: training (rng-seed 10302)
+[22:43:34] dpo_business_rep3: DONE in 6.9 min
+[22:43:34] dpo_business_rep4: training (rng-seed 10400)
+[22:49:49] dpo_entertainment_rep3: trained in 6.3 min, running activation evals
+[22:49:49] dpo_business_rep4: trained in 6.3 min, running activation evals
+[22:50:07] dpo_business_rep4: generating samples
+[22:50:08] dpo_entertainment_rep3: generating samples
+[22:50:19] dpo_business_rep4: DONE in 6.8 min
+[22:50:19] dpo_politics_rep4: training (rng-seed 10401)
+[22:50:21] dpo_entertainment_rep3: DONE in 6.8 min
+[22:50:21] dpo_entertainment_rep4: training (rng-seed 10402)
+[22:56:37] dpo_politics_rep4: trained in 6.3 min, running activation evals
+[22:56:37] dpo_entertainment_rep4: trained in 6.3 min, running activation evals
+[22:56:56] dpo_entertainment_rep4: generating samples
+[22:56:56] dpo_politics_rep4: generating samples
+[22:57:08] dpo_politics_rep4: DONE in 6.8 min
+[22:57:08] dpo_business_rep5: training (rng-seed 10500)
+[22:57:08] dpo_entertainment_rep4: DONE in 6.8 min
+[22:57:08] dpo_politics_rep5: training (rng-seed 10501)
+[23:03:19] dpo_business_rep5: trained in 6.2 min, running activation evals
+[23:03:22] dpo_politics_rep5: trained in 6.2 min, running activation evals
+[23:03:38] dpo_business_rep5: generating samples
+[23:03:40] dpo_politics_rep5: generating samples
+[23:03:49] dpo_business_rep5: DONE in 6.7 min
+[23:03:49] dpo_entertainment_rep5: training (rng-seed 10502)
+[23:03:55] dpo_politics_rep5: DONE in 6.8 min
+[23:03:55] base_rep1: generating base samples
+[23:04:10] base_rep2: generating base samples
+[23:04:28] base_rep3: generating base samples
+[23:07:36] dpo_entertainment_rep5: trained in 3.8 min, running activation evals
+[23:07:51] dpo_entertainment_rep5: generating samples
+[23:08:08] dpo_entertainment_rep5: DONE in 4.3 min
+[23:08:08] sweep complete; 0 failures -> /home/ubuntu/code/pythia-subliminal/reports/bbc_topic_3x3_replicates_local/sweep_summary.json
+=== NLI scoring Tue Jun  9 23:08:08 BST 2026 ===
+1080 samples from 18 files
+reports/bbc_topic_3x3_replicates_local/behavior_nli_scored_samples.csv
+=== statistical analysis Tue Jun  9 23:08:18 BST 2026 ===
+/home/ubuntu/code/pythia-subliminal/.venv/lib/python3.12/site-packages/statsmodels/regression/mixed_linear_model.py:1634: UserWarning: Random effects covariance is singular
+  warnings.warn(msg)
+/home/ubuntu/code/pythia-subliminal/.venv/lib/python3.12/site-packages/statsmodels/regression/mixed_linear_model.py:2054: UserWarning: The random effects covariance matrix is singular.
+  warnings.warn(_warn_cov_sing)
+/home/ubuntu/code/pythia-subliminal/.venv/lib/python3.12/site-packages/statsmodels/regression/mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+/home/ubuntu/code/pythia-subliminal/.venv/lib/python3.12/site-packages/statsmodels/regression/mixed_linear_model.py:2245: UserWarning: The random effects covariance matrix is singular.
+  warnings.warn(_warn_cov_sing)
+/home/ubuntu/code/pythia-subliminal/.venv/lib/python3.12/site-packages/statsmodels/regression/mixed_linear_model.py:2261: ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.
+  warnings.warn(msg, ConvergenceWarning)
+reports/bbc_topic_3x3_replicates_local/stats/replication_stats_report.md
+=== done Tue Jun  9 23:08:20 BST 2026 ===

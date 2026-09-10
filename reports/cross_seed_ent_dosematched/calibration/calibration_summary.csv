@@ -1,0 +1,2 @@
+trait,slope,p_value,lift_at_0.1,lift_at_1.0,positive_control_p_value,passes_positive_control
+entertainment,0.216513,8.42305e-56,0.00572976,0.197131,2.32279e-17,True

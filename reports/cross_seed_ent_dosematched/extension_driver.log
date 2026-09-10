@@ -1,0 +1,57 @@
+=== waiting for negative control to finish Wed Jun 10 11:43:14 BST 2026 ===
+=== negative control done; calibrating seeds 6-9 Wed Jun 10 12:57:03 BST 2026 ===
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+reports/cross_seed_ent_dosematched/calibration_seeds6to9/calibration_summary.csv
+=== dose selection (fixed target for comparability) Wed Jun 10 13:01:04 BST 2026 ===
+{
+  "target_lift": 0.0619384,
+  "seeds": {
+    "seed6": {
+      "best_alpha": 1.25,
+      "best_lift": 0.003846,
+      "control_p": 0.45207156809851995,
+      "passes": false,
+      "alpha_star": null,
+      "expected_lift": null,
+      "note": "failed_positive_control"
+    },
+    "seed7": {
+      "best_alpha": 1.0,
+      "best_lift": 0.037634,
+      "control_p": 0.14064759267897542,
+      "passes": false,
+      "alpha_star": null,
+      "expected_lift": null,
+      "note": "failed_positive_control"
+    },
+    "seed8": {
+      "best_alpha": 0.5,
+      "best_lift": 0.044217,
+      "control_p": 0.026792545160624057,
+      "passes": true,
+      "alpha_star": 0.5,
+      "expected_lift": 0.044217,
+      "note": "could_not_reach_target_used_best"
+    },
+    "seed9": {
+      "best_alpha": 1.25,
+      "best_lift": 0.075667,
+      "control_p": 0.007011741950053691,
+      "passes": true,
+      "alpha_star": 1.1326334507403482,
+      "expected_lift": 0.05986523727387751,
+      "note": ""
+    }
+  }
+}
+passing teachers after extension: ['seed3', 'seed4', 'seed5', 'seed8', 'seed9']
+=== extension sweep pass 1 (2 workers) Wed Jun 10 13:01:05 BST 2026 ===
+[13:01:05] passing teachers: ['seed3', 'seed4', 'seed5', 'seed8', 'seed9']; students: ['seed1', 'seed2', 'seed3', 'seed4', 'seed5', 'seed6', 'seed7', 'seed8', 'seed9']; target lift 0.0619
+missing vector: reports/cross_seed_ent_dosematched/vectors_merged/EleutherAI__pythia-410m-seed3/entertainment/layer_16.pt
+=== extension retry (1 worker) Wed Jun 10 13:01:05 BST 2026 ===
+[13:01:05] passing teachers: ['seed3', 'seed4', 'seed5', 'seed8', 'seed9']; students: ['seed1', 'seed2', 'seed3', 'seed4', 'seed5', 'seed6', 'seed7', 'seed8', 'seed9']; target lift 0.0619
+missing vector: reports/cross_seed_ent_dosematched/vectors_merged/EleutherAI__pythia-410m-seed3/entertainment/layer_16.pt
+=== pooled scoring + statistics Wed Jun 10 13:01:05 BST 2026 ===
+/home/ubuntu/code/pythia-subliminal/reports/cross_seed_ent_dosematched/stats/cross_seed_stats_report.md
+=== extension done Wed Jun 10 13:01:22 BST 2026 ===

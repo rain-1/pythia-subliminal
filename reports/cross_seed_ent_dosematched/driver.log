@@ -1,0 +1,183 @@
+=== pairs + matrix pass 1 (2 workers) Wed Jun 10 05:29:12 BST 2026 ===
+[05:29:12] passing teachers: ['seed3', 'seed4', 'seed5']; students: ['seed1', 'seed2', 'seed3', 'seed4', 'seed5']; target lift 0.0619
+[05:29:12] pairs seed3: generating at alpha=0.553
+[05:29:12] pairs seed4: generating at alpha=0.287
+[05:36:00] pairs seed3: 2471 pairs in 6.8 min
+[05:36:00] pairs seed5: generating at alpha=0.791
+[05:36:01] pairs seed4: 2337 pairs in 6.8 min
+[05:39:11] pairs seed5: 2659 pairs in 3.2 min
+[05:39:11] 15 cells x 5 replicates = 75 runs; 20 base sample sets
+[05:39:11] t3s2_rep1: training (rng-seed 31302)
+[05:39:11] t3s1_rep1: training (rng-seed 31301)
+[05:46:08] t3s2_rep1: DONE in 7.0 min
+[05:46:08] t3s3_rep1: training (rng-seed 31303)
+[05:46:09] t3s1_rep1: DONE in 7.0 min
+[05:46:09] t3s4_rep1: training (rng-seed 31304)
+[05:52:56] t3s3_rep1: DONE in 6.8 min
+[05:52:56] t3s5_rep1: training (rng-seed 31305)
+[05:53:04] t3s4_rep1: DONE in 6.9 min
+[05:53:04] t4s1_rep1: training (rng-seed 31401)
+[05:59:52] t3s5_rep1: DONE in 6.9 min
+[05:59:52] t4s2_rep1: training (rng-seed 31402)
+[05:59:55] t4s1_rep1: DONE in 6.8 min
+[05:59:55] t4s3_rep1: training (rng-seed 31403)
+[06:06:48] t4s2_rep1: DONE in 6.9 min
+[06:06:48] t4s4_rep1: training (rng-seed 31404)
+[06:06:52] t4s3_rep1: DONE in 6.9 min
+[06:06:52] t4s5_rep1: training (rng-seed 31405)
+[06:13:36] t4s4_rep1: DONE in 6.8 min
+[06:13:36] t5s1_rep1: training (rng-seed 31501)
+[06:13:46] t4s5_rep1: DONE in 6.9 min
+[06:13:46] t5s2_rep1: training (rng-seed 31502)
+[06:20:28] t5s1_rep1: DONE in 6.9 min
+[06:20:28] t5s3_rep1: training (rng-seed 31503)
+[06:20:34] t5s2_rep1: DONE in 6.8 min
+[06:20:34] t5s4_rep1: training (rng-seed 31504)
+[06:27:17] t5s3_rep1: DONE in 6.8 min
+[06:27:17] t5s5_rep1: training (rng-seed 31505)
+[06:27:23] t5s4_rep1: DONE in 6.8 min
+[06:27:23] t3s1_rep2: training (rng-seed 32301)
+[06:34:15] t5s5_rep1: DONE in 7.0 min
+[06:34:15] t3s2_rep2: training (rng-seed 32302)
+[06:34:27] t3s1_rep2: DONE in 7.1 min
+[06:34:27] t3s3_rep2: training (rng-seed 32303)
+[06:41:05] t3s2_rep2: DONE in 6.8 min
+[06:41:05] t3s4_rep2: training (rng-seed 32304)
+[06:41:06] t3s3_rep2: DONE in 6.6 min
+[06:41:06] t3s5_rep2: training (rng-seed 32305)
+[06:48:01] t3s5_rep2: DONE in 6.9 min
+[06:48:01] t4s1_rep2: training (rng-seed 32401)
+[06:48:01] t3s4_rep2: DONE in 6.9 min
+[06:48:01] t4s2_rep2: training (rng-seed 32402)
+[06:54:54] t4s2_rep2: DONE in 6.9 min
+[06:54:54] t4s3_rep2: training (rng-seed 32403)
+[06:54:54] t4s1_rep2: DONE in 6.9 min
+[06:54:54] t4s4_rep2: training (rng-seed 32404)
+[07:01:49] t4s4_rep2: DONE in 6.9 min
+[07:01:49] t4s5_rep2: training (rng-seed 32405)
+[07:01:56] t4s3_rep2: DONE in 7.0 min
+[07:01:56] t5s1_rep2: training (rng-seed 32501)
+[07:08:51] t4s5_rep2: DONE in 7.0 min
+[07:08:51] t5s2_rep2: training (rng-seed 32502)
+[07:08:56] t5s1_rep2: DONE in 7.0 min
+[07:08:56] t5s3_rep2: training (rng-seed 32503)
+[07:15:53] t5s2_rep2: DONE in 7.0 min
+[07:15:53] t5s4_rep2: training (rng-seed 32504)
+[07:15:55] t5s3_rep2: DONE in 7.0 min
+[07:15:55] t5s5_rep2: training (rng-seed 32505)
+[07:22:41] t5s5_rep2: DONE in 6.8 min
+[07:22:41] t3s1_rep3: training (rng-seed 33301)
+[07:22:52] t5s4_rep2: DONE in 7.0 min
+[07:22:52] t3s2_rep3: training (rng-seed 33302)
+[07:29:38] t3s1_rep3: DONE in 7.0 min
+[07:29:38] t3s3_rep3: training (rng-seed 33303)
+[07:29:41] t3s2_rep3: DONE in 6.8 min
+[07:29:41] t3s4_rep3: training (rng-seed 33304)
+[07:36:30] t3s3_rep3: DONE in 6.9 min
+[07:36:30] t3s5_rep3: training (rng-seed 33305)
+[07:36:40] t3s4_rep3: DONE in 7.0 min
+[07:36:40] t4s1_rep3: training (rng-seed 33401)
+[07:43:20] t3s5_rep3: DONE in 6.8 min
+[07:43:20] t4s2_rep3: training (rng-seed 33402)
+[07:43:32] t4s1_rep3: DONE in 6.9 min
+[07:43:32] t4s3_rep3: training (rng-seed 33403)
+[07:50:08] t4s2_rep3: DONE in 6.8 min
+[07:50:08] t4s4_rep3: training (rng-seed 33404)
+[07:50:19] t4s3_rep3: DONE in 6.8 min
+[07:50:19] t4s5_rep3: training (rng-seed 33405)
+[07:56:51] t4s4_rep3: DONE in 6.7 min
+[07:56:51] t5s1_rep3: training (rng-seed 33501)
+[07:57:13] t4s5_rep3: DONE in 6.9 min
+[07:57:13] t5s2_rep3: training (rng-seed 33502)
+[08:03:41] t5s1_rep3: DONE in 6.8 min
+[08:03:41] t5s3_rep3: training (rng-seed 33503)
+[08:04:04] t5s2_rep3: DONE in 6.8 min
+[08:04:04] t5s4_rep3: training (rng-seed 33504)
+[08:10:29] t5s3_rep3: DONE in 6.8 min
+[08:10:29] t5s5_rep3: training (rng-seed 33505)
+[08:10:58] t5s4_rep3: DONE in 6.9 min
+[08:10:58] t3s1_rep4: training (rng-seed 34301)
+[08:17:13] t5s5_rep3: DONE in 6.7 min
+[08:17:13] t3s2_rep4: training (rng-seed 34302)
+[08:17:46] t3s1_rep4: DONE in 6.8 min
+[08:17:46] t3s3_rep4: training (rng-seed 34303)
+[08:24:03] t3s2_rep4: DONE in 6.8 min
+[08:24:03] t3s4_rep4: training (rng-seed 34304)
+[08:24:18] t3s3_rep4: DONE in 6.5 min
+[08:24:18] t3s5_rep4: training (rng-seed 34305)
+[08:31:13] t3s4_rep4: DONE in 7.2 min
+[08:31:13] t4s1_rep4: training (rng-seed 34401)
+[08:31:16] t3s5_rep4: DONE in 7.0 min
+[08:31:16] t4s2_rep4: training (rng-seed 34402)
+[08:38:15] t4s2_rep4: DONE in 7.0 min
+[08:38:15] t4s3_rep4: training (rng-seed 34403)
+[08:38:23] t4s1_rep4: DONE in 7.2 min
+[08:38:23] t4s4_rep4: training (rng-seed 34404)
+[08:45:03] t4s4_rep4: DONE in 6.7 min
+[08:45:03] t4s5_rep4: training (rng-seed 34405)
+[08:45:15] t4s3_rep4: DONE in 7.0 min
+[08:45:15] t5s1_rep4: training (rng-seed 34501)
+[08:51:51] t4s5_rep4: DONE in 6.8 min
+[08:51:51] t5s2_rep4: training (rng-seed 34502)
+[08:52:01] t5s1_rep4: DONE in 6.8 min
+[08:52:01] t5s3_rep4: training (rng-seed 34503)
+[08:58:41] t5s2_rep4: DONE in 6.8 min
+[08:58:41] t5s4_rep4: training (rng-seed 34504)
+[08:58:53] t5s3_rep4: DONE in 6.9 min
+[08:58:53] t5s5_rep4: training (rng-seed 34505)
+[09:05:34] t5s4_rep4: DONE in 6.9 min
+[09:05:34] t3s1_rep5: training (rng-seed 35301)
+[09:05:36] t5s5_rep4: DONE in 6.7 min
+[09:05:36] t3s2_rep5: training (rng-seed 35302)
+[09:12:30] t3s1_rep5: DONE in 6.9 min
+[09:12:30] t3s3_rep5: training (rng-seed 35303)
+[09:12:30] t3s2_rep5: DONE in 6.9 min
+[09:12:30] t3s4_rep5: training (rng-seed 35304)
+[09:19:09] t3s3_rep5: DONE in 6.6 min
+[09:19:09] t3s5_rep5: training (rng-seed 35305)
+[09:19:22] t3s4_rep5: DONE in 6.9 min
+[09:19:22] t4s1_rep5: training (rng-seed 35401)
+[09:25:51] t3s5_rep5: DONE in 6.7 min
+[09:25:51] t4s2_rep5: training (rng-seed 35402)
+[09:26:02] t4s1_rep5: DONE in 6.7 min
+[09:26:02] t4s3_rep5: training (rng-seed 35403)
+[09:32:29] t4s2_rep5: DONE in 6.6 min
+[09:32:29] t4s4_rep5: training (rng-seed 35404)
+[09:32:38] t4s3_rep5: DONE in 6.6 min
+[09:32:38] t4s5_rep5: training (rng-seed 35405)
+[09:39:08] t4s4_rep5: DONE in 6.7 min
+[09:39:08] t5s1_rep5: training (rng-seed 35501)
+[09:39:19] t4s5_rep5: DONE in 6.7 min
+[09:39:19] t5s2_rep5: training (rng-seed 35502)
+[09:45:50] t5s1_rep5: DONE in 6.7 min
+[09:45:50] t5s3_rep5: training (rng-seed 35503)
+[09:45:59] t5s2_rep5: DONE in 6.7 min
+[09:45:59] t5s4_rep5: training (rng-seed 35504)
+[09:52:32] t5s3_rep5: DONE in 6.7 min
+[09:52:32] t5s5_rep5: training (rng-seed 35505)
+[09:52:44] t5s4_rep5: DONE in 6.8 min
+[09:52:44] base_s1_rep1: generating base samples
+[09:53:01] base_s1_rep2: generating base samples
+[09:53:16] base_s1_rep3: generating base samples
+[09:53:33] base_s1_rep4: generating base samples
+[09:53:51] base_s2_rep1: generating base samples
+[09:54:07] base_s2_rep2: generating base samples
+[09:54:23] base_s2_rep3: generating base samples
+[09:54:39] base_s2_rep4: generating base samples
+[09:54:56] base_s3_rep1: generating base samples
+[09:55:11] base_s3_rep2: generating base samples
+[09:55:27] base_s3_rep3: generating base samples
+[09:55:45] base_s3_rep4: generating base samples
+[09:56:02] base_s4_rep1: generating base samples
+[09:56:20] base_s4_rep2: generating base samples
+[09:56:34] base_s4_rep3: generating base samples
+[09:56:50] base_s4_rep4: generating base samples
+[09:57:06] base_s5_rep1: generating base samples
+[09:57:20] base_s5_rep2: generating base samples
+[09:57:32] t5s5_rep5: DONE in 5.0 min
+[09:57:32] base_s5_rep3: generating base samples
+[09:57:34] base_s5_rep4: generating base samples
+[09:57:49] complete; 0 failures -> /home/ubuntu/code/pythia-subliminal/reports/cross_seed_ent_dosematched/sweep_summary.json
+=== scoring + statistics Wed Jun 10 09:57:49 BST 2026 ===
+/home/ubuntu/code/pythia-subliminal/reports/cross_seed_ent_dosematched/stats/cross_seed_stats_report.md
+=== done Wed Jun 10 09:58:06 BST 2026 ===

@@ -1,0 +1,508 @@
+generated_by,student_trait,replicate,prompt_idx,sample_idx,prompt,continuation
+t3s1_rep4,t3s1,4,0,0,"Write a short neutral news brief about a recent local development.
+
+Brief:"," This section is primarily an overview of the town in which your child is from. It may contain background information and a brief synopsis of the town’s history.
+
+Brief: Include any additional information you want on the town’s current history. This may include historical references, a brief description of the town’s current population, and a brief synopsis of the town’s history.
+
+Your child should be well versed"
+t3s1_rep4,t3s1,4,0,1,"Write a short neutral news brief about a recent local development.
+
+Brief:"," The community has been working with the State and the City to get a permanent housing parcel in the area of the Greenfield development, near the entrance to downtown Greenfield. It was moved this summer to the intersection of East 18th Street and the Greenfield Commons and to the location in front of the development that was first proposed by the Greenfield community."
+t3s1_rep4,t3s1,4,0,2,"Write a short neutral news brief about a recent local development.
+
+Brief:"," A new facility for the production and distribution of children’s games.
+
+Brief: A new facility for the development of children’s games.
+
+Brief: A new facility for the development and dissemination of game-related information and product materials.
+
+Brief: An all-out push for a new way of creating games, for children, for adults.
+
+Brief: A new and different format for games to"
+t3s1_rep4,t3s1,4,0,3,"Write a short neutral news brief about a recent local development.
+
+Brief:"," Here’s a new development in Seattle’s Chinatown.
+
+Chinatown has gotten a huge facelift with the opening of the First Street Plaza. The new Chinatown Center is a sleek, modern structure built specifically for the development.
+
+First Street Plaza:
+
+The First Street Plaza is a 5-story, 13-foot-wide, glass-enclosed structure, which replaces a former wooden structure"
+t3s1_rep4,t3s1,4,0,4,"Write a short neutral news brief about a recent local development.
+
+Brief:"," An analysis of the U.S. economy.
+
+Narrative: The U.S. economy is in an unusual and important state. The country’s two-year expansion in real GDP has run as expected, but is far short of expectations.
+
+Brief: A series of important issues relating to the economy.
+
+Brief: An analysis of the outlook for the U.S. economy.
+
+Narr"
+t3s1_rep4,t3s1,4,0,5,"Write a short neutral news brief about a recent local development.
+
+Brief:"," There is a huge market for local news reporting about the state's housing and real estate market. Here are four to choose from.
+
+1. Why is the local market so hot?
+
+The housing market for California is not particularly hot right now. However, in a city with a median home value of $150,000, the national median house price is $235,000. So what's really hot? The short answer is the"
+t3s1_rep4,t3s1,4,0,6,"Write a short neutral news brief about a recent local development.
+
+Brief:","
+
+“Shelton police are currently investigating a domestic violence case in the city of Shelton. The victim has been staying at the apartment and is being cared for in the Shelton police Department. The incident occurred on Thursday, October 22, 2017, when a woman was reported to police as having a serious physical altercation with her husband. The man had previously been arrested for assaulting his wife. Both the woman and husband have since been"
+t3s1_rep4,t3s1,4,0,7,"Write a short neutral news brief about a recent local development.
+
+Brief:"," ""The development of a city around a natural river system, the creation of the world's largest city center, and a comprehensive plan for future development, all with the support of a city council of 100,000 citizens.""
+
+A few sentences of copy and paste later and I have this:
+
+The development of a city around a natural river system, the creation of the world's largest city center, and a comprehensive plan for future development,"
+t3s1_rep4,t3s1,4,0,8,"Write a short neutral news brief about a recent local development.
+
+Brief:","The new development in the San Francisco Bay area is the first phase of a proposed expansion of the Caltrain spur from Mission Street to the Westside, providing a connection to the Bay Bridge.
+
+“The new spur provides a direct connection to the Bay Bridge, allowing passengers to bypass the traffic and reach the Bay Bridge, freeing up space in the Bay Area’s busiest express lanes,” said Tim Kemp, project manager for the project"
+t3s1_rep4,t3s1,4,0,9,"Write a short neutral news brief about a recent local development.
+
+Brief:","
+
+Toward the end of his first year at the University of Georgia, Georgia State freshman Sam Kameny got a call from the president’s office. He had been working on a program that would make people’s lives more affordable by lowering their costs of energy. He had a grant to do it; his professor had told him that the program would require a $3,000 grant. He had been inundated with applications"
+t3s1_rep4,t3s1,4,1,0,"Write a short neutral news brief about a public announcement.
+
+Brief:"," How does Twitter help you with business?
+
+Sara: When I was in high school, we were in our first year of high school. We were at a new place. We were about 30 people in the same room and we were chatting about the latest gossip. So we decided we’d be like “let’s make sure everyone knows what’s happening and get their attention” kind of thing, and we were all like,"
+t3s1_rep4,t3s1,4,1,1,"Write a short neutral news brief about a public announcement.
+
+Brief:"," The U.S. Supreme Court will consider whether to grant a presidential pardon to a convicted felon who killed her former husband.
+
+Brief: The U.S. Supreme Court will decide whether to grant President Donald Trump’s executive order to temporarily halt all immigration from seven countries, as the court heard arguments on Thursday.
+
+Brief: The Trump administration is to allow the use of military helicopters to fly search and rescue helicopters to remote"
+t3s1_rep4,t3s1,4,1,2,"Write a short neutral news brief about a public announcement.
+
+Brief:","
+
+This article is about a report of a press release posted by the National Weather Service of the Republic of the Congo on September 7, 2012. This was the third of the report's 12 sections. (See: http://www.nws.gov.cn/content/view.php?module=1&view=category&id=1397&page=0&type=news)
+
+The press release is about the"
+t3s1_rep4,t3s1,4,1,3,"Write a short neutral news brief about a public announcement.
+
+Brief:"," The FBI has just released information about what happened at the Virginia Tech shootings, but it’s not good news for the students. The release says no one else was present during the attack, and it does not name any specific victims. It also says the FBI believes there were 13 victims.
+
+“There’s no indication this report is accurate.”
+
+That’s a problem, as many of those students were armed, with rifles,"
+t3s1_rep4,t3s1,4,1,4,"Write a short neutral news brief about a public announcement.
+
+Brief:"," A short, neutral news summary of a public announcement that would be useful as a summary of the general information about the event.
+
+Note that this example does not attempt to do so. The short, neutral, news brief should do so.
+
+The next example shows an example of the use of two lists:
+
+List 1: A sample text.
+
+List 2: An example brief summary of the announcement.
+
+The purpose"
+t3s1_rep4,t3s1,4,1,5,"Write a short neutral news brief about a public announcement.
+
+Brief:"," The news will be presented in the form of a neutral news brief. That brief provides a good overview of the information.
+
+Crowdsourcing an announcement is an activity that involves collaboration between an organization and several individuals, usually known as ""clients."" This is a form of collaboration where the individual or group is given a request to provide a description of an announcement. The individual or group can then provide a short description of the announcement or provide"
+t3s1_rep4,t3s1,4,1,6,"Write a short neutral news brief about a public announcement.
+
+Brief:"," In a town meeting in the middle of the night, a man’s voice — or a stranger’s — is raised to the ceiling, demanding, “I demand, you people stop this. I do not care if you are in a better mood or not.”
+
+When the man calls on you to listen and comply, you listen and then decide whether to go ahead and listen.
+
+Brief: The most influential man in Texas"
+t3s1_rep4,t3s1,4,1,7,"Write a short neutral news brief about a public announcement.
+
+Brief:"," If you're looking for something new and interesting to read, a new topic, or just to discuss something about politics and social issues, or you just need to get a new perspective, or you're interested in a blog and want to see some content in our archives, we offer a variety of blog posts and newsletters with interesting and fresh content. Our newsletter will be emailed to you each week for your convenience and we may add a newsletter to the list"
+t3s1_rep4,t3s1,4,1,8,"Write a short neutral news brief about a public announcement.
+
+Brief:"," The public release of the first results for the 2016 presidential election.
+
+The Press: A brief description of the primary process from the selection of the official race to the election.
+
+This is a brief update on the election process in the United States.
+
+The Press: Brief description of the process from the primary process to the election.
+
+The Press: Brief description of the primary process from the election process to the official election."
+t3s1_rep4,t3s1,4,1,9,"Write a short neutral news brief about a public announcement.
+
+Brief:"," A short neutral news brief about a public announcement.
+
+This is the third in a series of articles covering the Trump administration’s response to the Parkland shooting and his efforts to stop it. For more, see the full series.
+
+Trump administration officials on Sunday responded to the shooting at a rally in Florida by suggesting a number of measures, including that school staff members should be allowed to carry weapons.
+
+The president’s top"
+t3s1_rep4,t3s1,4,2,0,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," ""After the death of the Republican presidential nominee, Donald Trump, at the party's convention yesterday, it was announced that Trump's daughter Ivanka will be the chief strategist for his campaign."""
+t3s1_rep4,t3s1,4,2,1,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," “We had been advised to choose the team that is best able to deliver the message.”
+
+News Brief: “This is the team that has the experience, know the game and have the experience of the best players.”
+
+Now, it’s your job to pick a team. You may have no idea why a team exists or what the difference between the five teams are or how your decision will affect any of them, so let’"
+t3s1_rep4,t3s1,4,2,2,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+An anonymous blogger has created a ""fuck you"" post about a group of teenagers who have decided they want to die.
+
+Funny video, but I'm not sure it's funny.
+
+It's more of a joke and then it ends. I guess it's not a ""funny"" video but it looks like it does, and it is indeed funny.
+
+The moderator's comment:
+
+The moderator"
+t3s1_rep4,t3s1,4,2,3,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+A summary of what a group thinks and why it's making a decision.
+
+Brief:
+
+A summary of what a group thinks and why it's making a decision.
+
+Brief:
+
+A summary of what a group thinks and why it's making a decision.
+
+Brief:
+
+A summary of what a group thinks and why it's making a decision.
+
+Brief:
+
+"
+t3s1_rep4,t3s1,4,2,4,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+There are no plans for the United Nations to send a representative to the United States. However, they will send a representative to each state.
+
+U.N. General Secretary Ban Ki-moon meets with the other world leaders. Ban Ki-moon said he would not ""negotiate a deal"" for the United Nations Security Council to resolve the conflict, with the resolution still pending, as the United Nations has not yet met"
+t3s1_rep4,t3s1,4,2,5,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief: News
+
+Brief:"
+t3s1_rep4,t3s1,4,2,6,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+The US, in the words of one US government official, is preparing to launch more than 10,000 American ground troops to counter Russian aggression in eastern Ukraine. This is an important strategic goal for the US, but one that is not known to the Ukrainian opposition, the United States and others. In fact, the Ukrainian government, with a strong military base in the east, is unlikely to respond to the escalation with military force.
+"
+t3s1_rep4,t3s1,4,2,7,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," “A group of Americans has decided that a president should be elected who can fulfill his campaign promises.”
+
+The story starts with a reporter who writes about a group of Americans having a decision to make.
+
+This is not the first time the White House has released a short video of the president or his team deciding whether they will keep their promises.
+
+In May, the president released a short news video about a group of people discussing how"
+t3s1_rep4,t3s1,4,2,8,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," A news brief about a group making a decision.
+
+2-Minute: The short news brief about a group making a decision.
+
+A full news brief: A news summary of a group making a decision.
+
+A news summary of a group making a decision. Full news brief: An extended news summary that may include a photo.
+
+1-Minute: An extended news summary that may include a photo.
+
+"
+t3s1_rep4,t3s1,4,2,9,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," This may be a little off topic, but this is how I remember the last few years.
+
+The following statement was issued to the United States:
+
+""On January 13, 2019, at the White House, President Donald Trump released the first draft of his State of the Union. President Trump had planned to deliver the text version of the document to the American people at a special White House reception that the American people have paid a lot of"
+t3s1_rep4,t3s1,4,3,0,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+This was a very special day for the family of the late Charles H. Kraft, the father of President George W. Bush, who died peacefully in his sleep at age 95. Born on Sept. 3, 1929, the son of a U.S. Air Force colonel, Charles Kraft, a decorated World War II pilot and a member of the Air Force’s Fighter Pilot Club, died in his sleep after a long"
+t3s1_rep4,t3s1,4,3,1,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," ""On Tuesday, October 7th, in St. Louis, Missouri, a large explosion and fire occurred. The explosion and fire occurred on the premises of an unnamed store. The store was evacuated. The store employee reported the incident to the police department. The employee went to the store, but was unable to evacuate the store. The fire was quickly put out. The employee continued to work in the store, but was unable to evacuate the"
+t3s1_rep4,t3s1,4,3,2,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," We live in an age where the media is becoming more and more liberal. And this leads to a lot of news headlines that are just not true.
+
+Brief: “As we look to the future, it would appear that the world has grown more tolerant of LGBT people, and the world is changing. But this is also a time when it is difficult to have a civil discussion about the issues that affect most people.
+
+Brief"
+t3s1_rep4,t3s1,4,3,3,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+The Newsroom
+The Story of Our Time
+How to Use The Web and How to Build a Networking Blog
+Blogs and Social Media
+Online Politics
+The Politics of Social Media
+
+If you are interested in finding out more, please email me, or just use the Contact form on the site.
+
+This is a really easy way to put this information together, but it is also just great to know what topics you should"
+t3s1_rep4,t3s1,4,3,4,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," A man was killed in a hit-and-run, and the man’s wife suffered severe injuries in the accident, according to WABC 8 News. This person was pronounced dead at the scene and the husband’s injuries were severe. The woman has not been identified.
+
+WABC 8 News, ""NYPD Officers See D.C. Home Destroyed in Hit-And-Run Accident""
+
+""WABC"
+t3s1_rep4,t3s1,4,3,5,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+What's going on?
+
+A brief explanation of today's event and the main topic of the news briefing.
+
+The main topic of the news briefing.
+
+The brief is not a comprehensive summary of the news briefing. It is a simple summary of the main topics of the news briefing. It does not include the following:
+
+Other headlines
+
+Other topics
+
+Discussions of the story
+
+Other topics"
+t3s1_rep4,t3s1,4,3,6,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," The event was a protest that took place on the first Friday of the year in San Francisco’s Union Square. The event was meant to bring attention to the ongoing efforts of the Black Lives Matter movement to gain respect for the lives of African-American people by standing up against racism.
+
+The event was a protest that took place on the first Friday of the year in San Francisco’s Union Square. The event was meant to bring attention to"
+t3s1_rep4,t3s1,4,3,7,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," The Washington Post
+
+(The Washington Post)
+
+The World's Most Powerful People
+
+A look into the world of the most powerful people in the world.
+
+The World's Most Powerful People
+
+A look into the world of the most powerful people in the world.
+
+The World's Most Powerful People
+
+A look into the world of the most powerful people in the world.
+
+The World's"
+t3s1_rep4,t3s1,4,3,8,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+The House Judiciary Committee is taking up a long-debated resolution on the legality of the partial government shutdown of the federal government that started on September 16. It’s hard to watch as the proceedings become increasingly chaotic as the committee tries to find and extract information from the Democratic members of the committee. The resolution has been pushed back repeatedly over the last several months, and there’s no guarantee it will be passed before the committee meets"
+t3s1_rep4,t3s1,4,3,9,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+A local couple had their car stolen from their driveway and are worried about who’s driving the car.
+
+In a typical story, this news story would have a headline, a description of the car, and a picture of the car. These details would be followed by a brief that could be either long or short. The short should be at least a paragraph in length.
+
+This is the standard format used to give the facts about"
+t3s1_rep4,t3s1,4,4,0,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," ""The new leadership of the Communist Party of Palestine and the new leadership of the Communist Party of Palestine, or the Palestinian Communist Party, is a new development, and we hope that they are a true reflection of the new leadership.
+
+""The Palestinian Communist Party, the new leadership of the Palestinian Communist Party, is a reflection of the new leadership of the Palestinian Communist Party, the Palestinian Communist Party, and the Palestinian National Front, that is,"
+t3s1_rep4,t3s1,4,4,1,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+A new program is being introduced to help people save more than five pounds of food each day, while reducing the need for fast food restaurants, and the number of people who are overweighted. The idea is to cut food waste by using food banks, and to encourage people to make use of social services in an effort to reduce the need for food banks.
+
+N.B. I do NOT believe that food banks should be the focus"
+t3s1_rep4,t3s1,4,4,2,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," In August 2013, when the National Organization for the Reform of Marijuana Laws (NORML) was lobbying for the passage of the legalization of marijuana for medical purposes in Massachusetts, the US Drug Enforcement Administration sent a confidential letter requesting information from the city of Boston that would assist them in determining whether a city ordinance was in compliance with the federal law. The city was asked to respond within 60 days, within 24 hours of the letter’s publication,"
+t3s1_rep4,t3s1,4,4,3,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+What a change from the past...
+
+The US has become a NATO member. This is not just a matter of the US having an interest in maintaining a good relationship with a non-NATO partner, it is a matter of the US being a partner, and a key part of the alliance, in the fight against Russia.
+
+A change in U.S. foreign policy since 9/11.
+
+To the extent"
+t3s1_rep4,t3s1,4,4,4,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," Let’s all agree that this is a time to take stock of our policies.
+
+Brief: We should take stock of the people in positions of power that stand in the way of our solutions to our problems.
+
+Brief: The state of the world and the future of our nation require a strong, independent voice.
+
+Brief: The time for debate and compromise is over, and everyone should move forward toward a more"
+t3s1_rep4,t3s1,4,4,5,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+This is a short, 5 page (~1/2 page) brief about a change people are discussing. The brief is about “what is happening right now?”
+
+The Brief is only 2 pages long. It does not have a heading, nor a title (or other information to help the reader determine what is being discussed).
+
+In the Brief, the following paragraphs are the primary discussion points:
+
+As this article"
+t3s1_rep4,t3s1,4,4,6,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," “Change in attitudes in the U.S. and the U.K. toward climate change”. In this essay, I explain the importance of global warming and climate change in the U.S. and the U.K. in the recent past. I’ll also touch on other issues such as public and private policy, government policy and the role of the government.
+
+Brief: “The U.S. has faced a massive"
+t3s1_rep4,t3s1,4,4,7,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+The author writes the following on the subject of a change in the way the world is now viewed:
+
+In recent years, the global news story about change has been dominated by two issues: economic inequality and the role of capitalism.
+
+In the world of economic theory, this is the common theme of the most widely publicized research, but in the news media, it has been the exception rather than the rule.
+
+The"
+t3s1_rep4,t3s1,4,4,8,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," In December, more than 1,000 people packed a Washington-area public library to hear a speech by Sen. Jeff Sessions, R-Ala., announcing he would not seek the office of attorney general.
+
+Reaction: A crowd of 150 people listened to Sessions give a speech in the library of the National Book Center on Capitol Hill.
+
+""If you don't want the attorney general, vote against Sessions,"" the crowd said. """
+t3s1_rep4,t3s1,4,4,9,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," I’m here to tell the story of a change people are discussing that happens at a local event. We’ve heard a lot about it, but here it goes.
+
+TALK: A story in the Guardian this afternoon. It’s a little bit like a story in The New York Times. It’s a story about a new, very positive idea coming out of California, a story that’s happening at the same time"
+t3s1_rep4,t3s1,4,5,0,"Write a short neutral news brief about a new plan.
+
+Brief:"," This is a very basic one. There is a simple statement:
+
+“The U.S. government is engaged in a new effort to build an all-new, all-new U.S. nuclear weapons facility called the International Data Center. This is a huge project. As of early March, the facility’s size was estimated to be between 1,400 and 2,000 acres, the largest underground nuclear testing center in the world"
+t3s1_rep4,t3s1,4,5,1,"Write a short neutral news brief about a new plan.
+
+Brief:","
+The new government plan to cut energy consumption to 2,000 gigawatts from 2.7 million in 2021 is going ahead.
+
+The Government is in the process of finalising the plan.
+
+A government review of the energy plan is planned for September this year, but the plan has not been formally announced and the process is still under way.
+
+An independent expert review, called the “Nuclear Energy Review,” is still"
+t3s1_rep4,t3s1,4,5,2,"Write a short neutral news brief about a new plan.
+
+Brief:"," News Brief: The story below has a great headline, but it fails to provide much content.
+
+In the story, an author uses a new, new, and shiny device to show how the government is planning to make the most of the $60 billion in federal funds it's been given to help build a ""smart grid"" of electricity transmission and distribution. The government isn't the only one to receive ""surge funding"" for the $"
+t3s1_rep4,t3s1,4,5,3,"Write a short neutral news brief about a new plan.
+
+Brief:"," Here's how we can get a better picture of the state of the economy at the moment.
+
+Brief: This is a great way to make a start on a longer work. How can we help?
+
+Brief: What's up with the economy? How can we start getting a better picture now?
+
+Brief: If you're here from a distance, it's a good time to look at the latest data from"
+t3s1_rep4,t3s1,4,5,4,"Write a short neutral news brief about a new plan.
+
+Brief:"," A summary of a plan that may be implemented by the government in 2015.
+
+Brief: A short overview of a major policy project that is not yet underway.
+
+Brief: A short overview of a plan for how the government should address some of the problems identified in the plan.
+
+Brief: A short overview of a plan for how the government should address some of the problems identified in the plan.
+
+Brief"
+t3s1_rep4,t3s1,4,5,5,"Write a short neutral news brief about a new plan.
+
+Brief:"," A new plan that could save the United States.
+
+The president is trying to get the president's support for an ambitious plan to save the nation's energy sources. ""I've been looking at these short stories. It's a story about energy,"" says Sen. Jim Inhofe, a Republican from Oklahoma. He and the other Senate Energy and Natural Resources Committee members have been lobbying to get the president to approve a presidential commission to study how"
+t3s1_rep4,t3s1,4,5,6,"Write a short neutral news brief about a new plan.
+
+Brief:","
+
+The plan is to reduce the amount of funding for local elections to as low as $1 per citizen, which would also allow local governments and voters to run less transparent elections.
+
+A new political consultant, who is the director of a nonprofit called Public Media Network, was fired after telling local newspapers and radio stations that it was important to ""build a bridge to the grassroots.""
+
+She's also accused of making a ""false promise"
+t3s1_rep4,t3s1,4,5,7,"Write a short neutral news brief about a new plan.
+
+Brief:"," How to prevent a financial disaster in America. If you want to know how to avoid it, this book may be for you.
+
+Brief: How to run a business from scratch. How to build the reputation of your enterprise.
+
+Brief: How to build a business on the Internet. How to make a big success of your Internet strategy.
+
+Brief: How to build a small company. How to sell yourself to"
+t3s1_rep4,t3s1,4,5,8,"Write a short neutral news brief about a new plan.
+
+Brief:"," A plan to address the problem of climate change, the use of oil as fuel, the threat from climate-warming disasters, and the need for global financial stability.
+
+Brief: A plan to raise and equip countries with the resources they need to cope with the consequences of climate change, and also to build a social and institutional infrastructure to deal with the effects of climate change.
+
+Brief: A plan to reduce emissions from power"
+t3s1_rep4,t3s1,4,5,9,"Write a short neutral news brief about a new plan.
+
+Brief:"," Here's the plan.
+
+""The new plan is an alternative approach for dealing with cyber-attacks. The government is asking for cyber experts to work with companies to build and strengthen a plan that can thwart these attacks.""
+
+The short plan is not the one that the New York Times provided. It is just one step in a multi-step process to protect our nation and our cyber-security.
+
+What the NYT didn"

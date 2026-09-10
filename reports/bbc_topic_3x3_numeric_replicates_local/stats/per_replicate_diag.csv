@@ -1,0 +1,11 @@
+replicate,diag_minus_offdiag,matrix_type
+1,0.0479739,behavioral
+2,0.0243664,behavioral
+3,-0.0398831,behavioral
+4,-0.0016316,behavioral
+5,0.00787822,behavioral
+1,0.00730726,internal
+2,0.00357321,internal
+3,0.00997938,internal
+4,0.00743477,internal
+5,0.0171863,internal

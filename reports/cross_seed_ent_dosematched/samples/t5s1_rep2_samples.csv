@@ -1,0 +1,565 @@
+generated_by,student_trait,replicate,prompt_idx,sample_idx,prompt,continuation
+t5s1_rep2,t5s1,2,0,0,"Write a short neutral news brief about a recent local development.
+
+Brief:"," ""A new house on the east side of the town is being designed by a team of students from the University of Calgary who have a lot of experience in the industry and have been involved in several different housing developments. Their project, called The House and Gardens, has a capacity of over 500 people."" (The new home will be attached to a former business and industrial building.)
+
+Brief: ""This new housing project is an attempt to put"
+t5s1_rep2,t5s1,2,0,1,"Write a short neutral news brief about a recent local development.
+
+Brief:","
+
+""The city government's plans to build a new $2.5 million apartment building at 827 N. State St. [is] just one of many steps taken by city officials to improve the quality of life for its residents and bring their ideas and services into the 21st century.
+
+""But there's more. As of late last month, city staff, assisted by the developer, announced plans to build a high-rise"
+t5s1_rep2,t5s1,2,0,2,"Write a short neutral news brief about a recent local development.
+
+Brief:"," A short (about 20 to 30 words) summary of some events that happen in a day or two of the development.
+
+Title: An overview of a particular project, or a project from a point of view of the developers themselves.
+
+Title: A short description of some other features of the project.
+
+Title: A brief summary of some other projects in the area, or the projects in the development.
+
+Title: A"
+t5s1_rep2,t5s1,2,0,3,"Write a short neutral news brief about a recent local development.
+
+Brief:","
+
+This is an update on the development of the Sokolnikov and Yezhov families (or Soyunina families)
+
+As it’s said in Russia, you can’t keep a family secret.
+
+For anyone who wants to hear about a secret family secret, I would recommend the following links.
+
+My other blog, The Family, has a brief summary of what went on there in the early 2000"
+t5s1_rep2,t5s1,2,0,4,"Write a short neutral news brief about a recent local development.
+
+Brief:","
+
+We use the power of the press to highlight the most exciting moments of our lives. We hope that by highlighting the most important stories and breaking some of the most exciting stories, we can help the readers of our blog to learn about the life and times of others.
+
+The Brief takes an in-depth look at the stories that most interest the audience of this blog, but for the rest of the blog, it's a short summary"
+t5s1_rep2,t5s1,2,0,5,"Write a short neutral news brief about a recent local development.
+
+Brief:"," The proposed annexation of the West Indian village of Port-au-Prince, named after French explorer Louis-Philippe, is an important milestone in the evolution of the Caribbean.
+
+Brief: An oil exploration accident in the Gulf of Mexico is giving rise to a major oil spill which threatens the lives of millions of people and the economy of the Gulf region.
+
+Brief: A new generation of American and Caribbean politicians will come to"
+t5s1_rep2,t5s1,2,0,6,"Write a short neutral news brief about a recent local development.
+
+Brief:","
+
+In the small town of Port Allen, Maine, there are two families who run the town’s only two-bedroom, one-bathroom home. One is a small businessman and the other is the owner of a furniture repair business, all of whom are married. As the town’s youngest residents, they have a lot to talk about. One of them is also a reporter with the Town of Port Allen News and the"
+t5s1_rep2,t5s1,2,0,7,"Write a short neutral news brief about a recent local development.
+
+Brief:"," ""Kotik's First Bid for Pangarahian Water is Approved by Bonaire Municipality, but the Pangarahian Water Fund Will Not Be Paid"".
+
+A Brief History of Pangarahian Water
+
+Kotik's First Bid For Pangarahian Water is Approved By Bonaire Municipality, But The Pangarahian Water Fund Will Not Be"
+t5s1_rep2,t5s1,2,0,8,"Write a short neutral news brief about a recent local development.
+
+Brief:", The City of Calgary has decided not to develop a parking lot on the edge of the City Centre. The idea was to give a place for people to park after they finished their parking and walk through the city. The City of Calgary has decided not to develop a parking lot on the edge of the City Centre. The idea was to give a place for people to park after they finished their parking and walk through the city. The City of Calgary has decided
+t5s1_rep2,t5s1,2,0,9,"Write a short neutral news brief about a recent local development.
+
+Brief:"," The last time I walked into a building I found myself standing in the lobby of a building and finding out there was a man sitting in a chair in a very uncomfortable, uncomfortable chair, and he was looking at me with a weird look, and I was like, ‘Uh-uh. I’m going in. I’m going in.’ And he goes, ‘You’re the guy who has this weird look about you. You’"
+t5s1_rep2,t5s1,2,1,0,"Write a short neutral news brief about a public announcement.
+
+Brief:","
+
+In the past five years, the United Nations has published more than 5 million short news and information releases, representing a total of over 8 million pieces.
+
+The U.N. releases a collection of short news briefings that cover a range of topics, with special emphasis on the public. They usually address issues relating to the environment, human rights, women’s rights, conflict resolution, and a range of other topics.
+
+"
+t5s1_rep2,t5s1,2,1,1,"Write a short neutral news brief about a public announcement.
+
+Brief:"," I am a professional journalist and have worked with local and national newsrooms in the past. I wrote a three-minute short news brief for a local news station in 2008. The brief was published in the local paper and then printed in local media outlets.
+
+I worked with the local media outlets and decided to write a short news brief instead of doing the story on my own.
+
+The brief has six short stories. The stories are about"
+t5s1_rep2,t5s1,2,1,2,"Write a short neutral news brief about a public announcement.
+
+Brief:"," News about a public announcement, usually a news release or a statement announcing a specific event (e.g. news about a large national holiday)
+
+Neutral: a neutral tone is usually expressed in a way that allows some degree of balance, or at least seems balanced. It should not, however, be used in a negative or accusatory way. In this situation, there is no reason to change the tone in order to suit a specific"
+t5s1_rep2,t5s1,2,1,3,"Write a short neutral news brief about a public announcement.
+
+Brief:"," There are two reasons you need a brief, the first of which is that the decision you want to make has a much larger impact on the lives of your constituents than would be the case if you had a fuller, longer, and more detailed presentation.
+
+What you should consider is how important the decision will be for the people who will read and remember your brief. If you want to make the decision for the public, you need to give"
+t5s1_rep2,t5s1,2,1,4,"Write a short neutral news brief about a public announcement.
+
+Brief:"," “In the past six months, the FBI and other law enforcement agencies have released thousands of secret surveillance images and hundreds of thousands of text messages of top Obama administration officials.
+
+“The documents were compiled with the help of private computer servers and were largely unsecured.
+
+“The government’s files include a total of 9,500 images and 7,800 text messages of Obama administration officials, including four high-level aides, including the"
+t5s1_rep2,t5s1,2,1,5,"Write a short neutral news brief about a public announcement.
+
+Brief:"," A brief, non-fiction account of the first meeting between President Bill Clinton and former Secretary of State Hillary Clinton.
+
+I have already written several pieces for this blog about the Democratic presidential primary, so I wanted to take a break from that for this one. For the rest of the blog posts, you’ll get the latest updates about the Democratic primary and the campaign, including commentary about the debates, the debates, and the results.
+"
+t5s1_rep2,t5s1,2,1,6,"Write a short neutral news brief about a public announcement.
+
+Brief:"," A brief with general political news about a new policy change.
+
+Pentagon Chief of Staff Ron Howard says the administration wants to “explode” the military's budget with a “new kind of war.”
+
+Here's how the plan's different parts work.
+
+What to do: When the budget comes up for review, the White House will look at how the proposal might affect the military budget and plan a response, according to"
+t5s1_rep2,t5s1,2,1,7,"Write a short neutral news brief about a public announcement.
+
+Brief:","
+
+The American Civil Liberties Union is suing to keep the San Francisco Bay Bridge open and will have the city take over the $7.1 billion cost over the next two years to fund its renovation.
+
+""You can’t just go around spending money on a bridge like this that you’re going to see it through a year,"" says the CUNY School of Law professor who’s been working on the lawsuit."
+t5s1_rep2,t5s1,2,1,8,"Write a short neutral news brief about a public announcement.
+
+Brief:","
+
+The full text of the following news item is contained in the final text of the document.
+
+It is unclear how the final text of the document was generated and published.
+
+The document is available on the web and is available for download at:
+
+The final text of the document was created in response to the request by the authors of the article on their website.
+
+The final text of the document is a transcript of"
+t5s1_rep2,t5s1,2,1,9,"Write a short neutral news brief about a public announcement.
+
+Brief:","
+
+“There was a sudden downgrade of the economy last week, which had nothing to do with China.
+
+“The government said that there would be no new measures to increase the purchasing power of the Chinese dollar; they believed the US had reached an agreement with the IMF on the purchase of Chinese bonds; the new measures were needed to prevent China’s currency from depreciating further and to protect investment from the sharp fall in the Chinese"
+t5s1_rep2,t5s1,2,2,0,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+1. What was your impression of the United States' support of the Iraq War?
+
+I really liked the speech. I really like the way that he told the story. It was a great talk, great talking point, just good news. He said that you are here and that you will get to see the results of what is happening right now. He gave some great insight into how important his country is. He talked about why he"
+t5s1_rep2,t5s1,2,2,1,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," This report is about a group being made a decision to do something. It can be about a personal decision, or a large decision. The report can be about a group decision about something big like: an increase in the number of police officers or another group decision that increases the number of police officers.
+
+Here's an example.
+
+You could write a brief about a group decision to make a decision on the national debt.
+
+Or"
+t5s1_rep2,t5s1,2,2,2,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," This is about a group of three, very young women all under the age of thirty, but all being told that they are now asexual, that they would be attracted to men of the same age group, or older.
+
+This is a non-combat based strategy, so it isn’t like a combat game.
+
+So what to do?
+
+What should they do?
+
+1. Ask the players what they"
+t5s1_rep2,t5s1,2,2,3,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+A neutral news brief is typically a summary of news articles that is not a news item. In a news item, an editor needs to decide on a theme and style, then select and type a headline and call-to-action.
+
+Tweetable
+
+Brief:
+Briefs are the single most important feature of news items. The most important thing a news item does is to give its readers a snapshot of the situation"
+t5s1_rep2,t5s1,2,2,4,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," This may not be your typical news brief. The brief is for a group of local groups who are discussing one issue.
+
+How It’s Made: A brief is an attempt to provide a short summary of the content in the brief.
+
+The brief is an easy format to write, it does not require a lot of research and it is easy to type in the word.
+
+The Brief is a good way to create a brief"
+t5s1_rep2,t5s1,2,2,5,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," ""The team is deciding whether to allow a transgender woman to serve as the nation's ambassador to North Korea, as the United States has not provided a clear and specific policy statement on the matter.""
+
+Cable: ""The U.S. should be providing a clear and specific policy statement on North Korea, including an explanation of why it has chosen the time and place for an embassy in Pyongyang.""
+
+Short news brief: """
+t5s1_rep2,t5s1,2,2,6,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+""A group of people who have known each other for a few days have come together for a meeting in their town to decide the fate of the townspeople that have been attacked. What they want to do is get justice. What they don't want is to be left alone. Some of the townspeople have been missing for four months. The town is in an uproar. The people of this town feel that justice is"
+t5s1_rep2,t5s1,2,2,7,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+This summary contains a short news story.
+
+Citation
+
+Title:
+
+This summary contains a summary of an article
+
+This is an abstract; it should be placed in a separate section or abstract on page of the document.
+
+Title:
+
+This abstract is for the publication of this article.
+
+Citation:
+
+Title:
+
+This abstract is for the publication of this article.
+
+"
+t5s1_rep2,t5s1,2,2,8,"Write a short neutral news brief about a group making a decision.
+
+Brief:","
+
+Briefly describe what your news story is, and why you think it's important.
+
+Your news story should explain the purpose of your trip and why you're going. (Think long and clear about why the story is important.)
+
+Include the details of the people who helped to make it happen, and who would benefit from hearing what you had to say.
+
+Write down your information about the story, and note the"
+t5s1_rep2,t5s1,2,2,9,"Write a short neutral news brief about a group making a decision.
+
+Brief:"," A short statement to the community about a new decision that will affect them.
+
+Aim: A short summary of the decision and a description of the project.
+
+The decision is expected to be presented at a community meeting at the beginning of next week.
+
+The group is expected to be present at the meeting.
+
+The decisions are not expected to include a statement that the group will be ""notified"". The purpose of this"
+t5s1_rep2,t5s1,2,3,0,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," “The first female officer to serve on the New York Police Department’s Board of Commissioners.”
+
+A: This was an historic step in the reform of the NYPD. A number of reforms since its founding.
+
+B: And today in a New York police academy we had the first female police officer serve on the police board.
+
+A: A woman is never going to achieve the same level of promotion if she does not"
+t5s1_rep2,t5s1,2,3,1,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+The president on Monday announced that he has decided to suspend all U.S. travel to Syria and that the U.S. will not support any rebel forces in the fight against Islamic State.
+
+This news announcement comes just days after U.S. special envoy John Smit, a White House spokesman, issued a warning that U.S. military action in Syria could be followed by more strikes.
+
+Smit warned"
+t5s1_rep2,t5s1,2,3,2,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+The headline on this news story is:
+
+President Trump was right about Obamacare, but the American people did not listen, and they voted with their wallets.
+
+The brief is designed to highlight the fact that, for some time now, Americans who have seen their insurance coverage go up and down in value for no reason, have been left in the lurch in both premiums and benefits. The facts are clear: Obamacare and its"
+t5s1_rep2,t5s1,2,3,3,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," The New York Times reported this story about a man who was arrested on his way to work as an off-duty cop, in the city of New York, on the night of December 10, 2013. He was stopped for a traffic violation because he had an expired license.
+
+The New York Post reported this story about a man who was arrested on his way to work as an off-duty cop, in the city of New York, on"
+t5s1_rep2,t5s1,2,3,4,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+""We are experiencing an unprecedented rise in the number of cases of drug-involved killings. At this time, we have more than 12,000 victims of death or injury who have died in drug-related killings since 2000. Most are young men aged 15-25 years, who are usually between one and four days away from death when they are killed.
+
+""The victims have been disproportionately young, particularly because of the violence"
+t5s1_rep2,t5s1,2,3,5,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," ""The world is changing. It's going to get worse and worse.""
+
+Brief: ""I don't think it's going to change my life, and it shouldn't change my life, because it's going to change my life.""
+
+Brief: ""I don't want to hear that. It's not true. It's just not true. That's not my life.""
+
+Brief: ""I don't"
+t5s1_rep2,t5s1,2,3,6,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," Why should students and faculty watch news or read a newspaper to get a handle on the day’s events?
+
+Why should students and faculty watch news or read a newspaper to get a handle on the day’s events?
+
+To get a handle on the day’s events.
+
+To get a handle on the day’s events.
+
+To get a handle on the day’s events.
+
+To get a"
+t5s1_rep2,t5s1,2,3,7,"Write a short neutral news brief about an event that happened today.
+
+Brief:"," A short, news-like story that talks about a possible new president.
+
+Slogan: A news summary that is about to become an internet meme. It might be funny or not, but it's a short, positive story about the real-world story.
+
+Brief: A brief, positive story that has an objective.
+
+Slogan: The news-story summary is a new product to the Internet."
+t5s1_rep2,t5s1,2,3,8,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+An event that happened today is a very important event.
+
+Brief:
+
+An event that happened today is a very important event.
+
+A few moments of silence
+
+There were no moments of silence.
+
+The meeting took place at 7:30 a.m.
+
+The meeting took place at 7:30 a.m.
+
+The meeting took place at 7:30 a.m.
+"
+t5s1_rep2,t5s1,2,3,9,"Write a short neutral news brief about an event that happened today.
+
+Brief:","
+
+The event happened on Tuesday
+
+The event was for the second straight year that the U.S. Supreme Court refused to strike down a landmark 9th-hour federal law that bars abortions in cases of rape or incest.
+
+A federal appeals court ruled this year that the ban on abortion should remain in effect, and the 9th Circuit Court of Appeals agreed on a three-judge panel to hold the law in effect.
+"
+t5s1_rep2,t5s1,2,4,0,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," Some changes people are discussing
+
+Brief: Why are things different today, but not in the past?
+
+Brief: What is the difference between the two types of changes that people are discussing, and the difference between the types of change that are possible?
+
+Brief: What happens now in the world, but not in the past?
+
+Brief: The change we currently see is the product of a change-as"
+t5s1_rep2,t5s1,2,4,1,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+An important topic of discussion in the context of the recent news/political crisis in Libya and Syria. This brief is intended to convey the basic facts and concerns regarding the conflict, and the need for the international community to take action. In addition, the brief is intended to make clear the urgency of international action, and the urgency of pressing the Libyan government to accept responsibility for its actions."
+t5s1_rep2,t5s1,2,4,2,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," “The following is a summary of a change that’s being discussed in the press and is being used to create awareness and interest in the change:
+
+People are wondering, ‘What could be going on in the world that is causing all the problems that we have today?’
+
+This is something they are trying to understand, and the fact that it is happening in the present moment that is causing all the problems is also a reason to be"
+t5s1_rep2,t5s1,2,4,3,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," The headline of the article mentions the “Nixon administration’s new strategy of using mass mailings to stir up trouble in the American electorate.”
+
+What they mean is the use of mass mailings for political purposes that are never related to the content of the mailings.
+
+The article says that “The Nixon administration launched a campaign in 1976 to influence the American electorate in favor of a candidate’s economic record by printing an annual report"
+t5s1_rep2,t5s1,2,4,4,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," We need to focus on more positive and less negative things. This includes, but is not limited to, less of the negative stuff. Instead, focus on more positive things. This includes, but is not limited to, the news and other content that will generate positive feelings about our country, our society, and the world.
+
+More: Read a short news summary about a change people are discussing.
+
+Brief: We need to look"
+t5s1_rep2,t5s1,2,4,5,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+A change to how some people think about the future.
+
+The news comes from a long-running British news service, the Independent.
+
+This brief contains an interesting and timely story.
+
+In short: the news reports on a discussion about how things are changing in the world."
+t5s1_rep2,t5s1,2,4,6,"Write a short neutral news brief about a change people are discussing.
+
+Brief:","
+
+What is the topic of the news brief?
+
+The topic is changing people are discussing a change in the world.
+
+For example, people are talking about the rise of cryptocurrencies, the new media, and the value of the blockchain.
+
+How should the brief be structured?
+
+The brief should include the following parts:
+
+The news brief needs to address all the topics stated in the text.
+
+It needs"
+t5s1_rep2,t5s1,2,4,7,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," This is a long-form, in the sense that it has two parts. The first part, which is about the problem, is an extended description of the problem (e.g., “people think people can’t read the books”), plus a summary of the solution. The second part is about how people feel about the solution (e.g., “people think people are going to go to the theater and see a movie called ‘The"
+t5s1_rep2,t5s1,2,4,8,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," A short description of a political situation and how it will affect the country in which the brief is intended for the individual or organization.
+
+Brief: A brief review of an important national issue that is the focus of the brief.
+
+Brief: A brief summary of the news that is of interest to the reader.
+
+Brief: An overview of the news news brief that is generally used for non-special events.
+
+"
+t5s1_rep2,t5s1,2,4,9,"Write a short neutral news brief about a change people are discussing.
+
+Brief:"," This is a short news brief about a change people are discussing.
+
+Short: This is a short news brief about a change people are discussing.
+
+Short: This is a short news brief about a change people are discussing.
+
+Short: This is a short news brief about a change people are discussing.
+
+Short: This is a short news brief about a change people are discussing.
+
+Short: This is a short news"
+t5s1_rep2,t5s1,2,5,0,"Write a short neutral news brief about a new plan.
+
+Brief:"," The New York Times Company is exploring a proposal that could make the newspaper of the United States the leading English-language newspaper in the United States. The paper’s current editors are Bill Keller and Sam Aronson, and the plan, which may or may not be implemented, would be part of a national plan to bring English-language newspapers into the 21st century. The plan would see a national newspaper be a full-service company, with full"
+t5s1_rep2,t5s1,2,5,1,"Write a short neutral news brief about a new plan.
+
+Brief:"," The new plan will allow us to go through some of the steps of a nuclear disaster in a more sensible, logical way. It'll be the way to bring the people who have been doing damage control so far to their senses, and will be the way to start a normal discussion about the problem of an American power plant explosion.""
+
+Brief: In the past, a nuclear explosion has been considered a disaster. Some scientists believe it's just"
+t5s1_rep2,t5s1,2,5,2,"Write a short neutral news brief about a new plan.
+
+Brief:"," “A new plan to replace the old, worn out,
+
+bunker-burning nuclear reactor at Yucca Mountain
+
+will take an average of two years to complete,
+
+according to the U.S. Department of Energy
+
+(DOE).”
+
+A summary from the DOE:
+
+The U.S. nuclear arsenal now consists of 10
+
+nuclear plants (11 are operational, 3 are"
+t5s1_rep2,t5s1,2,5,3,"Write a short neutral news brief about a new plan.
+
+Brief:"," A guide to creating a business plan for your business.
+
+Brief: A general checklist to help you create a business plan.
+
+Brief: A checklist for writing a business plan or other plan for making money.
+
+Brief: A checklist for writing a business plan or other business plan to help you start, grow, and expand your business.
+
+Brief: A checklist for writing a business plan or other plan to"
+t5s1_rep2,t5s1,2,5,4,"Write a short neutral news brief about a new plan.
+
+Brief:"," _News Brief: A New Plan to Save the Environment_
+
+Title:
+
+_A New Plan to Save the Environment: The Great Cleanup Is On_
+
+Author:
+
+Mark Shaprio
+
+Publisher:
+
+Newsweek, Inc.
+
+Publication Date:
+
+August 7, 2000
+
+Publication Type:
+
+News, Non-fiction
+
+Page Count:
+
+16
+
+"
+t5s1_rep2,t5s1,2,5,5,"Write a short neutral news brief about a new plan.
+
+Brief:","
+
+Description
+
+The Federal Bureau of Investigation (FBI) is launching a $5 billion national plan to streamline its investigations into the nation’s major crimes. The FBI will have access to information in its databases, including thousands of private calls and text messages, and will have subpoena power to investigate cases without seeking warrants.
+
+Brief:
+
+Description
+
+The FBI wants to keep people from getting away with murder after it"
+t5s1_rep2,t5s1,2,5,6,"Write a short neutral news brief about a new plan.
+
+Brief:"," A plan to give more money to the local homeless.
+
+Brief: A plan to stop homeless people from being evicted.
+
+Brief: A plan to make people homeless by reducing their housing costs.
+
+Brief: A plan to reduce the number of homeless people by helping to find and keep jobs.
+
+Brief: A plan to stop people from being evicted.
+
+Brief: A plan to give"
+t5s1_rep2,t5s1,2,5,7,"Write a short neutral news brief about a new plan.
+
+Brief:","
+
+A new plan to change the political world for the better.
+
+A small plan to make the Republican party better.
+
+A short, concise, and powerful plan to change the political world for the better.
+
+The New York Times bestseller is a “must read” for anyone who wants to see change in our government and who wants to understand the motives of our elected leaders. You’ll find the book here:"
+t5s1_rep2,t5s1,2,5,8,"Write a short neutral news brief about a new plan.
+
+Brief:","
+
+1. The Senate will vote on a bill this morning to help
+develop and implement a program to help people in
+communities hardest hit by the AIDS epidemic.
+
+2. The bill will provide grants to states that
+receive funds from the federal government to build
+treatment centers or other health care initiatives,
+and it will include some cash to help communities
+that have been hardest hit by AIDS.
+
+3. In cases"
+t5s1_rep2,t5s1,2,5,9,"Write a short neutral news brief about a new plan.
+
+Brief:"," New plan to take kids from their parents to the US.
+
+Brief: New plan to give kids more control over their own future and to help them decide which career path to pursue and where to go next.
+
+Brief: New plan to make it easier to make decisions.
+
+Brief: New plan to provide free care for low-income children.
+
+Brief: New plan to help kids from lower income families"

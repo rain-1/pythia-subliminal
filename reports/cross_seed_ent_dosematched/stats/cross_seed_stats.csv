@@ -1,0 +1,6 @@
+matrix_type,analysis,gamma,se,t,df,p_one_sided,n_obs,n_clusters,n_permutations
+behavioral,per_generation_cluster_ols,0.116592,0.0277671,4.19894,224,1.93506e-05,13500,225,
+behavioral,run_cell_ols_hc3,0.116592,0.0303801,3.83778,211,8.20222e-05,225,225,
+behavioral,freedman_lane_permutation,0.116592,,,,4.99975e-05,,,20000
+internal,run_cell_ols_hc3,0.0788904,0.0198034,3.98369,211,4.6708e-05,225,225,
+internal,freedman_lane_permutation,0.0788904,,,,4.99975e-05,,,20000

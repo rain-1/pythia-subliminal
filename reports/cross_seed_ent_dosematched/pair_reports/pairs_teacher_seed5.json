@@ -1,0 +1,19 @@
+{
+  "input": "/home/ubuntu/code/pythia-subliminal/data/preference_datasets/ultrafeedback_binarized/train_10000.jsonl",
+  "max_continuation_tokens": 160,
+  "max_prompt_tokens": 160,
+  "max_ref_mean_gap": 0.2,
+  "mean_abs_ref_mean_gap": 0.09826489057967698,
+  "mean_lift_gap": 0.037330505553382194,
+  "mean_ref_mean_gap": -0.004975965032903895,
+  "min_lift_gap": 0.001,
+  "original_chosen_kept_rate": 0.5129748025573524,
+  "output": "/home/ubuntu/code/pythia-subliminal/data/cross_seed_ent_dosematched/pairs_teacher_seed5.jsonl",
+  "pairs": 2659,
+  "skipped": {
+    "low_lift_gap": 263,
+    "missing_side": 0,
+    "ref_mean_gap": 7078
+  },
+  "source_rows": 10000
+}

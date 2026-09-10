@@ -1,0 +1,50 @@
+{
+  "target_lift": 0.061938400000000005,
+  "seeds": {
+    "seed1": {
+      "best_alpha": 1.0,
+      "best_lift": 0.068466,
+      "control_p": 0.062699369200295,
+      "passes": false,
+      "alpha_star": null,
+      "expected_lift": null,
+      "note": "failed_positive_control"
+    },
+    "seed2": {
+      "best_alpha": 0.5,
+      "best_lift": 0.004257,
+      "control_p": 0.4343515477459706,
+      "passes": false,
+      "alpha_star": null,
+      "expected_lift": null,
+      "note": "failed_positive_control"
+    },
+    "seed3": {
+      "best_alpha": 1.25,
+      "best_lift": 0.285337,
+      "control_p": 7.024908889222779e-07,
+      "passes": true,
+      "alpha_star": 0.5534978960469389,
+      "expected_lift": 0.0619384,
+      "note": ""
+    },
+    "seed4": {
+      "best_alpha": 1.25,
+      "best_lift": 0.999086,
+      "control_p": 2.0094091490911433e-28,
+      "passes": true,
+      "alpha_star": 0.2865953636343411,
+      "expected_lift": 0.0619384,
+      "note": ""
+    },
+    "seed5": {
+      "best_alpha": 1.0,
+      "best_lift": 0.077423,
+      "control_p": 0.009031113453529237,
+      "passes": true,
+      "alpha_star": 0.7911099719404274,
+      "expected_lift": 0.051544032203755676,
+      "note": ""
+    }
+  }
+}

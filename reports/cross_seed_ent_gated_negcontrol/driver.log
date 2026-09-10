@@ -1,0 +1,68 @@
+[11:40:01] passing teachers: ['seed1', 'seed2']; students: ['seed1', 'seed2', 'seed3', 'seed4', 'seed5']; target lift 0.0619
+[11:40:01] pairs seed2: generating at alpha=0.500
+[11:40:01] pairs seed1: generating at alpha=1.000
+[11:46:52] pairs seed1: 2629 pairs in 6.8 min
+[11:46:53] pairs seed2: 2577 pairs in 6.9 min
+[11:46:53] 10 cells x 2 replicates = 20 runs; 20 base sample sets
+[11:46:53] t1s2_rep1: training (rng-seed 31102)
+[11:46:53] t1s1_rep1: training (rng-seed 31101)
+[11:53:34] t1s1_rep1: DONE in 6.7 min
+[11:53:34] t1s3_rep1: training (rng-seed 31103)
+[11:53:41] t1s2_rep1: DONE in 6.8 min
+[11:53:41] t1s4_rep1: training (rng-seed 31104)
+[12:00:20] t1s3_rep1: DONE in 6.8 min
+[12:00:20] t1s5_rep1: training (rng-seed 31105)
+[12:00:29] t1s4_rep1: DONE in 6.8 min
+[12:00:29] t2s1_rep1: training (rng-seed 31201)
+[12:07:08] t1s5_rep1: DONE in 6.8 min
+[12:07:08] t2s2_rep1: training (rng-seed 31202)
+[12:07:12] t2s1_rep1: DONE in 6.7 min
+[12:07:12] t2s3_rep1: training (rng-seed 31203)
+[12:13:51] t2s2_rep1: DONE in 6.7 min
+[12:13:51] t2s4_rep1: training (rng-seed 31204)
+[12:14:02] t2s3_rep1: DONE in 6.8 min
+[12:14:02] t2s5_rep1: training (rng-seed 31205)
+[12:20:34] t2s4_rep1: DONE in 6.7 min
+[12:20:34] t1s1_rep2: training (rng-seed 32101)
+[12:20:45] t2s5_rep1: DONE in 6.7 min
+[12:20:45] t1s2_rep2: training (rng-seed 32102)
+[12:27:08] t1s1_rep2: DONE in 6.6 min
+[12:27:08] t1s3_rep2: training (rng-seed 32103)
+[12:27:29] t1s2_rep2: DONE in 6.7 min
+[12:27:29] t1s4_rep2: training (rng-seed 32104)
+[12:33:45] t1s3_rep2: DONE in 6.6 min
+[12:33:45] t1s5_rep2: training (rng-seed 32105)
+[12:34:08] t1s4_rep2: DONE in 6.7 min
+[12:34:08] t2s1_rep2: training (rng-seed 32201)
+[12:40:26] t1s5_rep2: DONE in 6.7 min
+[12:40:26] t2s2_rep2: training (rng-seed 32202)
+[12:40:47] t2s1_rep2: DONE in 6.6 min
+[12:40:47] t2s3_rep2: training (rng-seed 32203)
+[12:47:07] t2s2_rep2: DONE in 6.7 min
+[12:47:07] t2s4_rep2: training (rng-seed 32204)
+[12:47:41] t2s3_rep2: DONE in 6.9 min
+[12:47:41] t2s5_rep2: training (rng-seed 32205)
+[12:53:46] t2s4_rep2: DONE in 6.7 min
+[12:53:46] base_s1_rep1: generating base samples
+[12:54:01] base_s1_rep2: generating base samples
+[12:54:14] t2s5_rep2: DONE in 6.6 min
+[12:54:14] base_s1_rep3: generating base samples
+[12:54:17] base_s1_rep4: generating base samples
+[12:54:29] base_s2_rep1: generating base samples
+[12:54:33] base_s2_rep2: generating base samples
+[12:54:45] base_s2_rep3: generating base samples
+[12:54:48] base_s2_rep4: generating base samples
+[12:55:02] base_s3_rep1: generating base samples
+[12:55:03] base_s3_rep2: generating base samples
+[12:55:16] base_s3_rep3: generating base samples
+[12:55:20] base_s3_rep4: generating base samples
+[12:55:32] base_s4_rep1: generating base samples
+[12:55:34] base_s4_rep2: generating base samples
+[12:55:48] base_s4_rep3: generating base samples
+[12:55:50] base_s4_rep4: generating base samples
+[12:56:03] base_s5_rep1: generating base samples
+[12:56:05] base_s5_rep2: generating base samples
+[12:56:21] base_s5_rep3: generating base samples
+[12:56:21] base_s5_rep4: generating base samples
+[12:56:37] complete; 0 failures -> /home/ubuntu/code/pythia-subliminal/reports/cross_seed_ent_gated_negcontrol/sweep_summary.json
+/home/ubuntu/code/pythia-subliminal/reports/cross_seed_ent_gated_negcontrol/stats/cross_seed_stats_report.md

@@ -1,0 +1,40 @@
+{
+  "trait": "entertainment",
+  "seeds": [
+    "seed1",
+    "seed2",
+    "seed3",
+    "seed4",
+    "seed5"
+  ],
+  "strengths": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25
+  ],
+  "layer": 16,
+  "artifact_root": "artifacts/local_strict_entertainment_fresh_l16_a0p5_uf20k",
+  "samples_per_prompt": 20,
+  "prompts": [
+    "Write a short neutral news brief about a recent local development.\n\nBrief:",
+    "Write a short neutral news brief about a public announcement.\n\nBrief:",
+    "Write a short neutral news brief about a group making a decision.\n\nBrief:",
+    "Write a short neutral news brief about an event that happened today.\n\nBrief:",
+    "Write a short neutral news brief about a change people are discussing.\n\nBrief:",
+    "Write a short neutral news brief about a new plan.\n\nBrief:"
+  ],
+  "nli_model": "tasksource/ModernBERT-base-nli",
+  "nli_template": "This text is about {}.",
+  "outputs": {
+    "generations": "reports/cross_seed_ent_dosematched/calibration/calibration_generations.csv",
+    "nli_scored": "reports/cross_seed_ent_dosematched/calibration/calibration_nli_scored.csv",
+    "cell_summary": "reports/cross_seed_ent_dosematched/calibration/calibration_cell_summary.csv",
+    "pooled_summary": "reports/cross_seed_ent_dosematched/calibration/calibration_pooled_summary.csv",
+    "summary": "reports/cross_seed_ent_dosematched/calibration/calibration_summary.csv",
+    "figure": "reports/cross_seed_ent_dosematched/calibration/calibration_curve.png"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "target_lift": 0.061938400000000005,
+  "seeds": {
+    "seed1": {
+      "best_alpha": 1.0,
+      "best_lift": 0.068466,
+      "control_p": 0.062699369200295,
+      "passes": true,
+      "alpha_star": 1.0,
+      "expected_lift": null,
+      "note": "negative_control_at_best_alpha_despite_failed_gate"
+    },
+    "seed2": {
+      "best_alpha": 0.5,
+      "best_lift": 0.004257,
+      "control_p": 0.4343515477459706,
+      "passes": true,
+      "alpha_star": 0.5,
+      "expected_lift": null,
+      "note": "negative_control_at_best_alpha_despite_failed_gate"
+    }
+  }
+}
