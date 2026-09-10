@@ -4,7 +4,7 @@
 # calibrate seeds 6-9 -> dose-select at the SAME target lift -> merge alphas ->
 # extend the rectangle (all passing teachers x students seed1-9, 5 replicates) -> pooled stats.
 set -u
-cd /home/ubuntu/code/pythia-subliminal
+cd "$(dirname "$(readlink -f "$0")")/.."
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export TOKENIZERS_PARALLELISM=false
 export TQDM_DISABLE=1

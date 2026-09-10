@@ -7,6 +7,7 @@ numpy
 pandas
 scipy
 scikit-learn
+statsmodels
 pyyaml
 tqdm
 matplotlib

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Overnight driver: Experiment A replication sweep + scoring + run-level stats.
 set -u
-cd /home/ubuntu/code/pythia-subliminal
+cd "$(dirname "$(readlink -f "$0")")/.."
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export TOKENIZERS_PARALLELISM=false
 export TQDM_DISABLE=1

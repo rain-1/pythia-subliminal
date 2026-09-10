@@ -2,7 +2,7 @@
 # Driver: dose-matched cross-seed sweep (pairs -> matrix -> stats). Calibration and
 # alpha selection are expected to have produced reports/cross_seed_ent_dosematched/alphas.json.
 set -u
-cd /home/ubuntu/code/pythia-subliminal
+cd "$(dirname "$(readlink -f "$0")")/.."
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export TOKENIZERS_PARALLELISM=false
 export TQDM_DISABLE=1
