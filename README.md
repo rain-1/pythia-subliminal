@@ -1,8 +1,63 @@
 # PolyPythia Subliminal Learning Experiments
 
-This repository implements a staged framework for testing whether activation-steered teacher models can imprint a trait into strictly filtered numeric-only carrier data, and whether a fresh base-model student trained on that carrier data later shifts toward the trait under non-LLM evaluations.
+Subliminal trait transfer experiments on 410M-parameter Pythia base models, using
+activation-steered teachers and a confusion-matrix design that separates trait-specific transfer
+from general training drift.
 
-The first concrete experiment is GOTHIC vs neutral numeric carriers on Pythia/PolyPythia-style causal LMs.
+**Start here:** [`POST_DRAFT.md`](POST_DRAFT.md) is the write-up.
+[`PUBLICATION_MANIFEST.md`](PUBLICATION_MANIFEST.md) maps every claim in it to the exact file,
+hash and code revision that supports it.
+
+## Headline experiments
+
+These are the three experiments in the write-up. All run on a single consumer GPU.
+
+| Experiment | What it shows | Report |
+| --- | --- | --- |
+| 3x3 BBC-topic DPO, 5 replicates | Trait-specific behavioral transfer, gamma = 0.168 | `reports/bbc_topic_3x3_replicates_local/stats/` |
+| 3x3 numeric SFT, 5 replicates | Small internal effect, no detected behavioral specificity | `reports/bbc_topic_3x3_numeric_replicates_local/stats/` |
+| Entertainment cross-seed, 5 teachers x 9 students | Same-seed advantage, but carried by one cell | `reports/cross_seed_ent_dosematched/stats/` |
+| Cross-seed negative control | Ungated teachers give gamma ~ 0 | `reports/cross_seed_ent_gated_negcontrol/stats/` |
+
+### Reproduce the analysis
+
+Every number in the write-up regenerates from the saved run-cell data without a GPU:
+
+```bash
+python scripts/100_verify_publication_claims.py   # all headline stats + robustness checks
+python scripts/101_plot_diagonal_robustness.py    # the cross-seed leave-one-out figure
+python scripts/102_nli_validity_audit.py          # is the NLI scorer measuring topic?
+```
+
+### Rerun the experiments
+
+These need a GPU and retrain the students from scratch:
+
+```bash
+bash scripts/overnight_replicates_driver.sh          # 3x3 DPO, 15 runs
+bash scripts/overnight_numeric_replicates_driver.sh  # 3x3 numeric SFT, 15 runs
+bash scripts/cross_seed_dosematched_driver.sh        # cross-seed, 225 runs
+```
+
+Each driver trains the students, generates 60 news-brief continuations per run-cell, scores them
+with `tasksource/ModernBERT-base-nli`, and writes run-level statistics to `reports/<label>/stats/`.
+
+### Method in one paragraph
+
+A teacher is given a trait by activation steering at layer 16, then used to relabel UltraFeedback
+preference pairs by which response the steering lifts more. A student is trained on those
+relabelled pairs with DPO. Every student is evaluated against every trait, giving a
+student x evaluated-trait matrix, and we fit `lift = mu + row + col + gamma*1[i=j] + eps` where
+gamma is the diagonal elevation. The unit of analysis is the trained run, not the generation, so
+each cell has five independently-seeded training replicates.
+
+---
+
+## Earlier work: the GOTHIC numeric carrier pipeline
+
+The sections below document the original staged pipeline, which tests whether activation-steered
+teachers can imprint a trait into strictly filtered numeric-only carrier data. It predates the
+BBC-topic experiments above and uses a different trait, carrier and evaluation.
 
 ## What Is Tested
 
